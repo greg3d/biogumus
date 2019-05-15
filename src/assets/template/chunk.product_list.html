@@ -1,0 +1,40 @@
+<div class="col-sm-12 products-line">
+    <div class="thumbnail shk-item" >
+        <form action="[[~[[*resource_id]]? &scheme=`abs`]][[*alias]].html" method="post">
+            <div class="tocart">
+                <div class="btn-group" >
+                    <button type="submit" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="В корзину">
+                        <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+                    </button>
+                </div>
+            </div>
+            <div class="image">
+                <img src="/assets/files/[[+type]].png" title="[[+pagetitle]]" alt="[[+pagetitle]]">
+            </div>
+            <div class="name">
+                <h3>
+                    <a href="/katalog/biogumus/[[~[[+resource_id]]? &scheme=`abs`]][[+alias]].html">[[+pagetitle]]</a>
+                    &nbsp;
+                    <span class="buttons-hover-opacity hidden-xs">
+                        <a href="[[~[[+resource_id]]? &scheme=`abs`]][[+alias]].html" type="button" class="btn btn-sm btn-default" title="Подробнее...">
+                            <span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span> Подробнее...
+                        </a>
+                    </span>
+                </h3>
+            </div>
+            <div class="introtext hidden-xs hidden-sm">
+                [[+tags:novinka]]
+            </div>
+            
+            <div class="product-price">
+                <span class="shk-price">[[+price]] </span>₽
+            </div>
+            
+            <input type="hidden" name="shk-id" value="[[+id]]">
+            <input type="hidden" name="shk-name" value="[[+pagetitle]]">
+            <input type="hidden" name="shk-count" value="1">
+            
+            <div class="clearfix"></div>
+        </form>
+    </div>
+</div>

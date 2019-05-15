@@ -1,0 +1,256 @@
+[[$header2]]
+<div class="container main">
+    <div class="row">
+        
+         [[$dostavka_red_action_mobile]]
+        
+        <aside class="col-xs-12 col-md-3"><!--левая колонка-->
+            [[$sidebar]]
+        </aside> <!--левая колонка-->
+        <div class="col-xs-12 col-md-9">
+            <div class="content content--main">
+                [[QuickCrumbs@breadcrumbs_product? &resourceId=`[[*resource_id]]` ]]
+                [[$dostavka_red_action]]
+                [[--<div class="col-xs-12 col-md-3"><!--левая колонка-->
+                    <div class="panel panel-success">
+                      <div class="panel-heading">
+                        <div class="pull-right">
+                            <a id="shk_butEmptyCart" href="?shk_action=empty" class="btn btn-default btn-sm" data-toggle="tooltip" data-placement="bottom" title="Очистить корзину">
+                                <i class="glyphicon glyphicon-remove"></i>
+                            </a>
+                        </div>
+                        <h4 class="panel-title"><i class="icon" data-icon="&#xe051;" data-toggle="tooltip" title="В корзине пусто"></i> Корзина</h4>
+                      </div>
+                      <div class="panel-body">
+                        [[!Shopkeeper3@cart_catalog]]
+                      </div>
+                    </div>
+                        
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">Доставка и скидки</h4>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="panel-body" id="filters" >
+                            <form action="[[~[[*id]]]]" method="get">
+                                <input type="hidden" name="page_id" value="[[*id]]" disabled="disabled" />
+                                <input type="hidden" name="sortdir" value="asc" />
+                            </form>
+                            [[!getDeliveryRates? &tpl=`deliveryRatesTpl`]]
+                        </div>
+                    </div>
+                </div> <!--левая колонка-->]]
+                <div class="product-title">
+                    <h1>[[*longtitle:default=`[[*pagetitle]]`]]</h1>
+                </div>
+                <div class="row shk-item">
+                    <div class="product__left col-xs-12 col-sm-5 col-md-4">
+                        <div class="product__img">
+                            <img src="[[phpthumbon? &input=`/assets/files/[[*image]]` &options=`w=300&h=400` ]]" style="width: 100%"/>
+                        </div>
+                    </div>
+                    <div class="product__right col-xs-12 col-sm-7 col-md-8">
+                        <div class="product__intro">
+                            <p>[[*introtext]]</p>
+                        </div>
+                        <form class="product__form" action="[[~[[*resource_id]]? &scheme=`abs`]][[*alias]].html" method="post">
+                            <input type="hidden" name="shk-id" value="[[*id]]" />
+                            <input type="hidden" name="shk-name" value="[[*pagetitle]]" />
+                            <input type="hidden" name="shk-count" value="1" />
+                            <div class="product-price">
+                                [[*price_action:isnot=`0`:then=`
+                                    <p class="shk-price price--old">[[*price:num_format]]  <i class="fa fa-rub" aria-hidden="true"></i></p>
+                                    <p class="shk-price skidka">[[*price_action:num_format]] <i class="fa fa-rub" aria-hidden="true"></i></p>                                
+                                `:else=`
+                                    <p class="shk-price">[[!geo-price? &id=`[[*id]]` &price=`[[*price:num_format]]`]] <i class="fa fa-rub" aria-hidden="true"></i></p>
+                                `]]
+                            </div>
+                            <div class="product__count" >
+                                <button id="counter-minus" class="btn btn--control btn--min" type="button">-</button><input type="text" class="counter-val" id="counter-val" size="2" name="count" value="1" maxlength="5" title="Кол-во"><button id="counter-plus" class="btn btn--control btn--plus" type="button">+</button><span>шт.</span>
+                            </div>
+                            
+                            <div class="product__order">
+                                <button class="btn btn--red" type="submit">В корзину</button>
+                                <label class="cart__success">
+                                  <input type="checkbox" id="success-check">
+                                  <svg class="checkbox" viewbox="0 0 40 40">
+                                    <!--<rect x="2" y="2" width="36" height="36"></rect>-->
+                                    <circle cx="20" cy="20" r="18"></circle>
+                                    <polyline points="9,22 18,30 33,14"></polyline>
+                                  </svg>
+                                </label>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-xs-12">
+                        <div class="product__info">
+                            <input id="tab1" type="radio" name="tabs" checked>
+                            <label for="tab1" title="Описание товара">Описание товара</label>
+                         
+                            <!--
+                            <input id="tab2" type="radio" name="tabs">
+                            <label for="tab2" title="Характеристики">Характеристики</label>
+                            -->
+                            
+                            <input id="tab3" type="radio" name="tabs">
+                            <label for="tab3" title="Доставка">Доставка</label>
+                         
+                            <input id="tab4" type="radio" name="tabs">
+                            <label for="tab4" title="Инструкция">Инструкция</label>
+                         
+                            <section id="content-tab1">
+                                [[*content]]
+                            </section>  
+                            <!--
+                            <section id="content-tab2">
+                                <table class="table table-striped table-hover table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                Параметр
+                                            </th>
+                                            <th>
+                                                Значение
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Артикул
+                                            </td>
+                                            <td>
+                                                [[*articul]]
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Объем в упаковке 
+                                            </td>
+                                            <td>
+                                                [[*weight]]
+                                            </td>
+                                        </tr>
+            
+                                         <!--<tr>
+                                            <td>
+                                                Цена розничная
+                                            </td>
+                                            <td>
+                                                [[*price]]
+                                            </td>
+                                        </tr>-->
+                                         <!--tr>
+                                            <td>
+                                                Цена оптовая 1
+                                            </td>
+                                            <td>
+                                                [[*price2]]
+                                            </td>
+                                        </tr>
+                                         <tr>
+                                            <td>
+                                                Цена оптовая 2
+                                            </td>
+                                            <td>
+                                                [[*price3]]
+                                            </td>
+                                        </tr>
+                                         <tr>
+                                            <td>
+                                                Цена дилерская
+                                            </td>
+                                            <td>
+                                                [[*price4]]
+                                            </td>
+                                        </tr
+            
+                                    </tbody>
+                                </table>
+                            </section> 
+                            -->
+                            <section id="content-tab3">
+                                [[*delivery]]
+                            </section>  
+                            <section id="content-tab4">
+                                [[*instruction]]
+                            </section>  
+                            
+                        </div>
+                        [[--
+                        <h4>Характеристики</h4>
+                        <table class="table table-striped table-hover table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Параметр
+                                    </th>
+                                    <th>
+                                        Значение
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        Артикул
+                                    </td>
+                                    <td>
+                                        [[*articul]]
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Объем в упаковке 
+                                    </td>
+                                    <td>
+                                        [[*weight]]
+                                    </td>
+                                </tr>
+    
+                                 <tr>
+                                    <td>
+                                        Цена розничная
+                                    </td>
+                                    <td>
+                                        [[*price]]
+                                    </td>
+                                </tr>
+                                 <!--tr>
+                                    <td>
+                                        Цена оптовая 1
+                                    </td>
+                                    <td>
+                                        [[*price2]]
+                                    </td>
+                                </tr>
+                                 <tr>
+                                    <td>
+                                        Цена оптовая 2
+                                    </td>
+                                    <td>
+                                        [[*price3]]
+                                    </td>
+                                </tr>
+                                 <tr>
+                                    <td>
+                                        Цена дилерская
+                                    </td>
+                                    <td>
+                                        [[*price4]]
+                                    </td>
+                                </tr-->
+    
+                            </tbody>
+                        </table>
+                        <h4>Описание</h4>
+                        [[*content]]
+                        ]]
+                    </div>
+                </div>
+                [[$popular]]
+            </div>
+        </div>
+    </div>
+</div>
+[[$footer]]

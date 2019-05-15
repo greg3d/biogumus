@@ -1,0 +1,91 @@
+.header__menu>div {
+    display: flex;
+
+    align-content: center;
+    align-items: center;
+}
+
+
+
+.side__menu {
+    z-index: 999 !important;
+}
+
+
+#korzina {
+    z-index: 100;
+}
+
+#korzina.unsticked {
+
+    padding: 0;
+    height: 50px;
+    background: #fff;
+    box-shadow: none;
+    
+    border: 2px solid green;
+    border-radius: 5px;
+    margin: 10px 0;
+    
+}
+
+#korzina.unsticked .panel-heading {
+    display: none;
+    
+}
+
+#korzina.unsticked .panel-body table {
+    display: none;
+    padding: 0;
+    
+}
+
+#korzina.unsticked .shopCartSmall .fullPrice {
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+    
+}
+
+.shopCartSmall .cart__empty {
+    margin: auto;
+    align-self: center;
+}
+
+
+#korzina.unsticked .shopCartSmall .checkout-button {
+    display: none;
+}
+
+
+#korzina.unsticked .shopCartSmall .btn {
+margin-top: 0;
+    font-size: 12px;
+    
+    margin: 10px;
+    box-shadow: none;
+    border-radius: 5px;
+    
+}
+
+#korzina.unsticked .shopCartSmall .cartsmall-weight, #korzina.unsticked .shopCartSmall .cartsmall-volume {
+    display: none;
+}
+
+
+
+#korzina.is_stuck {
+    margin-top: 320px;
+    transition: .3s all ease;
+}
+
+.side__menu.is_stuck ul li a {
+    padding: 15px 15px 15px 80px !important;
+}
+
+.side__menu.is_stuck ul li img {
+    max-width: 32px;
+}
+
