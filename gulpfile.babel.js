@@ -68,7 +68,7 @@ const paths = {
 	fonts: {
 		src: [
 			"./src/assets/fonts/**/*.{eot,ttf,otf,woff,woff2}",
-			"./src/vendor/**/**.{eot,ttf,otf,woff,woff2}"
+			"./src/vendor/**/*.{eot,ttf,otf,woff,woff2}"
 		],
 		dist: "./dist/fonts/"
 	}
@@ -81,6 +81,16 @@ export const cleanFiles = () => gulp.src("./dist/*", {read: false})
 	}));
 
 export const fonts = () => gulp.src(paths.fonts.src, {nodir: true})
+	.pipe(rename(function(path) {
+		var dirs = path.dirname.split('\\');
+		if (dirs.length > 1) {
+			dirs = ['.'];
+		}
+	
+		console.log(dirs);
+		//dirs.splice(0, 2);
+		path.dirname = dirs.join('\\')
+	}))
 	.pipe(gulp.dest(paths.fonts.dist))
 	.pipe(debug({
 		"title": "Fonts"
