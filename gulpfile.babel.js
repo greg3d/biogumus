@@ -58,7 +58,7 @@ const paths = {
 		dist: "./dist/styles/"
 	},
 	libscss: {
-		src: "./src/styles/vendor.scss",
+		src: "./src/styles/vendor.css",
 		dist: "./dist/styles/"
 	},
 	scripts: {
@@ -87,7 +87,7 @@ export const fonts = () => gulp.src(paths.fonts.src, {nodir: true})
 			dirs = ['.'];
 		}
 	
-		console.log(dirs);
+		//console.log(dirs);
 		//dirs.splice(0, 2);
 		path.dirname = dirs.join('\\')
 	}))
@@ -111,23 +111,27 @@ export const styles = () => gulp.src(paths.styles.src)
 		"title": "CSS files"
 	}));
 
+var needFiles = {};
+
 export const libscss = () => gulp.src(paths.libscss.src)
 	.pipe(plumber())
-	.pipe(sass())
-	.pipe(postcss([ mqpacker({ sort: sortCSSmq }) ]))
-	/*.pipe(modifyCssUrls({
+	.pipe(rigger())
+	//.pipe(sass())
+	.pipe(modifyCssUrls({
 		modify: function (url, filePath) {
 		  var ar = url.split('/');
 		  var len = ar.length;
 		  var filename = ar[len-1];
 		  //var maindir = ar
 		  var ext = filename.split('.')[1];
-		  
+			console.log(filePath);	
 		  //if 
 		}
 		//prepend: 'https://fancycdn.com/',
 		//append: '?cache-buster'
-	  }))*/
+	  }))
+	
+	.pipe(postcss([ mqpacker({ sort: sortCSSmq }) ]))
 	.pipe(gulpif(production, autoprefixer(autoprefixierOpts)))
 	.pipe(gulpif(production, mincss(mincssOpts)))
 	.pipe(gulpif(production, rename({ suffix: ".min" })))
