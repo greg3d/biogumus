@@ -3,6 +3,7 @@
 //import webpack from "webpack";
 //import webpackStream from "webpack-stream";
 import gulp from "gulp";
+import concat from "gulp-concat";
 import gulpif from "gulp-if";
 //import browsersync from "browser-sync";
 import autoprefixer from "gulp-autoprefixer";
@@ -33,9 +34,15 @@ var modifyCssUrls = require('gulp-modify-css-urls');
 var argv = yargs.argv;
 var production = !!argv.production;
 
-const autoprefixierOpts = {browsers: ["last 12 versions", "> 1%", "ie 8", "ie 7"]};
+const imageExt = 'jpg png gif svg jpeg';
+const fontExt = 'eot ttf otf woff woff2 svg';
+
+const autoprefixierOpts = {
+	browsers: ["last 12 versions", "> 1%", "ie 8", "ie 7"]
+};
 const mincssOpts = {
-	compatibility: "ie8", level: {
+	compatibility: "ie8",
+	level: {
 		1: {
 			specialComments: 0,
 			removeEmpty: true,
@@ -52,13 +59,23 @@ const mincssOpts = {
 	}
 };
 
+const libsList = [
+	"./src/vendor/bootstrap/css/bootstrap.css",
+	"./src/vendor/bootflat/css/bootflat.css",
+	"./src/vendor/font-awesome/css/font-awesome.css",
+	"./src/vendor/fancybox/jquery.fancybox.css",
+	"./src/vendor/jquery-ui/jquery-ui.css",
+	"./src/vendor/owl.carousel/assets/owl.carousel.css",
+	"./src/vendor/owl.carousel/assets/owl.theme.default.css"
+]
+
 const paths = {
 	styles: {
 		src: "./src/styles/main.scss",
 		dist: "./dist/styles/"
 	},
 	libscss: {
-		src: "./src/styles/vendor.css",
+		src: libsList,
 		dist: "./dist/styles/"
 	},
 	scripts: {
@@ -66,44 +83,86 @@ const paths = {
 		dist: "./dist/js/"
 	},
 	fonts: {
-		src: [
-			"./src/assets/fonts/**/*.{eot,ttf,otf,woff,woff2}",
-			"./src/vendor/**/*.{eot,ttf,otf,woff,woff2}"
-		],
+		src: "./src/assets/fonts/**/*.{eot,ttf,otf,woff,woff2}",
 		dist: "./dist/fonts/"
+	},
+	images: {
+		src: "./src/assets/images/**/*.{jpg,gif,png,svg}",
+		dist: "./dist/images/"
 	}
 }
 
-export const cleanFiles = () => gulp.src("./dist/*", {read: false})
+export const cleanFiles = () => gulp.src("./dist/*", {
+		read: false
+	})
 	.pipe(clean())
 	.pipe(debug({
 		"title": "Cleaning..."
 	}));
 
-export const fonts = () => gulp.src(paths.fonts.src, {nodir: true})
-	.pipe(rename(function(path) {
-		var dirs = path.dirname.split('\\');
-		if (dirs.length > 1) {
-			dirs = ['.'];
+var imageFiles = [paths.images.src];
+var fontFiles = [paths.fonts.src];
+
+export const libscss = () => gulp.src(paths.libscss.src)
+	.pipe(gulpif(!production, sourcemaps.init()))
+	.pipe(plumber())
+	.pipe(modifyCssUrls({
+		modify: function (url, filePath) {
+			var ar = url.split('/');
+			var len = ar.length;
+			var filename = ar[len - 1];
+			var ext = filename.split('.')[1];
+			var pureExt = ext.split('?')[0];
+			var pureExt = pureExt.split('#')[0];
+
+			var p = 'images/';
+			var f = false;
+			if (~fontExt.indexOf(pureExt)) {
+				p = 'fonts/';
+				f = true;
+			};
+			var newUrl = p + filename;
+			var ar = filePath.split('\\');
+			ar.splice(-1, 1);
+			var realFileName = url.split('?')[0];
+			realFileName = realFileName.split('#')[0];
+			var assetPath = ar.join('\\') + '\\' + realFileName;
+			if (f) {
+				fontFiles.push(assetPath);
+			} else {
+				imageFiles.push(assetPath);
+			}
+			return `${newUrl}`;
 		}
-	
-		//console.log(dirs);
-		//dirs.splice(0, 2);
-		path.dirname = dirs.join('\\')
 	}))
-	.pipe(gulp.dest(paths.fonts.dist))
+	.pipe(concat('vendor.css'))
+	.pipe(postcss([mqpacker({
+		sort: sortCSSmq
+	})]))
+	.pipe(gulpif(production, autoprefixer(autoprefixierOpts)))
+	.pipe(gulpif(production, mincss(mincssOpts)))
+	.pipe(gulpif(production, rename({
+		suffix: ".min"
+	})))
+	.pipe(plumber.stop())
+	.pipe(gulpif(!production, sourcemaps.write("./maps/")))
+	.pipe(gulp.dest(paths.libscss.dist))
 	.pipe(debug({
-		"title": "Fonts"
+		"title": "CSS LIBS"
 	}));
 
 export const styles = () => gulp.src(paths.styles.src)
 	.pipe(gulpif(!production, sourcemaps.init()))
 	.pipe(plumber())
 	.pipe(sass())
-	.pipe(postcss([ mqpacker({ sort: sortCSSmq }) ]))
+	.pipe(postcss([mqpacker({
+		sort: sortCSSmq
+	})]))
 	.pipe(gulpif(production, autoprefixer(autoprefixierOpts)))
 	.pipe(gulpif(production, mincss(mincssOpts)))
-	.pipe(gulpif(production, rename({ suffix: ".min" })))
+	.pipe(gulpif(production, rename({
+		suffix: ".min"
+	})))
 	.pipe(plumber.stop())
 	.pipe(gulpif(!production, sourcemaps.write("./maps/")))
 	.pipe(gulp.dest(paths.styles.dist))
@@ -111,48 +170,32 @@ export const styles = () => gulp.src(paths.styles.src)
 		"title": "CSS files"
 	}));
 
-var needFiles = {};
-
-export const libscss = () => gulp.src(paths.libscss.src)
-	.pipe(plumber())
-	.pipe(rigger())
-	//.pipe(sass())
-	.pipe(modifyCssUrls({
-		modify: function (url, filePath) {
-		  var ar = url.split('/');
-		  var len = ar.length;
-		  var filename = ar[len-1];
-		  //var maindir = ar
-		  var ext = filename.split('.')[1];
-			console.log(filePath);	
-		  //if 
-		}
-		//prepend: 'https://fancycdn.com/',
-		//append: '?cache-buster'
-	  }))
-	
-	.pipe(postcss([ mqpacker({ sort: sortCSSmq }) ]))
-	.pipe(gulpif(production, autoprefixer(autoprefixierOpts)))
-	.pipe(gulpif(production, mincss(mincssOpts)))
-	.pipe(gulpif(production, rename({ suffix: ".min" })))
-	.pipe(plumber.stop())
-	.pipe(gulp.dest(paths.libscss.dist))
+export const fonts = () => gulp.src(fontFiles)
+	.pipe(gulp.dest(paths.fonts.dist))
 	.pipe(debug({
-		"title": "CSS LIBS"
+		"title": "Fonts"
+	}));
+
+export const images = () => gulp.src(imageFiles)
+	.pipe(gulp.dest(paths.images.dist))
+	.pipe(debug({
+		"title": "Images"
 	}));
 
 export const development = gulp.series(
 	cleanFiles,
 	libscss,
 	styles,
-	fonts
+	fonts,
+	images
 );
 
 export const prod = gulp.series(
 	cleanFiles,
 	libscss,
 	styles,
-	fonts
+	fonts,
+	images
 );
 
 export default development;
