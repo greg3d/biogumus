@@ -24,7 +24,7 @@ import rename from "gulp-rename";
 // import webp from "gulp-webp";
 // import favicons from "gulp-favicons";
 // import replace from "gulp-replace";
-// import rigger from "gulp-rigger";
+import rigger from "gulp-rigger";
 import debug from "gulp-debug";
 import plumber from "gulp-plumber";
 import clean from "gulp-clean";
@@ -61,15 +61,10 @@ const mincssOpts = {
 };
 
 const cssLibsList = [
-	//"./src/vendor/bootstrap/css/bootstrap.css",
-	//"./src/vendor/bootflat/css/bootflat.css",
-	//"./node_modules/bulma/css/bulma.css",
-	//"./src/vendor/font-awesome/css/font-awesome.css",
 	"./node_modules/@fortawesome/fontawesome-free/css/all.css",
-	"./src/vendor/fancybox/jquery.fancybox.css",
-	"./src/vendor/jquery-ui/jquery-ui.css",
-	"./src/vendor/owl.carousel/assets/owl.carousel.css",
-	"./src/vendor/owl.carousel/assets/owl.theme.default.css"
+	"./node_modules/@fancyapps/fancybox/dist/jquery.fancybox.css",
+	"./node_modules/owl.carousel/dist/assets/owl.carousel.css",
+	"./node_modules/owl.carousel/dist/assets/owl.theme.default.css",
 ]
 
 const jsLibsList = [
