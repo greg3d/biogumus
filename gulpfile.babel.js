@@ -22,13 +22,14 @@ import rename from "gulp-rename";
 // import imageminGiflossy from "imagemin-giflossy";
 // import imageminWebp from "imagemin-webp";
 // import webp from "gulp-webp";
-import favicons from "gulp-favicons";
-import replace from "gulp-replace";
-import rigger from "gulp-rigger";
+// import favicons from "gulp-favicons";
+// import replace from "gulp-replace";
+// import rigger from "gulp-rigger";
 import debug from "gulp-debug";
 import plumber from "gulp-plumber";
 import clean from "gulp-clean";
 import yargs from "yargs";
+
 var modifyCssUrls = require('gulp-modify-css-urls');
 
 var argv = yargs.argv;
@@ -59,15 +60,28 @@ const mincssOpts = {
 	}
 };
 
-const libsList = [
-	"./src/vendor/bootstrap/css/bootstrap.css",
-	"./src/vendor/bootflat/css/bootflat.css",
-	"./src/vendor/font-awesome/css/font-awesome.css",
+const cssLibsList = [
+	//"./src/vendor/bootstrap/css/bootstrap.css",
+	//"./src/vendor/bootflat/css/bootflat.css",
+	//"./node_modules/bulma/css/bulma.css",
+	//"./src/vendor/font-awesome/css/font-awesome.css",
+	"./node_modules/@fortawesome/fontawesome-free/css/all.css",
 	"./src/vendor/fancybox/jquery.fancybox.css",
 	"./src/vendor/jquery-ui/jquery-ui.css",
 	"./src/vendor/owl.carousel/assets/owl.carousel.css",
 	"./src/vendor/owl.carousel/assets/owl.theme.default.css"
 ]
+
+const jsLibsList = [
+	"./node_modules/jquery/dist/jquery.min.js",
+	"./src/vendor/jquery-ui/jquery-ui.min.js",
+	"./node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.js",
+	"./node_modules/slick-carousel/slick/slick.min.js",
+	"./node_modules/owl.carousel/dist/owl.carousel.min.js",
+	"./node_modules/sticky-kit/dist/sticky-kit.min.js",
+]
+
+
 
 const paths = {
 	styles: {
@@ -75,7 +89,7 @@ const paths = {
 		dist: "./dist/styles/"
 	},
 	libscss: {
-		src: libsList,
+		src: cssLibsList,
 		dist: "./dist/styles/"
 	},
 	scripts: {
@@ -169,6 +183,13 @@ export const styles = () => gulp.src(paths.styles.src)
 	.pipe(debug({
 		"title": "CSS files"
 	}));
+
+export const libsjs = () => gulp.src(jsLibsList)
+	.pipe(concat('vendor.js'))
+	.pipe(gulp.dest(paths.scripts.dist))
+	.pipe(debug({
+		"title": "JS LIBS"
+	}))
 
 export const fonts = () => gulp.src(fontFiles)
 	.pipe(gulp.dest(paths.fonts.dist))

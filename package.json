@@ -41,12 +41,12 @@
   },
   "dependencies": {
     "@fancyapps/fancybox": "^3.5.7",
-    "bootflat": "^2.0.4",
-    "bootstrap": "^3.4.1",
-    "font-awesome": "^4.7.0",
+    "@fortawesome/fontawesome-free": "^5.8.2",
+    "bulma": "^0.7.5",
     "gulp-debug": "^4.0.0",
     "jquery": "^3.4.1",
     "owl.carousel": "^2.3.4",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "sticky-kit": "^1.1.3"
   }
 }
