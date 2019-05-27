@@ -76,8 +76,6 @@ const jsLibsList = [
 	"./node_modules/sticky-kit/dist/sticky-kit.min.js",
 ]
 
-
-
 const paths = {
 	styles: {
 		src: "./src/styles/main.scss",
