@@ -30,7 +30,7 @@ function init() {
 
 		boundz = myMap.getBounds();
 		//console.log(boundz);
-		// ������� � ������
+		// 
 
 		$('#return').click(function(){
 			myMap.setBounds(boundz);

@@ -1,16 +1,16 @@
-var cmpOnToCompareLinkMinimum = function(){
+var cmpOnToCompareLinkMinimum = function () {
     siteLib.alert('В избранном пусто.', 'danger');
 }
 
-var cmpOnToCompareAdded = function(){
+var cmpOnToCompareAdded = function () {
     siteLib.alert('Товар добавлен в избранное.');
 };
 
-var cmpOnToCompareRemoved = function(){
+var cmpOnToCompareRemoved = function () {
     siteLib.alert('Товар убран из избранного.');
 };
 
-var SHKbeforeInitCallback = function(){
+var SHKbeforeInitCallback = function () {
     SHK.options.buttons_class = 'btn btn-info btn-sm';
 };
 
@@ -18,7 +18,7 @@ var SHKbeforeInitCallback = function(){
  * Site library
  *
  */
-var siteLib = (function( $ ){
+var siteLib = (function ($) {
 
     this.init = function () {
         jQuery('body')
@@ -26,10 +26,10 @@ var siteLib = (function( $ ){
                 selector: '[data-toggle="tooltip"]',
                 container: 'body',
                 trigger: 'hover',
-                placement: function(){
-                    return this.$element.data('placement')
-                        ? this.$element.data('placement')
-                        : 'bottom';
+                placement: function () {
+                    return this.$element.data('placement') ?
+                        this.$element.data('placement') :
+                        'bottom';
                 }
             });
         jQuery('.slick-slider-one')
@@ -51,8 +51,7 @@ var siteLib = (function( $ ){
                 slidesToShow: 3,
                 slidesToScroll: 3,
                 centerMode: false,
-                responsive: [
-                    {
+                responsive: [{
                         breakpoint: 700,
                         settings: {
                             slidesToShow: 2,
@@ -69,40 +68,42 @@ var siteLib = (function( $ ){
                 ]
             });
 
-       //
+        //
 
     }; /// this.init
 
-    this.getRates = function(){
+    this.getRates = function () {
         $('#getRatesResult').html('<div class="ajax-loader">Расчитываю...</div>');
 
         var action = 'getDeliveryRates';
 
-        $.post(document.location.href, {actionz: action}, function(data) {
-    		$('#getRatesResult').html(data);
-    	});
+        $.post(document.location.href, {
+            actionz: action
+        }, function (data) {
+            $('#getRatesResult').html(data);
+        });
 
-    	return false;
+        return false;
     }; // this.getRates
 
 
 
-    this.alert = function( msg, type, time ){
+    this.alert = function (msg, type, time) {
 
         type = type || 'success';
         time = time || 3000;
         var alertClass = 'alert-' + type;
         $('.alert-fixed').remove();
 
-        $('<div/>',{
-            'class': 'alert alert-fixed ' + alertClass + ' alert-dismissable',
-            'text': msg,
-            on: {
-                mouseover: function(){
-                    clearTimeout( window.alertTimer );
+        $('<div/>', {
+                'class': 'alert alert-fixed ' + alertClass + ' alert-dismissable',
+                'text': msg,
+                on: {
+                    mouseover: function () {
+                        clearTimeout(window.alertTimer);
+                    }
                 }
-            }
-        })
+            })
             .css({
                 position: 'fixed',
                 zIndex: 999,
@@ -111,37 +112,36 @@ var siteLib = (function( $ ){
                 opacity: 0.9
             })
             .append($('<button/>', {
-                    'type': 'button',
-                    'class': 'close',
-                    'html': '&times;',
-                    on: {
-                        click: function(e){
-                            e.preventDefault();
-                            clearTimeout( window.alertTimer );
-                            $(this).closest('.alert').remove();
-                        }
+                'type': 'button',
+                'class': 'close',
+                'html': '&times;',
+                on: {
+                    click: function (e) {
+                        e.preventDefault();
+                        clearTimeout(window.alertTimer);
+                        $(this).closest('.alert').remove();
                     }
                 }
-            ))
+            }))
             .appendTo('body');
 
-        clearTimeout( window.alertTimer );
-        window.alertTimer = setTimeout(function(){
+        clearTimeout(window.alertTimer);
+        window.alertTimer = setTimeout(function () {
             $('.alert-fixed').remove();
         }, time);
 
-    };//this.alert
+    }; //this.alert
 
     return this;
 
-}).call( {}, jQuery );
+}).call({}, jQuery);
 
 
-function createCookie(name,value,days) {
+function createCookie(name, value, days) {
     var expires = "";
     if (days) {
         var date = new Date();
-        date.setTime(date.getTime() + (days*24*60*60*1000));
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
         expires = "; expires=" + date.toUTCString();
     }
     document.cookie = name + "=" + value + expires + "; path=/";
@@ -150,40 +150,40 @@ function createCookie(name,value,days) {
 function readCookie(name) {
     var nameEQ = name + "=";
     var ca = document.cookie.split(';');
-    for(var i=0;i < ca.length;i++) {
+    for (var i = 0; i < ca.length; i++) {
         var c = ca[i];
-        while (c.charAt(0)==' ') c = c.substring(1,c.length);
-        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+        while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
     }
     return null;
 }
 
-$( document ).ready(function() {
+$(document).ready(function () {
 
     siteLib.init();
 
-    $('.more_info__show').on('click', function(){
+    $('.more_info__show').on('click', function () {
         $('.more_info__list').slideToggle(300);
         return false;
     });
 
-    $('.login-toggle').click(function(event){
-        $('.loginForm').css('display','block');
+    $('.login-toggle').click(function (event) {
+        $('.loginForm').css('display', 'block');
         $('.loginForm').removeClass('hide-this');
-        $('.login-menu').css('display','none');
+        $('.login-menu').css('display', 'none');
         $('.login-menu').addClass('hide-this');
         event.preventDefault();
-       event.stopPropagation();
+        event.stopPropagation();
         //return false;
     });
 
-     $('.register-toggle').click(function(event){
-        $('.loginForm').css('display','none');
+    $('.register-toggle').click(function (event) {
+        $('.loginForm').css('display', 'none');
         $('.loginForm').addClass('hide-this');
-        $('.login-menu').css('display','block');
+        $('.login-menu').css('display', 'block');
         $('.login-menu').removeClass('hide-this');
         event.preventDefault();
-       event.stopPropagation();
+        event.stopPropagation();
 
         //return false;
     });
@@ -191,18 +191,20 @@ $( document ).ready(function() {
     // function citySelect() {
     //
     // }
-    $("#city-select").click(function(){
+    $("#city-select").click(function () {
         $('#myModal').modal('show');
 
         $('#myModalCitySelect').html('<div class="ajax-loader">Подождите...</div>');
 
         var action = 'showCitySelectForm';
 
-        $.post(document.location.href, {action: action}, function(data) {
-    		$('#myModalCitySelect').html(data);
-    	});
+        $.post(document.location.href, {
+            action: action
+        }, function (data) {
+            $('#myModalCitySelect').html(data);
+        });
 
-    	return false;
+        return false;
     });
 
     /*
@@ -213,22 +215,22 @@ $( document ).ready(function() {
     }
     */
 
-    $("#consult-select").click(function(){
+    $("#consult-select").click(function () {
         $('#consultModal').modal('show');
     });
 
-    $("#consult-select2").click(function(){
+    $("#consult-select2").click(function () {
         $('#consultModal').modal('show');
     });
 
 
-    $("#openOferta").click(function(){
+    $("#openOferta").click(function () {
         $('#oferta').modal('show');
-    	return false;
+        return false;
     });
 
 
-    $("#chooseCityButton").click(function(){
+    $("#chooseCityButton").click(function () {
         $('#myModal').modal('hide');
 
         //$('#myModalCitySelect').html('.....Подождите....');
@@ -236,54 +238,57 @@ $( document ).ready(function() {
         var action = 'chooseCity';
         var id = $("#city-select-form").val();
 
-        $.post(document.location.href, {action: action, city_id: id}, function(data) {
-      		$('#city-select').html(data);
-          cartCity();
+        $.post(document.location.href, {
+            action: action,
+            city_id: id
+        }, function (data) {
+            $('#city-select').html(data);
+            cartCity();
             siteLib.getRates();
             location.reload();
         });
-          
-        
 
-    	return false;
+
+
+        return false;
     });
 
 
     function cartCity() {
         var dataCity = $("#city-select").text();
         if (dataCity != 'Самара') {
-          $('.order__payment .order__options .radio:nth-child(1)').hide();
-          $('.order__delivery .order__options .radio:nth-child(1)').hide();
-          $('.order__delivery .order__options .radio:nth-child(2)').hide();
-        //   $('.contacts--samara').hide();
-        //   $('.contacts--other').show();
-        //   $('.address--samara').hide();
-        //   $('.address--other').show();
+            $('.order__payment .order__options .radio:nth-child(1)').hide();
+            $('.order__delivery .order__options .radio:nth-child(1)').hide();
+            $('.order__delivery .order__options .radio:nth-child(2)').hide();
+            //   $('.contacts--samara').hide();
+            //   $('.contacts--other').show();
+            //   $('.address--samara').hide();
+            //   $('.address--other').show();
         } else {
-          if ($('.order__payment .order__options .radio:nth-child(1)')) {
-            var hiddenStyle = $('.order__payment .order__options .radio:nth-child(1)').attr('style') || 'empty';
-            if (hiddenStyle.indexOf('display: none;') > -1) {
-                $('.order__payment .order__options .radio:nth-child(1)').attr('style', '');
-                $('.order__delivery .order__options .radio:nth-child(1)').attr('style', '');
+            if ($('.order__payment .order__options .radio:nth-child(1)')) {
+                var hiddenStyle = $('.order__payment .order__options .radio:nth-child(1)').attr('style') || 'empty';
+                if (hiddenStyle.indexOf('display: none;') > -1) {
+                    $('.order__payment .order__options .radio:nth-child(1)').attr('style', '');
+                    $('.order__delivery .order__options .radio:nth-child(1)').attr('style', '');
+                }
             }
-          }
-          $('.order__delivery .order__options .radio:nth-child(3)').hide();
-        //   $('.contacts--samara').show();
-        //   $('.contacts--other').hide();
-        //   $('.address--samara').show();
-        //   $('.address--other').hide();
+            $('.order__delivery .order__options .radio:nth-child(3)').hide();
+            //   $('.contacts--samara').show();
+            //   $('.contacts--other').hide();
+            //   $('.address--samara').show();
+            //   $('.address--other').hide();
         }
         if ($('#cartAddress')) {
-          $('#cartAddress').attr('value', dataCity);
+            $('#cartAddress').attr('value', dataCity);
         }
 
     }
     cartCity();
 
     var isCash = $("input[value='cash']").attr('checked');
-    $('input[type=radio][name=payment]').change(function(){
+    $('input[type=radio][name=payment]').change(function () {
         if (this.value == 'cash') {
-            $('input[type=radio][name=shk_delivery][value="Доставка ТК по России"]').attr('disabled','disabled');
+            $('input[type=radio][name=shk_delivery][value="Доставка ТК по России"]').attr('disabled', 'disabled');
             $('input[type=radio][name=shk_delivery][value="Доставка ТК по России"]').prop('checked', false);
         }
         if (this.value != 'cash') {
@@ -299,7 +304,7 @@ $( document ).ready(function() {
         loop: true,
         nav: false,
         dots: true,
-        items:1
+        items: 1
     });
     $("#owl-slider-production").owlCarousel({
         autoplay: 5000,
@@ -307,15 +312,15 @@ $( document ).ready(function() {
         nav: false,
         dots: true,
         margin: 10,
-        responsive:{
-            0:{
-                items:1
+        responsive: {
+            0: {
+                items: 1
             },
-            600:{
-                items:3
+            600: {
+                items: 3
             },
-            1000:{
-                items:4
+            1000: {
+                items: 4
             }
         }
     });
@@ -324,7 +329,7 @@ $( document ).ready(function() {
 });
 
 
-function SHKloadCartCallback(){
+function SHKloadCartCallback() {
     siteLib.getRates();
 }
 
@@ -332,26 +337,26 @@ var counter = document.getElementById('counter-val');
 var counterPlus = document.getElementById('counter-plus');
 var counterMinus = document.getElementById('counter-minus');
 if (counter) {
-  counterMinus.onclick = function() {
-    var counterTemp = parseInt(counter.value);
-    if (counterTemp > 1) {
-      counterTemp -= 1;
-      counter.value = counterTemp;
+    counterMinus.onclick = function () {
+        var counterTemp = parseInt(counter.value);
+        if (counterTemp > 1) {
+            counterTemp -= 1;
+            counter.value = counterTemp;
+        }
     }
-  }
-  counterPlus.onclick = function() {
-    var counterTemp = parseInt(counter.value);
-    counterTemp += 1;
-    counter.value = counterTemp;
-  }
+    counterPlus.onclick = function () {
+        var counterTemp = parseInt(counter.value);
+        counterTemp += 1;
+        counter.value = counterTemp;
+    }
 }
 
 
-$(document).bind('ready',SHKloadCartCallback);
+$(document).bind('ready', SHKloadCartCallback);
 
 // console.log($('.product__order .btn').parent().find('#success-check'));
 
-$('.country_delivery__item').click(function() {
+$('.country_delivery__item').click(function () {
     $('.country_delivery__item').removeClass('active');
     $(this).addClass('active');
 
@@ -359,25 +364,25 @@ $('.country_delivery__item').click(function() {
     $('.transcom').val(TransKomp);
 });
 
-$('.product__order .btn').click(function(){
-  $(this).parent().find('#success-check').prop('checked',true);
+$('.product__order .btn').click(function () {
+    $(this).parent().find('#success-check').prop('checked', true);
 });
 
 $('input[name="phone"]').mask("+7 (999) 999 99 99");
 
-$('[id="consult-select"]').click(function() {
-	yaCounter44778274.reachGoal('consult-open');
+$('[id="consult-select"]').click(function () {
+    yaCounter44778274.reachGoal('consult-open');
 });
-$('.product__order button[type="submit"]').click(function() {
-	yaCounter44778274.reachGoal('product-add');
+$('.product__order button[type="submit"]').click(function () {
+    yaCounter44778274.reachGoal('product-add');
 });
-$('.shk-item form button[type="submit"]').click(function() {
-	yaCounter44778274.reachGoal('product-top-add');
+$('.shk-item form button[type="submit"]').click(function () {
+    yaCounter44778274.reachGoal('product-top-add');
 });
-$('.shk_prodHelper button#shk_confirmButton').click(function() {
-	yaCounter44778274.reachGoal('product-top-add-submit');
+$('.shk_prodHelper button#shk_confirmButton').click(function () {
+    yaCounter44778274.reachGoal('product-top-add-submit');
 });
-$(document).on('af_complete', function(event, response) {
+$(document).on('af_complete', function (event, response) {
     var form = response.form;
     // Если у формы определённый class
     if (form.hasClass('consult-form') && response.success) {

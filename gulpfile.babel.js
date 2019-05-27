@@ -1,7 +1,7 @@
 "use strict";
 
-//import webpack from "webpack";
-//import webpackStream from "webpack-stream";
+import webpack from "webpack";
+import webpackStream from "webpack-stream";
 import gulp from "gulp";
 import concat from "gulp-concat";
 import gulpif from "gulp-if";
@@ -23,7 +23,7 @@ import rename from "gulp-rename";
 // import imageminWebp from "imagemin-webp";
 // import webp from "gulp-webp";
 // import favicons from "gulp-favicons";
-// import replace from "gulp-replace";
+import replace from "gulp-replace";
 import rigger from "gulp-rigger";
 import debug from "gulp-debug";
 import plumber from "gulp-plumber";
@@ -37,6 +37,9 @@ var production = !!argv.production;
 
 const imageExt = 'jpg png gif svg jpeg';
 const fontExt = 'eot ttf otf woff woff2 svg';
+
+const webpackConfig = require("./webpack.config.js");
+
 
 const autoprefixierOpts = {
 	browsers: ["last 12 versions", "> 1%", "ie 8", "ie 7"]
@@ -86,7 +89,7 @@ const paths = {
 		dist: "./dist/styles/"
 	},
 	scripts: {
-		src: "./src/js/index.js",
+		src: "./src/js/main.js",
 		dist: "./dist/js/"
 	},
 	fonts: {
@@ -96,6 +99,10 @@ const paths = {
 	images: {
 		src: "./src/assets/images/**/*.{jpg,gif,png,svg}",
 		dist: "./dist/images/"
+	},
+	views: {
+		src: "./src/html/index.html",
+		dist: "./dist/"
 	}
 }
 
@@ -122,10 +129,10 @@ export const libscss = () => gulp.src(paths.libscss.src)
 			var pureExt = ext.split('?')[0];
 			var pureExt = pureExt.split('#')[0];
 
-			var p = 'images/';
+			var p = '../images/';
 			var f = false;
 			if (~fontExt.indexOf(pureExt)) {
-				p = 'fonts/';
+				p = '../fonts/';
 				f = true;
 			};
 			var newUrl = p + filename;
@@ -196,12 +203,39 @@ export const images = () => gulp.src(imageFiles)
 		"title": "Images"
 	}));
 
+export const views = () => gulp.src(paths.views.src)
+	.pipe(rigger())
+	.pipe(gulpif(production, replace("main.css", "main.min.css")))
+	.pipe(gulpif(production, replace("vendor.css", "vendor.min.css")))
+	.pipe(gulpif(production, replace("vendor.js", "vendor.min.js")))
+	.pipe(gulpif(production, replace("main.js", "main.min.js")))
+	.pipe(gulp.dest(paths.views.dist))
+	.pipe(debug({
+		"title": "HTML files"
+	}));
+	//.on("end", browsersync.reload);
+export const scripts = () => gulp.src(paths.scripts.src)
+	.pipe(rigger())
+	.pipe(plumber())
+	.pipe(webpackStream(webpackConfig), webpack)
+	.pipe(gulpif(production, rename({
+		suffix: ".min"
+	})))
+	.pipe(gulp.dest(paths.scripts.dist))
+	.pipe(debug({
+		"title": "JS files"
+	}));
+	//.on("end", browsersync.reload);
+
 export const development = gulp.series(
 	cleanFiles,
 	libscss,
 	styles,
 	fonts,
-	images
+	images,
+	libsjs,
+	scripts,
+	views
 );
 
 export const prod = gulp.series(
@@ -209,7 +243,10 @@ export const prod = gulp.series(
 	libscss,
 	styles,
 	fonts,
-	images
+	images,
+	libsjs,
+	scripts,
+	views
 );
 
 export default development;
