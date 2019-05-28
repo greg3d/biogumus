@@ -5,7 +5,7 @@ import webpackStream from "webpack-stream";
 import gulp from "gulp";
 import concat from "gulp-concat";
 import gulpif from "gulp-if";
-//import browsersync from "browser-sync";
+import browsersync from "browser-sync";
 import autoprefixer from "gulp-autoprefixer";
 import sass from "gulp-sass";
 import mqpacker from "css-mqpacker";
@@ -14,6 +14,7 @@ import mincss from "gulp-clean-css";
 import postcss from "gulp-postcss";
 import sourcemaps from "gulp-sourcemaps";
 import rename from "gulp-rename";
+import fileinclude from 'gulp-file-include';
 // import svg from "gulp-svg-sprite";
 // import imagemin from "gulp-imagemin";
 // import imageminPngquant from "imagemin-pngquant";
@@ -35,11 +36,25 @@ var modifyCssUrls = require('gulp-modify-css-urls');
 var argv = yargs.argv;
 var production = !!argv.production;
 
+const webpackConfig = require("./webpack.config.js");
+webpackConfig.mode = production ? "production" : "development";
+webpackConfig.devtool = production ? false : "cheap-eval-source-map";
+
 const imageExt = 'jpg png gif svg jpeg';
 const fontExt = 'eot ttf otf woff woff2 svg';
 
-const webpackConfig = require("./webpack.config.js");
+export const server = () => {
+	browsersync.init({
+		server: "./dist/",
+		tunnel: false,
+		notify: true
+	});
 
+	gulp.watch(paths.views.watch, views);
+	gulp.watch(paths.styles.watch, styles);
+	gulp.watch(paths.scripts.watch, scripts);
+	gulp.watch(paths.images.watch, images);
+};
 
 const autoprefixierOpts = {
 	browsers: ["last 12 versions", "> 1%", "ie 8", "ie 7"]
@@ -82,27 +97,31 @@ const jsLibsList = [
 const paths = {
 	styles: {
 		src: "./src/styles/main.scss",
-		dist: "./dist/styles/"
+		dist: "./dist/assets/styles/",
+		watch: "./src/styles/**/*.scss"
 	},
 	libscss: {
 		src: cssLibsList,
-		dist: "./dist/styles/"
+		dist: "./dist/assets/styles/"
 	},
 	scripts: {
 		src: "./src/js/main.js",
-		dist: "./dist/js/"
+		dist: "./dist/assets/js/",
+		watch: "./src/js/**/*.js"
 	},
 	fonts: {
 		src: "./src/assets/fonts/**/*.{eot,ttf,otf,woff,woff2}",
-		dist: "./dist/fonts/"
+		dist: "./dist/assets/fonts/"
 	},
 	images: {
 		src: "./src/assets/images/**/*.{jpg,gif,png,svg}",
-		dist: "./dist/images/"
+		dist: "./dist/assets/images/",
+		watch: "./src/assets/images/**/*.{jpg,gif,png,svg}"
 	},
 	views: {
 		src: "./src/html/index.html",
-		dist: "./dist/"
+		dist: "./dist/",
+		watch: "./src/html/**/*.html"
 	}
 }
 
@@ -129,10 +148,10 @@ export const libscss = () => gulp.src(paths.libscss.src)
 			var pureExt = ext.split('?')[0];
 			var pureExt = pureExt.split('#')[0];
 
-			var p = '../images/';
+			var p = '/assets/images/';
 			var f = false;
 			if (~fontExt.indexOf(pureExt)) {
-				p = '../fonts/';
+				p = '/assets/fonts/';
 				f = true;
 			};
 			var newUrl = p + filename;
@@ -204,11 +223,14 @@ export const images = () => gulp.src(imageFiles)
 	}));
 
 export const views = () => gulp.src(paths.views.src)
-	.pipe(rigger())
-	.pipe(gulpif(production, replace("main.css", "main.min.css")))
-	.pipe(gulpif(production, replace("vendor.css", "vendor.min.css")))
-	.pipe(gulpif(production, replace("vendor.js", "vendor.min.js")))
-	.pipe(gulpif(production, replace("main.js", "main.min.js")))
+	.pipe(fileinclude({
+		prefix: '@@',
+		basepath: '@file'
+	}))
+	//.pipe(gulpif(production, replace("main.css", "main.min.css")))
+	//.pipe(gulpif(production, replace("vendor.css", "vendor.min.css")))
+	//.pipe(gulpif(production, replace("vendor.js", "vendor.min.js")))
+	//.pipe(gulpif(production, replace("main.js", "main.min.js")))
 	.pipe(gulp.dest(paths.views.dist))
 	.pipe(debug({
 		"title": "HTML files"
@@ -235,7 +257,8 @@ export const development = gulp.series(
 	images,
 	libsjs,
 	scripts,
-	views
+	views,
+	server
 );
 
 export const prod = gulp.series(

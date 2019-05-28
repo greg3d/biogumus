@@ -1,10 +1,10 @@
-//= header.html
+@@include('./header.html')
 <div class="container main">
     <div class="row">
-        //= dostavka_red_action_mobile.html
+        @@include('./dostavka_red_action_mobile.html')
         <aside class="col-xs-12 col-md-3">
             <!--левая колонка-->
-            //= sidebar.html
+            @@include('./sidebar.html')
         </aside>
         <!--левая колонка-->
         <div class="col-xs-12 col-md-9">
@@ -21,10 +21,13 @@
                     Если у вас есть какие-то вопросы, <a href="/kontakty.html">задайте их</a> нашим специалистам.</p>
                 <p>Производитель: <strong>ИП Ткаченко И. С.</strong></p>
                 <div id="products" class="row products">
-                    //= product.html
+                    @@include('./product.html')
+                    @@include('./product.html')
+                    @@include('./product.html')
+                    @@include('./product.html')
                 </div>
             </div>
         </div>
     </div>
 </div>
-//= footer.html
+@@include('./footer.html')
