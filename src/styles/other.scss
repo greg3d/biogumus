@@ -1,0 +1,68 @@
+.price-small {
+  text-align: right;
+  display: inline-block;
+  width: 100%;
+}
+
+.fullPrice {
+  font-size: 1.2em;
+  margin-bottom: 7px;
+}
+
+.cartsmall-discount {
+  margin-bottom: 7px;
+}
+
+#getRatesResult {
+  border: 1px dotted #aaaaaa;
+  margin: -7px;
+  padding: 6px;
+  border-radius: 4px;
+  line-height: normal;
+}
+
+#getRatesResult .terminals-title {
+  font-style: italic;
+}
+
+#getRatesResult .terminals-list {
+  padding: 0;
+}
+
+#getRatesResult .terminals-list li {
+  list-style: none;
+  border-left: 3px solid #aaaaaa;
+  padding-left: 10px;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+#dellin-logo img {
+  width: 100%;
+  max-width: 300px;
+  text-align: center;
+}
+
+.product-price.big {
+  font-size: 32px;
+  font-weight: bold;
+  color: #14455d;
+}
+
+.skidka {
+  color: red;
+}
+
+.submitOrder {
+  text-align: center;
+}
+
+.ofertaAgreement {
+  font-weight: bold;
+  text-align: center;
+}
+
+.submitOrder .button {
+  font-size: 3rem;
+  margin-top: 10px;
+}

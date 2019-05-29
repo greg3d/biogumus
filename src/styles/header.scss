@@ -1,0 +1,122 @@
+.header__top {
+  padding: 25px 0 0;
+  background-color: #5f8647;
+}
+
+.header__logo {
+  p {
+    margin-bottom: 0;
+    color: #ffffff;
+    font-size: 50px;
+    line-height: 55px;
+    font-weight: 700;
+    margin: 0 0 10px;
+  }
+
+  p + p {
+    color: #ffffff;
+    font-size: 17px;
+    line-height: 0;
+    font-weight: 300;
+    margin: 0;
+  }
+}
+
+.header__logo::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: -70px;
+  display: block;
+  width: 94px;
+  height: 74px;
+  opacity: 0.1;
+  background-image: url('/assets/images/icons/logo-leaf.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+
+.header__content {
+  @extend .columns;
+  align-items: flex-end;
+}
+
+.header__address {
+  @extend .column, .is-5;
+
+  p {
+    position: relative;
+    opacity: 0.6;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 400;
+    padding-left: 30px;
+  }
+
+  p::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    display: block;
+    width: 21px;
+    height: 18px;
+    background-image: url('/assets/images/icons/address.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}
+
+.header__time {
+  @extend .column;
+}
+
+.header__phones {
+  @extend .column, .is-4;
+
+  .header__phones_phone_p {
+    background-color: $special-background;
+    opacity: 1;
+    padding: 10px 20px;
+    border-radius: 35px;
+    text-decoration: none;
+    text-align: center;
+    font-size: 1.5rem;
+  }
+
+  .header__phones_phone_p a {
+    color: black;
+    font-weight: 700;
+  }
+
+  .header__phones p a span, .header__count p a span {
+    font-weight: 700;
+  }
+
+  .header__phones p + p, .header__count p + p {
+    margin: 0;
+  }
+}
+
+.phone_call_i {
+  width: 20px;
+  margin-right: 5px;
+}
+
+.free_call_p {
+  opacity: 0.6;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: center;
+}
+
+
+////////////////////////
+
+.counter_block {
+  position: absolute;
+  top: 15px;
+}
