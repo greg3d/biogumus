@@ -1,4 +1,2 @@
-//= tether.js
-//= app.js
-//= map.js
-//= stick.js
+//= "./app.js"
+//= "./stick.js"

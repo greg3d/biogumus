@@ -239,7 +239,7 @@ export const views = () => gulp.src(paths.views.src)
 export const scripts = () => gulp.src(paths.scripts.src)
 	.pipe(rigger())
 	.pipe(plumber())
-	.pipe(webpackStream(webpackConfig), webpack)
+	//.pipe(webpackStream(webpackConfig), webpack)
 	.pipe(gulpif(production, rename({
 		suffix: ".min"
 	})))
