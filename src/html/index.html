@@ -1,13 +1,12 @@
 @@include('./header.html')
 <div class="container main">
-    <div class="row">
-        @@include('./dostavka_red_action_mobile.html')
-        <aside class="col-xs-12 col-md-3">
+    <div class="columns">
+        <aside class="column is-3">
             <!--левая колонка-->
             @@include('./sidebar.html')
         </aside>
         <!--левая колонка-->
-        <div class="col-xs-12 col-md-9">
+        <div class="column">
             <div class="content content--main">
                 <ol class="breadcrumb breadcrumb-arrow">
                     <li>
@@ -15,6 +14,7 @@
                     </li>
                     <li class="active"><span>Биогумус</span></li>
                 </ol>
+                @@include('./dostavka_red_action_mobile.html')
                 <h1>Биогумус</h1>
                 <p>Приветствуем вас в нашем магазине! Мы предлагаем Биогумус в виде концентрата, жидкого раствора,
                     готовый Эко-грунт и жидкий концентрат Гумат калия.

@@ -1,0 +1,185 @@
+.list-group-compact {
+    width: 100%;
+}
+
+.list-group-compact thead {
+    display: none;
+}
+
+.list-group-compact tbody tr {
+    border-bottom: 1px solid #5f8647;
+}
+
+.list-group-compact tbody tr:nth-child(2n) {
+    background: #fff;
+}
+
+.list-group-compact tbody tr td {
+    padding: 20px 0;
+    color: #312621;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.list-group-compact tbody tr td:nth-child(2) {
+    text-align: center;
+}
+
+.list-group-compact tbody tr td .price-small {
+    font-weight: 500;
+}
+
+.fullPrice {
+    font-size: 16px;
+    font-weight: 500;
+    padding-top: 10px;
+}
+
+.fullPrice__numbers {
+    text-align: right;
+}
+
+.fullPrice .fullPrice__old {
+    color: #f43751;
+    font-size: 20px;
+    font-weight: 500;
+    text-decoration: line-through;
+    background: none;
+}
+
+.fullPrice .fullPrice__current {
+    color: #5bb325;
+    font-size: 20px;
+    font-weight: 700;
+    background: none;
+}
+
+.cartsmall-volume span,
+.cartsmall-weight span,
+.cartsmall-discount span {
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.cart__empty {
+    display: block;
+    color: #5f8647;
+    margin: 20px auto;
+    background: none;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.shopCartSmall__total {
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.shopCartSmall__discount {
+    font-size: 12px;
+    font-weight: 700;
+    color: #62ba30;
+}
+
+.cartsmall-discount {
+    /*    margin-bottom: 15px;*/
+}
+
+.shopCartSmall__order {
+    padding: 10px 15px;
+    display: block;
+    font-size: 16px;
+    margin-top: 30px;
+}
+
+.panel-heading .btn {
+    display: inline-block;
+}
+
+
+.pre_korzina {
+    position: relative;
+    z-index: 100;
+}
+
+#korzina {
+    z-index: 100;
+    width: 100%;
+    padding: 0;
+    border: 2px solid green;
+    border-radius: 5px;
+    margin: 10px 0;
+
+}
+
+.pre_korzina.unsticked #korzina {
+    padding: 0;
+    height: 50px;
+    background: #fff;
+    box-shadow: none;
+
+    border: 2px solid green;
+    border-radius: 5px;
+    margin: 10px 0;
+
+
+}
+
+.pre_korzina.unsticked #korzina .panel-heading {
+    display: none;
+
+}
+
+.pre_korzina.unsticked #korzina .panel-body table {
+    display: none;
+    padding: 0;
+
+}
+
+.pre_korzina.unsticked #korzina .shopCartSmall .fullPrice {
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+
+}
+
+.shopCartSmall .cart__empty {
+    margin: auto;
+    align-self: center;
+}
+
+
+.pre_korzina.unsticked #korzina .shopCartSmall .checkout-button {
+    display: none;
+}
+
+
+.pre_korzina.unsticked #korzina .shopCartSmall .btn {
+    margin-top: 0;
+    font-size: 12px;
+
+    margin: 10px;
+    box-shadow: none;
+    border-radius: 5px;
+
+}
+
+.pre_korzina.unsticked #korzina .shopCartSmall .cartsmall-weight,
+.pre_korzina.unsticked #korzina .shopCartSmall .cartsmall-volume {
+    display: none;
+}
+
+
+
+.pre_korzina.is_stuck #korzina {
+
+    transition: .3s all ease;
+}
+
+.pre_korzina {
+    height: 70px;
+
+}

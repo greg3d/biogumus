@@ -235,7 +235,7 @@ export const views = () => gulp.src(paths.views.src)
 	.pipe(debug({
 		"title": "HTML files"
 	}));
-	//.on("end", browsersync.reload);
+//.on("end", browsersync.reload);
 export const scripts = () => gulp.src(paths.scripts.src)
 	.pipe(rigger())
 	.pipe(plumber())
@@ -247,7 +247,7 @@ export const scripts = () => gulp.src(paths.scripts.src)
 	.pipe(debug({
 		"title": "JS files"
 	}));
-	//.on("end", browsersync.reload);
+//.on("end", browsersync.reload);
 
 export const development = gulp.series(
 	cleanFiles,

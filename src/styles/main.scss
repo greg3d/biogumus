@@ -11,7 +11,10 @@ $radius-large: 5px;
 $radius-xlarge: 10px;
 
 // Update Bulma's global variables
-$family-sans-serif: 'Ubuntu', Arial, sans-serif;;
+$family-sans-serif: 'Ubuntu',
+Arial,
+sans-serif;
+;
 $grey-dark: $brown;
 $grey-light: $beige-light;
 $primary: #025730;
@@ -23,17 +26,7 @@ $weight-bold: 700;
 $weight-normal: 400;
 $block-spacing: 0.5rem;
 
-// Update some of Bulma's component variables
-/*$body-background-color: $beige-lighter;
-$control-border-width: 2px;
-$input-border-color: transparent;
-$input-shadow: none;*/
-
-//@import '../assets/css/app';
-//@import '../assets/css/stick';
-
-
-
 @import '../../node_modules/bulma/bulma.sass';
 @import './header';
+@import './shopcart';
 @import './other';
