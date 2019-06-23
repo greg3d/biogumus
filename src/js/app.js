@@ -193,8 +193,25 @@
         // function citySelect() {
         //
         // }
+
+        var $modals = $('.modal');
+        if ($modals.length > 0) {
+            $modals.each(function ($index, element) {
+                var modalCloses = $(element.className + ' .modal-background,' + ' .modal-close, .modal-card-head .delete, .modal-card-foot .button');
+
+                modalCloses.each(function (index, ell) {
+                    console.log(ell)
+                    $(ell).click(function () {
+                        $($el).removeClass('is-active');
+                    });
+                });
+
+
+            });
+        }
+
         $("#city-select").click(function () {
-            $('#myModal').modal('show');
+            $('#modal-city').addClass('is-active');
 
             $('#myModalCitySelect').html('<div class="ajax-loader">Подождите...</div>');
 
