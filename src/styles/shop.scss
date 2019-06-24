@@ -1,0 +1,253 @@
+.panel {
+  margin-top: 15px;
+  border-radius: 6px;
+  box-shadow: 0 0 14px 1px rgba(128, 113, 105, 0.06);
+  border: 2px solid #5f8647;
+  position: relative;
+}
+
+.panel-heading {
+  padding: 20px 10px;
+  position: relative;
+  color: #ffffff;
+  background-color: #5f8647;
+}
+
+.panel-heading:before {
+  content: '';
+  position: absolute;
+  top: 40%;
+  left: 0;
+  transform: translateY(-50%);
+  display: block;
+  width: 45px;
+  height: 36px;
+  background-image: url(/assets/images/icons/shopping-cart.png);
+  opacity: 0.1;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.panel-success > .panel-heading, .panel-success > .panel-heading a {
+  color: #ffffff;
+  background-color: #5f8647;
+}
+
+.panel-body {
+  padding: 5px 15px 15px;
+}
+
+.list-group-compact {
+  width: 100%;
+}
+
+.list-group-compact thead {
+  display: none;
+}
+
+.list-group-compact tbody tr {
+  border-bottom: 1px solid #5f8647;
+}
+
+.list-group-compact tbody tr:nth-child(2n) {
+  background: #ffffff;
+}
+
+.list-group-compact tbody tr td {
+  padding: 20px 0;
+  color: #312621;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.list-group-compact tbody tr td:nth-child(2) {
+  text-align: center;
+}
+
+.list-group-compact tbody tr td .price-small {
+  font-weight: 500;
+}
+
+.fullPrice {
+  font-size: 16px;
+  font-weight: 500;
+  padding-top: 10px;
+}
+
+.fullPrice__numbers {
+  text-align: right;
+}
+
+.fullPrice .fullPrice__old {
+  color: #f43751;
+  font-size: 20px;
+  font-weight: 500;
+  text-decoration: line-through;
+  background: none;
+}
+
+.fullPrice .fullPrice__current {
+  color: #5bb325;
+  font-size: 20px;
+  font-weight: 700;
+  background: none;
+}
+
+.panel-heading .btn {
+  display: inline-block;
+}
+
+.buttons-hover-opacity .btn.active {
+  opacity: 1;
+}
+
+// CARDS //
+
+.card {
+  overflow: hidden;
+}
+
+.card.large {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: initial;
+  border-radius: 5px;
+}
+
+.media-content {
+  overflow: hidden;
+}
+
+.title.no-padding {
+  margin-bottom: 0 !important;
+}
+
+#flow span {
+  display: block;
+  width: 200vw;
+  height: 200vw;
+  position: absolute;
+  top: -180vw;
+  left: -50vw;
+  border-radius: 90vw;
+  opacity: 0.6;
+}
+
+.flow-1 {
+  background: #3281ff;
+  -webkit-animation: rotating 20s linear infinite;
+     -moz-animation: rotating 20s linear infinite;
+      -ms-animation: rotating 20s linear infinite;
+       -o-animation: rotating 20s linear infinite;
+          animation: rotating 20s linear infinite;
+}
+
+.flow-2 {
+  background: #f442ee;
+  position: absolute;
+  -webkit-animation: rotating 15s linear infinite;
+     -moz-animation: rotating 15s linear infinite;
+      -ms-animation: rotating 15s linear infinite;
+       -o-animation: rotating 15s linear infinite;
+          animation: rotating 15s linear infinite;
+}
+
+.flow-3 {
+  background: #42eef4;
+  position: absolute;
+  -webkit-animation: rotating 7s linear infinite;
+     -moz-animation: rotating 7s linear infinite;
+      -ms-animation: rotating 7s linear infinite;
+       -o-animation: rotating 7s linear infinite;
+          animation: rotating 7s linear infinite;
+}
+
+@-webkit-keyframes rotating {
+  from {
+        -ms-transform: rotate(0deg);
+       -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+         -o-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+
+  to {
+        -ms-transform: rotate(360deg);
+       -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+         -o-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes rotating {
+  from {
+        -ms-transform: rotate(0deg);
+       -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+         -o-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+
+  to {
+        -ms-transform: rotate(360deg);
+       -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+         -o-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+.rotating {
+  -webkit-animation: rotating 2s linear infinite;
+     -moz-animation: rotating 2s linear infinite;
+      -ms-animation: rotating 2s linear infinite;
+       -o-animation: rotating 2s linear infinite;
+          animation: rotating 2s linear infinite;
+}
+
+/* PRODUCT LIST */
+
+.card-image {
+  position: relative;
+}
+
+h3.product-title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #ffffff;
+  padding: 10px 20px;
+  background: adjust-color($primary,$alpha: -0.4);
+  border-radius: 5px;
+}
+
+h3.product-title a {
+  color: white;
+  text-decoration: none;
+}
+
+.shk-price {
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.product-price {
+  margin: 0;
+  margin-top: -1.5rem;
+  text-align: center;
+  color: #0f9a00;
+}
+
+.product-more {
+  margin-bottom: 0;
+}
+
+/* product page */
+
+.product-page .column-left {
+  margin-bottom: 20px;
+}

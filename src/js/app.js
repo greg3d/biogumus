@@ -23,7 +23,7 @@
     var siteLib = (function ($) {
 
         this.init = function () {
-            jQuery('body')
+            /*jQuery('body')
                 .tooltip({
                     selector: '[data-toggle="tooltip"]',
                     container: 'body',
@@ -33,9 +33,9 @@
                             this.$element.data('placement') :
                             'bottom';
                     }
-                });
+                });*/
             jQuery('.slick-slider-one')
-                .slick({
+                .slick({ 
                     dots: true,
                     arrows: true,
                     infinite: false,
@@ -187,72 +187,67 @@
             event.preventDefault();
             event.stopPropagation();
 
-            //return false;
         });
-
-        // function citySelect() {
-        //
-        // }
-
+        ///////////////////////////////////////////////////////////////////
+        // MODALS
+        var rootEl = document.documentElement;
         var $modals = $('.modal');
-        if ($modals.length > 0) {
-            $modals.each(function ($index, element) {
-                var modalCloses = $(element.className + ' .modal-background,' + ' .modal-close, .modal-card-head .delete, .modal-card-foot .button');
+        var $modalButtons = $('.modal-button');
+        var $modalCloses = $('.modal-background, .modal-close, .modal-card-head .delete, .modal-card-foot .button');
 
-                modalCloses.each(function (index, ell) {
-                    console.log(ell)
-                    $(ell).click(function () {
-                        $($el).removeClass('is-active');
-                    });
+        if ($modalButtons.length > 0) {
+            $modalButtons.each(function (index, el) {
+                $(el).click(function () {
+
+                    var target = el.dataset.target;
+
+                    openModal('#' + target);
+                });
+            });
+        }
+
+        if ($modalCloses.length > 0) {
+            $modalCloses.each(function (index, el) {
+                $(el).click(function () {
+                    closeModals();
+                });
+            });
+        }
+
+        function openModal(target) {
+            $(rootEl).addClass('is-clipped');
+            $(target).addClass('is-active');
+
+            if (target == '#city-select') {
+                $('#myModalCitySelect').html('<div class="ajax-loader">Подождите...</div>');
+                var action = 'showCitySelectForm';
+
+                $.post(document.location.href, {
+                    action: action
+                }, function (data) {
+                    $('#myModalCitySelect').html(data);
                 });
 
+                return false;
+            }
+        }
 
+        function closeModals() {
+            $(rootEl).removeClass('is-clipped');
+            $modals.each(function (index, el) {
+                $(el).removeClass('is-active');
             });
         }
 
-        $("#city-select").click(function () {
-            $('#modal-city').addClass('is-active');
-
-            $('#myModalCitySelect').html('<div class="ajax-loader">Подождите...</div>');
-
-            var action = 'showCitySelectForm';
-
-            $.post(document.location.href, {
-                action: action
-            }, function (data) {
-                $('#myModalCitySelect').html(data);
-            });
-
-            return false;
+        document.addEventListener('keydown', function (event) {
+            var e = event || window.event;
+            if (e.keyCode === 27) {
+                closeModals();
+            }
         });
 
-        /*
-        var showed2 = readCookie('showed2');
-        if (!showed2) {
-           $("#city-select").trigger('click');
-           createCookie('showed2',1,1);
-        }
-        */
-
-        $("#consult-select").click(function () {
-            $('#consultModal').modal('show');
-        });
-
-        $("#consult-select2").click(function () {
-            $('#consultModal').modal('show');
-        });
-
-
-        $("#openOferta").click(function () {
-            $('#oferta').modal('show');
-            return false;
-        });
-
-
+        //////////////////////////////////////////////////////
         $("#chooseCityButton").click(function () {
-            $('#myModal').modal('hide');
-
-            //$('#myModalCitySelect').html('.....Подождите....');
 
             var action = 'chooseCity';
             var id = $("#city-select-form").val();
@@ -266,12 +261,24 @@
                 siteLib.getRates();
                 location.reload();
             });
-
-
-
             return false;
         });
 
+        /*
+        $("#consult-select").click(function () {
+            $('#consultModal').modal('show');
+        });
+
+        $("#consult-select2").click(function () {
+            $('#consultModal').modal('show');
+        });
+
+
+        $("#openOferta").click(function () {
+            $('#oferta').modal('show');
+            return false;
+        });
+        */
 
         function cartCity() {
             var dataCity = $("#city-select").text();

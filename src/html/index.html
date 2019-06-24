@@ -1,26 +1,41 @@
 @@include('./header.html')
-<div class="container main">
-    <div class="columns">
-        <aside class="column is-3">
-            <!--левая колонка-->
-            @@include('./sidebar.html')
-        </aside>
-        <!--левая колонка-->
-        <div class="column">
-            <div class="content content--main">
-                <ol class="breadcrumb breadcrumb-arrow">
-                    <li>
-                        <a href="/">Главная</a>
-                    </li>
-                    <li class="active"><span>Биогумус</span></li>
-                </ol>
+<section class="section main">
+    <div class="container">
+        <div class="columns">
+            <div class="column is-12-mobile is-4-touch is-3-desktop is-one-fifth-fullhd">
+                <!--левая колонка-->
+                @@include('./sidebar.html')
+            </div>
+            <div class="column content__main">
+                <div class="level">
+                    <div class="level-left">
+                        <div class="level-item">
+                            <nav class="breadcrumb has-succeeds-separator" aria-label="breadcrumbs">
+                                <ul>
+                                    <li><a href="#">Главная</a></li>
+                                    <li class="is-active"><a href="#" aria-current="page">Биогумус</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="level-right">
+                        <div class="level-item">
+                            @@include('./shopcart.html')
+                        </div>
+                    </div>
+
+                </div>
+
                 @@include('./dostavka_red_action_mobile.html')
-                <h1>Биогумус</h1>
-                <p>Приветствуем вас в нашем магазине! Мы предлагаем Биогумус в виде концентрата, жидкого раствора,
-                    готовый Эко-грунт и жидкий концентрат Гумат калия.
-                    Если у вас есть какие-то вопросы, <a href="/kontakty.html">задайте их</a> нашим специалистам.</p>
-                <p>Производитель: <strong>ИП Ткаченко И. С.</strong></p>
-                <div id="products" class="row products">
+                <div class="content">
+                    <h1 class="title">Биогумус</h1>
+                    <p>Приветствуем вас в нашем магазине! Мы предлагаем Биогумус в виде концентрата, жидкого раствора,
+                        готовый Эко-грунт и жидкий концентрат Гумат калия.
+                        Если у вас есть какие-то вопросы, <a href="/kontakty.html">задайте их</a> нашим специалистам.
+                    </p>
+                    <p>Производитель: <strong>ИП Ткаченко И. С.</strong></p>
+                </div>
+                <div id="products" class="products columns is-multiline">
                     @@include('./product.html')
                     @@include('./product.html')
                     @@include('./product.html')
@@ -29,5 +44,5 @@
             </div>
         </div>
     </div>
-</div>
+</section>
 @@include('./footer.html')

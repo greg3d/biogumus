@@ -227,10 +227,10 @@ export const views = () => gulp.src(paths.views.src)
 		prefix: '@@',
 		basepath: '@file'
 	}))
-	//.pipe(gulpif(production, replace("main.css", "main.min.css")))
-	//.pipe(gulpif(production, replace("vendor.css", "vendor.min.css")))
+	.pipe(gulpif(production, replace("main.css", "main.min.css")))
+	.pipe(gulpif(production, replace("vendor.css", "vendor.min.css")))
 	//.pipe(gulpif(production, replace("vendor.js", "vendor.min.js")))
-	//.pipe(gulpif(production, replace("main.js", "main.min.js")))
+	.pipe(gulpif(production, replace("main.js", "main.min.js")))
 	.pipe(gulp.dest(paths.views.dist))
 	.pipe(debug({
 		"title": "HTML files"

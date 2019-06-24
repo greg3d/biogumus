@@ -4,26 +4,22 @@
 
 .header__top {
   padding: $column-gap;
-
   padding-bottom: $column-gap*2;
   position: relative;
-
 }
 
 .header__top::before {
-  content: " ";
+  content: ' ';
   position: absolute;
   width: 100%;
   height: 100%;
   top: 0;
   right: 0;
-
   background-image: url(/assets/images/top.png);
   background-position: top right;
   background-size: 1300px;
   background-repeat: no-repeat;
   z-index: 0;
-
 }
 
 
@@ -46,7 +42,7 @@
     }
   }
 
-  p+p {
+  p + p {
     color: #ffffff;
     font-size: 16.4px;
     line-height: 0;
@@ -55,7 +51,7 @@
     text-shadow: none;
   }
 
-  p+p+p {
+  p + p + p {
     color: #ffffff;
     font-size: 12px;
     font-weight: $weight-normal;
@@ -90,7 +86,7 @@
   background-position: center;
   background-repeat: no-repeat;
   width: 110px;
-  height: 42px;
+  height: 28px;
   background-color: white;
   border-radius: 4px;
 }
@@ -124,7 +120,6 @@
     text-decoration: none;
     text-align: center;
     font-size: 1.5rem;
-
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
   }
 
@@ -133,13 +128,11 @@
     font-weight: 700;
   }
 
-  .header__phones p a span,
-  .header__count p a span {
+  .header__phones p a span, .header__count p a span {
     font-weight: 700;
   }
 
-  .header__phones p+p,
-  .header__count p+p {
+  .header__phones p + p, .header__count p + p {
     margin: 0;
   }
 }
@@ -153,8 +146,6 @@
   border-radius: $radius-xxlarge;
   text-decoration: none;
   text-align: center;
-
-
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
 
   a {
@@ -165,17 +156,15 @@
     position: relative;
   }
 
-  a::after {
-    position: absolute;
-    content: '▾';
-    right: -15px;
-    top: 0;
-  }
 
   p {
     position: relative;
     display: inline;
     padding-left: 9px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 0.8rem;
+    overflow: visible;
   }
 
   p::after {
@@ -185,7 +174,7 @@
     left: -8px;
     display: block;
     width: 12px;
-    height: 100%;
+    height: 18px;
     background-image: url(/assets/images/icons/placeholder.svg);
     background-position: center;
     background-size: 12px;
@@ -199,16 +188,13 @@
 ////////////////////////
 
 .counter_block {
-
   background: $transparent-background;
   padding: 10px 30px;
   border-radius: $radius-xxlarge;
-
   margin-bottom: 22px;
 
   img {
     margin-right: 7px;
-
   }
 
   .counter_text {
@@ -251,7 +237,6 @@
 /////////////////////////////////////////////
 .header__submenu {
   background: none;
-  text-shadow: rgba(0, 0, 0, 0.75) 1px 1px 3px;
   padding: 0;
 
   .navbar-burger {
@@ -260,17 +245,15 @@
   }
 
   .navbar-menu {
-
     //background-color: $transparent-background;
     //border-radius: $radius-xlarge;
 
     a {
       color: white;
-
       font-weight: $weight-bold;
       border-radius: $radius-xlarge;
-
       text-decoration: rgba(255, 255, 255, 0.5) underline;
+      text-shadow: rgba(0, 0, 0, 0.75) 1px 1px 2px;
     }
 
     a:hover {
@@ -279,6 +262,7 @@
       border-radius: $radius-xlarge;
       background-color: $special-background;
       text-decoration: none;
+      text-shadow: none;
     }
   }
 
@@ -300,7 +284,6 @@
 
 ////////////////////////////////
 .header__menu {
-
   padding: 0 $column-gap;
 
   div {
@@ -357,21 +340,15 @@
     li svg path {
       transition: 0.3s all ease;
     }
-
-
   }
 }
 
-.header__menu ul li.active a,
-.header__menu ul li:hover a,
-.header__menu ul li:focus a {
+.header__menu ul li.active a, .header__menu ul li:hover a, .header__menu ul li:focus a {
   color: #5f8647;
   text-decoration: none;
 }
 
-.header__menu ul li.active svg path,
-.header__menu ul li:hover svg path,
-.header__menu ul li:focus svg path {
+.header__menu ul li.active svg path, .header__menu ul li:hover svg path, .header__menu ul li:focus svg path {
   fill: #5f8647;
 }
 
@@ -391,9 +368,7 @@
     padding: 0;
   }
 
-  .phone,
-  .email,
-  li {
+  .phone, .email, li {
     list-style: none;
     margin: 0;
     padding: 17px;

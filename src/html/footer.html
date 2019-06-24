@@ -57,69 +57,6 @@
     </div>
 </footer>
 
-<!-- Консультация -->
-<div class="modal fade" id="consultModal" tabindex="-1" role="dialog" aria-labelledby="consultModalLabel">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content consult-form">
-            <div class="modal-header">
-                <button type="button" class="close modal__close" data-dismiss="modal" aria-label="Close"><span
-                        aria-hidden="true">×</span></button>
-                <h4 class="modal-title" id="consultModalLabel">Заказать консультацию</h4>
-                <p class="modal-subtitle">Мы перезвоним через 15 минут</p>
-            </div>
-            <div class="modal-body">
-                <form method="post" action="/biogumus1.html" class="consult-form ajax_form">
-                    <div class="consult__wrap">
-                        <div class="personal__field consult__name">
-                            <input name="fullname" id="orderFormName" class="form-control" type="text" placeholder="Имя"
-                                value="" />
-                            <span class="error_name"></span>
-                        </div>
-                        <div class="personal__field consult__phone">
-                            <input name="phone" class="form-control" type="text" placeholder="Телефон *" value="" />
-                            <span class="error_name"></span>
-                        </div>
-                        <div class="personal__field consult__message">
-                            <textarea name="message" class="form-control" placeholder="Ваш вопрос"></textarea>
-                            <span class="error_name"></span>
-                        </div>
-                        <div class="personal__field consult__submit">
-                            <input type="submit" name="submit_button" class="btn btn--round btn--red"
-                                value="Отправить" />
-                        </div>
-                    </div>
-                    <div class="personal__field consult__policy">
-                        <label><input name="policy[]" class="form-control" type="checkbox" value="1" checked />
-                            <p>Я согласен на обработку <a href="/politika-konfidenczialnosti-i-obrabotka-dannyix.html"
-                                    target="_blank">персональных данных</a></p>
-                        </label>
-                        <input name="policy[]" class="form-control" type="hidden" value="0" />
-                        <span class="error_name"></span>
-                    </div>
-
-                    <input type="hidden" name="utm" id="utm" value="/biogumus1.html">
-                    <input type=hidden name="crawler3" value="">
-                    <input type=hidden name="phrase3" value="">
-                    <input type=hidden name="page3" value="http://test.infotranz.ru/biogumus1.html">
-                    <input type=hidden name="referer3" value="http://test.infotranz.ru/">
-                    <input type=hidden name="date3" value="2019-05-27">
-
-                    <input type=hidden name="utm_source" value="">
-                    <input type=hidden name="utm_medium" value="">
-                    <input type=hidden name="utm_campaign" value="">
-                    <input type=hidden name="utm_term" value="">
-                    <input type=hidden name="utm_content" value="">
-                    <input type=hidden name="utm_keyword" value="">
-                    <input type=hidden name="block" value="">
-                    <input type=hidden name="position" value="">
-
-                    <input type="hidden" name="af_action" value="7bed0d3fa76e64055ee8065b3eba0760" />
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-
 <!-- maps api js -->
 <script src="https://api-maps.yandex.ru/2.1/?load=package.full&amp;lang=ru-RU" type="text/javascript"></script>
 

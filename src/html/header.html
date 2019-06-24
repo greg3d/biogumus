@@ -84,8 +84,8 @@
                 <div class="level">
                     <div class="level-left">
                         <div class="level-item is-hidden-touch is-hidden-desktop-only header__payment-icons">
-                            <i class="fab fa-cc-visa fa-3x"></i>&nbsp;
-                            <i class="fab fa-cc-mastercard fa-3x"></i>&nbsp;
+                            <i class="fab fa-cc-visa fa-2x"></i>&nbsp;
+                            <i class="fab fa-cc-mastercard fa-2x"></i>&nbsp;
                             <span class="yandex-money-logo"> </span>
                         </div>
                         <div class="level-item lower">
@@ -105,7 +105,7 @@
                                     <a class="navbar-item" href="/information.html">Доставка</a>
                                     <a class="navbar-item" href="/partneri.html">Где купить?</a>
                                     <a class="navbar-item" href="/kontaktyi.html">Контакты</a>
-                                    <a class="navbar-item" href="/press/faq.html">Ответы на вопросы</a>
+                                    <a class="navbar-item" href="/press/faq.html">Частые вопросы</a>
                                 </div>
                             </nav>
                         </div>
@@ -114,7 +114,7 @@
                     <div class="level-right">
                         <div class="level-item">
                             <div class="header__city">
-                                <p>Ваш город: <a class="city__title" id="city-select"> Самара </a></p>
+                                <p>Ваш город: <a class="city__title modal-button" data-target="city-select"> Самара </a><i class="fas fa-angle-down"></i></p>
                             </div>
                         </div>
                     </div>
@@ -131,12 +131,9 @@
                         <span class="header__address">
                             <i class="fab fa-viber"></i>&nbsp;
                             <i class="fab fa-whatsapp"></i>&nbsp;
-                            <i class="fab fa-telegram"></i>&nbsp;8&nbsp;800&nbsp;550-09-34 <br />
-                            <i
-                                class="fas fa-home"></i>&nbsp;г.&nbsp;Самара,&nbsp;ул.&nbsp;Авроры,&nbsp;д.&nbsp;68А&nbsp;&laquo;Мир&nbsp;рыбалки&raquo;
+                            8&nbsp;800&nbsp;550-09-34 <br />
+                            <i class="fas fa-home"></i>&nbsp;г.&nbsp;Самара,&nbsp;ул.&nbsp;Авроры,&nbsp;д.&nbsp;68А &laquo;Мир&nbsp;рыбалки&raquo;
                         </span>
-
-
                     </div>
                     <nav class="header__menu column">
                         <ul class="columns">
@@ -215,34 +212,10 @@
             </div>
         </div>
 
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close modal__close" data-dismiss="modal" aria-label="Close"><span
-                                aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Выбор города</h4>
-                    </div>
-                    <div class="modal__city">
-                        <div class="modal-body" id="myModalCitySelect">
-                        </div>
-                        <div class="city__submit">
-                            <button class="btn btn--red" id="chooseCityButton">Выбрать город</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
     </section>
-    <div class="pre_korzina unsticked ontop">
-        <div class="panel panel-success" id="korzina">
-            <div class="panel-body">
-                @@include('./shopcart.html')
-            </div>
-        </div>
-    </div>
 
-    <div class="modal" id="modal-city">
+    <div class="modal" id="city-select">
         <div class="modal-background"></div>
         <div class="modal-card">
             <header class="modal-card-head">
@@ -252,8 +225,8 @@
             <section class="modal-card-body" id="myModalCitySelect">
                 <!-- Content ... -->
             </section>
-            <footer class="modal-card-foot">
-                <button class="button is-success">Сохранить</button>
+            <footer class="modal-card-foot city__submit">
+                <button class="button is-success" id="chooseCityButton">Сохранить</button>
                 <button class="button">Отмена</button>
             </footer>
         </div>

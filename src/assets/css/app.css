@@ -152,6 +152,7 @@ h1, h2 {
   padding-right: 0;
   height: 380px;
   margin-bottom: 4px;
+  position: relative;
 }
 
 .product-list-item-box {
