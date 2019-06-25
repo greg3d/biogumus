@@ -28,7 +28,8 @@
   background-repeat: no-repeat;
 }
 
-.panel-success > .panel-heading, .panel-success > .panel-heading a {
+.panel-success>.panel-heading,
+.panel-success>.panel-heading a {
   color: #ffffff;
   background-color: #5f8647;
 }
@@ -109,7 +110,7 @@
 
 .card.large {
   -webkit-backface-visibility: hidden;
-          backface-visibility: initial;
+  backface-visibility: initial;
   border-radius: 5px;
 }
 
@@ -135,74 +136,74 @@
 .flow-1 {
   background: #3281ff;
   -webkit-animation: rotating 20s linear infinite;
-     -moz-animation: rotating 20s linear infinite;
-      -ms-animation: rotating 20s linear infinite;
-       -o-animation: rotating 20s linear infinite;
-          animation: rotating 20s linear infinite;
+  -moz-animation: rotating 20s linear infinite;
+  -ms-animation: rotating 20s linear infinite;
+  -o-animation: rotating 20s linear infinite;
+  animation: rotating 20s linear infinite;
 }
 
 .flow-2 {
   background: #f442ee;
   position: absolute;
   -webkit-animation: rotating 15s linear infinite;
-     -moz-animation: rotating 15s linear infinite;
-      -ms-animation: rotating 15s linear infinite;
-       -o-animation: rotating 15s linear infinite;
-          animation: rotating 15s linear infinite;
+  -moz-animation: rotating 15s linear infinite;
+  -ms-animation: rotating 15s linear infinite;
+  -o-animation: rotating 15s linear infinite;
+  animation: rotating 15s linear infinite;
 }
 
 .flow-3 {
   background: #42eef4;
   position: absolute;
   -webkit-animation: rotating 7s linear infinite;
-     -moz-animation: rotating 7s linear infinite;
-      -ms-animation: rotating 7s linear infinite;
-       -o-animation: rotating 7s linear infinite;
-          animation: rotating 7s linear infinite;
+  -moz-animation: rotating 7s linear infinite;
+  -ms-animation: rotating 7s linear infinite;
+  -o-animation: rotating 7s linear infinite;
+  animation: rotating 7s linear infinite;
 }
 
 @-webkit-keyframes rotating {
   from {
-        -ms-transform: rotate(0deg);
-       -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
     -webkit-transform: rotate(0deg);
-         -o-transform: rotate(0deg);
-            transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
   }
 
   to {
-        -ms-transform: rotate(360deg);
-       -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
     -webkit-transform: rotate(360deg);
-         -o-transform: rotate(360deg);
-            transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 
 @keyframes rotating {
   from {
-        -ms-transform: rotate(0deg);
-       -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
     -webkit-transform: rotate(0deg);
-         -o-transform: rotate(0deg);
-            transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
   }
 
   to {
-        -ms-transform: rotate(360deg);
-       -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
     -webkit-transform: rotate(360deg);
-         -o-transform: rotate(360deg);
-            transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 
 .rotating {
   -webkit-animation: rotating 2s linear infinite;
-     -moz-animation: rotating 2s linear infinite;
-      -ms-animation: rotating 2s linear infinite;
-       -o-animation: rotating 2s linear infinite;
-          animation: rotating 2s linear infinite;
+  -moz-animation: rotating 2s linear infinite;
+  -ms-animation: rotating 2s linear infinite;
+  -o-animation: rotating 2s linear infinite;
+  animation: rotating 2s linear infinite;
 }
 
 /* PRODUCT LIST */
@@ -223,7 +224,7 @@
 
 h3.product-title {
   position: absolute;
-  bottom: 5px;
+  bottom: 7px;
   left: 0;
   width: 100%;
   text-align: center;
@@ -231,8 +232,9 @@ h3.product-title {
   font-size: 1.5rem;
   color: #ffffff;
   padding: 10px 20px;
-  background: adjust-color($primary,$alpha: -0.4);
-  border-radius: 5px;
+  background: adjust-color($primary, $alpha: -0.5);
+  text-shadow: 0 0 7px rgba(0, 0, 0, 0.4);
+
 }
 
 h3.product-title a {
@@ -253,15 +255,15 @@ h3.product-title a {
 }
 
 .button.product-tocart {
-  box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  background: rgb(195,0,0);
-  background: linear-gradient(180deg, rgba(195,0,0,1) 0%, rgba(250,0,0,1) 49%, rgba(255,49,49,0.47102591036414565) 100%);
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  background: rgb(195, 0, 0);
+  background: linear-gradient(180deg, rgba(195, 0, 0, 1) 0%, rgba(250, 0, 0, 1) 49%, rgba(255, 49, 49, 0.47102591036414565) 100%);
 }
 
 .product-more {
   .button {
     border-radius: 5px;
-    box-shadow: 1px 1px 3px rgba(0,0,0,0.3), inset 0 0 15px rgba(255,255,255,0.25);
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3), inset 0 0 15px rgba(255, 255, 255, 0.25);
   }
 
   position: absolute;
