@@ -5,7 +5,8 @@
   "main": "gulpfile.js",
   "scripts": {
     "dev": "gulp",
-    "build": "gulp prod --production"
+    "build": "gulp prod --production",
+    "upload": "gulp prd --production"
   },
   "author": "",
   "license": "ISC",
@@ -33,6 +34,7 @@
     "gulp-replace": "^1.0.0",
     "gulp-rigger": "^0.5.8",
     "gulp-sass": "^4.0.2",
+    "gulp-sftp-up4": "^0.1.8",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-svg-sprite": "^1.5.0",
     "gulp-watch": "^5.0.1",
@@ -45,7 +47,9 @@
     "@fancyapps/fancybox": "^3.5.7",
     "@fortawesome/fontawesome-free": "^5.8.2",
     "bulma": "^0.7.5",
+    "bulma-badge": "^3.0.1",
     "gulp-debug": "^4.0.0",
+    "hammerjs": "^2.0.8",
     "jquery": "^3.4.1",
     "owl.carousel": "^2.3.4",
     "slick-carousel": "^1.8.1",

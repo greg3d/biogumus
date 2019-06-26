@@ -1,75 +1,64 @@
-<div class="pre_korzina unsticked ontop">
-    <div class="panel panel-success" id="korzina">
-        <div class="panel-body">
-
-
-            <div data-shopcart="1" class="shopCartSmall">
-                <!--ВСЕГО-->
-                <div class="columns fullPrice">
-                    <div class="column is-7">
-                        <i class="fas fa-shopping-cart"></i>&nbsp;<span
-                            class="badge badge-success">2</span><span>&nbsp;Корзина</span>
-                    </div>
-                    <div class="column is-5 fullPrice__numbers" style="float: right;">
-                        <span class="fullPrice__current"><strong>209&nbsp;<i class="fas fa-ruble-sign"></i></strong></span>
+<div class="pre_korzina ontop collapsed"><div id="korzina" class="box">
+        <div data-shopcart="1" class="shopCartSmall"> 
+            <!--ВСЕГО-->
+            <div class="box-head level is-marginless is-mobile">
+                <div class="level-left">
+                    <div class="level-item">
+                        <h4>
+                            <i class="fas fa-shopping-cart"></i>&nbsp;<span class="tag is-danger is-medium">9</span>&nbsp;Корзина
+                        </h4>
                     </div>
                 </div>
-
-                <div class="text-center checkout-button">
-                    <a href="/korzina.html" class="button is-rounded is-fullwidth is-danger shopCartSmall__order">
-                        <i class="fa fa-cart-arrow-down" aria-hidden="true"></i>&nbsp;Оформить</a>
-                </div>
-
-                <div>
-                    <table class="list-group-compact">
-                        <colgroup>
-                            <col width="50%">
-                            <col width="25%">
-                            <col width="25%">
-                        </colgroup>
-                        <thead>
-                            <tr>
-                                <td>Наименование</td>
-                                <td>кол-во</td>
-                                <td style="text-align: right">сумма</td>
-                            </tr>
-                        </thead>
-                        <tr>
-                            <td><span class="name"><b>Биогумус 5л</b></span></td>
-                            <td><span class="count">1</span></td>
-                            <td><span class="price-small"><b>79</b> <i class="fa fa-rub" aria-hidden="true"></i></span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><span class="name"><b>Биогумус 10л</b></span></td>
-                            <td><span class="count">1</span></td>
-                            <td><span class="price-small"><b>130</b> <i class="fa fa-rub" aria-hidden="true"></i></span>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-
-                <!--Объем-->
-                <div class="row cartsmall-volume">
-                    <div class="col-xs-3">
-                        <span>Объем:</span>
+                <div class="level-right">
+                    <div class="level-item">
+                        <span class="fullPrice"><strong>1 566&nbsp;<i class="fas fa-ruble-sign"></i></strong></span>
                     </div>
-                    <div class="col-xs-5">
-                        <span class="shopCartSmall__total"> 15&nbsp;л</span>
-                    </div>
-                </div>
-
-                <!--Вес-->
-                <div class="row cartsmall-weight">
-                    <div class="col-xs-3">
-                        <span>Вес:</span>
-                    </div>
-                    <div class="col-xs-5">
-                        <span class="shopCartSmall__total"> 7,5&nbsp;кг</span>
-                    </div>
+                    <a id="CollapseShopCartButton" class="delete is-medium"></a>
                 </div>
             </div>
-
-        </div>
-    </div>
-</div>
+            
+            <div class="is-centered checkout-button">
+                <a href="/korzina.html" class="button is-rounded is-fullwidth is-danger shopCartSmall__order"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>&nbsp;Оформить</a>
+            </div>
+        
+            <div class="product-list">
+                <table class="table is-fullwidth is-bordered is-narrow is-striped" style="margin-top: 15px; margin-bottom: 5px; font-size: 80%">
+                    <colgroup>
+                        <col width="50%">
+                        <col width="25%">
+                        <col width="25%">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <td>Наименование</td>
+                            <td>кол-во</td>
+                            <td style="text-align: right">сумма</td>
+                        </tr>
+                    </thead>
+                        <tbody><tr>
+            <td><span class="name"><b>Биогумус 10л</b></span></td>
+            <td><span class="count">5</span></td>
+            <td><span class="price-small"><b>650</b> <i class="fa fa-rub" aria-hidden="true"></i></span></td>
+        </tr><tr>
+            <td><span class="name"><b>Биогумус 20л</b></span></td>
+            <td><span class="count">4</span></td>
+            <td><span class="price-small"><b>916</b> <i class="fa fa-rub" aria-hidden="true"></i></span></td>
+        </tr>
+                </tbody></table>
+            </div>
+            
+            <div class="product-params">
+               
+                <div class="columns is-gapless is-multiline is-mobile">
+                    
+                    <div class="column is-6">
+                        <span>Объем: </span><span class="shopCartSmall__total"><strong>130&nbsp;л</strong></span>
+                    </div>
+        
+                    <div class="column is-6">
+                        <span>Вес: </span> <span class="shopCartSmall__total"><strong>65&nbsp;кг</strong></span>
+                    </div>
+        
+                </div>
+            </div>
+        </div></div></div>

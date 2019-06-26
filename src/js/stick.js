@@ -11,33 +11,71 @@
 
         });
 
-        /*
-        $(".pre_korzina").stick_in_parent({
-                parent: 'body',
-                //spacer: '.side__menu'
-            })
-            .on("sticky_kit:unstick", function (e) {
-                $(e.target).addClass("unsticked");
-                $(e.target).addClass("ontop");
-            })
-            .on("sticky_kit:stick", function (e) {
-                $(e.target).removeClass("unsticked");
-                $(e.target).removeClass("ontop");
-            });
-            */
+        var w = $(window).width();
 
+        function stickUnstick() {
+            if (w < 752) {
+                $(".pre_korzina").stick_in_parent({
+                        parent: 'body',
+                        //spacer: '.side__menu'
+                    })
+                    .on("sticky_kit:unstick", function (e) {
+                        $(e.target).addClass("unsticked");
+                        $(e.target).addClass("ontop");
+                    })
+                    .on("sticky_kit:stick", function (e) {
+                        $(e.target).removeClass("unsticked");
+                        $(e.target).removeClass("ontop");
+                    });
+            }
+        }
+
+        stickUnstick();
+
+
+        $(window).resize(function () {
+            w = $(window).width();
+            stickUnstick();
+        });
+
+        /*
+
+        $("#CollapseShopCartButton").click(function () {
+            $(".pre_korzina").addClass("collapsed");
+        });
+*/
+        /*
         $(".pre_korzina").hover(function () {
 
-            if ($(this).hasClass('ontop')) {
-                $(this).removeClass("unsticked");
-            }
+
+            $(this).removeClass("collapsed");
+
 
         }, function () {
-            if ($(this).hasClass('ontop')) {
-                $(this).addClass("unsticked");
-            }
 
-        })
+            $(this).addClass("collapsed");
+
+
+        })*/
+
+        var square = document.querySelector(".pre_korzina");
+
+        // Create a manager to manage the element
+        var manager = new Hammer.Manager(square);
+
+        // Create a recognizer
+        var Tap = new Hammer.Tap({
+            taps: 1
+        });
+
+        // Add the recognizer to the manager
+        manager.add(Tap);
+
+        // Subscribe to the desired event
+        manager.on('tap', function (e) {
+            
+            $(".pre_korzina").toggleClass('collapsed');
+        });
 
 
 

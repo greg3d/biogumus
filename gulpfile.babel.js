@@ -1,8 +1,9 @@
 "use strict";
 
-import webpack from "webpack";
-import webpackStream from "webpack-stream";
+//import webpack from "webpack";
+//import webpackStream from "webpack-stream";
 import gulp from "gulp";
+
 import concat from "gulp-concat";
 import gulpif from "gulp-if";
 import browsersync from "browser-sync";
@@ -15,6 +16,7 @@ import postcss from "gulp-postcss";
 import sourcemaps from "gulp-sourcemaps";
 import rename from "gulp-rename";
 import fileinclude from 'gulp-file-include';
+import sftp from "gulp-sftp-up4";
 // import svg from "gulp-svg-sprite";
 // import imagemin from "gulp-imagemin";
 // import imageminPngquant from "imagemin-pngquant";
@@ -56,6 +58,8 @@ export const server = () => {
 	gulp.watch(paths.images.watch, images);
 };
 
+
+
 const autoprefixierOpts = {
 	browsers: ["last 12 versions", "> 1%", "ie 8", "ie 7"]
 };
@@ -92,6 +96,7 @@ const jsLibsList = [
 	"./node_modules/slick-carousel/slick/slick.min.js",
 	"./node_modules/owl.carousel/dist/owl.carousel.min.js",
 	"./node_modules/sticky-kit/dist/sticky-kit.min.js",
+	"./node_modules/hammerjs/hammer.min.js"
 ]
 
 const paths = {
@@ -249,6 +254,20 @@ export const scripts = () => gulp.src(paths.scripts.src)
 	}));
 //.on("end", browsersync.reload);
 
+export const upload = (cb) => {
+	gulp.src([
+		'./dist/assets/styles**/*.*',
+		'./dist/assets/js**/*.*'
+	]).pipe(sftp({
+		host: '178.79.159.181',
+		user: 'biogumus',
+		pass: 'DzJSh0mcZMPe',
+		remotePath: 'www/assets/'
+	}));
+	cb();
+
+}
+
 export const development = gulp.series(
 	cleanFiles,
 	libscss,
@@ -269,7 +288,16 @@ export const prod = gulp.series(
 	images,
 	libsjs,
 	scripts,
-	views
+	views,
+	upload
+);
+
+export const prd = gulp.series(
+	//cleanFiles,
+	styles,
+	//images,
+	//scripts,
+	upload
 );
 
 export default development;

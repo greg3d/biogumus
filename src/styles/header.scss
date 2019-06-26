@@ -12,7 +12,7 @@
   content: ' ';
   position: absolute;
   width: 100%;
-  height: 100%;
+  height: 200%;
   top: 0;
   right: 0;
   background-image: url(/assets/images/top.png);
@@ -258,11 +258,13 @@
 
     a:hover {
       color: $black;
-      font-weight: $weight-bold;
-      border-radius: $radius-xlarge;
       background-color: $special-background;
       text-decoration: none;
       text-shadow: none;
+    }
+
+    .has-dropdown a {
+      border-radius: $radius-xlarge $radius-xlarge 0 0;
     }
   }
 
@@ -275,74 +277,23 @@
 
 .header__bottom {
   box-shadow: 0 0 15px 1px rgba(102, 75, 75, 0.14);
-  background-color: #f8f3f3;
+  background-color: none;
   margin-bottom: 15px;
   position: relative;
   z-index: 2;
   padding: 0 $column-gap;
+
+  .header__address {
+    background: #ffffff;
+    max-width: 400px;
+    padding: 5px 15px;
+    height: 61px;
+  }
 }
 
 ////////////////////////////////
-.header__menu {
-  padding: 0 $column-gap;
 
-  div {
-    width: 100%;
-  }
-
-
-
-  ul {
-    list-style: none;
-    //margin: 0;
-    font-size: 0.8rem;
-    //display: flex;
-    //justify-content: space-between;
-    // width: 100%;
-    //align-items: center;
-
-    li {
-      @extend .column;
-      display: flex;
-      align-items: center;
-
-
-      div {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        //border: 1px solid black;
-        align-content: center;
-        align-items: center;
-        align-self: center;
-
-
-
-
-        svg {
-          display: flex;
-          //border: 1px solid black;
-          margin: 0;
-          padding: 0;
-          margin-right: 5px;
-        }
-
-        a {
-          display: flex;
-          //border: 1px solid black;
-          padding: 0;
-          color: #312621;
-        }
-      }
-    }
-
-
-    li svg path {
-      transition: 0.3s all ease;
-    }
-  }
-}
-
+/*
 .header__menu ul li.active a, .header__menu ul li:hover a, .header__menu ul li:focus a {
   color: #5f8647;
   text-decoration: none;
@@ -351,8 +302,8 @@
 .header__menu ul li.active svg path, .header__menu ul li:hover svg path, .header__menu ul li:focus svg path {
   fill: #5f8647;
 }
-
-////
+*/
+/*
 .top-line {
   background: #333333;
   margin: 0;
@@ -413,3 +364,4 @@
   border: none;
   color: white;
 }
+*/

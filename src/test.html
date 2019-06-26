@@ -1,0 +1,113 @@
+[[$header2]]
+<section class="section main">
+    <div class="container">
+        <div class="columns">
+            <div class="column is-12-mobile is-4-touch is-3-desktop is-one-fifth-fullhd">
+                <!--левая колонка-->
+                [[$sidebar]]
+            </div>
+            <div class="column content__main">
+                <div class="level">
+                    <div class="level-left">
+                        <div class="level-item">
+                            [[QuickCrumbs@breadcrumbs]]
+                        </div>
+                    </div>
+                </div>
+
+                [[$dostavka_red_action_mobile]]
+
+                <div class="main__top">
+                    <div class="main-carousel owl-carousel owl-theme">
+
+
+                        <div class="item">
+                            <div class="item__desc">
+                                <h3 style="color: white; margin-bottom: 0; font-size: 27px; font-weight: normal;">
+                                    Доставка по России</h3>
+                                <h2 style="margin-top: 0; margin-bottom: 15px;">БЕСПЛАТНО</h2>
+                                <p class="item__text">При заказе от 1000 ₽ <span style="color: gold;">*</span></p>
+                                <p><a href="/information.html" class="btn btn--round btn--more">Подробнее</a></p>
+                            </div>
+                            <div class="item__img">
+                                <img src="/images/banner_biogumus.png" alt="">
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="item__desc">
+                                <h2>Гарантируем</h2>
+                                <p class="item__text">экологически <br>чистый урожай</p>
+                                <p><a href="/press/preimuschestva-biogumusa.html"
+                                        class="btn btn--round btn--more">Подробнее</a></p>
+                            </div>
+                            <div class="item__img">
+                                <img src="/images/slide1.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="item__desc">
+                                <h2>Покупайте</h2>
+                                <p class="item__text">рядом с домом</p>
+                                <p><a href="/partneri.html" class="btn btn--round btn--more">Подробнее</a></p>
+                            </div>
+                            <div class="item__img">
+                                <img src="/images/slide2.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="item__desc">
+                                <h2>Доставим</h2>
+                                <p class="item__text">по всей России</p>
+                                <p><a href="/information.html" class="btn btn--round btn--more">Подробнее</a></p>
+                            </div>
+                            <div class="item__img">
+                                <img src="/images/slide3.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="item__desc">
+                                <h2>Повысьте</h2>
+                                <p class="item__text">урожайность без химии</p>
+                                <p><a href="/press/whybio.html" class="btn btn--round btn--more">Подробнее</a></p>
+                            </div>
+                            <div class="item__img">
+                                <img src="/images/slide4.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="main__advantages">
+                        <ul>
+                            <li>
+                                <img src="/images/icons/pig.svg" alt="Копилка">
+                                <a href="/akcii.html"><span>Система скидок</span></a>
+                            </li>
+                            <li>
+                                <img src="/images/icons/ic-box.svg" alt="Грузовая тележка">
+                                <a href="/information.html"><span>Доставка по городу</span></a>
+                            </li>
+                            <li>
+                                <img src="/images/icons/ic-delivery.svg" alt="Грузовик">
+                                <a href="/information.html"><span>Доставка по России</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="content">
+                    <h1 class="title">[[*longtitle:default=`[[*pagetitle]]`]]</h1>
+                    [[*content]]
+                </div>
+
+                <div class="row products" id="products">
+                    [[--!tmCatalog]]
+                    [[--getPage@catalog_filters]]
+                    [[getProducts@mainpage_new]]
+                    <div class="clearfix"></div>
+                </div>
+
+                [[--$popular]]
+            </div>
+        </div>
+    </div>
+</section>
+[[$footer]]

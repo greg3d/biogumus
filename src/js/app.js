@@ -324,16 +324,17 @@
         });
 
         $(".main-carousel").owlCarousel({
-            //autoplay: 5000,
+           //autoplay: 5000,
             smartSpeed: 1000,
             margin: 10,
             loop: true,
-            nav: false,
+            nav: true,
             dots: true,
             items: 1
         });
+        /*
         $("#owl-slider-production").owlCarousel({
-            autoplay: 5000,
+           /* autoplay: 5000,
             loop: true,
             nav: false,
             dots: true,
@@ -349,7 +350,7 @@
                     items: 4
                 }
             }
-        });
+        });*/
 
 
     });
