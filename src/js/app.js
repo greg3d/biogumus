@@ -160,7 +160,7 @@
 
     }).call({}, jQuery);
 
-    
+
 
     function createCookie(name, value, days) {
         var expires = "";
@@ -188,7 +188,7 @@
     ///// MAIN
     $(document).ready(function () {
 
-       
+
 
         siteLib.init();
         //siteLib.bindPlusMinusButtons();
@@ -296,8 +296,9 @@
 
 
         function cartCity() {
-            var dataCity = $("#city-select").text();
-            if (dataCity != 'Самара') {
+            var dataCity = $("a[data-target='city-select']").text();
+            if (dataCity != ' Самара ') {
+                console.log("not samara+" + dataCity);
                 $('.order__payment .order__options .radio:nth-child(1)').hide();
                 $('.order__delivery .order__options .radio:nth-child(1)').hide();
                 $('.order__delivery .order__options .radio:nth-child(2)').hide();
@@ -306,6 +307,7 @@
                 //   $('.address--samara').hide();
                 //   $('.address--other').show();
             } else {
+                console.log("samara" + dataCity);
                 if ($('.order__payment .order__options .radio:nth-child(1)')) {
                     var hiddenStyle = $('.order__payment .order__options .radio:nth-child(1)').attr('style') || 'empty';
                     if (hiddenStyle.indexOf('display: none;') > -1) {
@@ -369,10 +371,12 @@
         }
     }
 
-    
+
     $('.country_delivery__item').click(function () {
         $('.country_delivery__item').removeClass('active');
         $(this).addClass('active');
+
+        console.log(this);
 
         var TransKomp = $(this).data('trans');
         $('.transcom').val(TransKomp);
@@ -403,7 +407,7 @@
             yaCounter44778274.reachGoal('consult-sent');
         }
     });
- 
+
 
 
     $(".navbar-burger").click(function () {
