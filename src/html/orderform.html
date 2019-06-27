@@ -1,0 +1,379 @@
+@@include('./header.html')
+<section class="section main">
+    <div class="container">
+        <div class="columns">
+            <div class="column is-12-mobile is-4-touch is-3-desktop is-one-fifth-fullhd">
+                <!--левая колонка-->
+                @@include('./sidebar.html')
+            </div>
+            <div class="column content__main  is-12-mobile is-8-touch is-9-desktop is-four-fifths-fullhd ">
+                <div class="level">
+                    <div class="level-left">
+                        <div class="level-item">
+                            <nav class="breadcrumb has-succeeds-separator" aria-label="breadcrumbs">
+                                <ul>
+                                    <li><a href="#">Главная</a></li>
+                                    <li class="is-active"><a href="#" aria-current="page">Биогумус</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="shopCart" class="tile is-ancestor is-vertical" data-shopcart="2">
+                    <div class="cart__title tile is-parent is-horisontal">
+
+                        <div class="tile is-child content">
+                            <h3>Оформление заказа</h3>
+                        </div>
+
+                        <div class="cart__total tile is-vertical">
+                            <div class="total__price tile is-horisontal">
+                                <span class="total__title tile">Общая сумма: </span>
+                                <span class="total__price tile">833&nbsp;<i class="fas fa-ruble-sign"></i></span>
+                            </div>
+                            <div class="total__volume tile is-horisontal">
+                                <span class="total__title tile">Общая объем: </span>
+                                <span class="total__value tile">60 л</span>
+                            </div>
+                            <div class="total__weight tile is-horisontal">
+                                <span class="total__title tile">Общая вес: </span>
+                                <span class="total__value tile">30 кг</span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="cart__items tile is-parent">
+                        <div class="tile is-child">
+
+                            <form action="/korzina.html#shopCart" method="post">
+                                <table class="table is-fullwidth is-striped is-hoverable">
+                                    <!--colgroup>
+                                        <col width="20%">
+                                        <col width="25%">
+                                        <col width="10%">
+                                        <col width="20%">
+                                        <col width="20%">
+                                        <col width="5%">
+                                    </colgroup-->
+                                    <thead>
+                                        <tr>
+                                            <td></td>
+                                            <td>Наименование</td>
+                                            <td>Объем</td>
+                                            <td>Количество</td>
+                                            <td>Сумма</td>
+                                            <td>Удалить</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="item__img">
+                                                <div class="img-wrapper">
+                                                    <img src="/assets/cache_image/assets/files/images/products/bio5.5_300x400_4fd.jpg"
+                                                        width="50" height="50" alt="">
+                                                </div>
+                                            </td>
+                                            <td class="item__title"><a
+                                                    href="http://test.infotranz.ru/katalog/biogumus/biogumus-5l.html">Биогумус
+                                                    5л</a></td>
+                                            <td class="item__volume">5 л</td>
+                                            <td class="nowrap">
+                                                <div class="field has-addons item__count">
+                                                    <div class="control">
+                                                        <button class="shk_count_button button is-info button__minus" type="button">-</button>
+                                                    </div>
+                                                    <div class="control">
+                                                        <input class="shk-count input text-center is-info" type="text" size="2"
+                                                            name="count[]" maxlength="3" title="изменить количество"
+                                                            value="6" style="width: 50px; text-align: center; font-weight: bold">
+                                                    </div>
+                                                    <div class="control">
+                                                        <button class="shk_count_button button is-info button__plus" type="button">+</button>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center item__price">
+
+                                                <p class="item__price--new">474 <i class="fa fa-rub"
+                                                        aria-hidden="true"></i></p>
+                                            </td>
+                                            <td class="item__remove">
+                                                <a href="http://test.infotranz.ru/korzina.html?shk_action=remove&amp;n=0"
+                                                    title="Удалить" class="shk-del btn">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                        viewBox="0 0 16 16">
+                                                        <path fill="#d6d4d3"
+                                                            d="M2.34.93l5.67 5.66L13.6 1l1.4 1.4L9.41 8l5.66 5.67-1.41 1.41-5.67-5.66L2.4 15l-1.4-1.4L6.59 8 .93 2.34z">
+                                                        </path>
+                                                    </svg>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="item__img">
+                                                <div class="img-wrapper">
+                                                    <img src="/assets/cache_image/assets/files/images/products/bio-10_300x400_4fd.jpg"
+                                                        width="50" height="50" alt="">
+                                                </div>
+                                            </td>
+                                            <td class="item__title"><a
+                                                    href="http://test.infotranz.ru/katalog/biogumus/biogumus-10-l.html">Биогумус
+                                                    10л</a></td>
+                                            <td class="item__volume">10 л</td>
+                                            <td class="nowrap item__count">
+                                                <div class="shs-count">
+                                                    <button class="shk_count_button " type="button">-</button><input
+                                                        class="shk-count form-control text-center" type="text" size="2"
+                                                        name="count[]" maxlength="3" title="изменить количество"
+                                                        value="1" style="width: 50px; display: inline-block;"><button
+                                                        class="shk_count_button " type="button">+</button>
+                                                    <span>шт.</span>
+                                                </div>
+                                            </td>
+                                            <td class="text-center item__price">
+
+                                                <p class="item__price--new">130 <i class="fa fa-rub"
+                                                        aria-hidden="true"></i></p>
+                                            </td>
+                                            <td class="item__remove">
+                                                <a href="http://test.infotranz.ru/korzina.html?shk_action=remove&amp;n=1"
+                                                    title="Удалить" class="shk-del btn">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                        viewBox="0 0 16 16">
+                                                        <path fill="#d6d4d3"
+                                                            d="M2.34.93l5.67 5.66L13.6 1l1.4 1.4L9.41 8l5.66 5.67-1.41 1.41-5.67-5.66L2.4 15l-1.4-1.4L6.59 8 .93 2.34z">
+                                                        </path>
+                                                    </svg>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="item__img">
+                                                <div class="img-wrapper">
+                                                    <img src="/assets/cache_image/assets/files/images/products/bio-20_300x400_4fd.jpg"
+                                                        width="50" height="50" alt="">
+                                                </div>
+                                            </td>
+                                            <td class="item__title"><a
+                                                    href="http://test.infotranz.ru/katalog/biogumus/biogumus-20-l.html">Биогумус
+                                                    20л</a></td>
+                                            <td class="item__volume">20 л</td>
+                                            <td class="nowrap item__count">
+                                                <div class="shs-count">
+                                                    <button class="shk_count_button " type="button">-</button><input
+                                                        class="shk-count form-control text-center" type="text" size="2"
+                                                        name="count[]" maxlength="3" title="изменить количество"
+                                                        value="1" style="width: 50px; display: inline-block;"><button
+                                                        class="shk_count_button " type="button">+</button>
+                                                    <span>шт.</span>
+                                                </div>
+                                            </td>
+                                            <td class="text-center item__price">
+
+                                                <p class="item__price--new">229 <i class="fa fa-rub"
+                                                        aria-hidden="true"></i></p>
+                                            </td>
+                                            <td class="item__remove">
+                                                <a href="http://test.infotranz.ru/korzina.html?shk_action=remove&amp;n=2"
+                                                    title="Удалить" class="shk-del btn">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                        viewBox="0 0 16 16">
+                                                        <path fill="#d6d4d3"
+                                                            d="M2.34.93l5.67 5.66L13.6 1l1.4 1.4L9.41 8l5.66 5.67-1.41 1.41-5.67-5.66L2.4 15l-1.4-1.4L6.59 8 .93 2.34z">
+                                                        </path>
+                                                    </svg>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <div class="clearfix"></div>
+
+                                <noscript>
+                                    <div>
+                                        <button type="submit" name="shk_action" value="recount"
+                                            class="btn btn-default">Пересчитать</button>
+                                    </div>
+                                </noscript>
+
+                            </form>
+
+                        </div>
+
+                    </div>
+                </div>
+                <form method="post" action="/korzina.html" id="shopOrderForm">
+                    <div class="order-form">
+                        <div class="row">
+                            <div class="order__left">
+                                <div class="order__personal">
+                                    <h4>1. Заполните информацию о себе</h4>
+                                    <div class="personal__field">
+                                        <input name="fullname" size="30" id="orderFormName" class="form-control"
+                                            type="text" placeholder="ФИО полностью*" value="">
+                                        <p class="help-block">
+
+                                        </p>
+                                    </div>
+                                    <div class="personal__field">
+                                        <input name="phone" size="30" class="form-control" type="text"
+                                            placeholder="Телефон *" value="">
+                                        <p class="help-block">
+
+                                        </p>
+                                    </div>
+                                    <div class="personal__field">
+                                        <input name="email" size="30" class="form-control" type="text"
+                                            placeholder="Email *" value="">
+                                        <p class="help-block">
+
+                                        </p>
+                                    </div>
+                                    <div class="personal__field">
+                                        <input type="text" name="city_var" class="form-control" placeholder="Город *"
+                                            value="Самара">
+                                        <p class="help-block">
+
+                                        </p>
+                                    </div>
+                                    <div class="personal__field">
+                                        <textarea name="message" class="form-control"
+                                            placeholder="Дополнительная информация (необязательно)" rows="4"></textarea>
+                                    </div>
+                                    <input type="hidden" name="address" id="cartAddress"
+                                        value="Выбор города Сохранить Отмена">
+                                </div>
+                            </div>
+                            <div class="order__right">
+                                <div class="order__payment">
+                                    <h4>2. Выберите способ оплаты</h4>
+                                    <div class="order__options">
+                                        <div class="radio" style="display: none;">
+                                            <label>
+                                                <input type="radio" name="payment" id="options_payment" value="cash">
+                                                <div class="order__icon"></div>
+                                                <p>Наличными</p>
+                                            </label>
+
+
+
+                                        </div>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="payment" id="options_payment" value="prepay">
+                                                <div class="order__icon"></div>
+                                                <p>Квитанция для оплаты в банке</p>
+                                            </label>
+
+
+
+                                        </div>
+
+                                        <div class="radio"><label><input type="radio" name="payment" value="AC">
+                                                <div class="order__icon"></div>
+                                                <p>Банковская карта</p>
+                                            </label></div>
+                                    </div>
+                                    <p class="help-block">
+
+                                    </p>
+                                </div>
+                                <div class="order__delivery">
+                                    <h4>3. Выберите способ доставки</h4>
+                                    <div class="order__options">
+                                        <div class="radio" style="display: none;">
+                                            <label>
+                                                <input type="radio" name="shk_delivery" id="options_shk_delivery"
+                                                    value="Самовывоз в Самаре">
+                                                <div class="order__icon"></div>
+                                                <p>Самовывоз в Самаре</p>
+                                            </label>
+
+
+
+                                        </div>
+                                        <div class="radio" style="display: none;">
+                                            <label>
+                                                <input type="radio" name="shk_delivery" id="options_shk_delivery"
+                                                    value="Доставка по городу">
+                                                <div class="order__icon"></div>
+                                                <p>Доставка по городу</p>
+                                            </label>
+
+
+
+                                        </div>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="shk_delivery" id="options_shk_delivery"
+                                                    value="Доставка по России">
+                                                <div class="order__icon"></div>
+                                                <p>Доставка по России</p>
+                                            </label>
+
+
+
+                                        </div>
+
+                                    </div>
+                                    <p class="help-block">
+
+                                    </p>
+                                </div>
+                                <div class="order__info">
+                                    <div class="order__submit">
+                                        <input type="submit" name="orderPage" class="btn btn--red"
+                                            value="Оформить заказ">
+                                    </div>
+                                    <div class="order__help">
+                                        <button type="button" class="btn btn--stroke" id="consult-select2">Помогите
+                                            оформить заказ</button>
+                                    </div>
+                                    <div class="personal__field order__policy">
+                                        <label><input name="policy[]" class="form-control" type="checkbox" value="1"
+                                                checked="">
+                                            <p>Я согласен на обработку <a
+                                                    href="/onas/politika-konfidenczialnosti-i-obrabotka-dannyix.html">персональных
+                                                    данных</a></p>
+                                        </label>
+                                        <input name="policy[]" class="form-control" type="hidden" value="0">
+                                        <p class="help-block">
+
+                                        </p>
+                                    </div>
+                                    <div class="order__oferta">
+                                        <p>Оформляя заказ, вы соглашаетесь с <a href="/oferta.html" target="_blank"
+                                                id="openOferta">договором публичной оферты</a>. <br>После нажатия
+                                            кнопки вы будете переправлены на страницу оплаты заказа, если выбрана
+                                            онлнай-форма оплаты.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <input type="hidden" name="utm" id="utm" value="/korzina.html">
+                    <input type="hidden" name="crawler3" value="">
+                    <input type="hidden" name="phrase3" value="">
+                    <input type="hidden" name="page3" value="http://test.infotranz.ru/korzina.html">
+                    <input type="hidden" name="referer3" value="http://test.infotranz.ru/biogumus1.html">
+                    <input type="hidden" name="date3" value="2019-06-27">
+
+                    <input type="hidden" name="utm_source" value="">
+                    <input type="hidden" name="utm_medium" value="">
+                    <input type="hidden" name="utm_campaign" value="">
+                    <input type="hidden" name="utm_term" value="">
+                    <input type="hidden" name="utm_content" value="">
+                    <input type="hidden" name="utm_keyword" value="">
+                    <input type="hidden" name="block" value="">
+                    <input type="hidden" name="position" value="">
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+</section>
+@@include('./footer.html')

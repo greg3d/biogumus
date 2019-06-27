@@ -124,7 +124,7 @@ const paths = {
 		watch: "./src/assets/images/**/*.{jpg,gif,png,svg}"
 	},
 	views: {
-		src: "./src/html/index.html",
+		src: ["./src/html/index.html","./src/html/orderform.html"],
 		dist: "./dist/",
 		watch: "./src/html/**/*.html"
 	}
@@ -296,7 +296,7 @@ export const prd = gulp.series(
 	//cleanFiles,
 	styles,
 	//images,
-	//scripts,
+	scripts,
 	upload
 );
 
