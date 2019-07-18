@@ -22,7 +22,11 @@
      */
     var siteLib = (function ($) {
 
+        sl = this;
+        sl.city = {};
+
         this.init = function () {
+
             /*jQuery('body')
                 .tooltip({
                     selector: '[data-toggle="tooltip"]',
@@ -73,6 +77,64 @@
             //
 
         }; /// this.init
+
+        this.writeCity = function (city) {
+            $cityName = $("a[data-target='city-select']");
+
+            sl.city = city;
+
+            $cityName.html(sl.city.name);
+
+            var serialCity = JSON.stringify(city);
+            localStorage.setItem("city", serialCity);
+
+
+        }
+
+        this.readCity = function () {
+            $cityName = $("a[data-target='city-select']");
+
+            var returnCity = JSON.parse(localStorage.getItem("city"));
+            sl.city = returnCity;
+
+            $cityName.html(sl.city.name);
+
+            console.log(sl.city.name);
+
+            $.post(document.location.href, {
+                action: 'setSessionCity',
+                city: localStorage.getItem("city")
+            }, function (data) {
+                console.log("Local storage " + data + " " + sl.city.name);
+            });
+        }
+
+        this.getCity = function () {
+
+            //localStorage.clear();
+
+            var city = localStorage.getItem("city");
+
+            if (city === null) {
+                //console.log('null city');
+
+                $.post(document.location.href, {
+                    action: 'detectCity'
+                }, function (data) {
+
+                    city = JSON.parse(data);
+
+                    sl.writeCity(city);
+
+                });
+
+            } else {
+
+                sl.readCity();
+
+            }
+        }
+
 
         this.getRates = function () {
             $('#getRatesResult').html('<div class="ajax-loader">Расчитываю...</div>');
@@ -188,9 +250,9 @@
     ///// MAIN
     $(document).ready(function () {
 
-
-
         siteLib.init();
+        siteLib.getCity();
+
         //siteLib.bindPlusMinusButtons();
 
         $('.more_info__show').on('click', function () {
@@ -281,15 +343,20 @@
 
             var action = 'chooseCity';
             var id = $("#city-select-form").val();
+            var name = $("#city-select-form option:selected").text();
 
             $.post(document.location.href, {
                 action: action,
-                city_id: id
+                city_id: id,
+                city_name: name
             }, function (data) {
-                $('#city-select').html(data);
-                cartCity();
+
+                console.log(data);
+                siteLib.writeCity(data);
+
+                //cartCity();
                 siteLib.getRates();
-                location.reload();
+                //location.reload();
             });
             return false;
         });
@@ -327,7 +394,7 @@
 
         }
 
-        cartCity();
+
 
         var isCash = $("input[value='cash']").attr('checked');
         $('input[type=radio][name=payment]').change(function () {
