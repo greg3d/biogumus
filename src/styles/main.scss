@@ -11,7 +11,9 @@ $radius-large: 5px;
 $radius-xlarge: 10px;
 $radius-xxlarge: 35px;
 // Update Bulma's global variables
-$family-sans-serif: 'Ubuntu',Arial,sans-serif;
+$family-sans-serif: 'Ubuntu',
+Arial,
+sans-serif;
 $grey-dark: $brown;
 $grey-light: $beige-light;
 $primary: #025730;
@@ -40,4 +42,5 @@ $block-spacing: 0.5rem;
 @import './footer';
 @import './shop';
 @import './orderform';
+@import './gallery';
 @import './other';

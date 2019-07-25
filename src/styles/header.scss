@@ -42,7 +42,7 @@
     }
   }
 
-  p + p {
+  p+p {
     color: #ffffff;
     font-size: 16.4px;
     line-height: 0;
@@ -51,7 +51,7 @@
     text-shadow: none;
   }
 
-  p + p + p {
+  p+p+p {
     color: #ffffff;
     font-size: 12px;
     font-weight: $weight-normal;
@@ -78,6 +78,11 @@
 
 .header__payment-icons i {
   color: white;
+}
+
+.header__payment-icons img {
+  border-radius: 5px;
+
 }
 
 .yandex-money-logo {
@@ -128,11 +133,13 @@
     font-weight: 700;
   }
 
-  .header__phones p a span, .header__count p a span {
+  .header__phones p a span,
+  .header__count p a span {
     font-weight: 700;
   }
 
-  .header__phones p + p, .header__count p + p {
+  .header__phones p+p,
+  .header__count p+p {
     margin: 0;
   }
 }
