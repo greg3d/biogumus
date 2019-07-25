@@ -78,6 +78,44 @@
 
         }; /// this.init
 
+        this.cityRecalc = function () {
+
+            sl.getRates();
+            var dataCity = siteLib.city.name;
+            if (dataCity != 'Самара') {
+                console.log("not samara+" + dataCity);
+                $('.order__payment .order__options .radio:nth-child(1)').hide();
+                $('.order__delivery .order__options .radio:nth-child(1)').hide();
+                $('.order__delivery .order__options .radio:nth-child(2)').hide();
+                //   $('.contacts--samara').hide();
+                //   $('.contacts--other').show();
+                //   $('.address--samara').hide();
+                //   $('.address--other').show();
+            } else {
+                //console.log("samara" + dataCity);
+                if ($('.order__payment .order__options .radio:nth-child(1)')) {
+                    var hiddenStyle = $('.order__payment .order__options .radio:nth-child(1)').attr('style') || 'empty';
+                    if (hiddenStyle.indexOf('display: none;') > -1) {
+                        $('.order__payment .order__options .radio:nth-child(1)').attr('style', '');
+                        $('.order__delivery .order__options .radio:nth-child(1)').attr('style', '');
+                    }
+                }
+                $('.order__delivery .order__options .radio:nth-child(3)').hide();
+                //   $('.contacts--samara').show();
+                //   $('.contacts--other').hide();
+                //   $('.address--samara').show();
+                //   $('.address--other').hide();
+            }
+            if ($('#cartAddress')) {
+                $('#cartAddress').attr('value', dataCity);
+            }
+
+            //location.reload();
+
+        }
+
+
+
         this.writeCity = function (city) {
             $cityName = $("a[data-target='city-select']");
 
@@ -88,30 +126,30 @@
             var serialCity = JSON.stringify(city);
             localStorage.setItem("city", serialCity);
 
-
+            console.log("Wrighted: " + sl.city.name);
+            sl.cityRecalc();
         }
 
         this.readCity = function () {
-            $cityName = $("a[data-target='city-select']");
+            $cityNameField = $("a[data-target='city-select']");
 
             var returnCity = JSON.parse(localStorage.getItem("city"));
             sl.city = returnCity;
 
-            $cityName.html(sl.city.name);
+            $cityNameField.html(sl.city.name);
 
-            console.log(sl.city.name);
+            //console.log(sl.city.name);
 
             $.post(document.location.href, {
                 action: 'setSessionCity',
                 city: localStorage.getItem("city")
             }, function (data) {
-                console.log("Local storage " + data + " " + sl.city.name);
+                console.log("Local: " + data + ": " + sl.city.name);
+                sl.cityRecalc();
             });
         }
 
         this.getCity = function () {
-
-            //localStorage.clear();
 
             var city = localStorage.getItem("city");
 
@@ -123,7 +161,6 @@
                 }, function (data) {
 
                     city = JSON.parse(data);
-
                     sl.writeCity(city);
 
                 });
@@ -135,11 +172,33 @@
             }
         }
 
+        this.chooseCity = function (name) {
+            var action = 'chooseCity';
+
+            $.post(document.location.href, {
+                action: action,
+                city_name: name
+            }, function (data) {
+
+                var obj = JSON.parse(data);
+
+                var strnum = obj.name.indexOf(" г");
+
+                if (strnum > 0) {
+                    obj.name = obj.name.substring(0, strnum);
+                }
+
+
+                siteLib.writeCity(obj);
+            });
+        }
+
 
         this.getRates = function () {
             $('#getRatesResult').html('<div class="ajax-loader">Расчитываю...</div>');
 
             var action = 'getDeliveryRates';
+
 
             $.post(document.location.href, {
                 actionz: action
@@ -341,59 +400,10 @@
         //////////////////////////////////////////////////////
         $("#chooseCityButton").click(function () {
 
-            var action = 'chooseCity';
-            var id = $("#city-select-form").val();
             var name = $("#city-select-form option:selected").text();
-
-            $.post(document.location.href, {
-                action: action,
-                city_id: id,
-                city_name: name
-            }, function (data) {
-
-                console.log(data);
-                siteLib.writeCity(data);
-
-                //cartCity();
-                siteLib.getRates();
-                //location.reload();
-            });
+            siteLib.chooseCity(name);
             return false;
         });
-
-
-        function cartCity() {
-            var dataCity = $("a[data-target='city-select']").text();
-            if (dataCity != ' Самара ') {
-                console.log("not samara+" + dataCity);
-                $('.order__payment .order__options .radio:nth-child(1)').hide();
-                $('.order__delivery .order__options .radio:nth-child(1)').hide();
-                $('.order__delivery .order__options .radio:nth-child(2)').hide();
-                //   $('.contacts--samara').hide();
-                //   $('.contacts--other').show();
-                //   $('.address--samara').hide();
-                //   $('.address--other').show();
-            } else {
-                console.log("samara" + dataCity);
-                if ($('.order__payment .order__options .radio:nth-child(1)')) {
-                    var hiddenStyle = $('.order__payment .order__options .radio:nth-child(1)').attr('style') || 'empty';
-                    if (hiddenStyle.indexOf('display: none;') > -1) {
-                        $('.order__payment .order__options .radio:nth-child(1)').attr('style', '');
-                        $('.order__delivery .order__options .radio:nth-child(1)').attr('style', '');
-                    }
-                }
-                $('.order__delivery .order__options .radio:nth-child(3)').hide();
-                //   $('.contacts--samara').show();
-                //   $('.contacts--other').hide();
-                //   $('.address--samara').show();
-                //   $('.address--other').hide();
-            }
-            if ($('#cartAddress')) {
-                $('#cartAddress').attr('value', dataCity);
-            }
-
-        }
-
 
 
         var isCash = $("input[value='cash']").attr('checked');
@@ -416,6 +426,25 @@
             nav: true,
             dots: true,
             items: 1
+        });
+
+        $("#owl-slider-production").owlCarousel({
+            autoplay: 5000,
+            loop: true,
+            nav: false,
+            dots: true,
+            margin: 10,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                600: {
+                    items: 3
+                },
+                1000: {
+                    items: 4
+                }
+            }
         });
 
     });
