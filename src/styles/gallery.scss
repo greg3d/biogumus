@@ -1,29 +1,43 @@
 .article__img {
-
-    background-color: #ffffff;
+  background-color: #ffffff;
 }
 
 .article__img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    max-height: 290px;
-    vertical-align: middle;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  max-height: 290px;
+  vertical-align: middle;
 }
 
 .article__info {
-    background-color: #5f8647;
-    padding: 20px 15px;
-    box-sizing: border-box;
+  background-color: #5f8647;
+  padding: 20px 15px;
+  box-sizing: border-box;
+}
+
+.article__info h4 {
+  color: wheat;
+  text-shadow: 1px 1px 0 rgba(0,0,0,0.5);
 }
 
 .article__info p {
-    color: #fff;
+  color: #ffffff;
 }
 
 
-.article__info a {
-    color: #fff;
-    text-decoration: underline;
-    font-weight: bold;
+.article__row {
+  border-bottom: 3px solid #83c55a;
+}
+.article__row:first-child {
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+}
+
+
+.article__row:last-child {
+  border-radius: 0 0 5px 5px;
+  border-top: 0;
+  border-bottom: 0;
+  overflow: hidden;
 }
