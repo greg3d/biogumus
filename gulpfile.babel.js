@@ -199,7 +199,7 @@ export const styles = () => gulp.src(paths.styles.src)
 	.pipe(gulpif(production, autoprefixer(autoprefixierOpts)))
 	.pipe(gulpif(production, mincss(mincssOpts)))
 	.pipe(gulpif(production, rename({
-		suffix: ".min"
+		suffix: "3.min"
 	})))
 	.pipe(plumber.stop())
 	.pipe(gulpif(!production, sourcemaps.write("./maps/")))
@@ -209,7 +209,7 @@ export const styles = () => gulp.src(paths.styles.src)
 	}));
 
 export const libsjs = () => gulp.src(jsLibsList)
-	.pipe(concat('vendor.js'))
+	.pipe(concat('vendor.min.js'))
 	.pipe(gulp.dest(paths.scripts.dist))
 	.pipe(debug({
 		"title": "JS LIBS"
@@ -246,7 +246,7 @@ export const scripts = () => gulp.src(paths.scripts.src)
 	.pipe(plumber())
 	//.pipe(webpackStream(webpackConfig), webpack)
 	.pipe(gulpif(production, rename({
-		suffix: ".min"
+		suffix: "3.min"
 	})))
 	.pipe(gulp.dest(paths.scripts.dist))
 	.pipe(debug({

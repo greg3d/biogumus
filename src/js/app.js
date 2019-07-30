@@ -504,7 +504,7 @@
         }
     });
 
-
+    ////////////////////////// menu top
 
     $(".navbar-burger").click(function () {
 
@@ -512,6 +512,13 @@
         $(".navbar-burger").toggleClass("is-active");
         $(".navbar-menu").toggleClass("is-active");
 
+    });
+
+    var $hoverableLink = $('.navbar-item.has-dropdown');
+    $hoverableLink.hover(function(){
+        $(this).addClass('is-active');
+    },function(){
+        $(this).removeClass('is-active');
     });
 
     var w = $(window).width();

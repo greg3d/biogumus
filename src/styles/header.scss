@@ -29,8 +29,8 @@
   p {
     margin-bottom: 0;
     color: #ffffff;
-    font-size: 50px;
-    line-height: 50px;
+    font-size: 40px;
+    line-height: 40px;
     font-weight: $weight-bold;
     margin-left: -3px;
     margin-bottom: 10px;
@@ -42,7 +42,7 @@
     }
   }
 
-  p+p {
+  p + p {
     color: #ffffff;
     font-size: 16.4px;
     line-height: 0;
@@ -51,7 +51,7 @@
     text-shadow: none;
   }
 
-  p+p+p {
+  p + p + p {
     color: #ffffff;
     font-size: 12px;
     font-weight: $weight-normal;
@@ -82,7 +82,6 @@
 
 .header__payment-icons img {
   border-radius: 5px;
-
 }
 
 .yandex-money-logo {
@@ -94,6 +93,8 @@
   height: 28px;
   background-color: white;
   border-radius: 4px;
+  display: inline-block;
+  line-height: 45px;
 }
 
 .header__phones {
@@ -128,18 +129,24 @@
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
   }
 
+  .header__phones_email {
+    display: block;
+    font-size: 1rem;
+    a {
+      border-bottom: 1px dotted black;
+    }
+  }
+
   .header__phones_phone_p a {
     color: black;
     font-weight: 700;
   }
 
-  .header__phones p a span,
-  .header__count p a span {
+  .header__phones p a span, .header__count p a span {
     font-weight: 700;
   }
 
-  .header__phones p+p,
-  .header__count p+p {
+  .header__phones p + p, .header__count p + p {
     margin: 0;
   }
 }
@@ -196,12 +203,15 @@
 
 .counter_block {
   background: $transparent-background;
-  padding: 10px 30px;
+  padding: 10px 20px;
   border-radius: $radius-xxlarge;
   margin-bottom: 22px;
+  background: rgba(5,40,5,0.5);
 
   img {
     margin-right: 7px;
+    width: 18px;
+    margin-top: 5px;
   }
 
   .counter_text {
@@ -220,17 +230,17 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
     border-radius: 2px;
     background-color: #ffffff;
-    height: 30px;
+    height: 27px;
     display: inline-block;
     text-align: center;
-    width: 22px;
+    width: 16px;
     margin-bottom: 0;
   }
 
   .number_fon span {
     color: #db5242;
     font-family: Ubuntu;
-    font-size: 27px;
+    font-size: 1.2rem;
     font-weight: 700;
     line-height: 29px;
   }
@@ -270,13 +280,20 @@
       text-shadow: none;
     }
 
-    .has-dropdown a {
+    .has-dropdown.is-active > a {
       border-radius: $radius-xlarge $radius-xlarge 0 0;
     }
   }
 
   .navbar-menu.is-active {
     background: none;
+    .has-dropdown .navbar-dropdown {
+      display: none;
+    }
+
+    .has-dropdown.is-active .navbar-dropdown {
+      display: block;
+    }
   }
 }
 
