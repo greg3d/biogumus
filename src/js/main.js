@@ -1,2 +1,2 @@
 //= "./app.js"
-//= "./stick.js"
+//= "./map.js"

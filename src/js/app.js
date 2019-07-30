@@ -515,9 +515,9 @@
     });
 
     var $hoverableLink = $('.navbar-item.has-dropdown');
-    $hoverableLink.hover(function(){
+    $hoverableLink.hover(function () {
         $(this).addClass('is-active');
-    },function(){
+    }, function () {
         $(this).removeClass('is-active');
     });
 
@@ -568,8 +568,13 @@
         // Subscribe to the desired event
         manager.on('tap', function (e) {
 
-            $(".pre_korzina").toggleClass('collapsed');
+            $(".pre_korzina").removeClass('collapsed');
         });
+
+        $('#CollapseShopCartButton').click(function () {
+            $(".pre_korzina").addClass('collapsed');
+        });
+
     }
 
 

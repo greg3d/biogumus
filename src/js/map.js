@@ -8,7 +8,6 @@
 			city[i] = $(this).html();
 		});
 
-
 		ymaps.ready(init);
 
 		function init() {
@@ -49,22 +48,22 @@
 
 
 
-				// ������� �� �����
+				// 
 				$('ul.cities>li').click(function () {
 
-					// ������� ������� ���� ��� ��������
+					// 
 					console.log(selectedTable.html());
 					selectedTable.html(' ');
 					console.log(selectedTable.html());
 
-					// ������� ����� �������
+					// 
 					myMap.geoObjects.removeAll();
 
-					// ��������� �����
+					// 
 					$('ul.cities>li').removeClass('active');
 					$(this).addClass('active');
 
-					// ��� ������
+					// 
 					var cityName = $(this).html();
 					/*tehotdel spektor*/
 					if (cityName == 'Москва') {
@@ -72,14 +71,14 @@
 					}
 					goroda.removeFromMap(myMap);
 
-					// ��������� ������ � ������
+					// 
 					var c = $(this).html();
 					var gc = ymaps.geocode(c, {
 						results: 1,
 						kind: 'locality'
 					});
 					gc.then(function (res) {
-						// �������� ��������� � ������������ ����� � ������
+						// 
 						var coords = res.geoObjects.get(0).geometry.getCoordinates();
 						var bounds = res.geoObjects.get(0).properties.get('boundedBy');
 						myMap.setBounds(bounds, {
