@@ -1,0 +1,81 @@
+
+.contacts {
+  display: flex;
+  transition: 0.3s all ease;
+}
+
+.contacts__info {
+  flex: 1 0 auto;
+  margin-right: 10px;
+}
+
+.contacts__map {
+  flex: 1 auto;
+}
+
+.content .cities {
+  list-style: none;
+  width: 100%;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  margin-top: 30px;
+
+  li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border-bottom: 1px dashed black;
+    transition: 300ms;
+  }
+
+  li.active, li:hover, li:focus {
+    cursor: default;
+    border-bottom: 1px dashed #1e98ff;
+    color: #1e98ff;
+  }
+}
+
+
+#selectedTable {
+  width: 100%;
+  background: #ffeeee;
+  padding: 10px;
+  margin-top: 10px;
+  -webkit-border-radius: 5px;
+          border-radius: 5px;
+}
+
+#selectedTable tr.listed {
+  font-size: 12px;
+}
+
+#selectedTable tr.listed > td {
+  font-size: 12px;
+  padding: 5px;
+}
+
+#selectedTable tr.listed:nth-child(2n) {
+  background-color: #ffffff;
+}
+
+#selectedTable tr.listed:hover {
+  font-size: 12px;
+  background-color: #999999;
+  color: #eeeeee;
+  cursor: pointer;
+}
+
+#fullList {
+  display: none;
+}
+
+.consult-form h4 {
+  font-size: 24px;
+  font-weight: 500;
+}

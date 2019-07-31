@@ -4,11 +4,15 @@
 
 		var city = new Array();
 		$('.cities li').each(function (i) {
-			console.log($(this).html());
+			//console.log($(this).html());
 			city[i] = $(this).html();
 		});
 
-		ymaps.ready(init);
+		var ulcities = document.querySelector("ul.cities");
+		if (!(ulcities === null)) {
+			ymaps.ready(init);
+		}
+		
 
 		function init() {
 
@@ -52,9 +56,9 @@
 				$('ul.cities>li').click(function () {
 
 					// 
-					console.log(selectedTable.html());
+					//console.log(selectedTable.html());
 					selectedTable.html(' ');
-					console.log(selectedTable.html());
+					//console.log(selectedTable.html());
 
 					// 
 					myMap.geoObjects.removeAll();
