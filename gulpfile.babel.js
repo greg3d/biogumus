@@ -288,8 +288,7 @@ export const prod = gulp.series(
 	images,
 	libsjs,
 	scripts,
-	views,
-	upload
+	views
 );
 
 export const prd = gulp.series(

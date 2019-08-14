@@ -259,6 +259,18 @@
   .navbar-burger {
     background: #ffffff;
     border-radius: $radius-large;
+    width: 120px;
+
+    div {
+      position: absolute;
+      top: calc(50% - 12px);
+      left: 16px;
+      font-weight: bold;
+    }
+
+    span {
+      left: calc(75% - 8px);
+    }
   }
 
   .navbar-menu {

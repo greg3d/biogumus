@@ -42,7 +42,8 @@
                 .slick({
                     dots: true,
                     arrows: true,
-                    infinite: false,
+                    infinite: true,
+                    autoplay: true,
                     speed: 500,
                     slidesToShow: 1,
                     slidesToScroll: 1
@@ -52,7 +53,8 @@
                 .slick({
                     slide: '.product-list-item-image',
                     dots: true,
-                    infinite: false,
+                    infinite: true,
+                    autoplay: true,
                     speed: 300,
                     slidesToShow: 3,
                     slidesToScroll: 3,
@@ -338,6 +340,30 @@
             event.stopPropagation();
 
         });
+
+
+        // tabs 
+        var rootEl = document.documentElement;
+        var $tabLinks = $('.tabs li a');
+
+        if ($tabLinks.length > 0) {
+            $tabLinks.each(function (index, el) {
+                $(el).click(function () {
+                    $('.tabs li').removeClass('is-active');
+                    $(el.parentNode).addClass('is-active');
+                    
+                    var target = el.dataset.target;
+                    showTab('#' + target);
+                });
+            });
+        }
+
+        function showTab(target) {
+            $('.tab').removeClass('is-active');
+            $(target).addClass('is-active');
+        }
+
+
         ///////////////////////////////////////////////////////////////////
         // MODALS
         var rootEl = document.documentElement;
@@ -419,7 +445,7 @@
         });
 
         $(".main-carousel").owlCarousel({
-            //autoplay: 5000,
+            autoplay: 3000,
             smartSpeed: 1000,
             margin: 10,
             loop: true,
@@ -429,7 +455,7 @@
         });
 
         $("#owl-slider-production").owlCarousel({
-            autoplay: 5000,
+            autoplay: 3000,
             loop: true,
             nav: false,
             dots: true,
