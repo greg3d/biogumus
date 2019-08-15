@@ -351,7 +351,7 @@
                 $(el).click(function () {
                     $('.tabs li').removeClass('is-active');
                     $(el.parentNode).addClass('is-active');
-                    
+
                     var target = el.dataset.target;
                     showTab('#' + target);
                 });
@@ -402,6 +402,93 @@
                     action: action
                 }, function (data) {
                     $('#myModalCitySelect').html(data);
+
+                    // Code goes here
+
+
+                    $("#city-select-form").addClass('hide');
+
+                    //var name = $("#city-select-form option:selected").text();
+                    //    siteLib.chooseCity(name);
+                    //  return false;
+
+                    var $options = $("#city-select-form option");
+                    var $box = $("#city-select-form2");
+
+                    var objects = [];
+
+                    $options.each(function (i, element) {
+
+
+                        var obj = {};
+
+                        var text = $(element).text();
+
+                        var st = text.indexOf('(', 0);
+                        var en = text.indexOf(')', 0);
+
+                        if (st >= 0) {
+                            obj.name = text.slice(0, st - 3);
+                            obj.obl = text.slice(st + 1, en);
+                        } else {
+                            obj.name = text;
+                            obj.obl = "#";
+                        }
+
+
+                        objects.push(obj);
+
+                        //$box.append('<a class="link">' + obj.name + '---' + obj.obl + '</a>');
+                    });
+
+
+                    function compareValues(key, order = 'asc') {
+                        return function (a, b) {
+                            if (!a.hasOwnProperty(key) || !b.hasOwnProperty(key)) {
+                                // свойства нет ни в одном из объектов
+                                return 0;
+                            }
+
+                            const varA = (typeof a[key] === 'string') ?
+                                a[key].toUpperCase() : a[key];
+                            const varB = (typeof b[key] === 'string') ?
+                                b[key].toUpperCase() : b[key];
+
+                            let comparison = 0;
+                            if (varA > varB) {
+                                comparison = 1;
+                            } else if (varA < varB) {
+                                comparison = -1;
+                            }
+                            return (
+                                (order == 'desc') ? (comparison * -1) : comparison
+                            );
+                        };
+                    }
+
+                    objects.sort(compareValues('obl'));
+
+                    var pred = '';
+
+                    objects.forEach(function (obj) {
+                        if (!(obj.obl == pred)) {
+                            $box.append('<p class="heading">' + obj.obl + '</p>');
+                        }
+                        $box.append('<a class="link">' + obj.name + '</a>');
+
+                        pred = obj.obl;
+                    });
+
+                    /* returns [ 
+                    { genre: 'Pop', band: 'Coldplay', albums: 4 }, 
+                    { genre: 'Rap', band: 'Migos', albums: 2 }, 
+                    { genre: 'Rock', band: 'Breaking Benjamins', albums: 1 } 
+                    ] */
+
+
+
+
+
                 });
 
                 return false;

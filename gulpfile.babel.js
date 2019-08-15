@@ -17,6 +17,8 @@ import sourcemaps from "gulp-sourcemaps";
 import rename from "gulp-rename";
 import fileinclude from 'gulp-file-include';
 import sftp from "gulp-sftp-up4";
+const ftp = require('gulp-deploy-ftp');
+
 // import svg from "gulp-svg-sprite";
 // import imagemin from "gulp-imagemin";
 // import imageminPngquant from "imagemin-pngquant";
@@ -141,7 +143,7 @@ export const cleanFiles = () => gulp.src("./dist/*", {
 var imageFiles = [paths.images.src];
 var fontFiles = [paths.fonts.src];
 
-var v = "_v8";
+var v = "_v9";
 
 export const libscss = () => gulp.src(paths.libscss.src)
 	.pipe(gulpif(!production, sourcemaps.init()))
@@ -262,6 +264,7 @@ export const upload = (cb) => {
 		'./dist/assets/js**/*.*'
 	]).pipe(sftp({
 		host: '178.79.159.181',
+		port: 22,
 		user: 'biogumus',
 		pass: 'DzJSh0mcZMPe',
 		remotePath: 'www/assets/'
@@ -290,7 +293,8 @@ export const prod = gulp.series(
 	images,
 	libsjs,
 	scripts,
-	views
+	views,
+	upload
 );
 
 export const prd = gulp.series(
@@ -298,7 +302,7 @@ export const prd = gulp.series(
 	styles,
 	//images,
 	scripts,
-	upload
+	//upload
 );
 
 export default development;
