@@ -141,6 +141,8 @@ export const cleanFiles = () => gulp.src("./dist/*", {
 var imageFiles = [paths.images.src];
 var fontFiles = [paths.fonts.src];
 
+var v = "_v8";
+
 export const libscss = () => gulp.src(paths.libscss.src)
 	.pipe(gulpif(!production, sourcemaps.init()))
 	.pipe(plumber())
@@ -199,7 +201,7 @@ export const styles = () => gulp.src(paths.styles.src)
 	.pipe(gulpif(production, autoprefixer(autoprefixierOpts)))
 	.pipe(gulpif(production, mincss(mincssOpts)))
 	.pipe(gulpif(production, rename({
-		suffix: "3.min"
+		suffix: v+".min"
 	})))
 	.pipe(plumber.stop())
 	.pipe(gulpif(!production, sourcemaps.write("./maps/")))
@@ -246,7 +248,7 @@ export const scripts = () => gulp.src(paths.scripts.src)
 	.pipe(plumber())
 	//.pipe(webpackStream(webpackConfig), webpack)
 	.pipe(gulpif(production, rename({
-		suffix: "3.min"
+		suffix: v+".min"
 	})))
 	.pipe(gulp.dest(paths.scripts.dist))
 	.pipe(debug({
