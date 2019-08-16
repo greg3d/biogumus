@@ -1,11 +1,44 @@
+
+
+
+
 .order__options {
+  display: flex;
+  //margin: auto;
+  flex-wrap: wrap;
+  flex-direction: column;
+
+  .radio + .radio {
+    margin: unset;
+  }
   .radio {
-    /*flex: 1 80px;*/
-    margin: 0;
-    position: relative;
-    display: block;
-    margin-bottom: 5px;
-    height: 60px;
+    display: flex;
+    flex: 0 1 68px;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: center;
+
+    .country_delivery {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 10px;;
+
+      .country_delivery__item {
+        border: 2px solid #cccccc;
+        overflow: hidden;
+        border-radius: 6px;
+        margin-right: 5px;
+
+        img {
+          height: 55px;
+        }
+      }
+      .country_delivery__item.active {
+        border: 2px solid red;
+      }
+    }
 
     .order__icon {
       width: 75px;
@@ -15,7 +48,6 @@
       background-color: #ffffff;
       position: relative;
       transition: 0.3s all ease;
-      float: left;
     }
 
     .order__icon::after {
@@ -35,21 +67,27 @@
       display: none;
     }
 
+
     .label {
-      transform: translateY(100%);
-      padding-left: 80px;
+      //transform: translateY(100%);
+      //padding-left: 80px;
+      margin-left: 5px;
     }
 
     label {
-      display: block;
-      width: 70px;
-      height: 100%;
-      padding: 0;
-      margin: 0;
+      margin: auto 5px;
     }
   }
 }
 
+
+.order__payment {
+  .order__options {
+    .radio {
+      flex-flow: row nowrap;
+    }
+  }
+}
 
 
 
@@ -118,26 +156,11 @@
   background-image: url(/assets/images/icons/truck-white.svg);
 }
 
-.order__payment .order__options .radio:nth-child(1)::before {
-  content: '';
-  position: absolute;
-  top: 173%;
-  left: 0;
-  display: none;
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 0 20px 20px 20px;
-  border-color: transparent transparent #ffffff transparent;
-  z-index: 1;
-  transition: 0.6s all ease;
-}
-
 .order__payment .order__options .radio:nth-child(1)::after {
   content: 'Оплата наличными при доставке или самовывозе. Доступно только в Самаре и области';
   position: absolute;
-  top: 191%;
-  left: 0;
+  bottom: -40px;
+  left: 38px;
   display: none;
   width: 210px;
   padding: 10px;
@@ -146,42 +169,20 @@
   font-size: 12px;
   color: #3b312d;
   z-index: 2;
-  box-shadow: 0 7px 10px 0 rgba(128, 113, 105, 0.3);
+  box-shadow: 0 7px 10px 0 rgba(128,113,105,0.3);
   transition: 0.6s all ease;
-}
-
-.order__payment .order__options .radio:nth-child(1):hover::before, .order__payment .order__options .radio:nth-child(1):focus::before {
-  display: block;
-  top: 73%;
+  border-radius: 6px;
 }
 
 .order__payment .order__options .radio:nth-child(1):hover::after, .order__payment .order__options .radio:nth-child(1):focus::after {
   display: block;
-  top: 91%;
-}
-
-.order__payment .order__options .radio:nth-child(2)::before {
-  content: '';
-  position: absolute;
-  top: 173%;
-  left: 50%;
-  transform: translateX(-50%);
-  display: none;
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 0 20px 20px 20px;
-  border-color: transparent transparent #ffffff transparent;
-  z-index: 1;
-  transition: 0.6s all ease;
 }
 
 .order__payment .order__options .radio:nth-child(2)::after {
   content: 'Оплата на расчетный счёт. После оформления заказа Вам будет направлен счёт для оплаты в банке или с Вашего расчетного счета';
   position: absolute;
-  top: 191%;
-  left: 50%;
-  transform: translateX(-50%);
+  bottom: -40px;
+  left: 38px;
   display: none;
   width: 210px;
   padding: 10px;
@@ -190,40 +191,20 @@
   font-size: 12px;
   color: #3b312d;
   z-index: 2;
-  box-shadow: 0 7px 10px 0 rgba(128, 113, 105, 0.3);
+  box-shadow: 0 7px 10px 0 rgba(128,113,105,0.3);
   transition: 0.6s all ease;
-}
-
-.order__payment .order__options .radio:nth-child(2):hover::before, .order__payment .order__options .radio:nth-child(2):focus::before {
-  display: block;
-  top: 73%;
+  border-radius: 6px;
 }
 
 .order__payment .order__options .radio:nth-child(2):hover::after, .order__payment .order__options .radio:nth-child(2):focus::after {
   display: block;
-  top: 91%;
-}
-
-.order__payment .order__options .radio:nth-child(3)::before {
-  content: '';
-  position: absolute;
-  top: 173%;
-  right: 0;
-  display: none;
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 0 20px 20px 20px;
-  border-color: transparent transparent #ffffff transparent;
-  z-index: 1;
-  transition: 0.6s all ease;
 }
 
 .order__payment .order__options .radio:nth-child(3)::after {
   content: 'Оплата банковской картой. После оформления заказа Вы будете перенаправлены на страницу оплаты заказа';
   position: absolute;
-  top: 191%;
-  right: 0;
+  bottom: -40px;
+  left: 38px;
   display: none;
   width: 210px;
   padding: 10px;
@@ -232,18 +213,13 @@
   font-size: 12px;
   color: #3b312d;
   z-index: 2;
-  box-shadow: 0 7px 10px 0 rgba(128, 113, 105, 0.3);
+  box-shadow: 0 7px 10px 0 rgba(128,113,105,0.3);
   transition: 0.6s all ease;
-}
-
-.order__payment .order__options .radio:nth-child(3):hover::before, .order__payment .order__options .radio:nth-child(3):focus::before {
-  display: block;
-  top: 73%;
+  border-radius: 6px;
 }
 
 .order__payment .order__options .radio:nth-child(3):hover::after, .order__payment .order__options .radio:nth-child(3):focus::after {
   display: block;
-  top: 91%;
 }
 
 .order__options .radio p {
@@ -252,10 +228,6 @@
   font-size: 12px;
   line-height: 18px;
   font-weight: 400;
-}
-
-.order__info {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  width: 100%;
+  margin: 5px 0 0;
 }

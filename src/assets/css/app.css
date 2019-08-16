@@ -742,9 +742,6 @@ footer {
   font-size: 2.0rem;
 }
 
-.korzina .pull-right {
-}
-
 .novinka {
   position: absolute;
   top: 18px;
@@ -1256,10 +1253,6 @@ h4, .h4 {
   font-size: 12px;
   font-weight: 700;
   color: #62ba30;
-}
-
-.cartsmall-discount {
-  /*    margin-bottom: 15px;*/
 }
 
 .shopCartSmall__order {
@@ -2091,16 +2084,6 @@ h4, .h4 {
   animation-name: fadeIn;
 }
 
-@-webkit-keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -2140,12 +2123,6 @@ h4, .h4 {
 
 #tab1:checked ~ #content-tab1, #tab2:checked ~ #content-tab2, #tab3:checked ~ #content-tab3, #tab4:checked ~ #content-tab4 {
   display: block;
-}
-
-.product__desc {
-}
-
-.product__parameters {
 }
 
 .panel-heading .total__clear {
@@ -2603,9 +2580,6 @@ h4, .h4 {
   flex-wrap: wrap;
 }
 
-.order__info > div {
-  /*flex: 1 auto;*/
-}
 
 .order__submit .btn {
   margin-right: 20px;
@@ -3088,10 +3062,6 @@ h4, .h4 {
   /*text-decoration: underline;*/
 }
 
-.country_delivery {
-  /*display: flex;*/
-}
-
 .country_delivery__item {
   display: inline-block;
   cursor: pointer;
@@ -3355,9 +3325,6 @@ h4, .h4 {
     flex: 1 1 25%;
   }
 
-  .header__menu ul li {
-    /* flex-basis: 20%; */
-  }
 
   .btn {
     font-size: 14px;

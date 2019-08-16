@@ -192,7 +192,12 @@
 
 
                 siteLib.writeCity(obj);
+
+                location.reload();
+
             });
+
+            
         }
 
 
@@ -404,7 +409,7 @@
                     $('#myModalCitySelect').html(data);
 
                     // Code goes here
-
+                    /*
 
                     $("#city-select-form").addClass('hide');
 
@@ -479,12 +484,7 @@
                         pred = obj.obl;
                     });
 
-                    /* returns [ 
-                    { genre: 'Pop', band: 'Coldplay', albums: 4 }, 
-                    { genre: 'Rap', band: 'Migos', albums: 2 }, 
-                    { genre: 'Rock', band: 'Breaking Benjamins', albums: 1 } 
-                    ] */
-
+                    */
 
 
 
