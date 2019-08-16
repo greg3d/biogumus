@@ -197,7 +197,7 @@
 
             });
 
-            
+
         }
 
 
@@ -409,7 +409,7 @@
                     $('#myModalCitySelect').html(data);
 
                     // Code goes here
-                    /*
+
 
                     $("#city-select-form").addClass('hide');
 
@@ -475,18 +475,24 @@
 
                     var pred = '';
 
-                    objects.forEach(function (obj) {
+                    var $item;
+                    objects.forEach(function (obj, i) {
+
+                        
+
+
                         if (!(obj.obl == pred)) {
-                            $box.append('<p class="heading">' + obj.obl + '</p>');
+                            $item = $box.append('<div class="item"></div>');
+
+                            $item.append('<p class="heading">' + obj.obl + '</p>');
+
                         }
-                        $box.append('<a class="link">' + obj.name + '</a>');
+                        $item.append('<a class="link">' + obj.name + '</a>');
 
                         pred = obj.obl;
                     });
 
-                    */
-
-
+                   
 
 
                 });

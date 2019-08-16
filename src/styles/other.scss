@@ -232,3 +232,20 @@
 .owl-theme .owl-nav {
   margin-top: 0;
 }
+
+
+#city-select-form2 {
+  .item {
+    padding: 0;
+
+    .heading {
+      margin-top: 15px;
+      margin-bottom: 0;
+    }
+
+    .link {
+      display: inline-block;
+      border-bottom: 1px dashed;
+    }
+  }
+}
