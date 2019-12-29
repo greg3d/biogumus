@@ -143,7 +143,7 @@ export const cleanFiles = () => gulp.src("./dist/*", {
 var imageFiles = [paths.images.src];
 var fontFiles = [paths.fonts.src];
 
-var v = "_v10";
+var v = "_v2020";
 
 export const libscss = () => gulp.src(paths.libscss.src)
 	.pipe(gulpif(!production, sourcemaps.init()))
