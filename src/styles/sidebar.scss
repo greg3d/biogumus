@@ -60,6 +60,23 @@
       right: 10px;
       border-color: #ffffff;
     }
+
+    li.first {
+
+
+          a.navbar-item {
+            font-size: 24px;
+            font-weight: 400;
+            padding: 17px 5px;
+            border-radius: 3px;
+            margin-bottom: 5px;
+            text-align: center;
+
+          }
+
+      
+      
+    }
   }
 }
 
@@ -120,4 +137,10 @@ aside {
 
 .product-list-item-image {
   flex-basis: 50%;
+}
+
+#zakaz {
+  .icon {
+    margin-right: 5px;
+  }
 }
