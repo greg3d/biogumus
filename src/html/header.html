@@ -37,101 +37,121 @@
 </head>
 
 <body>
+
+
     <section class="header">
         <div class="header__top">
             <div class="container">
                 <div class="level logo-container">
+
                     <!-- Left side -->
                     <div class="level-left">
                         <div class="level-item">
                             <div class="header__logo">
                                 <a href="/" tabindex="1">
                                     <p>Biogumus<span>.pro</span></p>
-                                    <p>интернет-магазин удобрений</p>
-                                    <p>Обработка заказов ежедневно <strong>с 9.00 до 21.00</strong></p>
+                                    <p class="is-hidden-mobile">интернет-магазин удобрений</p>
+                                    <p class="is-hidden-mobile">Обработка заказов ежедневно <strong>с 9.00 до
+                                            21.00</strong></p>
                                 </a>
                             </div>
                         </div>
-
                     </div>
 
+                    <!--center-->
                     <div class="level-item">
                         <div class="counter_block is-hidden-mobile">
                             <img src="/assets/images/counter_icon.png">
                             <span class="counter_text">сделано<br>заказов:</span>
                             <div class="counter_number">
-                                <p class="number_fon"><span>0</span></p>
                                 <p class="number_fon"><span>1</span></p>
-                                <p class="number_fon"><span>2</span></p>
-                                <p class="number_fon"><span>3</span></p>
+                                <p class="number_fon"><span>8</span></p>
+                                <p class="number_fon"><span>1</span></p>
+                                <p class="number_fon"><span>4</span></p>
                             </div>
                         </div>
                     </div>
-
 
                     <!-- Right side -->
                     <div class="level-right">
                         <div class="header__phones">
                             <p class="header__phones_phone_p">
-                                <a href="tel:+74957419668"><img class="phone_call_i"
-                                        src="/assets/images/icons/phone-call.png" alt="">
-                                    8 800 <span>550-09-34</span></a>
+                                <a href="tel:+78005500934">
+                                    <img class="phone_call_i" src="/assets/images/icons/phone-call.png" alt="">
+                                    8 800 550-09-34
+                                </a>
+                                <span class="header__phones_email">
+                                    <i class="fas fa-envelope"></i>
+                                    <a href="mailto:bgumus@mail.ru">bgumus@mail.ru</a>
+                                </span>
                             </p>
-                            <p class='free_call_p'>Звонок по России <strong>бесплатный</strong>!</p>
+                            <p class="free_call_p is-hidden-mobile">Звонок по России <strong>бесплатный</strong>!</p>
                         </div>
                     </div>
                 </div>
-                <div class="level">
+                <!--level end-->
+
+                <!--level-->
+                <div class="level is-mobile">
                     <div class="level-left">
-                        <div class="level-item is-hidden-touch is-hidden-desktop-only header__payment-icons">
-                            <i class="fab fa-cc-visa fa-2x"></i>&nbsp;
-                            <i class="fab fa-cc-mastercard fa-2x"></i>&nbsp;
-                            <span class="yandex-money-logo"> </span>
-                        </div>
                         <div class="level-item lower">
-                            <nav class="navbar header__submenu" role="navigation" aria-label="dropdown navigation">
+                            <nav class="navbar header__submenu" role="navigation" aria-label="main navigation">
+
                                 <div class="navbar-brand">
                                     <a role="button" class="navbar-burger burger" aria-label="menu"
                                         aria-expanded="false" data-target="navbarBasicExample">
+
                                         <span aria-hidden="true"></span>
                                         <span aria-hidden="true"></span>
                                         <span aria-hidden="true"></span>
+                                        <!--div class="text is-hidden-mobile">Меню</div-->
                                     </a>
                                 </div>
 
-                                <div id="navbarBasicExample" class="navbar-menu">
-                                    <div class="navbar-item has-dropdown is-hoverable first">
-                                        <a href="/" class="navbar-link">О биогумусе</a>
+                                <div class="navbar-menu">
+                                    <div class="navbar-item has-dropdown first active"><a href="/catalog/"
+                                            class="navbar-link">Каталог</a>
                                         <div class="navbar-dropdown">
-                                            <div class="navbar-item has-dropdown is-hoverable">
-                                                <a class="navbar-link" href="/index/proizvodstvo.html">Производство</a>
-                                                <div class="navbar-dropdown">
-                                                    <a class="navbar-item" href="/index/instructions/">Инструкции123</a>
-                                                    <a class="navbar-item" href="/index/press/">Статьи123</a>
-                                                    <a class="navbar-item" href="/index/applying/">Применение123</a>
-                                                    <a class="navbar-item" href="/index/fishing.html">Рыбакам123</a>
-                                                </div>
+                                            <div class="navbar-item has-dropdown first"><a href="/catalog/products/"
+                                                    class="navbar-link">Продукция</a>
+                                                <div class="navbar-dropdown"><a class="navbar-item"
+                                                        href="/catalog/products/biogumus1.html">Биогумус</a><a
+                                                        class="navbar-item"
+                                                        href="/catalog/products/zhidkyibiogumus.html">Жидкий
+                                                        биогумус</a><a class="navbar-item"
+                                                        href="/catalog/products/eco-grunt.html">Биогумус</a><a
+                                                        class="navbar-item"
+                                                        href="/catalog/products/gumat-kaliya.html">Гумат калия</a><a
+                                                        class="navbar-item" href="/catalog/products/chervi.html"
+                                                        samaraonly="">Черви</a></div>
                                             </div>
-                                            
-                                            <a class="navbar-item" href="/index/instructions/">Инструкции</a>
-                                            <a class="navbar-item" href="/index/press/">Статьи</a>
-                                            <a class="navbar-item" href="/index/applying/">Применение</a>
-                                            <a class="navbar-item" href="/index/fishing.html">Рыбакам</a>
+                                            <div class="navbar-item has-dropdown last active"><a href="/"
+                                                    class="navbar-link">Полезная информация</a>
+                                                <div class="navbar-dropdown"><a class="navbar-item"
+                                                        href="/catalog/index/why.html">Почему "Биогумус"?</a><a
+                                                        class="navbar-item"
+                                                        href="/catalog/index/proizvodstvo.html">Производство</a><a
+                                                        class="navbar-item"
+                                                        href="/catalog/index/sertificates.html">Сертификаты</a><a
+                                                        class="navbar-item"
+                                                        href="/catalog/index/instructions/">Инструкции</a><a
+                                                        class="navbar-item" href="/catalog/index/press/">Статьи</a><a
+                                                        class="navbar-item"
+                                                        href="/catalog/index/applying/">Применение</a></div>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="navbar-item has-dropdown is-hoverable "><a href="/onas.html"
-                                            class="navbar-link">О компании</a>
+                                    </div><a class="navbar-item" href="/information.html">Бесплатная доставка</a>
+                                    <div class="navbar-item has-dropdown last"><a href="/about.html"
+                                            class="navbar-link">Контакты</a>
                                         <div class="navbar-dropdown"><a class="navbar-item"
-                                                href="/onas/sertificates.html">Сертификаты</a><a class="navbar-item"
-                                                href="/onas/company.html">Реквизиты</a><a class="navbar-item"
-                                                href="/onas/oferta.html">Договор оферты</a><a class="navbar-item"
-                                                href="/onas/politika-konfidenczialnosti-i-obrabotka-dannyix.html">Политика
-                                                конфиденциальности и обработка данных</a></div>
-                                    </div><a class="navbar-item" href="/akcii.html">Акции</a><a class="navbar-item"
-                                        href="/information.html">Доставка</a><a class="navbar-item"
-                                        href="/partneri.html">Где купить?</a><a class="navbar-item"
-                                        href="/kontaktyi.html">Контакты</a>
+                                                href="/about/contacts.html">Контактные данные</a><a class="navbar-item"
+                                                href="/about/company.html">Реквизиты</a><a class="navbar-item"
+                                                href="/about/politika-konfidenczialnosti-i-obrabotka-dannyix.html">Политика
+                                                конфиденциальности и обработка данных</a><a class="navbar-item"
+                                                href="/about/oferta.html">Договор оферты</a></div>
+                                    </div>
                                 </div>
+
                             </nav>
                         </div>
                     </div>
@@ -139,36 +159,60 @@
                     <div class="level-right">
                         <div class="level-item">
                             <div class="header__city">
-                                <p>Ваш город: <a class="city__title modal-button" data-target="city-select"> Самара
-                                    </a><i class="fas fa-angle-down"></i></p>
+                                <p><span class="is-hidden-mobile">Город: </span><a class="city__title modal-button"
+                                        data-target="city-select">Самара</a> <i class="fas fa-angle-down"></i></p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <!--level-->
-
             </div>
         </div>
 
+        <!--bottom-header-->
         <div class="header__bottom">
             <div class="container">
-                <div class="columns">
-                    <div class="column">
-                        <div class="header__address box">
-                            <i class="fab fa-viber"></i>&nbsp;
-                            <i class="fab fa-whatsapp"></i>&nbsp;
-                            8&nbsp;800&nbsp;550-09-34 <br />
-                            <i class="fas fa-home"></i>&nbsp;г.&nbsp;Самара,&nbsp;ул.&nbsp;Авроры,&nbsp;д.&nbsp;68А
-                            &laquo;Мир&nbsp;рыбалки&raquo;
+                <div class="columns is-mobile">
+                    <div class="column is-hidden-mobile">
+
+
+                        <div class="header__payment-icons">
+                            <img src="/assets/images/icons/mc.png">&nbsp;
+                            <img src="/assets/images/icons/visa.png">&nbsp;
+                            <span class="yandex-money-logo"> </span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="column is-12-mobile is-narrow-desktop is-narrow-tablet">
+                        <div class="pre_korzina ontop collapsed"
+                            style="touch-action: manipulation; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+                            <div id="korzina" class="box">
+                                <div data-shopcart="1" class="shopCartSmall">
+                                    <div class="box-head level is-marginless is-mobile">
+                                        <div class="level-left">
+                                            <div class="level-item">
+                                                <h4>
+                                                    <i class="fas fa-shopping-cart"></i>&nbsp;Корзина пуста
+                                                </h4>
+                                            </div>
+                                        </div>
+                                        <div class="level-right">
+                                            <div class="level-item">
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="column is-4-desktop is-3-widescreen">
-                        @@include('./shopcart.html')
-                    </div>
+
                 </div>
             </div>
         </div>
-
 
     </section>
 

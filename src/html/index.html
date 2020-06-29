@@ -2,35 +2,46 @@
 <section class="section main">
     <div class="container">
         <div class="columns">
-            <div class="column is-12-mobile is-4-touch is-3-desktop is-one-fifth-fullhd">
+            <div class="column is-12-mobile is-4-touch is-3-desktop is-one-fifth-fullhd  is-hidden-mobile">
                 <!--левая колонка-->
                 @@include('./sidebar.html')
             </div>
             <div class="column content__main  is-12-mobile is-8-touch is-9-desktop is-four-fifths-fullhd ">
-                <div class="level">
-                    <div class="level-left">
-                        <div class="level-item">
-                            <nav class="breadcrumb has-succeeds-separator" aria-label="breadcrumbs">
-                                <ul>
-                                    <li><a href="#">Главная</a></li>
-                                    <li class="is-active"><a href="#" aria-current="page">Биогумус</a></li>
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-
                 @@include('./dostavka_red_action_mobile.html')
-
-                <div class="main-carousel owl-carousel owl-theme owl-loaded owl-drag">
+                <div class="main-carousel owl-carousel owl-theme is-hidden-mobile">
                     <div class="carousel-item">
                         <div class="item__desc">
-                            <h2>Покупайте</h2>
-                            <p class="item__text">рядом с домом</p>
-                            <p><a href="/partneri.html" class="btn btn--round btn--more">Подробнее</a></p>
+                            <h3 style="color: white; margin-bottom: 0; font-size: 23px; font-weight: normal;">
+                                Наши</h3>
+                            <h2 style="margin-top: 0; margin-bottom: 15px;">партнеры</h2>
+                            <p class="item__text">Сотрудничаем с розничными и оптовыми компаниями</p>
+                            <p><a href="/partners.html" class="is-button btn btn--round btn--more">Подробнее</a></p>
                         </div>
                         <div class="item__img">
-                            <img src="/assets/images/slide2.jpg" alt="">
+                            <img src="/assets/images/banner_partners.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="item__desc">
+                            <h3 style="color: white; margin-bottom: 0; font-size: 23px; font-weight: normal;">
+                                Доставка по России</h3>
+                            <h2 style="margin-top: 0; margin-bottom: 15px;">БЕСПЛАТНО</h2>
+                            <p class="item__text">При заказе от 1450₽ <span style="color: gold;">*</span></p>
+                            <p><a href="/information.html" class="btn btn--round btn--more">Подробнее</a></p>
+                        </div>
+                        <div class="item__img">
+                            <img src="/assets/images/banner_biogumus.png" alt="">
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="item__desc">
+                            <h2>Гарантируем</h2>
+                            <p class="item__text">экологически <br>чистый урожай</p>
+                            <p><a href="/press/preimuschestva-biogumusa.html"
+                                    class="btn btn--round btn--more">Подробнее</a></p>
+                        </div>
+                        <div class="item__img">
+                            <img src="/assets/images/slide1.jpg" alt="">
                         </div>
                     </div>
                     <div class="carousel-item">
@@ -45,17 +56,27 @@
                     </div>
                     <div class="carousel-item">
                         <div class="item__desc">
-                            <h2>Покупайте</h2>
-                            <p class="item__text">рядом с домом</p>
-                            <p><a href="/partneri.html" class="btn btn--round btn--more">Подробнее</a></p>
+                            <h2>Доставим</h2>
+                            <p class="item__text">по всей России</p>
+                            <p><a href="/information.html" class="btn btn--round btn--more">Подробнее</a></p>
                         </div>
                         <div class="item__img">
-                            <img src="/assets/images/slide2.jpg" alt="">
+                            <img src="/assets/images/slide3.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="item__desc">
+                            <h2>Повысьте</h2>
+                            <p class="item__text">урожайность без химии</p>
+                            <p><a href="/press/whybio.html" class="btn btn--round btn--more">Подробнее</a></p>
+                        </div>
+                        <div class="item__img">
+                            <img src="/assets/images/slide4.jpg" alt="">
                         </div>
                     </div>
                 </div>
 
-                <div class="main__advantages">
+                <!--div class="main__advantages">
                     <ul class="columns">
                         <li class="column">
                             <img src="/assets/images/icons/pig.svg" alt="Копилка">
@@ -70,22 +91,67 @@
                             <a href="/information.html"><span>Доставка по России</span></a>
                         </li>
                     </ul>
+                </div-->
+
+                <div class="columns products is-multiline" id="products">
+                    @@include('./product.html')
+                    @@include('./product.html')
+                    @@include('./product.html')
+                    @@include('./product.html')
                 </div>
 
                 <div class="content">
-                    <h1 class="title">Биогумус</h1>
-                    <p>Приветствуем вас в нашем магазине! Мы предлагаем Биогумус в виде концентрата, жидкого раствора,
-                        готовый Эко-грунт и жидкий концентрат Гумат калия.
-                        Если у вас есть какие-то вопросы, <a href="/kontakty.html">задайте их</a> нашим специалистам.
-                    </p>
-                    <p>Производитель: <strong>ИП Ткаченко И. С.</strong></p>
+                    <h1 class="title">Удобрения Биогумус (жидкий, сухой в мешках): купить оптом по выгодным ценам</h1>
+                    <div class="main__text">
+                        <div class="main__left">
+                            <p><strong>Биогумус</strong><span style="font-weight: 400;"> (вермикомпост) — удобрение,
+                                    полностью состоящее только из </span><strong>органических соединений</strong><span
+                                    style="font-weight: 400;">. При этом, он не только безвреден с точки зрения
+                                    экологии, но и является </span><strong>самым эффективным</strong><span
+                                    style="font-weight: 400;"> среди других органических «подкормок» растений. </span>
+                            </p>
+                            <p><span style="font-weight: 400;">Вермикомпост способствует значительному увеличению
+                                    урожайности, а одного внесения хватает на срок до </span><strong>5 лет</strong><span
+                                    style="font-weight: 400;">!</span></p>
+                            <p>В настоящее время биогумус представлен и в жидком, и в сухом концентрированном виде, и
+                                его легко найти и купить по доступной цене в различных торговых точках — удобрение
+                                реализуется как оптом, так и в розницу в разной фасовке (в больших мешках и канистрах,
+                                маленьких бутылках и пакетах).</p>
+                            <p>Мы сами изготавливаем биогумус, поэтому не только гарантируем сертифицированное качество
+                                продукта, но и предлагаем его по наиболее привлекательной стоимости, даже если речь идёт
+                                о минимальном заказе.</p>
+                            <p>В интернет-магазине Biogumus.PRO Вы можете купить удобрения Биогумус поштучно или оптом
+                                по сниженной цене — достаточно выбрать позицию (сухой концентрат в мешках, жидкий или
+                                эко-грунт в нужном объёме), указать количество и заполнить несколько полей.</p>
+                            <p>Для быстрой связи и получения дополнительной информации просто оставьте номер своего
+                                телефона в форме «Бесплатная консультация», и наши специалисты перезвонят Вам в
+                                кратчайшие сроки.</p>
+                        </div>
+                        <div class="main__right">
+                            <h4 class="title--green">Преимущества Биогумуса перед&nbsp;другими органическими
+                                удобрениями:</h4>
+                            <ul>
+                                <li><span style="font-weight: 400;">Не содержит вредную микрофлору и семена сорняков
+                                    </span></li>
+                                <li><span style="font-weight: 400;">Включает в себя полезные для развития растений
+                                        микроорганизмы и элементы</span></li>
+                                <li><span style="font-weight: 400;">Не требует привыкания</span></li>
+                                <li><span style="font-weight: 400;">Практически не вымывается из почвы</span></li>
+                                <li><span style="font-weight: 400;">Сохраняет азот, фосфор и калий в почве и
+                                        благоприятно воздействует на её состояние в целом</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="main__addition">
+                        <h4 class="title--green"><a class="title--green" href="why.html">Сравнение с минеральными
+                                удобрениями</a></h4>
+                        <p><span style="font-weight: 400;">Биогумус </span><span style="font-weight: 400;">полностью
+                                перерабатывается в почве, а удобрения из смеси минералов в сухом виде частично
+                                преобразуются в нитраты и затем присутствуют в растениях и их плодах. </span></p>
+                    </div>
                 </div>
-                <div id="products" class="products columns is-multiline">
-                    @@include('./product.html')
-                    @@include('./product.html')
-                    @@include('./product.html')
-                    @@include('./product.html')
-                </div>
+
             </div>
         </div>
     </div>

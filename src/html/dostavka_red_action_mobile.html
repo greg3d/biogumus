@@ -1,4 +1,75 @@
-<div class="box danger_text">
-    <p><i class="fas fa-truck"></i> Доставка по всей России БЕСПЛАТНО при заказе от 1000<i class="fas fa-ruble-sign"></i>!*
-    </p>
+<style>
+    .danger_text1 {
+        border-radius: 300px;
+
+        font-weight: normal;
+        text-align: center;
+        word-break: break-all;
+        height: 70px;
+        flex: auto;
+        /*
+          background: #b92b27; 
+          background: linear-gradient(to bottom, #1565c0, #b92b27); */
+        border-right-width: 3px;
+        border-left-width: 2px;
+        border-left-color: rgba(255, 255, 255, 0.5) !important;
+        border-right-color: rgba(0, 0, 0, 0.3) !important;
+    }
+
+    .danger_text1 .text {
+        line-height: normal;
+        font-size: 14px;
+    }
+</style>
+
+<div class="columns is-gapless is-mobile">
+    <div class="column is-hidden-mobile">
+        <a data-fancybox="" href="#myGroundVideo"
+            class="button is-success is-selected is-large is-fullwidth danger_text1 is-hidden-mobile">
+            <span class="icon">
+                <i class="fas fa-film"></i>
+            </span>
+            <span class="text">
+                Готовим<br>правильную<br>почвосмесь
+            </span>
+        </a>
+    </div>
+    <div class="column is-hidden-mobile">
+        <a data-fancybox="" data-width="720" href="https://youtu.be/47uJ8Y1A0Lc"
+            class="button is-fullwidth  is-info is-selected is-large danger_text1 is-hidden-mobile">
+            <span class="icon is-large">
+                <i class="fas fa-film"></i>
+            </span>
+            <span class="text">
+                Полезная подкормка<br>для растений и рассады
+            </span>
+        </a>
+    </div>
+    <div class="column">
+        <a href="#" class="button is-fullwidth modal-button is-danger is-selected is-large danger_text1"
+            data-target="zakaz">
+            <span class="icon is-large">
+                <i class="fas fa-handshake"></i>
+            </span>
+            <span class="text">
+                Заказать
+            </span>
+        </a>
+    </div>
+    <div class="column">
+        <a href="https://biogumus.pro/information.html"
+            class="button is-fullwidth  is-warning is-selected is-large danger_text1">
+            <span class="icon is-large">
+                <i class="fas fa-truck"></i>
+            </span>
+            <span class="text">
+                Доставка бесплатно*
+            </span>
+        </a>
+    </div>
 </div>
+
+<video width="720" controls="" id="myGroundVideo" style="display:none;">
+    <source src="/assets/files/ground.mp4" type="video/mp4">
+    Your browser doesn't support HTML5 video tag.
+</video>
