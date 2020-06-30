@@ -1,10 +1,35 @@
 <nav class="side__menu">
     <ul>
-        <li class="first">
-            <a href="#" class="navbar-item modal-button" data-target="zakaz">
+        <li class="first is-hidden-mobile navbar-item has-dropdown is-hoverable">
+            <a href="#" class="navbar-link">
                 <span class="icon"><i class="fas fa-cart-arrow-down"></i></span>
                 &nbsp;Заказать
             </a>
+            <div class="navbar-dropdown is-boxed">
+                <a class="navbar-item" href="https://bulma.io/documentation/overview/start/">
+                   Биогумус.PRO
+                </a>
+                <a class="navbar-item" href="https://bulma.io/documentation/overview/modifiers/">
+                    <span class="icon"><img src="/assets/images/icons/beru.png" /></span> БЕРУ!
+                </a>
+                <a class="navbar-item" href="https://bulma.io/documentation/columns/basics/">
+                    <span class="icon"><img src="/assets/images/icons/wild.png" /></span> Wildberries
+                </a>
+                <a class="navbar-item" href="https://bulma.io/documentation/layout/container/">
+                    Layout
+                </a>
+                <a class="navbar-item" href="https://bulma.io/documentation/form/general/">
+                    Form
+                </a>
+                <hr class="navbar-divider">
+                <a class="navbar-item" href="https://bulma.io/documentation/elements/box/">
+                    Elements
+                </a>
+                <a class="navbar-item is-active" href="https://bulma.io/documentation/components/breadcrumb/">
+                    Components
+                </a>
+            </div>
+
         </li>
         <li>
             <img src="/assets/images/icons/concentrat.png" alt="Копилка">
@@ -28,27 +53,3 @@
         </li>
     </ul>
 </nav>
-
-<div class="modal" id="zakaz">
-    <div class="modal-background"></div>
-    <div class="modal-card">
-        <header class="modal-card-head">
-            <p class="modal-card-title">Выберите удобный способ приобретения:</p>
-            <button class="delete" aria-label="close"></button>
-        </header>
-        <section class="modal-card-body">
-            <div class="buttons">
-                <a class="button is-large is-fullwidth is-success is-light" href="#">
-
-                    Biogumus.PRO</a>
-                <a class="button is-large is-fullwidth is-link" href="#">
-                    <span class="icon"><img src="/assets/images/icons/beru.png" /></span> БЕРУ!</a>
-                <a class="button is-large is-fullwidth is-info" href="#">
-                    <span class="icon"><img src="/assets/images/icons/wild.png" /></span> Wildberries</a>
-                <a class="button is-large is-fullwidth is-warning" href="#">
-                    <span class="icon"><img src="/assets/images/icons/cdek.png" /></span> СДЭК-маркет</a>
-            </div>
-
-        </section>
-    </div>
-</div>

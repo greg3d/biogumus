@@ -2,7 +2,7 @@
 <section class="section main">
     <div class="container">
         <div class="columns">
-            <div class="column is-12-mobile is-4-touch is-3-desktop is-one-fifth-fullhd  is-hidden-mobile">
+            <div class="column side-column is-12-mobile is-4-touch is-3-desktop is-one-fifth-fullhd is-hidden-mobile">
                 <!--левая колонка-->
                 @@include('./sidebar.html')
             </div>
@@ -157,3 +157,27 @@
     </div>
 </section>
 @@include('./footer.html')
+
+<div class="modal" id="zakaz">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Выберите удобный способ приобретения:</p>
+            <button class="delete" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="buttons">
+                <a class="button is-large is-fullwidth is-success is-light" href="#">
+
+                    Biogumus.PRO</a>
+                <a class="button is-large is-fullwidth is-link" href="#">
+                    <span class="icon"><img src="/assets/images/icons/beru.png" /></span> БЕРУ!</a>
+                <a class="button is-large is-fullwidth is-info" href="#">
+                    <span class="icon"><img src="/assets/images/icons/wild.png" /></span> Wildberries</a>
+                <a class="button is-large is-fullwidth is-warning" href="#">
+                    <span class="icon"><img src="/assets/images/icons/cdek.png" /></span> СДЭК-маркет</a>
+            </div>
+
+        </section>
+    </div>
+</div>

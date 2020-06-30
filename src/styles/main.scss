@@ -33,7 +33,9 @@ $weight-bold: 700;
 $weight-normal: 400;
 $block-spacing: 0.5rem;
 
+
 @import '../../node_modules/bulma/bulma.sass';
+@import '../../node_modules/bulma/sass/utilities/mixins.sass';
 @import '../../node_modules/bulma-badge/dist/css/bulma-badge';
 @import './header';
 @import './shopcart';

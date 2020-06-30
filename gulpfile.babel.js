@@ -47,6 +47,8 @@ webpackConfig.devtool = production ? false : "cheap-eval-source-map";
 const imageExt = 'jpg png gif svg jpeg';
 const fontExt = 'eot ttf otf woff woff2 svg';
 
+var reload = browsersync.reload;
+
 export const server = () => {
 	browsersync.init({
 		server: "./dist/",
@@ -54,10 +56,10 @@ export const server = () => {
 		notify: true
 	});
 
-	gulp.watch(paths.views.watch, views);
-	gulp.watch(paths.styles.watch, styles);
-	gulp.watch(paths.scripts.watch, scripts);
-	gulp.watch(paths.images.watch, images);
+	gulp.watch(paths.views.watch, views).on("change", reload);
+	gulp.watch(paths.styles.watch, styles).on("change", reload);
+	gulp.watch(paths.scripts.watch, scripts).on("change", reload);
+	gulp.watch(paths.images.watch, images).on("change", reload);
 };
 
 

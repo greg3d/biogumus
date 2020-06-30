@@ -1,12 +1,15 @@
 .header {
   background-color: $primary;
+  margin-bottom: $column-gap;
 }
 
 .header__top {
   padding: $column-gap;
-  padding-bottom: $column-gap*2;
+  
   position: relative;
 }
+
+
 
 .header__top::before {
   content: ' ';
@@ -24,42 +27,151 @@
 
 
 .header__logo {
-  text-align: left;
 
-  p {
+  width: auto;
+
+  @include mobile {
+    width: initial;
+  }
+
+  @include tablet-only {
+    width: 252px;
+  }
+
+  @include desktop-only {
+    width: auto;
+  }
+
+
+  .logo__main {
+
     margin-bottom: 0;
     color: #ffffff;
-    font-size: 40px;
+
+    font-size: 46px;
+
+    position: relative;
+    z-index: 1;
+
     line-height: 40px;
     font-weight: $weight-bold;
-    margin-left: -3px;
-    margin-bottom: 10px;
+    margin-left: -2px;
+    margin-bottom: 0;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.6);
+
+
+    width: 100%;
+    display: block;
+
 
     span {
       color: yellow;
-      opacity: 0.56;
+      
     }
+
+
   }
 
-  p + p {
+  .logo__description {
     color: #ffffff;
-    font-size: 16.4px;
-    line-height: 0;
+
+    background-color: rgba(226, 200, 54,0.3);
+    font-size: 15.1px;
+
+    height: 22px;
+    line-height: 22px;
+
+    
+    @include tablet-only {
+      font-size: 18px
+    }
+
+   
     font-weight: $weight-normal;
-    margin: 0;
+    margin: 2px 0;
+   
     text-shadow: none;
+
+    display: inline-block;
+
+    position: relative;
+    z-index: 0;
+
+
   }
 
-  p + p + p {
-    color: #ffffff;
-    font-size: 12px;
+  .logo__notice {
+    color: #ccc;
+    font-size: 13.6px;
+
+    height: 20px;
+    line-height: 20px;
+
+    @include tablet-only {
+      font-size: 11.5px
+    }
+
+    @include desktop {
+      font-size: 10px
+    }
+
+    @include widescreen {
+      font-size: 11.4px
+    }
+
     font-weight: $weight-normal;
-    margin: 0;
-    line-height: 45px;
-    opacity: 0.6;
+  
+    margin: 0 0 4px;
+    
+    //opacity: 0.6;
     text-shadow: none;
+    background-color: $primary;
+    
   }
+
+  .header__payment-icons {
+
+    span {
+
+      background-color: white;
+
+      color: white;
+      border-radius: 4px;
+      height: 28px;
+      display: block;
+
+    }
+
+    .visa-logo {
+      background-image: url('/assets/images/icons/visa.png');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size:  auto 100%;
+    }
+
+    .mc-logo {
+      background-image: url('/assets/images/icons/mc.png');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size:  auto 100%;
+    }
+
+
+
+    .yandex-money-logo {
+      background: url('/assets/images/Yandex_Money_rgb_ru.png');
+      background-size: 100px;
+      background-position: center;
+      background-repeat: no-repeat;
+      width: 120px;
+      height: 28px;
+      background-color: white;
+      border-radius: 4px;
+    }
+
+  }
+
+
 }
 
 .header__logo::before {
@@ -76,28 +188,16 @@
   background-repeat: no-repeat;
 }
 
-.header__payment-icons i {
-  color: white;
-}
 
-.header__payment-icons img {
-  border-radius: 5px;
-}
-
-.yandex-money-logo {
-  background: url('/assets/images/Yandex_Money_rgb_ru.png');
-  background-size: 100px;
-  background-position: center;
-  background-repeat: no-repeat;
-  width: 110px;
-  height: 28px;
-  background-color: white;
-  border-radius: 4px;
-  display: inline-block;
-  line-height: 45px;
-}
 
 .header__phones {
+
+  margin-bottom: 7px;
+
+  @include mobile {
+    margin-top: 10px;
+  }
+
   .phone_call_i {
     width: 20px;
     margin-right: 5px;
@@ -107,11 +207,17 @@
 
   .free_call_p {
     opacity: 0.75;
-    color: #ffffff;
+    color: #000;
     font-size: 14px;
+
+    @include desktop-only {
+      font-size: 12px;
+    }
+
     font-weight: 400;
     text-align: center;
-    margin-top: 5px;
+    margin: 0;
+    padding: 0;
 
     strong {
       color: inherit;
@@ -121,93 +227,87 @@
   .header__phones_phone_p {
     background-color: $special-background;
     opacity: 1;
-    padding: 10px 20px;
-    border-radius: 35px;
+    padding: 7px 10px;
+    border-radius: 8px;
     text-decoration: none;
     text-align: center;
-    font-size: 1.5rem;
+
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
   }
 
-  .header__phones_email {
-    display: block;
-    font-size: 1rem;
-    a {
-      border-bottom: 1px dotted black;
+  .phone_header {
+    font-size: 1.8rem;
+
+    @include desktop-only {
+      font-size: 1.6rem;
     }
-  }
 
-  .header__phones_phone_p a {
-    color: black;
-    font-weight: 700;
-  }
-
-  .header__phones p a span, .header__count p a span {
-    font-weight: 700;
-  }
-
-  .header__phones p + p, .header__count p + p {
+    line-height: 2px;
     margin: 0;
+    padding: 0;
+    color: rgb(64, 75, 0);
   }
+
+  .header__icons {
+    display: flex;
+    color: #fff;
+    font-weight: 400;
+    padding-bottom: 0;
+    flex-flow: row;
+    
+    justify-content: space-around;
+    
+
+    .icon {
+      color: #eee;
+      background-color: #444;
+      border-radius: 7px;
+      font-size: initial;
+
+      font-size: 1.25rem;
+
+      width: 40px;
+      height: 40px;
+      border: 1px solid rgb(245, 255, 159);
+
+      @include mobile {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+      }
+
+      display: flex;
+
+      box-shadow: 0px 0px 5px rgba(255, 255, 255, 0.7);
+    }
+
+    .is-email {
+      background-color: rgb(143, 109, 109);
+    }
+
+    .is-viber {
+      background-color: #665CAC;
+    }
+
+    .is-whatsapp {
+      background-color: #4AC959;
+    }
+
+    // a {
+    //border-bottom: 1px dotted black;
+    // }
+  }
+
+
 }
 
-
-.header__city {
-  color: $primary;
-  background-color: $white;
-  opacity: 1;
-  padding: 12px 20px;
-  border-radius: 5px;
-  text-decoration: none;
-  text-align: center;
-  border: 2px solid $primary;
-  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
-
-  a {
-    cursor: pointer;
-    color: $primary;
-    text-decoration: none;
-    border-bottom: 1px dashed $primary;
-    position: relative;
-  }
-
-
-  p {
-    position: relative;
-    display: inline;
-    padding-left: 9px;
-    text-transform: uppercase;
-    font-weight: bold;
-    font-size: 0.8rem;
-    overflow: visible;
-  }
-
-  p::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: -8px;
-    display: block;
-    width: 12px;
-    height: 18px;
-    background-image: url(/assets/images/icons/placeholder.svg);
-    background-position: center;
-    background-size: 12px;
-    background-repeat: no-repeat;
-  }
-}
-
-
-
-
-////////////////////////
 
 .counter_block {
   background: $transparent-background;
   padding: 10px 20px;
   border-radius: $radius-xxlarge;
   margin-bottom: 22px;
-  background: rgba(5,40,5,0.5);
+  background: rgba(5, 40, 5, 0.5);
 
   img {
     margin-right: 7px;
@@ -252,30 +352,12 @@
   }
 }
 
-/////////////////////////////////////////////
 .header__submenu {
   background: none;
   padding: 0;
+
+
   
-
-  .navbar-burger {
-    background: #ffffff;
-    border-radius: $radius-large;
-    
-    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
-    border: 2px solid $primary;
-
-    div {
-      position: absolute;
-      top: calc(50% - 12px);
-      left: 16px;
-      font-weight: bold;
-    }
-
-    span {
-      left: calc(50% - 8px);
-    }
-  }
 
   .navbar-menu {
     //background-color: $transparent-background;
@@ -296,7 +378,7 @@
       text-shadow: none;
     }
 
-    .has-dropdown.is-active > a {
+    .has-dropdown.is-active>a {
       border-radius: $radius-xlarge $radius-xlarge 0 0;
     }
 
@@ -305,14 +387,17 @@
       .navbar-item.has-dropdown {
         padding: 0;
         border: 0;
+
         .navbar-link {
           background: none;
-      
+
         }
+
         .navbar-link:after {
           transform: rotate(225deg);
-         
+
         }
+
         .navbar-dropdown {
           border: none;
           position: absolute;
@@ -330,18 +415,18 @@
           border-bottom-right-radius: 10px;
           display: none;
         }
-      } 
+      }
 
       .navbar-item.has-dropdown.is-active,
       .navbar-item.has-dropdown:hover {
-          .navbar-dropdown {
-            display: block;
-          }
+        .navbar-dropdown {
+          display: block;
+        }
 
-          .navbar-link:after {
-            border-color: black;
-           
-          }
+        .navbar-link:after {
+          border-color: black;
+
+        }
       }
     }
   }
@@ -359,8 +444,6 @@
   }
 }
 
-//////////////////////////////////
-
 .header__bottom {
   box-shadow: 0 0 15px 1px rgba(102, 75, 75, 0.14);
   background-color: none;
@@ -376,78 +459,3 @@
     height: 61px;
   }
 }
-
-////////////////////////////////
-
-/*
-.header__menu ul li.active a, .header__menu ul li:hover a, .header__menu ul li:focus a {
-  color: #5f8647;
-  text-decoration: none;
-}
-
-.header__menu ul li.active svg path, .header__menu ul li:hover svg path, .header__menu ul li:focus svg path {
-  fill: #5f8647;
-}
-*/
-/*
-.top-line {
-  background: #333333;
-  margin: 0;
-
-  .nav {
-    a:link {
-      text-decoration: none;
-    }
-  }
-
-  .navbar-nav {
-    margin: 0;
-    padding: 0;
-  }
-
-  .phone, .email, li {
-    list-style: none;
-    margin: 0;
-    padding: 17px;
-    font-size: 1.5rem;
-    line-height: 20px;
-    height: 54px;
-    padding-left: 43px;
-    font-weight: normal;
-  }
-
-
-  .email {
-    background: url('/assets/images/mail.png') no-repeat;
-    background-size: 32px 32px;
-    background-position: left center;
-  }
-
-  .phone {
-    background: url('/assets/images/phone.png') no-repeat;
-    background-size: 32px 32px;
-    background-position: left center;
-  }
-
-  a:link {
-    color: yellow;
-    padding: 0;
-    margin: 0;
-    font-size: 100%;
-    border-bottom: 1px solid yellow;
-    display: inline-block;
-  }
-
-  a:hover {
-    color: white;
-    border-bottom: none;
-  }
-}
-
-.navbar-static-top {
-  margin: 0;
-  background: #333333;
-  border: none;
-  color: white;
-}
-*/

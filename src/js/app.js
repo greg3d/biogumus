@@ -629,7 +629,7 @@
 
         // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
         $(".navbar-burger").toggleClass("is-active");
-        $(".navbar-menu").toggleClass("is-active");
+        $(".side-column").toggleClass("is-hidden-mobile");
 
     });
 
@@ -661,17 +661,14 @@
 
     stickUnstick();
 
-
     $(window).resize(function () {
         w = $(window).width();
         stickUnstick();
     });
 
+    // Разворачивание и сворачивание корзины
 
-    var square = document.querySelector(".pre_korzina");
-
-    //console.log(square);
-    // Create a manager to manage the element
+    var square = document.querySelector(".shopcart-small");
 
     if (!(square === null)) {
         var manager = new Hammer.Manager(square);
@@ -685,13 +682,13 @@
         manager.add(Tap);
 
         // Subscribe to the desired event
-        manager.on('tap', function (e) {
-
-            $(".pre_korzina").removeClass('collapsed');
+        manager.on('tap', function (e) { 
+ 
+            $(".shopcart-full").toggleClass('collapsed');
         });
 
         $('#CollapseShopCartButton').click(function () {
-            $(".pre_korzina").addClass('collapsed');
+            $(".shopcart-full").addClass('collapsed');
         });
 
     }
