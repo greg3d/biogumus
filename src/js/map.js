@@ -90,10 +90,8 @@
 						});
 					});
 
-					// �������� ��� ������� �� �������� ������� � ���������� �������
 					var placeTr = $("#fullList>tbody>tr[city='" + cityName + "']");
-					//console.log('#fullList>tbody>tr[city="'+cityName+'"]');
-
+					
 					var curTr = [];
 
 					placeTr.each(function (j) {

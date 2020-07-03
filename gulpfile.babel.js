@@ -65,7 +65,7 @@ export const server = () => {
 
 
 const autoprefixierOpts = {
-	browsers: ["last 12 versions", "> 1%", "ie 8", "ie 7"]
+	overrsideBrowserslist: ["last 12 versions", "> 1%", "ie 8", "ie 7"]
 };
 const mincssOpts = {
 	compatibility: "ie8",
@@ -145,7 +145,7 @@ export const cleanFiles = () => gulp.src("./dist/*", {
 var imageFiles = [paths.images.src];
 var fontFiles = [paths.fonts.src];
 
-var v = "_v2023";
+var v = "_v2024";
 
 export const libscss = () => gulp.src(paths.libscss.src)
 	.pipe(gulpif(!production, sourcemaps.init()))

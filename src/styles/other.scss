@@ -237,28 +237,30 @@
 
   .owl-theme {
     position: relative;
+
     .owl-nav {
       margin-top: 0;
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
-      text-align:  center;
+      text-align: center;
     }
+
     .owl-dots {
       position: absolute;
-      top: -23px;
+      top: -1px;
       left: 50%;
       transform: translateX(-50%);
-      margin: 0 auto;
-      text-align:  center;
-      background: white;
       margin: 0;
+      text-align: center;
+      background: #fff;
       padding: 0;
-      border-radius: 10px 10px 0 0;
+      border-radius: 0 0 8px 8px;
 
       button {
         margin: 0;
+
         span {
           margin-bottom: 1px;
         }
@@ -294,28 +296,25 @@
     /*
     background: #b92b27; 
     background: linear-gradient(to bottom, #1565c0, #b92b27); */
-    border-right-width: 3px;
+    border-right-width: 2px;
     border-left-width: 2px;
     border-left-color: rgba(255, 255, 255, 0.5) !important;
     border-right-color: rgba(0, 0, 0, 0.3) !important;
-  }
-
-  
-}
-
-.danger_text1 {
-
-
-  .icon,
-  .text {
-    font-size: 15px;
-  }
-
-  @include mobile {
 
     .icon,
     .text {
-      font-size: 12px;
+      font-size: 15px;
     }
+
+    @include mobile {
+
+      .icon,
+      .text {
+        font-size: 12px;
+      }
+    }
+
   }
+
+
 }

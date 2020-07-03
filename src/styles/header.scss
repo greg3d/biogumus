@@ -1,10 +1,12 @@
 .header {
   background-color: $primary;
   margin-bottom: $column-gap;
+  padding: 1.5rem 1.5rem;
+  
 }
 
 .header__top {
-  padding: $column-gap;
+
   
   position: relative;
 }
@@ -13,16 +15,16 @@
 
 .header__top::before {
   content: ' ';
-  position: absolute;
-  width: 100%;
-  height: 200%;
-  top: 0;
-  right: 0;
-  background-image: url(/assets/images/top.png);
-  background-position: top right;
-  background-size: 1300px;
-  background-repeat: no-repeat;
-  z-index: 0;
+    position: absolute;
+    width: 100vw;
+    height: 120%;
+    top: -1rem;
+    left: -1.5rem;
+    background-image: url(/assets/images/top.png);
+    background-position: top right;
+    background-size: 1300px;
+    background-repeat: no-repeat;
+    z-index: 0;
 }
 
 
@@ -35,7 +37,7 @@
   }
 
   @include tablet-only {
-    width: 252px;
+    
   }
 
   @include desktop-only {
@@ -76,16 +78,10 @@
     color: #ffffff;
 
     background-color: rgba(226, 200, 54,0.3);
-    font-size: 15.1px;
+    font-size: 15.3px;
 
     height: 22px;
     line-height: 22px;
-
-    
-    @include tablet-only {
-      font-size: 18px
-    }
-
    
     font-weight: $weight-normal;
     margin: 2px 0;
@@ -131,6 +127,11 @@
 
   .header__payment-icons {
 
+    
+
+
+
+
     span {
 
       background-color: white;
@@ -139,34 +140,26 @@
       border-radius: 4px;
       height: 28px;
       display: block;
+      background-size:  auto 24px;
+      background-position: center;
+      background-repeat: no-repeat;
+      margin: 0 1px;
 
     }
 
     .visa-logo {
       background-image: url('/assets/images/icons/visa.png');
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size:  auto 100%;
+      background-size:  auto 20px;
     }
 
     .mc-logo {
       background-image: url('/assets/images/icons/mc.png');
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size:  auto 100%;
+      
     }
-
-
-
     .yandex-money-logo {
-      background: url('/assets/images/Yandex_Money_rgb_ru.png');
-      background-size: 100px;
-      background-position: center;
-      background-repeat: no-repeat;
-      width: 120px;
-      height: 28px;
-      background-color: white;
-      border-radius: 4px;
+      background-image: url('/assets/images/Yandex_Money_rgb_ru.png');
+      background-size: 90px;
+      width: 100px;
     }
 
   }
@@ -192,6 +185,7 @@
 
 .header__phones {
 
+  height: 99px;
   margin-bottom: 7px;
 
   @include mobile {
@@ -211,6 +205,9 @@
     font-size: 14px;
 
     @include desktop-only {
+      font-size: 12px;
+    }
+    @include tablet-only {
       font-size: 12px;
     }
 
@@ -236,11 +233,7 @@
   }
 
   .phone_header {
-    font-size: 1.8rem;
-
-    @include desktop-only {
-      font-size: 1.6rem;
-    }
+    font-size: 1.6rem;
 
     line-height: 2px;
     margin: 0;

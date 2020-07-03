@@ -224,7 +224,8 @@
                 count = count < 1 ? 1 : count;
                 $input.val(count);
                 $input.change();
-                SHK.recountItemAll();
+                //SHK.recountItemAll();
+                SHK.changeCartItemsCount();
                 return false;
             });
 
@@ -232,7 +233,8 @@
                 var $input = $(this).parent().parent().find('.shk-count');
                 $input.val(parseInt($input.val()) + 1);
                 $input.change();
-                SHK.recountItemAll();
+                //SHK.recountItemAll();
+                SHK.changeCartItemsCount();
                 return false;
             });
         }
@@ -578,12 +580,13 @@
                 counterTemp -= 1;
                 counter.value = counterTemp;
             }
-        }
+        };
+
         counterPlus.onclick = function () {
             var counterTemp = parseInt(counter.value);
             counterTemp += 1;
             counter.value = counterTemp;
-        }
+        };
     }
 
 
@@ -591,7 +594,7 @@
         $('.country_delivery__item').removeClass('active');
         $(this).addClass('active');
 
-        console.log(this);
+        //console.log(this);
 
         var TransKomp = $(this).data('trans');
         $('.transcom').val(TransKomp);
@@ -604,22 +607,22 @@
     //$('input[name="phone"]').mask("+7 (999) 999 99 99");
 
     $('[id="consult-select"]').click(function () {
-        yaCounter44778274.reachGoal('consult-open');
+        //yaCounter44778274.reachGoal('consult-open');
     });
     $('.product__order button[type="submit"]').click(function () {
-        yaCounter44778274.reachGoal('product-add');
+        //yaCounter44778274.reachGoal('product-add');
     });
     $('.shk-item form button[type="submit"]').click(function () {
-        yaCounter44778274.reachGoal('product-top-add');
+       // yaCounter44778274.reachGoal('product-top-add');
     });
     $('.shk_prodHelper button#shk_confirmButton').click(function () {
-        yaCounter44778274.reachGoal('product-top-add-submit');
+        //yaCounter44778274.reachGoal('product-top-add-submit');
     });
     $(document).on('af_complete', function (event, response) {
         var form = response.form;
         // Если у формы определённый class
         if (form.hasClass('consult-form') && response.success) {
-            yaCounter44778274.reachGoal('consult-sent');
+            //yaCounter44778274.reachGoal('consult-sent');
         }
     });
 
@@ -668,9 +671,9 @@
 
     // Разворачивание и сворачивание корзины
 
-    var square = document.querySelector(".shopcart-small");
+    var square = document.querySelector(".shopcart-container");
 
-    if (!(square === null)) {
+    if ( square ) {
         var manager = new Hammer.Manager(square);
 
         // Create a recognizer
