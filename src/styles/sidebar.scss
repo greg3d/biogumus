@@ -16,11 +16,11 @@
     margin: 0;
     padding: 0;
 
-    li {
+    > li {
       position: relative;
       margin-bottom: 12px;
       
-      img {
+      > img {
         position: absolute;
         top: 50%;
         left: 50%;
@@ -29,14 +29,14 @@
         width: 200px;
       }
 
-      a {
+      > a {
         display: block;
         padding: 20px 10px;
         color: #312621;
         font-size: 0;
         line-height: 1.5rem;
         font-weight: bold;
-        border-radius: 8px;
+        border-radius: $radius-large;
         background-color: #ffcd36;
         //background-image: linear-gradient(45deg, rgba(244, 174, 24, 0.5) 0%, rgba(255, 205, 54, 0.5) 99%, rgba(255, 205, 54, 0.5) 100%);
         //transition: 0.3s all ease;
@@ -46,6 +46,65 @@
         border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 
       }
+
+      > a.is-active, a:hover {
+        background-color: $primary;
+      }
+
+      .navbar-dropdown {
+
+        position: absolute;
+        left: 100%;
+        top: 0;
+        background: none;
+        padding: 0 5px;
+        border-radius: 0;
+        border: none;
+        box-shadow: none;
+
+        //transition: unset;
+        //animation: unset;
+
+        a {
+          font-size: 24px;
+          border-top: 1px solid rgba(255, 255, 255, 0.1);
+          border-right: 2px solid rgba(0, 0, 0, 0.3);
+          border-left: 2px solid rgba(255, 255, 255, 0.5);
+          border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+          
+          //background: darken($color: $primary, $amount: 30%);
+          padding: 8px 10px;
+
+          .icon.is-custom {
+       
+            width: 40px;
+            height: 40px;
+            padding: 0;
+            margin: 0 5px 0 0;
+            display: block;
+            line-height: 0;
+            img {
+              width: 100%;
+              height: 100%;
+              margin: 0;
+              border: 2px solid rgb(255, 255, 255);
+              border-radius: $radius-xlarge;
+              max-height: unset;
+            }
+          }
+
+        }
+
+        a:first-child {
+          border-radius:  $radius-large $radius-large 0 0;
+        }
+
+        a:last-child {
+          border-radius: 0 0 $radius-large $radius-large;
+        }
+
+      }
+
     }
 
     li::after {
@@ -69,30 +128,16 @@
       right: 10px;
       border-color: #ffffff;
     }
+
+
     li.first {
-      a {
+      > a {
         font-size: 24px;
         padding: 20px 5px;
         text-align: center;
         width: 100%;
       }
-    }
 
-    li.first.is-active {
-      .navbar-dropdown {
-        position: absolute;
-        left: 100%;
-        top: 0;
-        background: none;
-        
-        padding: 0;
-
-        a {
-          padding: 10px 0;
-          margin: 0 0 2px;
-          
-        }
-      }
     }
 
   }
@@ -100,6 +145,7 @@
 
 
 .side__menu ul li.active a,
+.side__menu ul li.is-active a,
 .side__menu ul li:hover a,
 .side__menu ul li:focus a {
   color: #ffffff;
@@ -164,5 +210,8 @@ aside {
 #zakaz {
   .icon {
     margin-right: 5px;
+    img {
+      border-radius: $radius-large;
+    }
   }
 }

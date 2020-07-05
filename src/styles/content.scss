@@ -2,14 +2,11 @@
   background: rgb(230, 230, 220);
   height: 100%;
 
-  border-radius: 8px;
+  border-radius: $radius-large;
 
   @include tablet {
-    margin-top: -210px;
+    margin-top: -199px;
   }
-
-
-
 }
 
 
@@ -79,7 +76,7 @@
   height: 360px;
   border: 1px solid #eeeeee;
   background-color: #ffffff;
-  border-radius: 6px;
+  border-radius: $radius-large;
   overflow: hidden;
 }
 

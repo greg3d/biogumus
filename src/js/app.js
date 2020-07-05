@@ -637,11 +637,14 @@
     });
 
     var $hoverableLink = $('.navbar-item.has-dropdown');
+    
     $hoverableLink.hover(function () {
         $(this).addClass('is-active');
     }, function () {
         $(this).removeClass('is-active');
     });
+
+    ////////////////////// end menu top
 
     var w = $(window).width();
 
@@ -662,7 +665,7 @@
         }
     }
 
-    stickUnstick();
+    //stickUnstick();
 
     $(window).resize(function () {
         w = $(window).width();
