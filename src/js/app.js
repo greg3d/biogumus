@@ -646,15 +646,19 @@
 
     ////////////////////// end menu top
 
+
+    /*
     var w = $(window).width();
+    var ww = $(".pre_korzina").stick_in_parent({
+        parent: 'body',
+        scr
+        //spacer: '.side__menu'
+    });
+
 
     function stickUnstick() {
         if (w < 752) {
-            $(".pre_korzina").stick_in_parent({
-                    parent: 'body',
-                    //spacer: '.side__menu'
-                })
-                .on("sticky_kit:unstick", function (e) {
+            ww.on("sticky_kit:unstick", function (e) {
                     $(e.target).addClass("unsticked");
                     $(e.target).addClass("ontop");
                 })
@@ -672,32 +676,27 @@
         stickUnstick();
     });
 
+    */
+
     // Разворачивание и сворачивание корзины
 
     var square = document.querySelector(".shopcart-container");
 
     if ( square ) {
         var manager = new Hammer.Manager(square);
-
-        // Create a recognizer
+  
         var Tap = new Hammer.Tap({
             taps: 1
         });
 
-        // Add the recognizer to the manager
         manager.add(Tap);
 
-        // Subscribe to the desired event
         manager.on('tap', function (e) { 
- 
-            $(".shopcart-full").toggleClass('collapsed');
+          $(".shopcart-full").toggleClass('collapsed');
         });
 
         $('#CollapseShopCartButton').click(function () {
             $(".shopcart-full").addClass('collapsed');
         });
-
     }
-
-
 }());

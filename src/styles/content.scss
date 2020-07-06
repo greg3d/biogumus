@@ -1,5 +1,8 @@
 .content__main {
-  background: rgb(230, 230, 220);
+
+  background: url("/assets/images/greenpattern3.png");
+
+  //background: rgb(230, 230, 220);
   height: 100%;
 
   border-radius: $radius-large;
@@ -7,6 +10,8 @@
   @include tablet {
     margin-top: -199px;
   }
+
+
 }
 
 
