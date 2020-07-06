@@ -60,6 +60,7 @@ export const server = () => {
 	gulp.watch(paths.styles.watch, styles).on("change", reload);
 	gulp.watch(paths.scripts.watch, scripts).on("change", reload);
 	gulp.watch(paths.images.watch, images).on("change", reload);
+	
 };
 
 
