@@ -1,0 +1,409 @@
+@@include('./header.html')
+<section class="section main">
+    <div class="container">
+        <div class="columns">
+            <div class="column side-column is-12-mobile is-4-touch is-3-desktop is-one-fifth-fullhd is-hidden-mobile">
+                <!--левая колонка-->
+                @@include('./sidebar.html')
+            </div>
+            <div class="column content__main  is-12-mobile is-8-touch is-9-desktop is-four-fifths-fullhd ">
+                <div class="content section">
+                    <h1 class="title">Оформление заказа</h1>
+                    <h4>В корзине 4 товара на сумму 516 рублей</h4>
+                    <div id="shopCart" data-shopcart="2">
+                        <form action="http://test.infotranz.ru/korzina.html#shopCart" method="post">
+                            <div class="cart__items columns">
+                                <div class="column  is-narrow">
+                                    <table class="table is-fullwidth is-striped is-hoverable">
+                                        <thead>
+                                            <tr>
+                                                <td class="col-image is-hidden-mobile"></td>
+                                                <td class="col-name">Товар</td>
+
+                                                <td class="col-count">Количество</td>
+                                                <td class="col-sum">Сумма</td>
+                                                <td class="col-x"></td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="item__img is-hidden-mobile">
+                                                    <div class="img-wrapper">
+                                                        <img src="/assets/images/Экогрунт-7л_300x400_e53.png" width="50"
+                                                            height="50" alt="">
+                                                    </div>
+                                                </td>
+                                                <td class="item__title"><a
+                                                        href="http://test.infotranz.ru/katalog/biogumus/biogumus-5l.html">Биогумус
+                                                        5л</a></td>
+                                                <td class="nowrap item__count">
+                                                    <div class="field has-addons">
+                                                        <div class="control">
+                                                            <button class="button is-info button__minus"
+                                                                type="button">-</button>
+                                                        </div>
+                                                        <div class="control">
+                                                            <input class="shk-count input text-center is-info"
+                                                                type="text" size="2" name="count[]" maxlength="3"
+                                                                title="изменить количество" value="4"
+                                                                style="width: 50px; text-align: center; font-weight: bold">
+                                                        </div>
+                                                        <div class="control">
+                                                            <button class="button is-info button__plus"
+                                                                type="button">+</button>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="text-center item__price">
+
+                                                    <p class="item__price--new">516 <i class="fas fa-ruble-sign"></i>
+                                                    </p>
+                                                </td>
+                                                <td class="item__remove">
+                                                    <a href="http://test.infotranz.ru/korzina.html?shk_action=remove&amp;n=0"
+                                                        title="Удалить" class="shk-del delete"></a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                    <div class="cart__summary level">
+                                        <div class="level-left">
+                                            <div class="level-item">
+                                                <span class="total__volume tag is-medium is-success">
+                                                    <i class="fas fa-box-open"></i>&nbsp;
+                                                    <span class="total__value">20&nbsp;л</span>
+                                                </span>
+                                            </div>
+                                            <div class="level-item">
+                                                <span class="total__weight tag is-medium is-info">
+                                                    <i class="fas fa-weight-hanging"></i>&nbsp;
+                                                    <span class="total__value">10&nbsp;кг</span>
+                                                </span>
+                                            </div>
+                                        </div>
+
+                                        <div class="level-right">
+                                            <div class="level-item">
+                                                <span class="total__price tag is-medium">
+                                                    <i class="fas fa-money-bill-wave"></i>&nbsp;ИТОГО:&nbsp;
+                                                    <span class="total__value">516&nbsp;<i
+                                                            class="fas fa-ruble-sign"></i></span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="clearfix"></div>
+
+                                    <noscript>
+                                        <div>
+                                            <button type="submit" name="shk_action" value="recount"
+                                                class="button is-info">Пересчитать</button>
+                                        </div>
+                                    </noscript>
+
+                                </div>
+                                <div class="column">
+                                    Вам осталось 
+                                </div>
+                            </div>
+                        </form>
+
+
+                    </div>
+                    <hr class="hr">
+                    <form method="post" action="/korzina.html" id="shopOrderForm">
+                        <div class="order-form columns is-desktop is-multiline">
+
+                            <div class="order__left column">
+                                <div class="order__personal">
+                                    <h4>1. Заполните информацию о себе</h4>
+                                    <div class="personal__field field is-horizontal">
+                                        <!--div class="field-label">
+                                                <label for="orderFormName" class="label"></label>    
+                                            </div-->
+                                        <div class="field-body">
+                                            <div class="field">
+                                                <div class="control has-icons-left">
+                                                    <input name="fullname" size="30" id="orderFormName"
+                                                        class="form-control input" type="text"
+                                                        placeholder="ФИО полностью*" value="">
+                                                    <span class="icon is-small is-left"><i
+                                                            class="fas fa-user"></i></span>
+                                                    <p class="help is-danger"></p>
+                                                </div>
+
+                                            </div>
+                                            <div class="field">
+                                                <div class="control has-icons-left">
+                                                    <input name="email" size="30" class="form-control input"
+                                                        type="email" placeholder="Email *" value="">
+                                                    <span class="icon is-small is-left">
+                                                        <i class="fas fa-envelope"></i>
+                                                    </span>
+                                                    <p class="help is-danger"></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="field is-horizontal">
+                                        <!--div class="field-label"></div-->
+                                        <div class="field-body">
+                                            <div class="field is-expanded">
+                                                <div class="field has-addons">
+                                                    <div class="control">
+                                                        <a class="button is-static">
+                                                            +7
+                                                        </a>
+                                                    </div>
+                                                    <div class="control is-expanded">
+                                                        <input name="phone" id="orderFormPhone" size="30"
+                                                            class="form-control input" type="tel"
+                                                            placeholder="Телефон *" value="">
+                                                        <p class="help is-danger"></p>
+                                                    </div>
+                                                </div>
+                                                <p class="help">только 9 цифр без восьмерки</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="field is-horizontal">
+                                        <!--div class="field-label is-normal">
+                                            <label class="label">Город:</label>
+                                          </div-->
+                                        <div class="field-body">
+                                            <div class="field">
+                                                <div class="control">
+                                                    <input class="input" name="city_var" type="text"
+                                                        placeholder="Город *" value="Барнаул">
+                                                </div>
+                                                <p class="help is-danger">
+
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="field is-horizontal">
+                                        <!--div class="field-label is-normal">
+                                            <label class="label">Сообщение:</label>
+                                          </div-->
+                                        <div class="field-body">
+                                            <div class="field">
+                                                <div class="control">
+                                                    <textarea name="message" class="textarea"
+                                                        placeholder="Дополнительная информация (необязательно)"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <input type="hidden" name="address" id="cartAddress" value="Барнаул">
+                                </div>
+                            </div>
+
+                            <div class="order__right column">
+                                <div class="order__payment">
+                                    <h4>2. Выберите способ оплаты</h4>
+                                    <div class="order__options control">
+                                        <label class="radio" style="display: none;">
+                                            <input type="radio" name="payment" value="cash">
+
+                                            <div class="order__icon"></div>
+                                            <div class="label">Наличными</div>
+
+
+                                        </label>
+
+
+                                        <label class="radio">
+                                            <input type="radio" name="payment" value="prepay">
+
+                                            <div class="order__icon"></div>
+                                            <div class="label">Квитанция для оплаты в банке</div>
+
+
+                                        </label>
+
+
+
+                                        <label class="radio">
+                                            <input type="radio" name="payment" value="AC">
+                                            <div class="order__icon"></div>
+                                            <div class="label">Банковская карта</div>
+                                        </label>
+                                    </div>
+                                    <p class="help is-danger">
+
+                                    </p>
+                                </div>
+
+                                <div class="order__delivery">
+                                    <h4>3. Выберите способ доставки</h4>
+                                    <div class="order__options">
+                                        <label class="radio" style="display: none;">
+                                            <input type="radio" name="shk_delivery" value="Самовывоз в Самаре"
+                                                checked="checked">
+
+                                            <div class="order__icon"></div>
+                                            <div class="label">Самовывоз в Самаре</div>
+
+                                            <div class="country_delivery">
+                                                <p>Выберите транспортную компанию: </p>
+                                                <div class="country_delivery__item active" data-trans="Деловые линии">
+                                                    <img src="/assets/images/d1.png" alt="">
+                                                </div>
+                                                <div class="country_delivery__item" data-trans="Энергия">
+                                                    <img src="/assets/images/d2.png" alt="">
+                                                </div>
+                                                <div class="country_delivery__item" data-trans="ПЭК">
+                                                    <img src="/assets/images/d3.png" alt="">
+                                                </div>
+                                            </div>
+                                            <input type="hidden" name="transcomp" value="Деловые линии"
+                                                class="transcom">
+                                        </label>
+
+
+                                        <label class="radio" style="display: none;">
+                                            <input type="radio" name="shk_delivery" value="Доставка по городу"
+                                                checked="checked">
+
+                                            <div class="order__icon"></div>
+                                            <div class="label">Доставка по городу</div>
+
+                                            <div class="country_delivery">
+                                                <p>Выберите транспортную компанию: </p>
+                                                <div class="country_delivery__item active" data-trans="Деловые линии">
+                                                    <img src="/assets/images/d1.png" alt="">
+                                                </div>
+                                                <div class="country_delivery__item" data-trans="Энергия">
+                                                    <img src="/assets/images/d2.png" alt="">
+                                                </div>
+                                                <div class="country_delivery__item" data-trans="ПЭК">
+                                                    <img src="/assets/images/d3.png" alt="">
+                                                </div>
+                                            </div>
+                                            <input type="hidden" name="transcomp" value="Деловые линии"
+                                                class="transcom">
+                                        </label>
+
+
+                                        <label class="radio">
+                                            <input type="radio" name="shk_delivery" value="Доставка по России"
+                                                checked="checked">
+
+                                            <div class="order__icon"></div>
+                                            <div class="label">Доставка по России</div>
+
+                                            <div class="country_delivery">
+                                                <p>Выберите транспортную компанию: </p>
+                                                <div class="country_delivery__item active" data-trans="Деловые линии">
+                                                    <img src="/assets/images/d1.png" alt="">
+                                                </div>
+                                                <div class="country_delivery__item" data-trans="Энергия">
+                                                    <img src="/assets/images/d2.png" alt="">
+                                                </div>
+                                                <div class="country_delivery__item" data-trans="ПЭК">
+                                                    <img src="/assets/images/d3.png" alt="">
+                                                </div>
+                                            </div>
+                                            <input type="hidden" name="transcomp" value="Деловые линии"
+                                                class="transcom">
+                                        </label>
+
+
+
+                                    </div>
+                                    <p class="help-block">
+
+                                    </p>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                        <div style="clear: both"></div>
+
+                        <div class="columns">
+
+                            <div class="column">
+                                <hr>
+                                <div class="buttons">
+                                    <input class="button is-danger is-fullwidth is-medium is-rounded" type="submit"
+                                        name="orderPage" value="Оформить заказ">
+                                    <button class="button is-info is-fullwidth is-medium is-rounded" type="button"
+                                        id="consult-select2">Помогите оформить заказ</button>
+                                </div>
+                                <div class="personal__field order__policy">
+                                    <label class="checkbox"><input name="policy[]" type="checkbox" value="1" checked="">
+                                        Я согласен на обработку <a
+                                            href="/about/politika-konfidenczialnosti-i-obrabotka-dannyix.html">персональных
+                                            данных</a>
+                                    </label>
+
+                                    <input name="policy[]" class="form-control" type="hidden" value="0">
+                                    <p class="help-block">
+
+                                    </p>
+                                </div>
+                                <div class="order__oferta">
+                                    <p>Оформляя заказ, вы соглашаетесь с <a href="/oferta.html" target="_blank"
+                                            id="openOferta">договором публичной оферты</a>. <br>После нажатия кнопки вы
+                                        будете переправлены на страницу оплаты заказа, если выбрана онлнай-форма оплаты.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <input type="hidden" name="utm" id="utm" value="/korzina.html">
+                        <input type="hidden" name="crawler3" value="">
+                        <input type="hidden" name="phrase3" value="">
+                        <input type="hidden" name="page3" value="http://test.infotranz.ru/korzina.html">
+                        <input type="hidden" name="referer3" value="http://test.infotranz.ru/">
+                        <input type="hidden" name="date3" value="2020-07-08">
+
+                        <input type="hidden" name="utm_source" value="">
+                        <input type="hidden" name="utm_medium" value="">
+                        <input type="hidden" name="utm_campaign" value="">
+                        <input type="hidden" name="utm_term" value="">
+                        <input type="hidden" name="utm_content" value="">
+                        <input type="hidden" name="utm_keyword" value="">
+                        <input type="hidden" name="block" value="">
+                        <input type="hidden" name="position" value="">
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+@@include('./footer.html')
+
+<div class="modal" id="zakaz">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Выберите удобный способ приобретения:</p>
+            <button class="delete" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="buttons">
+                <a class="button is-large is-fullwidth is-success is-light" href="#">
+
+                    Biogumus.PRO</a>
+                <a class="button is-large is-fullwidth is-link" href="#">
+                    <span class="icon"><img src="/assets/images/icons/beru.png" /></span> БЕРУ!</a>
+                <a class="button is-large is-fullwidth is-info" href="#">
+                    <span class="icon"><img src="/assets/images/icons/wild.png" /></span> Wildberries</a>
+                <a class="button is-large is-fullwidth is-warning" href="#">
+                    <span class="icon"><img src="/assets/images/icons/cdek.png" /></span> СДЭК-маркет</a>
+            </div>
+
+        </section>
+    </div>
+</div>

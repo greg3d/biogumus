@@ -129,7 +129,7 @@ const paths = {
 		watch: "./src/assets/images/**/*.{jpg,gif,png,svg}"
 	},
 	views: {
-		src: ["./src/html/index.html","./src/html/orderform.html"],
+		src: ["./src/html/index.html","./src/html/ppp.html"],
 		dist: "./dist/",
 		watch: "./src/html/**/*.html"
 	}
