@@ -13,7 +13,7 @@
                     <div id="shopCart" data-shopcart="2">
                         <form action="http://test.infotranz.ru/korzina.html#shopCart" method="post">
                             <div class="cart__items columns">
-                                <div class="column  is-narrow">
+                                <div class="column">
                                     <table class="table is-fullwidth is-striped is-hoverable">
                                         <thead>
                                             <tr>
@@ -40,17 +40,17 @@
                                                     <div class="field has-addons">
                                                         <div class="control">
                                                             <button class="button is-info button__minus"
-                                                                type="button">-</button>
+                                                                type="button"><i class="fas fa-minus"></i></button>
                                                         </div>
                                                         <div class="control">
                                                             <input class="shk-count input text-center is-info"
                                                                 type="text" size="2" name="count[]" maxlength="3"
                                                                 title="изменить количество" value="4"
-                                                                style="width: 50px; text-align: center; font-weight: bold">
+                                                                >
                                                         </div>
                                                         <div class="control">
                                                             <button class="button is-info button__plus"
-                                                                type="button">+</button>
+                                                                type="button"><i class="fas fa-plus"></i></button>
                                                         </div>
                                                     </div>
                                                 </td>
@@ -104,8 +104,16 @@
                                     </noscript>
 
                                 </div>
-                                <div class="column">
-                                    Вам осталось 
+                                <div class="column is-narrow">
+                                    <div class="box">
+                                        Вам осталось
+                                        <svg viewBox="0 0 42 42" class="donut">
+                                            <circle class="donut-hole" cx="21" cy="21" r="10" fill="#fff"></circle>
+                                            <circle class="donut-ring" cx="21" cy="21" r="10" fill="transparent" stroke="#f00" stroke-width="3"></circle>
+                                            <circle class="donut-segment" cx="20" cy="20" r="10" fill="transparent" stroke="#0f0" stroke-width="3"></circle>
+                                          </svg>
+                                    </div>
+                                    
                                 </div>
                             </div>
                         </form>
