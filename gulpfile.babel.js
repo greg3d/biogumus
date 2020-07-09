@@ -47,7 +47,7 @@ webpackConfig.devtool = production ? false : "cheap-eval-source-map";
 const imageExt = 'jpg png gif svg jpeg';
 const fontExt = 'eot ttf otf woff woff2 svg';
 
-var reload = browsersync.reload;
+
 
 export const server = () => {
 	browsersync.init({
@@ -56,14 +56,12 @@ export const server = () => {
 		notify: true
 	});
 
-	gulp.watch(paths.views.watch, views).on("change", reload);
-	gulp.watch(paths.styles.watch, styles).on("change", reload);
-	gulp.watch(paths.scripts.watch, scripts).on("change", reload);
-	gulp.watch(paths.images.watch, images).on("change", reload);
+	gulp.watch(paths.styles.watch, gulp.parallel(styles));
+	gulp.watch(paths.scripts.watch, gulp.parallel(scripts));
+	gulp.watch(paths.views.watch, gulp.parallel(views));
+	gulp.watch(paths.images.watch, gulp.parallel(images));
 	
 };
-
-
 
 const autoprefixierOpts = {
 	overrsideBrowserslist: ["last 12 versions", "> 1%", "ie 8", "ie 7"]
@@ -213,7 +211,8 @@ export const styles = () => gulp.src(paths.styles.src)
 	.pipe(gulp.dest(paths.styles.dist))
 	.pipe(debug({
 		"title": "CSS files"
-	}));
+	}))
+	.pipe(browsersync.stream());
 
 export const libsjs = () => gulp.src(jsLibsList)
 	.pipe(concat('vendor.min.js'))
@@ -232,7 +231,8 @@ export const images = () => gulp.src(imageFiles)
 	.pipe(gulp.dest(paths.images.dist))
 	.pipe(debug({
 		"title": "Images"
-	}));
+	}))
+	.pipe(browsersync.stream());
 
 export const views = () => gulp.src(paths.views.src)
 	.pipe(fileinclude({
@@ -246,7 +246,8 @@ export const views = () => gulp.src(paths.views.src)
 	.pipe(gulp.dest(paths.views.dist))
 	.pipe(debug({
 		"title": "HTML files"
-	}));
+	}))
+	.pipe(browsersync.stream());
 //.on("end", browsersync.reload);
 export const scripts = () => gulp.src(paths.scripts.src)
 	.pipe(rigger())
@@ -258,7 +259,8 @@ export const scripts = () => gulp.src(paths.scripts.src)
 	.pipe(gulp.dest(paths.scripts.dist))
 	.pipe(debug({
 		"title": "JS files"
-	}));
+	}))
+	.pipe(browsersync.stream());
 //.on("end", browsersync.reload);
 
 export const upload = (cb) => {
@@ -273,7 +275,6 @@ export const upload = (cb) => {
 		remotePath: 'www/assets/'
 	}));
 	cb();
-
 }
 
 export const development = gulp.series(

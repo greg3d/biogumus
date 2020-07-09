@@ -3,51 +3,13 @@
   font-size: 2rem;
 }
 
-.radial-progress {
-  $circle-size: 120px;
-  $circle-background: #d6dadc;
-  $circle-color: #97a71d;
-  $transition-length: 1s;
-
-
-  width: $circle-size;
-  height: $circle-size;
-
-  border-radius: 50%;
-
-  background-color: $circle-background;
-  .circle 
-  {
-
-    .mask {
-
-      clip: rect(0px, $circle-size, $circle-size, $circle-size/2);
-
-      .fill {
-        background-color: $circle-color;
-        width: $circle-size;
-        height: $circle-size;
-    
-        transition: -webkit-transform $transition-length;
-        transition: -ms-transform $transition-length;
-        transition: transform $transition-length;
-    
-        border-radius: 50%;
-        position: absolute;
-        clip: rect(0px, $circle-size/2, $circle-size, 0px);
-    
-    
-      }
-      
-    }
-
-    
-  }
-}
-
-
 
 .cart__items {
+
+  .box {
+    padding: 0.75rem
+  }
+
   table {
     border-radius: $radius-small;
     overflow: hidden;
@@ -56,29 +18,38 @@
     td{
       padding: 0;
       vertical-align: middle !important;
+      text-align: center;
+      .field.has-addons {
+        margin: 0 auto;
+      }
     }
 
+
     td.col-image {
-      width: 60px;
+      width: 50px;
       text-align: center;
       img {
         margin: 0 auto;
       }
     }
 
+    td.col-count {
+      width: 96px;
+    }
 
     .item__count {
       .button {
-        padding: 0.75rem;
-        font-size: 1rem;
-      }
-      .control .input {
         padding: 0;
-        font-weight: normal;
+        font-size: 1rem;
+        height: 2rem;
+        width: 2rem;
       }
 
       .shk-count {
-        width: 42px; 
+        //width: 2rem;
+        padding: 0;
+        font-weight: normal;
+        height: 2rem;
         text-align: center;
         padding: 0;
       }

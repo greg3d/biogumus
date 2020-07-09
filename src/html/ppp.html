@@ -14,58 +14,61 @@
                         <form action="http://test.infotranz.ru/korzina.html#shopCart" method="post">
                             <div class="cart__items columns">
                                 <div class="column">
-                                    <table class="table is-fullwidth is-striped is-hoverable">
-                                        <thead>
-                                            <tr>
-                                                <td class="col-image is-hidden-mobile"></td>
-                                                <td class="col-name">Товар</td>
+                                    <div class="box">
+                                        <table class="table is-fullwidth is-striped is-hoverable">
+                                            <thead>
+                                                <tr>
+                                                    <td class="col-image is-hidden-mobile"></td>
+                                                    <td class="col-name">Товар</td>
 
-                                                <td class="col-count">Количество</td>
-                                                <td class="col-sum">Сумма</td>
-                                                <td class="col-x"></td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td class="item__img is-hidden-mobile">
-                                                    <div class="img-wrapper">
-                                                        <img src="/assets/images/Экогрунт-7л_300x400_e53.png" width="50"
-                                                            height="50" alt="">
-                                                    </div>
-                                                </td>
-                                                <td class="item__title"><a
-                                                        href="http://test.infotranz.ru/katalog/biogumus/biogumus-5l.html">Биогумус
-                                                        5л</a></td>
-                                                <td class="nowrap item__count">
-                                                    <div class="field has-addons">
-                                                        <div class="control">
-                                                            <button class="button is-info button__minus"
-                                                                type="button"><i class="fas fa-minus"></i></button>
+                                                    <td class="col-count">Кол-во</td>
+                                                    <td class="col-sum">Стоимость</td>
+                                                    <td class="col-x"></td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="item__img is-hidden-mobile">
+                                                        <div class="img-wrapper">
+                                                            <img src="/assets/images/Экогрунт-7л_300x400_e53.png"
+                                                                width="50" height="50" alt="">
                                                         </div>
-                                                        <div class="control">
-                                                            <input class="shk-count input text-center is-info"
-                                                                type="text" size="2" name="count[]" maxlength="3"
-                                                                title="изменить количество" value="4"
-                                                                >
+                                                    </td>
+                                                    <td class="item__title"><a
+                                                            href="http://test.infotranz.ru/katalog/biogumus/biogumus-5l.html">Биогумус
+                                                            5л</a></td>
+                                                    <td class="nowrap item__count">
+                                                        <div class="field has-addons">
+                                                            <div class="control">
+                                                                <button class="button is-info button__minus"
+                                                                    type="button"><i class="fas fa-minus"></i></button>
+                                                            </div>
+                                                            <div class="control">
+                                                                <input class="shk-count input text-center is-info"
+                                                                    type="text" size="2" name="count[]" maxlength="3"
+                                                                    title="изменить количество" value="4">
+                                                            </div>
+                                                            <div class="control">
+                                                                <button class="button is-info button__plus"
+                                                                    type="button"><i class="fas fa-plus"></i></button>
+                                                            </div>
                                                         </div>
-                                                        <div class="control">
-                                                            <button class="button is-info button__plus"
-                                                                type="button"><i class="fas fa-plus"></i></button>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td class="text-center item__price">
+                                                    </td>
+                                                    <td class="text-center item__price">
 
-                                                    <p class="item__price--new">516 <i class="fas fa-ruble-sign"></i>
-                                                    </p>
-                                                </td>
-                                                <td class="item__remove">
-                                                    <a href="http://test.infotranz.ru/korzina.html?shk_action=remove&amp;n=0"
-                                                        title="Удалить" class="shk-del delete"></a>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                                        <p class="item__price--new">516 <i
+                                                                class="fas fa-ruble-sign"></i>
+                                                        </p>
+                                                    </td>
+                                                    <td class="item__remove">
+                                                        <a href="http://test.infotranz.ru/korzina.html?shk_action=remove&amp;n=0"
+                                                            title="Удалить" class="shk-del delete"></a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
 
                                     <div class="cart__summary level">
                                         <div class="level-left">
@@ -104,16 +107,30 @@
                                     </noscript>
 
                                 </div>
-                                <div class="column is-narrow">
+                                <div class="column">
                                     <div class="box">
-                                        Вам осталось
-                                        <svg viewBox="0 0 42 42" class="donut">
-                                            <circle class="donut-hole" cx="21" cy="21" r="10" fill="#fff"></circle>
-                                            <circle class="donut-ring" cx="21" cy="21" r="10" fill="transparent" stroke="#f00" stroke-width="3"></circle>
-                                            <circle class="donut-segment" cx="20" cy="20" r="10" fill="transparent" stroke="#0f0" stroke-width="3"></circle>
-                                          </svg>
+                                        <div class="columns">
+                                            <div class="column is-narrow">
+                                                <div class="ko-progress-circle" data-progress="15">
+                                                    <div class="ko-circle">
+                                                        <div class="full ko-progress-circle__slice">
+                                                            <div class="ko-progress-circle__fill"></div>
+                                                        </div>
+                                                        <div class="ko-progress-circle__slice">
+                                                            <div class="ko-progress-circle__fill"></div>
+                                                            <div class="ko-progress-circle__fill ko-progress-circle__bar"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="ko-progress-circle__overlay"></div>
+                                                </div>
+                                            </div>
+                                            <div class="column">
+                                                <div class="cart_notification">Вам осталось..</div>
+                                            </div>
+                                        </div>
+                                        
                                     </div>
-                                    
+
                                 </div>
                             </div>
                         </form>
