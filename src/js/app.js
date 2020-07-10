@@ -215,6 +215,12 @@
 
         //////// shk count buttons + -
         this.bindPlusMinusButtons = function () {
+
+            $('input.shk-count').change(function(){
+                SHK.changeCartItemsCount();
+                return false;
+            });
+
             $('[data-shopcart="2"]').on('click', '.button__minus', function () {
                 var $input = $(this).parent().parent().find('.shk-count');
                 var count = parseInt($input.val()) - 1;
@@ -690,5 +696,5 @@
         });
     }
 
-    
+
 }());
