@@ -83,9 +83,10 @@
         this.cityRecalc = function () {
 
             sl.getRates();
+            sl.getFreeDelivery();
             var dataCity = siteLib.city.name;
             if (dataCity != 'Самара') {
-                console.log("not samara+" + dataCity);
+                //console.log("not samara+" + dataCity);
                 $('.order__payment .order__options .radio:nth-child(1)').hide();
                 $('.order__delivery .order__options .radio:nth-child(1)').hide();
                 $('.order__delivery .order__options .radio:nth-child(2)').hide();
@@ -212,6 +213,21 @@
 
             return false;
         }; // this.getRates
+
+        this.getFreeDelivery = function () {
+            $('#freeDelivery').html('<div class="ajax-loader">Расчитываю...</div>');
+
+            var action = 'freedelivery';
+
+            $.post(document.location.href, {
+                action: action
+            }, function (data) {
+                $('#freeDelivery').html(data);
+            });
+
+            return false;
+        }; // this.getRates
+
 
         //////// shk count buttons + -
         this.bindPlusMinusButtons = function () {
@@ -566,6 +582,7 @@
 
     });
 
+    /*
     var counter = document.getElementById('counter-val');
     var counterPlus = document.getElementById('counter-plus');
     var counterMinus = document.getElementById('counter-minus');
@@ -583,7 +600,7 @@
             counterTemp += 1;
             counter.value = counterTemp;
         };
-    }
+    }*/
 
 
     $('.country_delivery__item').click(function () {
