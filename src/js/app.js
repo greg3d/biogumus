@@ -222,7 +222,26 @@
             $.post(document.location.href, {
                 action: action
             }, function (data) {
-                $('#freeDelivery').html(data);
+                
+
+                var v = JSON.parse(data);
+                var htmldata = v[0];
+                if (v[1] >=100) {
+
+                    if ( SHK.data.ids.indexOf(163) == -1 ) {
+
+                        console.log('Подарок!');
+                       // SHK.fillCart(163,1,true);
+                    }
+
+                    
+                }
+
+                $('#freeDelivery').html(htmldata);
+                
+                
+
+
             });
 
             return false;
