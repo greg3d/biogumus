@@ -198,12 +198,10 @@
             });
         };
 
-
         this.getRates = function () {
             $('#getRatesResult').html('<div class="ajax-loader">Расчитываю...</div>');
 
             var action = 'getDeliveryRates';
-
 
             $.post(document.location.href, {
                 actionz: action
@@ -215,15 +213,14 @@
         }; // this.getRates
 
         this.getFreeDelivery = function () {
-            $('#freeDelivery').html('<div class="ajax-loader">Расчитываю...</div>');
+            //$('#freeDelivery').html('<div class="ajax-loader"></div>');
 
             var action = 'freedelivery';
 
             $.post(document.location.href, {
                 action: action
             }, function (data) {
-                
-
+              
                 var v = JSON.parse(data);
                 var htmldata = v[0];
                 if (v[1] >=100) {
@@ -232,16 +229,10 @@
 
                         console.log('Подарок!');
                        // SHK.fillCart(163,1,true);
-                    }
-
-                    
+                    }        
                 }
 
                 $('#freeDelivery').html(htmldata);
-                
-                
-
-
             });
 
             return false;
