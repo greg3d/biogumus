@@ -21,20 +21,49 @@
             </div>
         </div>
         <div class="card-content">
-
-
             <div class="product-price">
-                <p class="shk-price">79 <i class="fas fa-ruble-sign"></i></p>
+                
             </div>
-            <form action="/biogumus1.html" method="post">
+            <form action="/" method="post">
                 <input type="hidden" name="shk-id" value="132">
-                <input type="hidden" name="shk-name" value="Биогумус 5л">
-                <input type="hidden" name="shk-count" value="1">
-
-                <button type="submit" class="button is-danger is-rounded is-fullwidth product-tocart" title="В корзину"
-                    data-original-title="В корзину">
-                    <i class="fas fa-cart-plus"></i>&nbsp;В корзину</button>
-
+                    <input type="hidden" name="shk-name" value="Биогумус 5л">
+                    <!--input type="hidden" name="shk-count" value="1" /-->
+                    
+                    <div class="item-buttons-group">
+                        <div class="first-line">
+                            <a class="button product-price">
+                              <span>
+                                <div class="shk-price">899<i class="fas fa-ruble-sign"></i>
+                                </div>
+                            </span>
+                            </a>
+ 
+                            <button type="submit" class="button is-danger product-tocart" title="В корзину" data-original-title="В корзину">
+                              <span class="icon">
+                                <i class="fas fa-cart-plus"></i>
+                              </span>
+                              <span>В корзину</span>
+                            </button>
+                            
+                        </div>
+                        <div class="second-line">
+                            <div class="field has-addons ">
+                                <div class="control">
+                                    <button class="button is-small is-success" type="button"><i class="fas fa-minus"></i></button>
+                                </div>
+                                <div class="control">
+                                    <input class="shk-count input is-small is-success" type="text" size="2" name="shk-count" maxlength="3" title="изменить количество" value="1">
+                                </div>
+                                <div class="control">
+                                    <button class="button is-small is-success" type="button"><i class="fas fa-plus"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        
+          
+                    </div>
+              
+               
             </form>
         </div>
     </div>

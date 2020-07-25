@@ -266,6 +266,29 @@
                 SHK.changeCartItemsCount();
                 return false;
             });
+
+            $('.shk-count-edit').on('click', '.button__plus', function(){
+                //console.log('ddd');
+                $(this).prop('disabled', true);
+                var $input = $(this).parent().parent().find('.shk-count');
+                $input.val(parseInt($input.val()) + 1);
+                $input.change();
+                $(this).prop('disabled', false);
+                return false;
+            });
+
+            $('.shk-count-edit').on('click', '.button__minus', function () {
+                $(this).prop('disabled', true);
+                var $input = $(this).parent().parent().find('.shk-count');
+                var count = parseInt($input.val()) - 1;
+                count = count < 1 ? 1 : count;
+                $input.val(count);
+                $input.change();
+                $(this).prop('disabled', false);
+                return false;
+            });
+
+
         };
 
 
@@ -401,18 +424,21 @@
 
         ///////////////////////////////////////////////////////////////////
         // MODALS
-        //var rootEl = document.documentElement;
+        rootEl = $('body');
         var $modals = $('.modal');
         var $modalButtons = $('.modal-button');
         var $modalCloses = $('.modal-background, .modal-close, .modal-card-head .delete, .modal-card-foot .button');
 
         if ($modalButtons.length > 0) {
             $modalButtons.each(function (index, el) {
-                $(el).click(function () {
+                $(el).click(function (event) {
+                    event.preventDefault();
 
                     var target = el.dataset.target;
 
                     openModal('#' + target);
+
+                    console.log(target);
                 });
             });
         }
@@ -501,6 +527,7 @@
                         };
                     }
 
+                    /*
                     objects.sort(compareValues('obl'));
 
                     var pred = '';
@@ -517,7 +544,7 @@
                         $item.append('<a class="link">' + obj.name + '</a>');
 
                         pred = obj.obl;
-                    });
+                    }); */
 
                 });
 
@@ -532,7 +559,11 @@
             });
         }
 
+        siteLib.closeModals = function(){
+            closeModals();
+        };
 
+        
         document.addEventListener('keydown', function (event) {
             var e = event || window.event;
             if (e.keyCode === 27) {
@@ -723,5 +754,7 @@
         });
     }
 
+    //var closeModals = closeModals();
 
 }());
+

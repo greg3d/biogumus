@@ -77,14 +77,13 @@
 
       }
 
+      a.navbar-link.is-red {
+        background-color: #f31f1f;
+        color: white;
+      }
 
       > a.is-active, a:hover {
         background-color: $primary;
-      }
-
-      > .is-red {
-        background-color: #f31f1f;
-        color: whit
       }
 
       .navbar-dropdown {
@@ -142,6 +141,9 @@
         }
 
       }
+
+     
+  
 
     }
 

@@ -2,10 +2,18 @@
 
 	$(document).ready(function () {
 
-		var city = new Array();
+		var city = [];
 		$('.cities li').each(function (i) {
-			//console.log($(this).html());
-			city[i] = $(this).html();
+			
+			
+			if(typeof $(this).attr('target') === "undefined"){
+				city[i] = $(this).html();
+			} else {
+				city[i] = $(this).attr('target');
+			}
+			//console.log(city[i]);
+
+			
 		});
 
 		var ulcities = document.querySelector("ul.cities");
@@ -68,7 +76,15 @@
 					$(this).addClass('active');
 
 					// 
-					var cityName = $(this).html();
+					var cityName = '';
+					if(typeof $(this).attr('target') === "undefined"){
+						cityName = $(this).html();
+					} else {
+						cityName = $(this).attr('target');
+					}
+
+					siteLib.closeModals();
+
 					/*tehotdel spektor*/
 					if (cityName == 'Москва') {
 						cityName = 'Московская область';

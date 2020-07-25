@@ -95,9 +95,14 @@
         overflow: hidden;
         border-radius: 6px;
         margin-right: 5px;
+        width: 75px;
+        background: #fff;
+        text-align: center;
+        height: 59px;
 
         img {
           height: 55px;
+          margin: 0 auto;
         }
       }
       .country_delivery__item.active {
