@@ -20,7 +20,7 @@
       padding: 0;
 
       a.navbar-link {
-        font-size: 26px;
+        font-size: 24px;
         
         text-align: center;
         width: 100%;
@@ -31,13 +31,17 @@
         
         font-weight: normal;
         border-radius: $radius-large;
-        background-color: #ffcd36;
+        background-color: $secondary;
         //background-image: linear-gradient(45deg, rgba(244, 174, 24, 0.5) 0%, rgba(255, 205, 54, 0.5) 99%, rgba(255, 205, 54, 0.5) 100%);
         //transition: 0.3s all ease;
 
-        border-right: 2px solid rgba(0, 0, 0, 0.3);
-        border-left: 2px solid rgba(255, 255, 255, 0.5);
+        border-right: 1px solid rgba(0, 0, 0, 0.3);
+        border-left: 1px solid rgba(255, 255, 255, 0.5);
         border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+
+        box-shadow: 0 0 15px rgba(0,0,0,0.2);
+
+        text-transform: uppercase;
 
         display:  flex;
         flex-wrap: nowrap;
@@ -78,7 +82,7 @@
       }
 
       a.navbar-link.is-red {
-        background-color: #f31f1f;
+        background-color: #e76000;
         color: white;
       }
 
@@ -107,7 +111,8 @@
           border-left: 2px solid rgba(255, 255, 255, 0.5);
           border-bottom: 1px solid rgba(0, 0, 0, 0.2);
           
-          background: lighten($color: $primary, $amount: 5%);
+          background: $primary;
+
           color: white;
           padding: 8px 10px;
 
