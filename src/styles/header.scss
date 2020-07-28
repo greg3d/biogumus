@@ -13,6 +13,22 @@ body {
   position: relative;
 }
 
+.ecologica {
+  position: absolute;
+  top: 17px;
+  width: 210px;
+  height: 50px;
+  z-index: 1;
+  left: 50%;
+  margin-left: -50px;
+  text-align: center;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
 
 .header::before {
   content: ' ';
@@ -109,11 +125,27 @@ body {
 }
 
 .header__payment-icons {
+  height: 100%;
+  
+  //ackground-color: #eee;
+  display: flex;
+  align-items: flex-end;
+  align-content: flex-end;
+  flex-flow: row;
+  justify-content: space-between;
+
+  .wrapper {
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    flex-flow: row;
+    justify-content: space-between;
+  }
 
   span {
 
     background-color: white;
-
     color: white;
     border-radius: $radius-small;
     height: 28px;
@@ -122,6 +154,7 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     margin: 0 1px;
+    width: 50px;
 
   }
 
@@ -268,6 +301,7 @@ body {
     width: 38px;
     height: 38px;
     //border: 1px solid rgb(245, 255, 159);
+    margin-right: 0.75rem;
 
     display: flex;
 
