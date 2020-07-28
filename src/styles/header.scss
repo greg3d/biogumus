@@ -22,8 +22,29 @@ body {
   left: 50%;
   margin-left: -50px;
   text-align: center;
+  //border: 1px solid black;
+
+  @include mobile {
+    //position: absolute;
+    width: 150px;
+    top: 0;
+    left: 0;
+    margin-left: 0;
+    margin-right: 0;
+    
+  }
+
+  div {
+    font-size: 0.88rem;
+    font-weight: bold;
+    text-shadow: 0 0 15px rgb(255,255,255);
+    margin-top: -7px;
+    margin-left: -1px;
+    color: #2b2a29; 
+  }
 
   img {
+    //border: 1px solid black;
     width: 100%;
     height: auto;
   }
@@ -40,6 +61,13 @@ body {
     background-image: url(/assets/images/big2.png);
     background-position: top right;
     background-size: 820px;
+
+    @include mobile {
+      background-size: 570px;
+      background-position: top center;
+      background-position-x: 1em;
+    }
+
     background-repeat: no-repeat;
     z-index: 0;
 }
@@ -63,6 +91,11 @@ body {
 
 
   .logo__main {
+
+    @include mobile {
+      margin-top: 100px;
+      text-align: left;
+    }
 
     text-align: center;
     margin-bottom: 0;
@@ -249,7 +282,7 @@ body {
     line-height: 2rem;
     margin: 0;
     padding: 0;
-    color:black;
+    color:$black;
      white-space: nowrap;
     //color: rgb(64, 75, 0);
     //display: flex;
@@ -455,7 +488,7 @@ body {
         }
 
         .navbar-link:after {
-          border-color: black;
+          border-color: $black;
 
         }
       }

@@ -219,6 +219,7 @@
 }
 
 .product, .shk-item {
+  border-radius: 10px;
   .card-content {
     padding: 0.5rem;
   }
@@ -226,15 +227,15 @@
 
 h3.product-title {
   position: absolute;
-  top: 15px;
+  top: 0;
   left: 0;
   width: 100%;
   text-align: center;
   font-weight: bold;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   color: #ffffff;
-  padding: 10px 20px;
-  background: adjust-color($primary, $alpha: -0.5);
+  padding: 8px 10px;
+  background: darken(adjust-color($primary, $alpha: -0.2), 10%);
   text-shadow: 0 0 7px rgba(0, 0, 0, 0.4);
 
 }
@@ -286,13 +287,6 @@ h3.product-title a {
       border-radius: 0;
     }
 
-    .product-price {
-      .fa-ruble-sign {
-        color: lighten($danger,10%);
-        font-size: 1.0rem;
-      }
-    }
-
     
   }
 
@@ -331,17 +325,25 @@ h3.product-title a {
 
 .product-price {
 
-  color: #0f9a00;
+  color: darken($danger,10%);
   text-align: center;
   margin: 0;
   padding: 0;
+
+  .fa-ruble-sign {
+    color: darken($danger,10%);
+    font-size: 1.0rem;
+    bottom: 1px;
+    position: relative;
+    left: 2px;
+  }
   
 }
 
 .button.product-tocart {
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
-  background: rgb(195, 0, 0);
-  background: linear-gradient(180deg, rgba(195, 0, 0, 1) 0%, rgba(250, 0, 0, 1) 49%, rgba(255, 49, 49, 0.47102591036414565) 100%);
+  background: darken($danger,10%);
+  //background: linear-gradient(180deg, rgba(195, 0, 0, 1) 0%, rgba(250, 0, 0, 1) 49%, rgba(255, 49, 49, 0.47102591036414565) 100%);
 }
 
 .product-more {

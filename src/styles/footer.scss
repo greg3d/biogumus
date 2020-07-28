@@ -1,5 +1,8 @@
 footer {
 
+  $font-color: #444;
+
+  
   border-top: 3px solid #53ff52;
 
   .media+.media {
@@ -8,15 +11,19 @@ footer {
 
   .copyright, .adress {
     .media-content {
-      color: #ccc;
+      color: $font-color;
       font-size: 0.7rem;
     }
   }
 
   .footer-menu {
+
+    font-size: 0.8rem;
+    color: $font-color;
+
     h4 {
       font-size: 1.2rem;
-      color: #eee;
+      color: $font-color;
       padding: 0;
       margin: 0;
       //line-height: 3rem;
@@ -25,17 +32,16 @@ footer {
       
       white-space: nowrap;
     }
-    font-size: 0.8rem;
-    color: #bbb;
+    
 
     li {
       margin-bottom: 2px;
     }
 
     a {
-      color: #bbb;
+      color: $font-color;
       text-decoration: none;
-      border-bottom: 1px solid rgba(200,200,200,0.5);
+      border-bottom: 1px solid lighten($font-color,20%);
       padding-bottom: 1px;
       display: inline;
     }
@@ -57,9 +63,3 @@ footer {
   display: inline-block;
 }
 
-
-@media (max-width: 768px) {
-  footer {
-    height: 40px;
-  }
-}
