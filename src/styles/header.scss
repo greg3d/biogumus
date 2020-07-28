@@ -8,8 +8,8 @@ body {
 
 .header {
   
-  margin-bottom: $column-gap;
-  padding: 1.5rem 1.5rem $column-gap;
+  margin-bottom: 0;
+  padding: 1.5rem $column-gap 0;
   position: relative;
 }
 
@@ -87,7 +87,7 @@ body {
 
 
     span {
-      //color: yellow;
+      color: $secondary;
       
     }
 
