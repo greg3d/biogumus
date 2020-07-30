@@ -692,11 +692,23 @@
 
     var $hoverableLink = $('.navbar-item.has-dropdown');
 
-    $hoverableLink.hover(function () {
-        $(this).addClass('is-active');
-    }, function () {
-        $(this).removeClass('is-active');
-    });
+    if(!!('ontouchstart' in window)) {//check for touch device
+        $hoverableLink.click(function () {
+            $(this).toggleClass('is-active');
+        });
+    }
+    else{
+        $hoverableLink.hover(function () {
+            $(this).addClass('is-active');
+        }, function () {
+            $(this).removeClass('is-active');
+        });
+    }
+
+
+    
+
+    
 
     ////////////////////// end menu top
 
@@ -732,9 +744,11 @@
 
     */
 
-    // Разворачивание и сворачивание корзины
-
+    // Разворачивание и сворачивание
+    var dropdownlink = document.querySelector(".navbar-item.has-dropdown");
     var square = document.querySelector(".shopcart-container");
+
+    
 
     if (square) {
         var manager = new Hammer.Manager(square);
@@ -746,13 +760,30 @@
         manager.add(Tap);
 
         manager.on('tap', function (e) {
-            $(".shopcart-full").toggleClass('collapsed');
+            $(".shopcart-full").removeClass('collapsed');
         });
 
         $('#CollapseShopCartButton').click(function () {
             $(".shopcart-full").addClass('collapsed');
         });
+        $('.product-list').click(function () {
+            $(".shopcart-full").addClass('collapsed');
+        });
     }
+    /*
+
+    if (dropdownlink) {
+        var man = new Hammer.Manager(dropdownlink);
+        var Tap2 = new Hammer.Tap({
+            taps: 1
+        });
+        man.add(Tap2);
+        man.on('tap', function(e){
+            console.log('f');
+           $('.navbar-item.has-dropdown').toggleClass('isdd-active'); 
+        });
+
+    }*/
 
     //var closeModals = closeModals();
 

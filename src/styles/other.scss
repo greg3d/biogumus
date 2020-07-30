@@ -295,7 +295,7 @@
 
   .danger_text1 {
     border-radius: 8px;
-
+    padding: 0;
     font-weight: normal;
     text-align: center;
     height: 60px;
@@ -311,14 +311,15 @@
 
     .icon,
     .text {
-      font-size: 15px;
+      font-size: 2rem;
+      line-height: 1.5rem;
     }
 
     @include mobile {
 
       .icon,
       .text {
-        font-size: 12px;
+        font-size: 1.25rem;
       }
     }
 

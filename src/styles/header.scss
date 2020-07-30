@@ -4,6 +4,11 @@ body {
   background-repeat: no-repeat;
   background-color: $background-color;
   background-size: 100% 100%;
+  @include mobile {
+    background-size: 300%;
+    background-position: top left;
+  }
+  overflow: hidden;
 }
 
 .header {
@@ -26,7 +31,7 @@ body {
 
   @include mobile {
     //position: absolute;
-    width: 150px;
+    width: 140px;
     top: 0;
     left: 0;
     margin-left: 0;
@@ -35,11 +40,11 @@ body {
   }
 
   div {
-    font-size: 0.88rem;
+    font-size: 1.3rem;
     font-weight: bold;
     text-shadow: 0 0 15px rgb(255,255,255);
-    margin-top: -7px;
-    margin-left: -1px;
+    margin-top: -9px;
+    margin-left: -2px;
     color: #2b2a29; 
   }
 
@@ -57,15 +62,22 @@ body {
     width: 100%;
     height: 100%;
     top: 0;
-    right: 0;
-    background-image: url(/assets/images/big2.png);
-    background-position: top right;
-    background-size: 820px;
+    left: 50%;
+    background-image: url(/assets/images/big3.png);
+    background-position: top 25px;
+    background-size: 1000px;
 
     @include mobile {
-      background-size: 570px;
-      background-position: top center;
-      background-position-x: 1em;
+      background-size: 850px;
+      left: 0;
+      background-position-x: 2em;
+    }
+
+    @include tablet-only {
+      background-size: 900px;
+      background-position-x: 25px;
+      left: 50%;
+      
     }
 
     background-repeat: no-repeat;
@@ -93,7 +105,7 @@ body {
   .logo__main {
 
     @include mobile {
-      margin-top: 100px;
+      margin-top: 115px;
       text-align: left;
     }
 
@@ -313,7 +325,7 @@ body {
   display: flex;
   color: #fff;
   font-weight: 400;
-  padding-bottom: 0;
+  //padding-bottom: 0;
   flex-flow: row;
   
   justify-content: space-between;
@@ -323,7 +335,10 @@ body {
   height: 49px;
   //background: #aaa;
 
+  padding: 0 1px 0 1px;
+
   .icon {
+    position: relative;
     color: #333;
     background-color: rgb(245, 245, 245);
     border-radius: $radius-large;
@@ -338,15 +353,30 @@ body {
 
     display: flex;
 
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    //box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    border: 2px solid rgb(231, 231, 231);
 
     @include mobile {
       width: 50px;
       height: 50px;
-      font-size: 1.5rem;
+      font-size: 2rem;
     }
 
     
+  }
+
+  .icon:last-child {
+    margin-right: 0;
+  }
+
+  .icon::after{ 
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: block;
+    content: " ";
+    background: url('/assets/images/button_gloss.png') top center;
+  //border: 1px solid black;
   }
 
   .is-email {
@@ -361,6 +391,14 @@ body {
   .is-whatsapp {
     background-color: #4AC959;
     color: #fff;
+  }
+
+
+  .is-instagram {
+    font-size: 1.5rem;
+    color: #fff;
+    background: #d6249f;
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
   }
 
   // a {

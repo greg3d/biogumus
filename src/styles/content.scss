@@ -19,7 +19,13 @@
 
 }
 
-.content.section {
+
+.section.main {
+  padding-right: $column-gap;
+  padding-left: $column-gap;
+}
+
+.section.content {
   padding: 0 0 1.5rem;
 }
 

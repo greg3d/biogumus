@@ -62,6 +62,10 @@
       
       background-color: #fff;
       width: 100%;
+
+      .checkout-button {
+        z-index: 10;
+      }
       
     }
 
@@ -70,7 +74,7 @@
       display: none;
       
       .checkout-button {
-        display: none;
+        //display: none;
       }
       .product-list {
         display: none;

@@ -47,7 +47,7 @@
         flex-wrap: nowrap;
         .icon {
           display: block;
-          margin: 0;
+          margin: 2px 0 0 0;
           padding: 0;
           //border: 1px solid black;
           width: 32px;
@@ -101,11 +101,16 @@
         border: none;
         box-shadow: none;
 
+        @include touch {
+          position: relative;
+          left: 0;
+        }
+
         //transition: unset;
         //animation: unset;
 
         a {
-          font-size: 24px;
+          font-size: 22px;
           border-top: 1px solid rgba(255, 255, 255, 0.1);
           border-right: 2px solid rgba(0, 0, 0, 0.3);
           border-left: 2px solid rgba(255, 255, 255, 0.5);
@@ -159,6 +164,22 @@
 
     }
 
+    .navbar-item.has-dropdown .navbar-dropdown {
+      
+      @include touch {
+        display: none;
+      }
+
+    }
+
+    .navbar-item.has-dropdown.is-active .navbar-dropdown {
+      
+      @include touch {
+        display: block;
+      }
+
+    }
+
 
     li.navbar-item.has-dropdown::after {
       
@@ -171,14 +192,24 @@
       border-top: 2px solid;
       border-right: 2px solid;
       border-color: #4b3e39;
-      -webkit-transform: translateY(-50%) rotate(45deg);
-      -ms-transform: translateY(-50%) rotate(45deg);
       transform: translateY(-50%) rotate(45deg);
-      -webkit-transition: .3s;
-      -o-transition: .3s;
       transition: .3s;
       display: block;
+
+      @include touch {
+        top: 22px;
+      }
+
     }
+
+    li.navbar-item.has-dropdown.is-active::after {
+      
+      @include touch {
+        transform: translateY(-50%) rotate(135deg);
+      }
+
+    }
+
   }
 }
 
