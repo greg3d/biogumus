@@ -47,6 +47,8 @@ webpackConfig.devtool = production ? false : "cheap-eval-source-map";
 const imageExt = 'jpg png gif svg jpeg';
 const fontExt = 'eot ttf otf woff woff2 svg';
 
+
+
 export const server = () => {
 	browsersync.init({
 		server: "./dist/",
@@ -54,16 +56,15 @@ export const server = () => {
 		notify: true
 	});
 
-	gulp.watch(paths.views.watch, views);
-	gulp.watch(paths.styles.watch, styles);
-	gulp.watch(paths.scripts.watch, scripts);
-	gulp.watch(paths.images.watch, images);
+	gulp.watch(paths.styles.watch, gulp.parallel(styles));
+	gulp.watch(paths.scripts.watch, gulp.parallel(scripts));
+	gulp.watch(paths.views.watch, gulp.parallel(views));
+	gulp.watch(paths.images.watch, gulp.parallel(images));
+	
 };
 
-
-
 const autoprefixierOpts = {
-	browsers: ["last 12 versions", "> 1%", "ie 8", "ie 7"]
+	overrsideBrowserslist: ["last 12 versions", "> 1%", "ie 8", "ie 7"]
 };
 const mincssOpts = {
 	compatibility: "ie8",
@@ -126,7 +127,7 @@ const paths = {
 		watch: "./src/assets/images/**/*.{jpg,gif,png,svg}"
 	},
 	views: {
-		src: ["./src/html/index.html","./src/html/orderform.html"],
+		src: ["./src/html/index.html","./src/html/ppp.html"],
 		dist: "./dist/",
 		watch: "./src/html/**/*.html"
 	}
@@ -143,7 +144,7 @@ export const cleanFiles = () => gulp.src("./dist/*", {
 var imageFiles = [paths.images.src];
 var fontFiles = [paths.fonts.src];
 
-var v = "_v2023";
+var v = "_v30";
 
 export const libscss = () => gulp.src(paths.libscss.src)
 	.pipe(gulpif(!production, sourcemaps.init()))
@@ -210,7 +211,8 @@ export const styles = () => gulp.src(paths.styles.src)
 	.pipe(gulp.dest(paths.styles.dist))
 	.pipe(debug({
 		"title": "CSS files"
-	}));
+	}))
+	.pipe(browsersync.stream());
 
 export const libsjs = () => gulp.src(jsLibsList)
 	.pipe(concat('vendor.min.js'))
@@ -229,7 +231,8 @@ export const images = () => gulp.src(imageFiles)
 	.pipe(gulp.dest(paths.images.dist))
 	.pipe(debug({
 		"title": "Images"
-	}));
+	}))
+	.pipe(browsersync.stream());
 
 export const views = () => gulp.src(paths.views.src)
 	.pipe(fileinclude({
@@ -243,7 +246,8 @@ export const views = () => gulp.src(paths.views.src)
 	.pipe(gulp.dest(paths.views.dist))
 	.pipe(debug({
 		"title": "HTML files"
-	}));
+	}))
+	.pipe(browsersync.stream());
 //.on("end", browsersync.reload);
 export const scripts = () => gulp.src(paths.scripts.src)
 	.pipe(rigger())
@@ -255,7 +259,8 @@ export const scripts = () => gulp.src(paths.scripts.src)
 	.pipe(gulp.dest(paths.scripts.dist))
 	.pipe(debug({
 		"title": "JS files"
-	}));
+	}))
+	.pipe(browsersync.stream());
 //.on("end", browsersync.reload);
 
 export const upload = (cb) => {
@@ -270,7 +275,6 @@ export const upload = (cb) => {
 		remotePath: 'www/assets/'
 	}));
 	cb();
-
 }
 
 export const development = gulp.series(
@@ -302,6 +306,10 @@ export const prd = gulp.series(
 	styles,
 	//images,
 	scripts,
+	upload
+);
+
+export const uploadonly = gulp.series(
 	upload
 );
 

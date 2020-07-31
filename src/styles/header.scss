@@ -1,66 +1,225 @@
-.header {
-  background-color: $primary;
+
+body {
+  background-image: url('/assets/images/superbg.jpg');
+  background-repeat: no-repeat;
+  background-color: $background-color;
+  background-size: 100% 100%;
+  @include mobile {
+    background-size: 300%;
+    background-position: top left;
+  }
+  overflow: hidden;
 }
 
-.header__top {
-  padding: $column-gap;
-  padding-bottom: $column-gap*2;
+.header {
+  
+  margin-bottom: 0;
+  padding: 1.5rem $column-gap 0;
   position: relative;
 }
 
-.header__top::before {
-  content: ' ';
+.ecologica {
   position: absolute;
-  width: 100%;
-  height: 200%;
-  top: 0;
-  right: 0;
-  background-image: url(/assets/images/top.png);
-  background-position: top right;
-  background-size: 1300px;
-  background-repeat: no-repeat;
-  z-index: 0;
+  top: 17px;
+  width: 210px;
+  height: 50px;
+  z-index: 1;
+  left: 50%;
+  margin-left: -50px;
+  text-align: center;
+  //border: 1px solid black;
+
+  @include mobile {
+    //position: absolute;
+    width: 140px;
+    top: 0;
+    left: 0;
+    margin-left: 0;
+    margin-right: 0;
+    
+  }
+
+  div {
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-shadow: 0 0 15px rgb(255,255,255);
+    margin-top: -9px;
+    margin-left: -2px;
+    color: #2b2a29; 
+  }
+
+  img {
+    //border: 1px solid black;
+    width: 100%;
+    height: auto;
+  }
+}
+
+
+.header::before {
+  content: ' ';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 50%;
+    background-image: url(/assets/images/big3.png);
+    background-position: top 25px;
+    background-size: 1000px;
+
+    @include mobile {
+      background-size: 850px;
+      left: 0;
+      background-position-x: 2em;
+    }
+
+    @include tablet-only {
+      background-size: 900px;
+      background-position-x: 25px;
+      left: 50%;
+      
+    }
+
+    background-repeat: no-repeat;
+    z-index: 0;
 }
 
 
 .header__logo {
-  text-align: left;
 
-  p {
+  width: auto;
+
+  @include mobile {
+    width: initial;
+  }
+
+  @include tablet-only {
+    
+  }
+
+  @include desktop-only {
+    width: auto;
+  }
+
+
+  .logo__main {
+
+    @include mobile {
+      margin-top: 115px;
+      text-align: left;
+    }
+
+    text-align: center;
     margin-bottom: 0;
     color: #ffffff;
-    font-size: 40px;
+
+    font-size: 45px;
+    font-family: 'PT Sans', sans-serif;
+    
+
+    position: relative;
+    z-index: 1;
+
     line-height: 40px;
     font-weight: $weight-bold;
-    margin-left: -3px;
-    margin-bottom: 10px;
-    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.6);
+    margin-left: -2px;
+    margin-bottom: 0;
+    text-shadow: 0 0 18px rgba(0, 0, 0, 0.5);
+
+
+    width: 100%;
+    display: block;
+
 
     span {
-      color: yellow;
-      opacity: 0.56;
+      color: $secondary;
+      
     }
+
+
   }
 
-  p + p {
+  .logo__description {
     color: #ffffff;
-    font-size: 16.4px;
-    line-height: 0;
+
+    //background-color: rgba(226, 200, 54,0.3);
+    //background-color: $primary;
+    font-size: 16px;
+    text-align: center;
+
+    height: 22px;
+    line-height: 22px;
+   
     font-weight: $weight-normal;
-    margin: 0;
-    text-shadow: none;
+    margin: 2px 0;
+    word-wrap: none;
+    //text-shadow: none;
+
+    //display: inline-block;
+
+    position: relative;
+    z-index: 0;
+    text-shadow: 0 0 18px rgba(0, 0, 0, 0.5);
+
+    white-space: nowrap;
   }
 
-  p + p + p {
-    color: #ffffff;
-    font-size: 12px;
-    font-weight: $weight-normal;
-    margin: 0;
-    line-height: 45px;
-    opacity: 0.6;
-    text-shadow: none;
-  }
+  
+
+
 }
+
+.header__payment-icons {
+  height: 100%;
+  
+  //ackground-color: #eee;
+  display: flex;
+  align-items: flex-end;
+  align-content: flex-end;
+  flex-flow: row;
+  justify-content: space-between;
+
+  .wrapper {
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    flex-flow: row;
+    justify-content: space-between;
+  }
+
+  span {
+
+    background-color: white;
+    color: white;
+    border-radius: $radius-small;
+    height: 28px;
+    display: block;
+    background-size:  auto 24px;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0 1px;
+    width: 50px;
+
+  }
+
+  .visa-logo {
+    background-image: url('/assets/images/icons/visa.png');
+    background-size:  auto 20px;
+  }
+
+  .mc-logo {
+    background-image: url('/assets/images/icons/mc.png');
+    
+  }
+  .yandex-money-logo {
+    background-image: url('/assets/images/Yandex_Money_rgb_ru.png');
+    background-size: 90px;
+    width: 100px;
+  }
+
+}
+
 
 .header__logo::before {
   content: '';
@@ -70,34 +229,24 @@
   display: block;
   width: 94px;
   height: 74px;
-  opacity: 0.1;
+  opacity: 0.3;
   background-image: url('/assets/images/icons/logo-leaf.svg');
   background-size: cover;
   background-repeat: no-repeat;
 }
 
-.header__payment-icons i {
-  color: white;
-}
 
-.header__payment-icons img {
-  border-radius: 5px;
-}
-
-.yandex-money-logo {
-  background: url('/assets/images/Yandex_Money_rgb_ru.png');
-  background-size: 100px;
-  background-position: center;
-  background-repeat: no-repeat;
-  width: 110px;
-  height: 28px;
-  background-color: white;
-  border-radius: 4px;
-  display: inline-block;
-  line-height: 45px;
-}
 
 .header__phones {
+
+  //height: 99px;
+  margin-bottom: $column-gap*2.5;
+  margin-top: $column-gap*2;
+
+  @include mobile {
+    margin-top: 10px;
+  }
+
   .phone_call_i {
     width: 20px;
     margin-right: 5px;
@@ -107,11 +256,20 @@
 
   .free_call_p {
     opacity: 0.75;
-    color: #ffffff;
+    color: #000;
     font-size: 14px;
+
+    @include desktop-only {
+      font-size: 12px;
+    }
+    @include tablet-only {
+      font-size: 12px;
+    }
+
     font-weight: 400;
     text-align: center;
-    margin-top: 5px;
+    margin: 0;
+    padding: 0;
 
     strong {
       color: inherit;
@@ -119,95 +277,142 @@
   }
 
   .header__phones_phone_p {
-    background-color: $special-background;
-    opacity: 1;
-    padding: 10px 20px;
-    border-radius: 35px;
+    //background-color: $special-background;
+    //opacity: 1;
+    //padding: 7px 10px;
+    //border-radius: $radius-large;
     text-decoration: none;
     text-align: center;
-    font-size: 1.5rem;
-    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
-  }
-
-  .header__phones_email {
-    display: block;
-    font-size: 1rem;
-    a {
-      border-bottom: 1px dotted black;
-    }
-  }
-
-  .header__phones_phone_p a {
-    color: black;
-    font-weight: 700;
-  }
-
-  .header__phones p a span, .header__count p a span {
-    font-weight: 700;
-  }
-
-  .header__phones p + p, .header__count p + p {
-    margin: 0;
-  }
-}
-
-
-.header__city {
-  color: $primary;
-  background-color: $white;
-  opacity: 1;
-  padding: 12px 20px;
-  border-radius: 5px;
-  text-decoration: none;
-  text-align: center;
-  border: 2px solid $primary;
-  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
-
-  a {
-    cursor: pointer;
-    color: $primary;
-    text-decoration: none;
-    border-bottom: 1px dashed $primary;
-    position: relative;
-  }
-
-
-  p {
-    position: relative;
-    display: inline;
-    padding-left: 9px;
-    text-transform: uppercase;
     font-weight: bold;
-    font-size: 0.8rem;
-    overflow: visible;
+
+    //box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
   }
 
-  p::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: -8px;
-    display: block;
-    width: 12px;
-    height: 18px;
-    background-image: url(/assets/images/icons/placeholder.svg);
-    background-position: center;
-    background-size: 12px;
-    background-repeat: no-repeat;
+  .phone_header {
+    font-size: 2rem;
+    text-align: center;
+    line-height: 2rem;
+    margin: 0;
+    padding: 0;
+    color:$black;
+     white-space: nowrap;
+    //color: rgb(64, 75, 0);
+    //display: flex;
+    //flex-grow: 1;
+    //flex-flow: row;
+  
+  //justify-content: space-between;
+  //align-items: center;
+   
   }
+
+  
+
+
 }
 
+.header-icons-container {
+  display: flex;
+  
+  flex-direction: column;
+  flex-flow: column;
+  justify-content: flex-end;
+  //background: #fff;
+  height: 100%;
+}
+
+.header__icons {
+  display: flex;
+  color: #fff;
+  font-weight: 400;
+  //padding-bottom: 0;
+  flex-flow: row;
+  
+  justify-content: space-between;
+  align-items: center;
+  //align-content: center;
+  
+  height: 49px;
+  //background: #aaa;
+
+  padding: 0 1px 0 1px;
+
+  .icon {
+    position: relative;
+    color: #333;
+    background-color: rgb(245, 245, 245);
+    border-radius: $radius-large;
+    font-size: initial;
+
+    font-size: 1.25rem;
+
+    width: 38px;
+    height: 38px;
+    //border: 1px solid rgb(245, 255, 159);
+    margin-right: 0.75rem;
+
+    display: flex;
+
+    //box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    border: 2px solid rgb(231, 231, 231);
+
+    @include mobile {
+      width: 50px;
+      height: 50px;
+      font-size: 2rem;
+    }
+
+    
+  }
+
+  .icon:last-child {
+    margin-right: 0;
+  }
+
+  .icon::after{ 
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: block;
+    content: " ";
+    background: url('/assets/images/button_gloss.png') top center;
+  //border: 1px solid black;
+  }
+
+  .is-email {
+    background-color:$secondary;
+  }
+
+  .is-viber {
+    background-color: #665CAC;
+    color: #fff;
+  }
+
+  .is-whatsapp {
+    background-color: #4AC959;
+    color: #fff;
+  }
 
 
+  .is-instagram {
+    font-size: 1.5rem;
+    color: #fff;
+    background: #d6249f;
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+  }
 
-////////////////////////
+  // a {
+  //border-bottom: 1px dotted black;
+  // }
+}
+
 
 .counter_block {
   background: $transparent-background;
   padding: 10px 20px;
   border-radius: $radius-xxlarge;
   margin-bottom: 22px;
-  background: rgba(5,40,5,0.5);
+  background: rgba(5, 40, 5, 0.5);
 
   img {
     margin-right: 7px;
@@ -252,30 +457,9 @@
   }
 }
 
-/////////////////////////////////////////////
 .header__submenu {
   background: none;
   padding: 0;
-  
-
-  .navbar-burger {
-    background: #ffffff;
-    border-radius: $radius-large;
-    
-    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
-    border: 2px solid $primary;
-
-    div {
-      position: absolute;
-      top: calc(50% - 12px);
-      left: 16px;
-      font-weight: bold;
-    }
-
-    span {
-      left: calc(50% - 8px);
-    }
-  }
 
   .navbar-menu {
     //background-color: $transparent-background;
@@ -296,8 +480,8 @@
       text-shadow: none;
     }
 
-    .has-dropdown.is-active > a {
-      border-radius: $radius-xlarge $radius-xlarge 0 0;
+    .has-dropdown.is-active>a {
+      border-radius: $radius-large $radius-large 0 0;
     }
 
     .navbar-item.has-dropdown.is-active,
@@ -305,14 +489,17 @@
       .navbar-item.has-dropdown {
         padding: 0;
         border: 0;
+
         .navbar-link {
           background: none;
-      
+
         }
+
         .navbar-link:after {
           transform: rotate(225deg);
-         
+
         }
+
         .navbar-dropdown {
           border: none;
           position: absolute;
@@ -330,18 +517,18 @@
           border-bottom-right-radius: 10px;
           display: none;
         }
-      } 
+      }
 
       .navbar-item.has-dropdown.is-active,
       .navbar-item.has-dropdown:hover {
-          .navbar-dropdown {
-            display: block;
-          }
+        .navbar-dropdown {
+          display: block;
+        }
 
-          .navbar-link:after {
-            border-color: black;
-           
-          }
+        .navbar-link:after {
+          border-color: $black;
+
+        }
       }
     }
   }
@@ -359,8 +546,6 @@
   }
 }
 
-//////////////////////////////////
-
 .header__bottom {
   box-shadow: 0 0 15px 1px rgba(102, 75, 75, 0.14);
   background-color: none;
@@ -376,78 +561,3 @@
     height: 61px;
   }
 }
-
-////////////////////////////////
-
-/*
-.header__menu ul li.active a, .header__menu ul li:hover a, .header__menu ul li:focus a {
-  color: #5f8647;
-  text-decoration: none;
-}
-
-.header__menu ul li.active svg path, .header__menu ul li:hover svg path, .header__menu ul li:focus svg path {
-  fill: #5f8647;
-}
-*/
-/*
-.top-line {
-  background: #333333;
-  margin: 0;
-
-  .nav {
-    a:link {
-      text-decoration: none;
-    }
-  }
-
-  .navbar-nav {
-    margin: 0;
-    padding: 0;
-  }
-
-  .phone, .email, li {
-    list-style: none;
-    margin: 0;
-    padding: 17px;
-    font-size: 1.5rem;
-    line-height: 20px;
-    height: 54px;
-    padding-left: 43px;
-    font-weight: normal;
-  }
-
-
-  .email {
-    background: url('/assets/images/mail.png') no-repeat;
-    background-size: 32px 32px;
-    background-position: left center;
-  }
-
-  .phone {
-    background: url('/assets/images/phone.png') no-repeat;
-    background-size: 32px 32px;
-    background-position: left center;
-  }
-
-  a:link {
-    color: yellow;
-    padding: 0;
-    margin: 0;
-    font-size: 100%;
-    border-bottom: 1px solid yellow;
-    display: inline-block;
-  }
-
-  a:hover {
-    color: white;
-    border-bottom: none;
-  }
-}
-
-.navbar-static-top {
-  margin: 0;
-  background: #333333;
-  border: none;
-  color: white;
-}
-*/

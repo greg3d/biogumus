@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "gulp",
     "build": "gulp prod --production",
-    "upload": "gulp prd --production"
+    "upload": "gulp prd --production",
+    "up": "gulp uploadonly --production"
   },
   "author": "",
   "license": "ISC",

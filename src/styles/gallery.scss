@@ -30,13 +30,13 @@
   border-bottom: 3px solid #83c55a;
 }
 .article__row:first-child {
-  border-radius: 5px 5px 0 0;
+  border-radius: $radius-large $radius-large 0 0;
   overflow: hidden;
 }
 
 
 .article__row:last-child {
-  border-radius: 0 0 5px 5px;
+  border-radius: 0 0 $radius-large $radius-large;
   border-top: 0;
   border-bottom: 0;
   overflow: hidden;

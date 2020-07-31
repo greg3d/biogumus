@@ -1,6 +1,38 @@
+
+.modal.is-aligned-top {
+  justify-content: flex-start !important;
+}
+
 .content__main {
-  background: rgba(230, 230, 230, 0.3);
+
+  //background: url("/assets/images/greenpattern3.png");
+
+  //background: rgb(230, 230, 220);
   height: 100%;
+
+  //border-radius: $radius-large;
+
+  @include tablet {
+    //margin-top: -199px;
+  }
+
+
+}
+
+
+.section.main {
+  padding-right: $column-gap;
+  padding-left: $column-gap;
+}
+
+.section.content {
+  padding: 0 0 1.5rem;
+}
+
+hr.hr, hr {
+  background-color: black;
+  opacity: 0.25;
+  height: 1px;
 }
 
 
@@ -70,7 +102,7 @@
   height: 360px;
   border: 1px solid #eeeeee;
   background-color: #ffffff;
-  border-radius: 6px;
+  border-radius: $radius-large;
   overflow: hidden;
 }
 

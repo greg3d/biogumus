@@ -1,27 +1,29 @@
 @charset 'utf-8';
 
+
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@1,700&display=swap');
 // Set your brand colors
-$purple: #8a4d76;
-$pink: #fa7c91;
-$brown: #757763;
-$beige-light: #d0d1cd;
-$beige-lighter: #eff0eb;
+$background-color: #eaeee7;
+$black: #2b2a29;
+
 $column-gap: 0.75rem;
-$radius-large: 5px;
+$radius-small: 4px;
+$radius-large: 6px;
 $radius-xlarge: 10px;
 $radius-xxlarge: 35px;
 // Update Bulma's global variables
 $family-sans-serif: 'Ubuntu',
 Arial,
 sans-serif;
-$grey-dark: $brown;
-$grey-light: $beige-light;
-$primary: #005627;
-$danger: #e40000;
-$link: #337ab7;
+//$grey-dark: $brown;
+//$grey-light: $beige-light;
+$primary: #89b38d;
+$secondary: #f3d174;
+$danger: #f46c21;
+$link: #1863a5;
 $widescreen-enabled: true;
 $fullhd-enabled: true;
-$special-background: #ffcd36;
+$special-background: #89b38d;
 $navbar-item-hover-background-color: $special-background;
 $navbar-item-hover-color: black;
 $navbar-dropdown-arrow: white;
@@ -33,7 +35,9 @@ $weight-bold: 700;
 $weight-normal: 400;
 $block-spacing: 0.5rem;
 
+
 @import '../../node_modules/bulma/bulma.sass';
+@import '../../node_modules/bulma/sass/utilities/mixins.sass';
 @import '../../node_modules/bulma-badge/dist/css/bulma-badge';
 @import './header';
 @import './shopcart';
@@ -45,3 +49,4 @@ $block-spacing: 0.5rem;
 @import './gallery';
 @import './other';
 @import './map';
+@import './circlebar';
