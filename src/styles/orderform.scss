@@ -91,22 +91,42 @@
       margin-bottom: 10px;;
 
       .country_delivery__item {
-        border: 2px solid #cccccc;
-        overflow: hidden;
+        border: 2px solid #ccc;
+        
         border-radius: 6px;
         margin-right: 5px;
         width: 75px;
         background: #fff;
         text-align: center;
         height: 59px;
+        display: flex;
+        align-items: center;
+        align-content: center;
+        position: relative;
 
         img {
-          height: 55px;
-          margin: 0 auto;
+          max-width: 60px;
+          max-height: 50px;
+          //lip: rect(0px,50px,50px,0px);
+        }
+
+        .price_label {
+          display: block;
+          position: absolute;
+          background: #fff;
+          font-size: 12px;
+          padding: 2px 5px;
+          border-radius: 0 0 5px 5px;
+          left: 50%;
+          transform: translate(-50%,39px);
+          
         }
       }
       .country_delivery__item.active {
         border: 2px solid red;
+        .price_label {
+          border: 1px solid red;
+        }
       }
     }
 
@@ -166,129 +186,108 @@
   background-color: #5f8647;
 }
 
-.order__payment .order__options .radio:nth-child(1) .order__icon::after {
+.order__payment .order__options .radio.type_cash .order__icon::after {
   width: 44px;
   height: 34px;
   background-image: url(/assets/images/icons/wallet-grey.svg);
 }
 
-.order__payment .order__options .radio:nth-child(1) input:checked ~ .order__icon::after {
+.order__payment .order__options .radio.type_cash input:checked ~ .order__icon::after {
   background-image: url(/assets/images/icons/wallet-white.svg);
 }
 
-.order__payment .order__options .radio:nth-child(2) .order__icon::after {
+.order__payment .order__options .radio.type_prepay .order__icon::after {
   width: 34px;
   height: 45px;
   background-image: url(/assets/images/icons/bill-grey.svg);
 }
 
-.order__payment .order__options .radio:nth-child(2) input:checked ~ .order__icon::after {
+.order__payment .order__options .radio.type_prepay input:checked ~ .order__icon::after {
   background-image: url(/assets/images/icons/bill-white.svg);
 }
 
-.order__payment .order__options .radio:nth-child(3) .order__icon::after {
+.order__payment .order__options .radio.type_AC .order__icon::after {
   width: 49px;
   height: 33px;
   background-image: url(/assets/images/icons/card-grey.svg);
 }
 
-.order__payment .order__options .radio:nth-child(3) input:checked ~ .order__icon::after {
+.order__payment .order__options .radio.type_AC input:checked ~ .order__icon::after {
   background-image: url(/assets/images/icons/card-white.svg);
 }
 
-.order__delivery .order__options .radio:nth-child(1) .order__icon::after {
+.order__delivery .order__options .radio.type_pickup .order__icon::after {
   width: 45px;
   height: 46px;
   background-image: url(/assets/images/icons/hand-grey.svg);
 }
 
-.order__delivery .order__options .radio:nth-child(1) input:checked ~ .order__icon::after {
+.order__delivery .order__options .radio.type_pickup input:checked ~ .order__icon::after {
   background-image: url(/assets/images/icons/hand-white.svg);
 }
 
-.order__delivery .order__options .radio:nth-child(2) .order__icon::after {
+.order__delivery .order__options .radio.type_delivery_samara .order__icon::after {
   width: 49px;
   height: 32px;
   background-image: url(/assets/images/icons/car-grey.svg);
 }
 
-.order__delivery .order__options .radio:nth-child(2) input:checked ~ .order__icon::after {
+.order__delivery .order__options .radio.type_delivery_samara input:checked ~ .order__icon::after {
   background-image: url(/assets/images/icons/car-white.svg);
 }
 
-.order__delivery .order__options .radio:nth-child(3) .order__icon::after {
+.order__delivery .order__options .radio.type_shipping .order__icon::after {
   width: 49px;
   height: 48px;
   background-image: url(/assets/images/icons/truck-grey.svg);
 }
 
-.order__delivery .order__options .radio:nth-child(3) input:checked ~ .order__icon::after {
+.order__delivery .order__options .radio.type_shipping input:checked ~ .order__icon::after {
   background-image: url(/assets/images/icons/truck-white.svg);
 }
 
-.order__payment .order__options .radio:nth-child(1)::after {
+.order__options .radio::after {
+  position: absolute;
+    top: 95%;
+    left: 0;
+    display: none;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: #fff;
+    font-size: 12px;
+    color: #3b312d;
+    z-index: 2;
+    box-shadow: 0 7px 10px 0 rgba(128,113,105,.3);
+    transition: .6s;
+    border-radius: 6px;
+}
+
+
+
+.order__payment .order__options .radio.type_cash::after {
   content: 'Оплата наличными при доставке или самовывозе. Доступно только в Самаре и области';
-  position: absolute;
-  bottom: -40px;
-  left: 38px;
-  display: none;
-  width: 210px;
-  padding: 10px;
-  box-sizing: border-box;
-  background-color: #ffffff;
-  font-size: 12px;
-  color: #3b312d;
-  z-index: 2;
-  box-shadow: 0 7px 10px 0 rgba(128,113,105,0.3);
-  transition: 0.6s all ease;
-  border-radius: 6px;
+
 }
 
-.order__payment .order__options .radio:nth-child(1):hover::after, .order__payment .order__options .radio:nth-child(1):focus::after {
+.order__payment .order__options .radio.type_cash:hover::after, .order__payment .order__options .radio.type_cash:focus::after {
   display: block;
 }
 
-.order__payment .order__options .radio:nth-child(2)::after {
+.order__payment .order__options .radio.type_prepay::after {
   content: 'Оплата на расчетный счёт. После оформления заказа Вам будет направлен счёт для оплаты в банке или с Вашего расчетного счета';
-  position: absolute;
-  bottom: -40px;
-  left: 38px;
-  display: none;
-  width: 210px;
-  padding: 10px;
-  box-sizing: border-box;
-  background-color: #ffffff;
-  font-size: 12px;
-  color: #3b312d;
-  z-index: 2;
-  box-shadow: 0 7px 10px 0 rgba(128,113,105,0.3);
-  transition: 0.6s all ease;
-  border-radius: 6px;
 }
 
-.order__payment .order__options .radio:nth-child(2):hover::after, .order__payment .order__options .radio:nth-child(2):focus::after {
+.order__payment .order__options .radio.type_prepay:hover::after, .order__payment .order__options .radio.type_prepay:focus::after {
   display: block;
 }
 
-.order__payment .order__options .radio:nth-child(3)::after {
+.order__payment .order__options .radio.type_AC::after {
   content: 'Оплата банковской картой. После оформления заказа Вы будете перенаправлены на страницу оплаты заказа';
-  position: absolute;
-  bottom: -40px;
-  left: 38px;
-  display: none;
-  width: 210px;
-  padding: 10px;
-  box-sizing: border-box;
-  background-color: #ffffff;
-  font-size: 12px;
-  color: #3b312d;
-  z-index: 2;
-  box-shadow: 0 7px 10px 0 rgba(128,113,105,0.3);
-  transition: 0.6s all ease;
-  border-radius: 6px;
+
 }
 
-.order__payment .order__options .radio:nth-child(3):hover::after, .order__payment .order__options .radio:nth-child(3):focus::after {
+.order__payment .order__options .radio.type_AC:hover::after, .order__payment .order__options .radio.type_AC:focus::after {
   display: block;
 }
 
@@ -300,4 +299,28 @@
   font-weight: 400;
   width: 100%;
   margin: 5px 0 0;
+}
+
+
+.country_delivery {
+  .country_delivery__item[data-trans=СДЭК]::after {
+    content: 'Внимание! Доставка СДЭК при любых условиях платная!';
+    position: absolute;
+    top: 95%;
+    left: 0;
+    display: none;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: #fff;
+    font-size: 12px;
+    color: #3b312d;
+    z-index: 2;
+    box-shadow: 0 7px 10px 0 rgba(128,113,105,.3);
+    transition: .6s;
+    border-radius: 6px;
+  } 
+  .country_delivery__item[data-trans=СДЭК]:hover::after {
+    display: block;
+  }
 }
