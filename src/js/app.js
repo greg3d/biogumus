@@ -82,8 +82,8 @@
 
         this.cityRecalc = function () {
 
-            sl.getRates();
-            sl.getFreeDelivery();
+            //sl.getRates();
+            //sl.getFreeDelivery();
             var dataCity = siteLib.city.name;
 
             /*
@@ -188,11 +188,12 @@
 
                 var obj = JSON.parse(data);
 
+                /*
                 var strnum = obj.name.indexOf(" г");
 
                 if (strnum > 0) {
                     obj.name = obj.name.substring(0, strnum);
-                }
+                }*/
 
                 siteLib.writeCity(obj);
 
@@ -202,10 +203,13 @@
         };
 
         this.getRates = function () {
-            $('#price_dellin').html('...');
-            $('#price_pek').html('...');
-            $('#price_energia').html('...');
-            $('#price_cdek').html('...');
+
+            var loader = '<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>'
+
+            $('#price_dellin').html(loader);
+            $('#price_pek').html(loader);
+            $('#price_energia').html(loader);
+            $('#price_cdek').html(loader);
 
             var action = 'getDeliveryRates';
 
@@ -213,7 +217,7 @@
                 action: action
             }, function (data) {
                 data = JSON.parse(data);
-                //console.log(data);
+                console.log(data);
                 $('#price_dellin').html(data.dellin.price);
                 //$('#price_pek').html(data.pek.price);
                 //$('#price_energia').html(data.energia.price);
