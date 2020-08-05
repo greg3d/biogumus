@@ -221,7 +221,7 @@
                 $('#price_dellin').html(data.dellin.price);
                 //$('#price_pek').html(data.pek.price);
                 //$('#price_energia').html(data.energia.price);
-                //$('#price_cdek').html(data.cdek.price);
+                $('#price_cdek').html(data.cdek.result.price);
             });
 
             return false;
