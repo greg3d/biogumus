@@ -503,6 +503,7 @@
                     });
 
 
+                    /*
                     function compareValues(key, order = 'asc') {
                         return function (a, b) {
                             if (!a.hasOwnProperty(key) || !b.hasOwnProperty(key)) {
@@ -525,7 +526,7 @@
                                 (order == 'desc') ? (comparison * -1) : comparison
                             );
                         };
-                    }
+                    }*/
 
                     /*
                     objects.sort(compareValues('obl'));

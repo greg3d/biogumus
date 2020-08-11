@@ -1,4 +1,3 @@
-"use strict";
 
 //import webpack from "webpack";
 //import webpackStream from "webpack-stream";
@@ -18,9 +17,9 @@ import rename from "gulp-rename";
 import fileinclude from 'gulp-file-include';
 import sftp from "gulp-sftp-up4";
 const ftp = require('gulp-deploy-ftp');
+import imagemin from "gulp-imagemin";
 
 // import svg from "gulp-svg-sprite";
-// import imagemin from "gulp-imagemin";
 // import imageminPngquant from "imagemin-pngquant";
 // import imageminZopfli from "imagemin-zopfli";
 // import imageminMozjpeg from "imagemin-mozjpeg";
@@ -34,6 +33,8 @@ import debug from "gulp-debug";
 import plumber from "gulp-plumber";
 import clean from "gulp-clean";
 import yargs from "yargs";
+
+var uglify = require('gulp-uglify');
 
 var modifyCssUrls = require('gulp-modify-css-urls');
 
@@ -173,7 +174,7 @@ export const libscss = () => gulp.src(paths.libscss.src)
 			if (f) {
 				fontFiles.push(assetPath);
 			} else {
-				imageFiles.push(assetPath);
+				//imageFiles.push(assetPath);
 			}
 			return `${newUrl}`;
 		}
@@ -228,6 +229,7 @@ export const fonts = () => gulp.src(fontFiles)
 	}));
 
 export const images = () => gulp.src(imageFiles)
+	//.pipe(imagemin())
 	.pipe(gulp.dest(paths.images.dist))
 	.pipe(debug({
 		"title": "Images"
@@ -249,9 +251,11 @@ export const views = () => gulp.src(paths.views.src)
 	}))
 	.pipe(browsersync.stream());
 //.on("end", browsersync.reload);
+
 export const scripts = () => gulp.src(paths.scripts.src)
 	.pipe(rigger())
 	.pipe(plumber())
+	.pipe(gulpif(production, uglify()))
 	//.pipe(webpackStream(webpackConfig), webpack)
 	.pipe(gulpif(production, rename({
 		suffix: v+".min"

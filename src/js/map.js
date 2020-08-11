@@ -111,10 +111,10 @@
 					var curTr = [];
 
 					placeTr.each(function (j) {
-						// ���� ������ ���������� ������
+						
 
 						curTr[j] = $(this);
-						// ������� ������� � �������� ����� �����
+						
 						// console.log(selectedTable.html());
 						selectedTable.append('<tr class="listed" id="num_' + j + '"><td>' + (j + 1) + '</td>' + curTr[j].html() + '</tr>');
 						// console.log(selectedTable.html());
@@ -127,7 +127,7 @@
 							//console.log($(this).html());
 						});
 
-						// ��������� ����� ��� ������� ������.
+						//
 						var plMark = new ymaps.Placemark(gcc, {
 								iconContent: j + 1
 							}
@@ -139,7 +139,7 @@
 								preset: 'islands#icon'
 							});
 
-						// ������������ ��� ����� �� ������ � ������� ������ ���� ��� ������
+						// 
 						selectedTable.find('tr#num_' + j).click(function () {
 
 							selectedTable.html(curTr[j].html());
@@ -147,7 +147,7 @@
 							myMap.setZoom('15');
 						});
 
-						// ������������ ��� ����� �� ����� � ������� ������ ���� ��� ������
+						// 
 						plMark.events.add('click', function () {
 							selectedTable.html(curTr[j].html());
 							myMap.setCenter(gcc);
@@ -160,7 +160,7 @@
 							myMap.setCenter(gcc);
 							myMap.setZoom('15');
 						}
-						// ����������� �����
+						// 
 						myMap.geoObjects.add(plMark);
 
 					});
