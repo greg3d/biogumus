@@ -24,6 +24,7 @@
 
         sl = this;
         sl.city = {};
+        
 
         this.init = function () {
 

@@ -99,7 +99,7 @@ const jsLibsList = [
 	"./node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.js",
 	"./node_modules/slick-carousel/slick/slick.min.js",
 	"./node_modules/owl.carousel/dist/owl.carousel.min.js",
-	"./node_modules/sticky-kit/dist/sticky-kit.min.js",
+	//"./node_modules/sticky-kit/dist/sticky-kit.min.js",
 	"./node_modules/hammerjs/hammer.min.js"
 ]
 
