@@ -82,9 +82,11 @@
 
         this.cityRecalc = function () {
 
-            sl.getRates();
-            sl.getFreeDelivery();
+            //sl.getRates();
+            //sl.getFreeDelivery();
             var dataCity = siteLib.city.name;
+
+            /*
             if (dataCity != 'Самара') {
                 //console.log("not samara+" + dataCity);
                 $('.order__payment .order__options .radio:nth-child(1)').hide();
@@ -109,6 +111,7 @@
                 //   $('.address--samara').show();
                 //   $('.address--other').hide();
             }
+            */
             if ($('#cartAddress')) {
                 $('#cartAddress').attr('value', dataCity);
             }
@@ -185,11 +188,12 @@
 
                 var obj = JSON.parse(data);
 
+                /*
                 var strnum = obj.name.indexOf(" г");
 
                 if (strnum > 0) {
                     obj.name = obj.name.substring(0, strnum);
-                }
+                }*/
 
                 siteLib.writeCity(obj);
 
@@ -199,14 +203,25 @@
         };
 
         this.getRates = function () {
-            $('#getRatesResult').html('<div class="ajax-loader">Расчитываю...</div>');
+
+            var loader = '<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>'
+
+            $('#price_dellin').html(loader);
+            $('#price_pek').html(loader);
+            $('#price_energia').html(loader);
+            $('#price_cdek').html(loader);
 
             var action = 'getDeliveryRates';
 
             $.post(document.location.href, {
-                actionz: action
+                action: action
             }, function (data) {
-                $('#getRatesResult').html(data);
+                data = JSON.parse(data);
+                console.log(data);
+                $('#price_dellin').html(data.dellin.price);
+                //$('#price_pek').html(data.pek.price);
+                //$('#price_energia').html(data.energia.price);
+                $('#price_cdek').html(data.cdek.result.price);
             });
 
             return false;
@@ -236,7 +251,7 @@
             });
 
             return false;
-        }; // this.getRates
+        }; // 
 
 
         //////// shk count buttons + -
@@ -581,6 +596,8 @@
         });
 
 
+        /*
+
         var isCash = $("input[value='cash']").attr('checked');
         $('input[type=radio][name=payment]').change(function () {
             if (this.value == 'cash') {
@@ -592,6 +609,7 @@
             }
             //alert(this.value);
         });
+        */
 
         $(".main-carousel").owlCarousel({
             autoplay: 3000,
@@ -644,12 +662,18 @@
         };
     }*/
 
+    /*
+    $('.order__icon').click(function(){
+        var type = $(this).parent().find('input:radio').prop('name');
+        $("input:radio[name="+ type +"]").prop('checked',false);
+        $(this).parent().find('input:radio').prop('checked',true);
+    });*/
+
+    // выбор транспортной компании
 
     $('.country_delivery__item').click(function () {
         $('.country_delivery__item').removeClass('active');
         $(this).addClass('active');
-
-        //console.log(this);
 
         var TransKomp = $(this).data('trans');
         $('.transcom').val(TransKomp);
