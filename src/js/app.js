@@ -216,24 +216,61 @@ var siteLib = (function ($) {
 
             var action = 'getDeliveryRates';
 
+            // Деловые линии
             $.post(document.location.href, {
-                action: action
+                action: action,
+                tk: "1"
             }, function (data) {
-                console.log(data);
                 data = JSON.parse(data);
-                
-                
                 $('#price_dellin').html(data.dellin.price);
-                $('#price_pek').html("");
-                $('#price_energia').html("");
-                $('#price_cdek').html(data.cdek.result.price);
             })
             .fail(function(){
                 $('#price_dellin').html("");
+            });
+
+            // ПЭК
+            $.post(document.location.href, {
+                action: action,
+                tk: "2"
+            }, function (data) {
+
+
+                data = JSON.parse(data);
+
+                
+                //console.log(data.pek);
+
+                //console.log(data.pek);
+                $('#price_pek').html(data.pek.auto[2]);
+            })
+            .fail(function(){
                 $('#price_pek').html("");
+            });
+
+            // ЭНЕРГИЯ
+            $.post(document.location.href, {
+                action: action,
+                tk: "3"
+            }, function (data) {
+                data = JSON.parse(data);
                 $('#price_energia').html("");
+            })
+            .fail(function(){
+                $('#price_energia').html("");
+            });
+
+            // СДЭК
+            $.post(document.location.href, {
+                action: action,
+                tk: "4"
+            }, function (data) {
+                data = JSON.parse(data);
+                $('#price_cdek').html(data.cdek.result.price);
+            })
+            .fail(function(){
                 $('#price_cdek').html("");
             });
+
         }
 
         return false;
