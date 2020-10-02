@@ -26,7 +26,7 @@ var siteLib = (function ($) {
 
     this.init = function () {
 
-        console.log('init');
+        //console.log('init');
 
         /*jQuery('body')
             .tooltip({
@@ -222,7 +222,7 @@ var siteLib = (function ($) {
                 tk: "1"
             }, function (data) {
                 data = JSON.parse(data);
-                $('#price_dellin').html(data.dellin.price);
+                $('#price_dellin').html(data.dellin.price  + "p.");
             })
             .fail(function(){
                 $('#price_dellin').html("");
@@ -233,15 +233,10 @@ var siteLib = (function ($) {
                 action: action,
                 tk: "2"
             }, function (data) {
-
-
                 data = JSON.parse(data);
-
-                
-                //console.log(data.pek);
-
-                //console.log(data.pek);
-                $('#price_pek').html(data.pek.auto[2]);
+                if (data !== null) {
+                    $('#price_pek').html(data.pek.auto[2]  + "p.");
+                }
             })
             .fail(function(){
                 $('#price_pek').html("");
@@ -253,7 +248,10 @@ var siteLib = (function ($) {
                 tk: "3"
             }, function (data) {
                 data = JSON.parse(data);
-                $('#price_energia').html("");
+                //console.log(data.energia);
+                if (data.energia !== null) {
+                    $('#price_energia').html(data.energia.transfer[0].price + "p.");
+                }
             })
             .fail(function(){
                 $('#price_energia').html("");
@@ -265,7 +263,7 @@ var siteLib = (function ($) {
                 tk: "4"
             }, function (data) {
                 data = JSON.parse(data);
-                $('#price_cdek').html(data.cdek.result.price);
+                $('#price_cdek').html(data.cdek.result.price  + "p.");
             })
             .fail(function(){
                 $('#price_cdek').html("");
