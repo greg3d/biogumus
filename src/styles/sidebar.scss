@@ -121,32 +121,6 @@
           color: white;
           padding: 8px 10px;
 
-          .icon {
-            margin-left: 8px;
-            margin-right: 12px;
-          }
-
-          .icon.is-custom {
-       
-            width: 40px;
-            height: 40px;
-            padding: 0;
-            margin: 0 5px 0 0;
-            display: block;
-            line-height: 0;
-
-            img {
-              width: 100%;
-              height: 100%;
-              padding: 0;
-              margin: 0;
-              border: 1px solid rgb(255, 255, 255);
-              border-radius: $radius-xlarge;
-              max-height: unset;
-              background-color: #55f;
-            }
-          }
-
         }
 
         a:first-child {
