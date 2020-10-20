@@ -61,19 +61,19 @@ var siteLib = (function ($) {
                 slidesToScroll: 3,
                 centerMode: false,
                 responsive: [{
-                        breakpoint: 700,
-                        settings: {
-                            slidesToShow: 2,
-                            slidesToScroll: 2
-                        }
-                    },
-                    {
-                        breakpoint: 480,
-                        settings: {
-                            slidesToShow: 1,
-                            slidesToScroll: 1
-                        }
+                    breakpoint: 700,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2
                     }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                }
                 ]
             });
 
@@ -206,7 +206,7 @@ var siteLib = (function ($) {
     this.getRates = function () {
 
         if (sl.city.name != "Самара") {
-            
+
             var loader = '<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>';
 
             $('#price_dellin').html(loader);
@@ -222,11 +222,11 @@ var siteLib = (function ($) {
                 tk: "1"
             }, function (data) {
                 data = JSON.parse(data);
-                $('#price_dellin').html(data.dellin.price  + "p.");
+                $('#price_dellin').html(data.dellin.price + "p.");
             })
-            .fail(function(){
-                $('#price_dellin').html("");
-            });
+                .fail(function () {
+                    $('#price_dellin').html("");
+                });
 
             // ПЭК
             $.post(document.location.href, {
@@ -235,12 +235,12 @@ var siteLib = (function ($) {
             }, function (data) {
                 data = JSON.parse(data);
                 if (data !== null) {
-                    $('#price_pek').html(data.pek.auto[2]  + "p.");
+                    $('#price_pek').html(data.pek.auto[2] + "p.");
                 }
             })
-            .fail(function(){
-                $('#price_pek').html("");
-            });
+                .fail(function () {
+                    $('#price_pek').html("");
+                });
 
             // ЭНЕРГИЯ
             $.post(document.location.href, {
@@ -253,9 +253,9 @@ var siteLib = (function ($) {
                     $('#price_energia').html(data.energia.transfer[0].price + "p.");
                 }
             })
-            .fail(function(){
-                $('#price_energia').html("");
-            });
+                .fail(function () {
+                    $('#price_energia').html("");
+                });
 
             // СДЭК
             $.post(document.location.href, {
@@ -263,11 +263,11 @@ var siteLib = (function ($) {
                 tk: "4"
             }, function (data) {
                 data = JSON.parse(data);
-                $('#price_cdek').html(data.cdek.result.price  + "p.");
+                $('#price_cdek').html(data.cdek.result.price + "p.");
             })
-            .fail(function(){
-                $('#price_cdek').html("");
-            });
+                .fail(function () {
+                    $('#price_cdek').html("");
+                });
 
         }
 
@@ -309,11 +309,6 @@ var siteLib = (function ($) {
 
     //////// shk count buttons + -
     this.bindPlusMinusButtons = function () {
-
-        $('input.shk-count').change(function () {
-            SHK.changeCartItemsCount();
-            return false;
-        });
 
         $('[data-shopcart="2"]').on('click', '.button__minus', function () {
             var $input = $(this).parent().parent().find('.shk-count');
@@ -391,14 +386,14 @@ var siteLib = (function ($) {
         $('.alert-fixed').remove();
 
         $('<div/>', {
-                'class': 'alert alert-fixed ' + alertClass + ' alert-dismissable',
-                'text': msg,
-                on: {
-                    mouseover: function () {
-                        clearTimeout(window.alertTimer);
-                    }
+            'class': 'alert alert-fixed ' + alertClass + ' alert-dismissable',
+            'text': msg,
+            on: {
+                mouseover: function () {
+                    clearTimeout(window.alertTimer);
                 }
-            })
+            }
+        })
             .css({
                 position: 'fixed',
                 zIndex: 999,
@@ -461,7 +456,7 @@ $(function () {
 
     siteLib.init();
     siteLib.getCity();
-    
+
 
     $('.more_info__show').on('click', function () {
         $('.more_info__list').slideToggle(300);
@@ -713,7 +708,7 @@ $(function () {
     });
 
     // SHKloadCartCallback - по факту загрузки корзины
-
+    /*
     $('[id="consult-select"]').click(function () {
         //yaCounter44778274.reachGoal('consult-open');
     });
@@ -725,7 +720,8 @@ $(function () {
     });
     $('.shk_prodHelper button#shk_confirmButton').click(function () {
         //yaCounter44778274.reachGoal('product-top-add-submit');
-    });
+    });*/
+
     $(document).on('af_complete', function (event, response) {
         var form = response.form;
         // Если у формы определённый class
@@ -736,26 +732,27 @@ $(function () {
 
     ////////////////////////// menu top
 
-    $(".navbar-burger").click(function () {
-
-        // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
-        $(".navbar-burger").toggleClass("is-active");
-        $(".side-column").toggleClass("is-hidden-mobile");
-
-    });
+    $(".navbar-burger")
+        .on('click', function () {
+            $(".navbar-burger").toggleClass("is-active");
+            $(".side-column").toggleClass("is-hidden-mobile");
+        })
 
     var $hoverableLink = $('.navbar-item.has-dropdown');
 
     if (!!('ontouchstart' in window)) { //check for touch device
-        $hoverableLink.click(function () {
-            $(this).toggleClass('is-active');
-        });
+        $hoverableLink
+            .on('click', function () {
+                $(this).toggleClass('is-active');
+            })
     } else {
-        $hoverableLink.hover(function () {
-            $(this).addClass('is-active');
-        }, function () {
-            $(this).removeClass('is-active');
-        });
+        $hoverableLink
+            .on('mouseenter', function () {
+                $(this).addClass('is-active');
+            })
+            .on('mouseleave', function () {
+                $(this).removeClass('is-active');
+            })
     }
 
     // Разворачивание и сворачивание
@@ -783,57 +780,92 @@ $(function () {
         });
     }
 
-    $("#shopOrderForm").submit(function (event) {
-        //event.preventDefault();
+    $("#shopOrderForm")
+        .on('submit', function (event) {
+            //event.preventDefault();
 
-        var phone = $("#orderFormPhone").val();
-        phone = " 8" + phone;
-        $("#orderFormPhone").val(phone);
-        //$( "#shopOrderForm" ).submit();
-    });
+            var phone = $("#orderFormPhone").val();
 
-    /*
-    var w = $(window).width();
-    var ww = $(".pre_korzina").stick_in_parent({
-        parent: 'body',
-        scr
-        //spacer: '.side__menu'
-    });
+            var n = phone.length;
+            var tt = phone.split('');
 
-    function stickUnstick() {
-        if (w < 752) {
-            ww.on("sticky_kit:unstick", function (e) {
-                    $(e.target).addClass("unsticked");
-                    $(e.target).addClass("ontop");
-                })
-                .on("sticky_kit:stick", function (e) {
-                    $(e.target).removeClass("unsticked");
-                    $(e.target).removeClass("ontop");
-                });
-        }
-    }
+            var p = "";
+            var i = 0;
+            var skobki = true;
 
-    //stickUnstick();
+            if (tt[0] == "+" && tt[1] == "7") {
 
-    $(window).resize(function () {
-        w = $(window).width();
-        stickUnstick();
-    });
+                i = i + 2;
+            }
 
-    */
+            if (tt[0] == "(") {
 
-   //siteLib.bindPlusMinusButtons();
+                skobki = false;
+            }
+
+            if (tt[0] == "8") {
+
+            } else {
+                p += "8";
+            }
+
+
+            while (i <= n) {
+
+                switch (tt[i]) {
+                    case " ":
+                        i++;
+                        break;
+                    case "-":
+                        i++;
+                        break;
+                    case "+":
+                        i++;
+                        break;
+                    case "(":
+                        if (skobki) {
+                            i++;
+                        } else {
+                            p += tt[i];
+                            i++;
+                        }
+                        break;
+                    case ")":
+                        if (skobki) {
+                            i++;
+                        } else {
+                            p += tt[i];
+                            i++;
+                        }
+                        break;
+                    default:
+                        p += tt[i];
+                        i++;
+
+                        break;
+                }
+            }
+            $("#orderFormPhone").val(p);
+            //$( "#shopOrderForm" ).submit();
+        });
+
+    $('input.shk-count')
+        .on('change', function () {
+            SHK.changeCartItemsCount();
+            return false;
+        })
+
+    //siteLib.bindPlusMinusButtons();
 
 }); // document.ready
 
 function SHKloadCartCallback() {
 
     siteLib.getFreeDelivery();
-    //siteLib.bindPlusMinusButtons();
+    siteLib.bindPlusMinusButtons();
 
     var dataShopcart = $("div[data-shopcart]").data("shopcart");
 
-    //console.log(dataShopcart);
 
     if (dataShopcart == 2) {
 
@@ -845,4 +877,4 @@ function SHKloadCartCallback() {
 
 }
 
-$(document).bind('ready', SHKloadCartCallback);
+$(document).on('ready', SHKloadCartCallback);
