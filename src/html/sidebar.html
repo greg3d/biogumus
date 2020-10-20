@@ -1,28 +1,47 @@
 <nav class="side__menu">
     <ul>
-        <li class="navbar-item has-dropdown is-hoverable is-hidden-touch">
-            <a href="#" class="navbar-link is-red">
-                <span class="icon"><i class="fas fa-cart-arrow-down"></i></span>
-                <span class="menu-title">Заказать</span>
-            </a>
-            <div class="navbar-dropdown is-boxed">
-                <a class="navbar-item" href="/katalog/">
-                    <span class="icon"><i class="fas fa-shopping-basket"></i></span>Биогумус.PRO
-                </a>
-                <a class="navbar-item" href="https://beru.ru/supplier/642611">
-                    <span class="icon is-custom"><img src="/assets/images/icons/beru.png" /></span> БЕРУ!
-                </a>
-                <!--a class="navbar-item" href="#">
-                    <span class="icon is-custom"><img src="/assets/images/icons/wild.png" /></span> Wildberries
-                </a-->
-                <!--a class="navbar-item" href="#">
-                    <span class="icon is-custom"><img src="/assets/images/icons/cdek.png" /></span> СДЭК-маркет
-                </a-->
-                <a class="navbar-item" href="[[~44]]">
-                    <span class="icon"><i class="fas fa-handshake"></i></span>Магазины в регионах
-                </a>
+        <div class=" is-hidden-touch wheretobuy">
+           
+            <p class="wheretobuy_header">
+                <span>ВЫБИРАЙТЕ,</span>
+                <span>ЗАКАЗЫВАЙТЕ</span>
+                <span>И ПОЛУЧАЙТЕ</span>
+            </p>
+            <p class="wheretobuy_subheader">
+                нашу продукцию удобным для&nbsp;вас способом:
+            </p>
+            <div class="wheretobuy_content">
+                
+                <div class="wheretobuy_item columns is-gapless is-vcentered">
+                    <div class="column is-narrow">
+                        <img src="/assets/images/ecologica_icon.png">
+                    </div>
+
+                    <div class="wheretobuy_item_title column">
+                        <a href="/katalog/">На нашем сайте Биогумус.PRO</a>
+                    </div>
+                </div>
+
+                <div class="wheretobuy_item columns is-gapless is-vcentered">
+                    <div class="column is-narrow">
+                        <img src="/assets/images/icons/wild.png">
+                    </div>
+                    <div class="wheretobuy_item_title column">
+                        <a href="https://www.wildberries.ru/brands/biogumuspro">В интернет-магазине Wildberries</a>
+                    </div>
+                </div>
+
+                <div class="wheretobuy_item columns is-gapless is-vcentered">
+                    <div class="column is-narrow">
+                        <img src="/assets/images/yandex-m.png">
+                    </div>
+                    <div class="wheretobuy_item_title column">
+                        <a href="https://pokupki.market.yandex.ru/supplier/642611">В интернет-магазине Яндекс-Маркет</a>
+                    </div>
+                </div>
+
             </div>
-        </li>
+        </div>
         <li class="navbar-item is-hidden-mobile">
             <a href="/information.html" class="navbar-link">
                 <span class="icon"><i class="fas fa-truck"></i></span>
@@ -63,7 +82,7 @@
                 <span class="menu-title">
                     <span class="first-line">Полезная</span>
                     <span class="second-line">информация</span>
-            
+
                 </span>
             </a>
             <div class="navbar-dropdown is-boxed">

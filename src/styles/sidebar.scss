@@ -1,9 +1,76 @@
+
+ .wheretobuy {
+  display: block;
+  background-color: $primary;
+  padding: 12px;
+  margin-bottom: 12px;
+  height: 340px;
+
+
+  .wheretobuy_header {
+    font-family: "Ubuntu";
+    font-size: 2rem;
+    color: $secondary;
+    text-align: center;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    line-height: normal;
+  }
+
+  .wheretobuy_subheader {
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+  }
+
+  .wheretobuy_content {}
+
+  .wheretobuy_item:last-child {
+    margin-bottom: 0 !important;
+  }
+
+  .wheretobuy_item {
+
+    margin-bottom: 0.75rem !important;
+
+    .wheretobuy_item_title {
+      color: white;
+
+      line-height: 1.25rem;
+      //line-height: normal;
+      a {
+        color: white;
+        text-decoration-line: underline;
+        text-decoration-color: rgba(255,255,255,0.3);
+      }
+
+    }
+
+    img {
+      margin: 0;
+      display: block;
+      //background-color: white;
+      border-radius: 10px;
+      margin-right: 10px;
+      width: 40px;
+      height: 40px;
+    }
+
+  }
+}
+
+
 .side__menu {
   //margin-top: 15px;
   //margin-right: 5px;
   //margin-left: 5px;
   margin: 0;
   padding: 0;
+
+ 
 
   ul {
     list-style: none;
@@ -12,7 +79,7 @@
     justify-content: space-between;
     width: 100%;
     margin: 0;
-    padding: 0; 
+    padding: 0;
 
     li.navbar-item {
       position: relative;
@@ -21,14 +88,14 @@
 
       a.navbar-link {
         font-size: 24px;
-        
+
         text-align: center;
         width: 100%;
         display: block;
         //padding: 20px 10px;
         color: #3e3f30;
         //font-size: 0;
-        
+
         font-weight: normal;
         border-radius: $radius-large;
         background-color: $secondary;
@@ -39,12 +106,13 @@
         border-left: 1px solid rgba(255, 255, 255, 0.5);
         border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 
-        box-shadow: 0 0 15px rgba(0,0,0,0.2);
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 
         text-transform: uppercase;
 
-        display:  flex;
+        display: flex;
         flex-wrap: nowrap;
+
         .icon {
           display: block;
           margin: 2px 0 0 0;
@@ -60,21 +128,26 @@
           }
         }
 
-        .is-red { color: #da0000; }
-        .is-blue { color: #7e5fe4; }
+        .is-red {
+          color: #da0000;
+        }
+
+        .is-blue {
+          color: #7e5fe4;
+        }
 
         .menu-title {
           display: block;
           //border: 1px solid black;
           text-align: left;
 
-          
+
           line-height: normal;
 
           span {
             display: block;
             margin: 0;
-           
+
           }
         }
 
@@ -86,7 +159,8 @@
         color: white;
       }
 
-      > a.is-active, a:hover {
+      >a.is-active,
+      a:hover {
         background-color: $primary;
       }
 
@@ -115,17 +189,17 @@
           border-right: 2px solid rgba(0, 0, 0, 0.3);
           border-left: 2px solid rgba(255, 255, 255, 0.5);
           border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-          
+
           background: $primary;
 
           color: white;
           padding: 8px 10px;
-         
+
 
         }
 
         a:first-child {
-          border-radius:  $radius-large $radius-large 0 0;
+          border-radius: $radius-large $radius-large 0 0;
         }
 
         a:last-child {
@@ -134,13 +208,13 @@
 
       }
 
-     
-  
+
+
 
     }
 
     .navbar-item.has-dropdown .navbar-dropdown {
-      
+
       @include touch {
         display: none;
       }
@@ -148,7 +222,7 @@
     }
 
     .navbar-item.has-dropdown.is-active .navbar-dropdown {
-      
+
       @include touch {
         display: block;
       }
@@ -157,7 +231,7 @@
 
 
     li.navbar-item.has-dropdown::after {
-      
+
       content: '';
       position: absolute;
       top: 50%;
@@ -178,7 +252,7 @@
     }
 
     li.navbar-item.has-dropdown.is-active::after {
-      
+
       @include touch {
         transform: translateY(-50%) rotate(135deg);
       }
@@ -259,6 +333,7 @@ aside {
 #zakaz {
   .icon {
     margin-right: 5px;
+
     img {
       border-radius: $radius-large;
     }
