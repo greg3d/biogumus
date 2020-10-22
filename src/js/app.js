@@ -154,7 +154,7 @@ var siteLib = (function ($) {
             $('#price_dellin').html(loader);
             $('#price_pek').html(loader);
             $('#price_energia').html(loader);
-            $('#price_cdek').html(loader);
+            //$('#price_cdek').html(loader);
 
             var action = 'getDeliveryRates';
 
@@ -163,7 +163,7 @@ var siteLib = (function ($) {
                 action: action,
                 tk: "1"
             })
-                .success(function (data) {
+                .done(function (data) {
                     data = JSON.parse(data);
                     $('#price_dellin').html(data.dellin.price + "p.");
                 })
@@ -176,7 +176,7 @@ var siteLib = (function ($) {
                 action: action,
                 tk: "2"
             })
-                .success(function (data) {
+                .done(function (data) {
                     data = JSON.parse(data);
                     if (data !== null) {
                         $('#price_pek').html(data.pek.auto[2] + "p.");
@@ -184,14 +184,14 @@ var siteLib = (function ($) {
                 })
                 .fail(function () {
                     $('#price_pek').html("");
-                })
+                });
 
             // ЭНЕРГИЯ
             $.post(document.location.href, {
                 action: action,
                 tk: "3"
             })
-                .success(function (data) {
+                .done(function (data) {
                     data = JSON.parse(data);
                     //console.log(data.energia);
                     if (data.energia !== null) {
@@ -200,20 +200,22 @@ var siteLib = (function ($) {
                 })
                 .fail(function () {
                     $('#price_energia').html("");
-                })
+                });
 
             // СДЭК
+            /*
             $.post(document.location.href, {
                 action: action,
                 tk: "4"
             })
-                .success(function (data) {
+                .done(function (data) {
                     data = JSON.parse(data);
                     $('#price_cdek').html(data.cdek.result.price + "p.");
                 })
                 .fail(function () {
                     $('#price_cdek').html("");
-                })
+                });
+            */
 
         }
 
@@ -265,7 +267,7 @@ var siteLib = (function ($) {
             //SHK.recountItemAll();
             SHK.changeCartItemsCount();
             return false;
-        })
+        });
 
         $('[data-shopcart="2"]').on('click', '.button__plus', function () {
             var $input = $(this).parent().parent().find('.shk-count');
@@ -274,7 +276,7 @@ var siteLib = (function ($) {
             //SHK.recountItemAll();
             SHK.changeCartItemsCount();
             return false;
-        })
+        });
 
         $('.button__plus-product').on('click', function (event) {
 
@@ -285,7 +287,7 @@ var siteLib = (function ($) {
             $(this).prop('disabled', false);
             return false;
 
-        })
+        });
 
         $('.button__minus-product').on('click', function (event) {
             $(this).prop('disabled', true);
@@ -296,7 +298,7 @@ var siteLib = (function ($) {
             $input.change();
             $(this).prop('disabled', false);
             return false;
-        })
+        });
 
         $('#counter-plus').on('click', function (event) {
             //console.log('f');
@@ -306,7 +308,7 @@ var siteLib = (function ($) {
             $input.change();
             $(this).prop('disabled', false);
             return false;
-        })
+        });
 
         $('#counter-minus').on('click', function (event) {
             $(this).prop('disabled', true);
@@ -407,7 +409,7 @@ $(function () {
     $('.more_info__show').on('click', function () {
         $('.more_info__list').slideToggle(300);
         return false;
-    })
+    });
 
     $('.login-toggle').on('click', function (event) {
         $('.loginForm').css('display', 'block');
@@ -417,7 +419,7 @@ $(function () {
         event.preventDefault();
         event.stopPropagation();
         //return false;
-    })
+    });
 
     $('.register-toggle').on('click', function (event) {
         $('.loginForm').css('display', 'none');
@@ -427,7 +429,7 @@ $(function () {
         event.preventDefault();
         event.stopPropagation();
 
-    })
+    });
 
 
     // tabs 
@@ -442,8 +444,8 @@ $(function () {
 
                 var target = el.dataset.target;
                 showTab('#' + target);
-            })
-        })
+            });
+        });
     }
 
     function showTab(target) {
@@ -469,8 +471,8 @@ $(function () {
                 openModal('#' + target);
 
                 //console.log(target);
-            })
-        })
+            });
+        });
     }
 
     if ($modalCloses.length > 0) {
@@ -478,7 +480,7 @@ $(function () {
             $(el).on('click', function () {
                 closeModals();
             });
-        })
+        });
     }
 
     function openModal(target) {
@@ -492,7 +494,7 @@ $(function () {
             $.post(document.location.href, {
                 action: action
             })
-                .success(function (data) {
+                .done(function (data) {
 
                     $('#myModalCitySelect').html(data);
                     $("#city-select-form").addClass('hide');
@@ -517,13 +519,13 @@ $(function () {
                         }
                         objects.push(obj);
 
-                    })
+                    });
 
 
                 })
                 .fail(function(data){
                     console.log('fail');
-                })
+                });
 
             return false;
         }
@@ -538,14 +540,14 @@ $(function () {
 
     siteLib.closeModals = function () {
         closeModals();
-    }
+    };
 
     document.addEventListener('keydown', function (event) {
         var e = event || window.event;
         if (e.keyCode === 27) {
             closeModals();
         }
-    })
+    });
 
     //////////////////////////////////////////////////////
     $("#chooseCityButton").on('click', function () {
@@ -553,7 +555,7 @@ $(function () {
         var name = $("#city-select-form option:selected").text();
         siteLib.chooseCity(name);
         return false;
-    })
+    });
 
     $(".main-carousel").owlCarousel({
         autoplay: 3000,
@@ -563,7 +565,7 @@ $(function () {
         nav: true,
         dots: true,
         items: 1
-    })
+    });
 
     $("#owl-slider-production").owlCarousel({
         autoplay: 3000,
@@ -582,7 +584,7 @@ $(function () {
                 items: 4
             }
         }
-    })
+    });
 
     // выбор транспортной компании
 
@@ -592,11 +594,11 @@ $(function () {
         $(this).addClass('active');
         var TransKomp = $(this).data('trans');
         $('.transcom').val(TransKomp);
-    })
+    });
 
     $('.product__order .button').on('click', function () {
         $(this).parent().find('#success-check').prop('checked', true);
-    })
+    });
 
     // SHKloadCartCallback - по факту загрузки корзины
     /*
@@ -619,7 +621,7 @@ $(function () {
         if (form.hasClass('consult-form') && response.success) {
             //yaCounter44778274.reachGoal('consult-sent');
         }
-    })
+    });
 
     ////////////////////////// menu top
 
@@ -627,7 +629,7 @@ $(function () {
         .on('click', function () {
             $(".navbar-burger").toggleClass("is-active");
             $(".side-column").toggleClass("is-hidden-mobile");
-        })
+        });
 
     var $hoverableLink = $('.navbar-item.has-dropdown');
 
@@ -635,7 +637,7 @@ $(function () {
         $hoverableLink
             .on('click', function () {
                 $(this).toggleClass('is-active');
-            })
+            });
     } else {
         $hoverableLink
             .on('mouseenter', function () {
@@ -643,7 +645,7 @@ $(function () {
             })
             .on('mouseleave', function () {
                 $(this).removeClass('is-active');
-            })
+            });
     }
 
     // Разворачивание и сворачивание
@@ -661,15 +663,15 @@ $(function () {
 
         manager.on('tap', function (e) {
             $(".shopcart-full").removeClass('collapsed');
-        })
+        });
 
         $('#CollapseShopCartButton').on('click', function () {
             $(".shopcart-full").addClass('collapsed');
-        })
+        });
 
         $('.product-list').on('click', function () {
             $(".shopcart-full").addClass('collapsed');
-        })
+        });
     }
 
     $("#shopOrderForm")
@@ -745,7 +747,7 @@ $(function () {
         .on('change', function () {
             SHK.changeCartItemsCount();
             return false;
-        })
+        });
 
 }); // document.ready
 

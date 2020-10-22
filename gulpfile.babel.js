@@ -91,7 +91,7 @@ const cssLibsList = [
 	"./node_modules/@fancyapps/fancybox/dist/jquery.fancybox.css",
 	"./node_modules/owl.carousel/dist/assets/owl.carousel.css",
 	"./node_modules/owl.carousel/dist/assets/owl.theme.default.css",
-]
+];
 
 const jsLibsList = [
 	"./node_modules/jquery/dist/jquery.min.js",
@@ -101,7 +101,7 @@ const jsLibsList = [
 	"./node_modules/owl.carousel/dist/owl.carousel.min.js",
 	//"./node_modules/sticky-kit/dist/sticky-kit.min.js",
 	"./node_modules/hammerjs/hammer.min.js"
-]
+];
 
 const paths = {
 	styles: {
@@ -132,7 +132,7 @@ const paths = {
 		dist: "./dist/",
 		watch: "./src/html/**/*.html"
 	}
-}
+};
 
 export const cleanFiles = () => gulp.src("./dist/*", {
 		read: false
@@ -145,11 +145,7 @@ export const cleanFiles = () => gulp.src("./dist/*", {
 var imageFiles = [paths.images.src];
 var fontFiles = [paths.fonts.src];
 
-<<<<<<< HEAD
-var v = "_v35";
-=======
 var v = "_v36";
->>>>>>> ff2b86966c3a831ebd83d520a76020711f2f8ce6
 
 export const libscss = () => gulp.src(paths.libscss.src)
 	.pipe(gulpif(!production, sourcemaps.init()))
@@ -161,16 +157,16 @@ export const libscss = () => gulp.src(paths.libscss.src)
 			var filename = ar[len - 1];
 			var ext = filename.split('.')[1];
 			var pureExt = ext.split('?')[0];
-			var pureExt = pureExt.split('#')[0];
+			pureExt = pureExt.split('#')[0];
 
 			var p = '/assets/images/';
 			var f = false;
 			if (~fontExt.indexOf(pureExt)) {
 				p = '/assets/fonts/';
 				f = true;
-			};
+			}
 			var newUrl = p + filename;
-			var ar = filePath.split('\\');
+			ar = filePath.split('\\');
 			ar.splice(-1, 1);
 			var realFileName = url.split('?')[0];
 			realFileName = realFileName.split('#')[0];
@@ -224,7 +220,7 @@ export const libsjs = () => gulp.src(jsLibsList)
 	.pipe(gulp.dest(paths.scripts.dist))
 	.pipe(debug({
 		"title": "JS LIBS"
-	}))
+	}));
 
 export const fonts = () => gulp.src(fontFiles)
 	.pipe(gulp.dest(paths.fonts.dist))
@@ -283,7 +279,7 @@ export const upload = (cb) => {
 		remotePath: 'www/assets/'
 	}));
 	cb();
-}
+};
 
 export const development = gulp.series(
 	cleanFiles,
@@ -305,7 +301,7 @@ export const prod = gulp.series(
 	images,
 	libsjs,
 	scripts,
-	views,
+	views
 	//upload
 );
 
