@@ -10,9 +10,11 @@ var cmpOnToCompareRemoved = function () {
     siteLib.alert('Товар убран из избранного.');
 };
 
+/*
 var SHKbeforeInitCallback = function () {
     SHK.options.buttons_class = 'btn btn-info btn-sm';
-};
+}; */
+
 
 /**
  * Site library
@@ -234,8 +236,6 @@ var siteLib = (function ($) {
             //console.log(SHK.data);
             if (SHK.data.items_total > 0) {
 
-
-
                 var v = JSON.parse(data);
                 var htmldata = v[0];
                 if (v[1] >= 100) {
@@ -279,14 +279,12 @@ var siteLib = (function ($) {
         });
 
         $('.button__plus-product').on('click', function (event) {
-
             $(this).prop('disabled', true);
             var $input = $(this).parent().parent().find('.shk-count-product');
             $input.val(parseInt($input.val()) + 1);
             $input.change();
             $(this).prop('disabled', false);
             return false;
-
         });
 
         $('.button__minus-product').on('click', function (event) {
@@ -299,28 +297,6 @@ var siteLib = (function ($) {
             $(this).prop('disabled', false);
             return false;
         });
-
-        $('#counter-plus').on('click', function (event) {
-            //console.log('f');
-            $(this).prop('disabled', true);
-            var $input = $('#counter-val');
-            $input.val(parseInt($input.val()) + 1);
-            $input.change();
-            $(this).prop('disabled', false);
-            return false;
-        });
-
-        $('#counter-minus').on('click', function (event) {
-            $(this).prop('disabled', true);
-            var $input = $('#counter-val');
-            var count = parseInt($input.val()) - 1;
-            count = count < 1 ? 1 : count;
-            $input.val(count);
-            $input.change();
-            $(this).prop('disabled', false);
-            return false;
-        });
-
 
     };
 
@@ -405,12 +381,12 @@ $(function () {
     siteLib.init();
     siteLib.getCity();
 
-
     $('.more_info__show').on('click', function () {
         $('.more_info__list').slideToggle(300);
         return false;
     });
 
+    /*
     $('.login-toggle').on('click', function (event) {
         $('.loginForm').css('display', 'block');
         $('.loginForm').removeClass('hide-this');
@@ -429,7 +405,8 @@ $(function () {
         event.preventDefault();
         event.stopPropagation();
 
-    });
+    }); 
+    */
 
 
     // tabs 
@@ -453,9 +430,7 @@ $(function () {
         $(target).addClass('is-active');
     }
 
-
-    ///////////////////////////////////////////////////////////////////
-    // MODALS
+    /* MODALS */
     rootEl = $('body');
     var $modals = $('.modal');
     var $modalButtons = $('.modal-button');
@@ -465,12 +440,8 @@ $(function () {
         $modalButtons.each(function (index, el) {
             $(el).on('click', function (event) {
                 event.preventDefault();
-
                 var target = el.dataset.target;
-
                 openModal('#' + target);
-
-                //console.log(target);
             });
         });
     }
@@ -549,9 +520,10 @@ $(function () {
         }
     });
 
-    //////////////////////////////////////////////////////
-    $("#chooseCityButton").on('click', function () {
+    /* END MODALS */
 
+
+    $("#chooseCityButton").on('click', function () {
         var name = $("#city-select-form option:selected").text();
         siteLib.chooseCity(name);
         return false;
@@ -589,7 +561,6 @@ $(function () {
     // выбор транспортной компании
 
     $('.country_delivery__item').on('click', function () {
-
         $('.country_delivery__item').removeClass('active');
         $(this).addClass('active');
         var TransKomp = $(this).data('trans');
@@ -743,31 +714,13 @@ $(function () {
             //$( "#shopOrderForm" ).submit();
         });
 
+/*
     $('input.shk-count')
         .on('change', function () {
             SHK.changeCartItemsCount();
             return false;
         });
+        */
 
 }); // document.ready
 
-function SHKloadCartCallback() {
-
-
-    console.log('callback');
-    
-    siteLib.getFreeDelivery();
-    //siteLib.bindPlusMinusButtons();
-
-    var dataShopcart = $("div[data-shopcart]").data("shopcart");
-
-    if (dataShopcart == 2) {
-        siteLib.getRates();
-    }
-
-    $('.shk-count-product').val(1);
-    $('.shk-count-product').change();
-
-}
-
-$(document).on('ready', SHKloadCartCallback);
