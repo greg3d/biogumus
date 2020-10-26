@@ -258,7 +258,7 @@ var siteLib = (function ($) {
     //////// shk count buttons + -
     this.bindPlusMinusButtons = function () {
 
-        $('[data-shopcart="2"]').on('click', '.button__minus', function () {
+        $('.content').on('click', '.button__minus', function () {
             var $input = $(this).parent().parent().find('.shk-count');
             var count = parseInt($input.val()) - 1;
             count = count < 1 ? 1 : count;
@@ -269,7 +269,7 @@ var siteLib = (function ($) {
             return false;
         });
 
-        $('[data-shopcart="2"]').on('click', '.button__plus', function () {
+        $('.content').on('click', '.button__plus', function () {
             var $input = $(this).parent().parent().find('.shk-count');
             $input.val(parseInt($input.val()) + 1);
             $input.change();
@@ -636,11 +636,10 @@ $(function () {
             $(".shopcart-full").removeClass('collapsed');
         });
 
-        $('#CollapseShopCartButton').on('click', function () {
+        $('.shopcart-container').on('click','#CollapseShopCartButton', function(){
             $(".shopcart-full").addClass('collapsed');
         });
-
-        $('.product-list').on('click', function () {
+        $('.shopcart-container').on('click','.product-list', function(){
             $(".shopcart-full").addClass('collapsed');
         });
     }

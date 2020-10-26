@@ -1,14 +1,18 @@
 
-.icon.is-custom {
-       
 
+.buttons.has-addons {
+  .button.is-extendable {
+    flex-grow: 1;
+  }
+}
+
+.icon.is-custom {
   img {
         /* position: absolute; */
         height: 50%;
         /* width: 50%; */
         transform: scale(2);
     }
-  
 }
 
 .section.main {
