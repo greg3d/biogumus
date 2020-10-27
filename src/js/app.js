@@ -63,19 +63,19 @@ var siteLib = (function ($) {
                 slidesToScroll: 3,
                 centerMode: false,
                 responsive: [{
-                    breakpoint: 700,
-                    settings: {
-                        slidesToShow: 2,
-                        slidesToScroll: 2
+                        breakpoint: 700,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 2
+                        }
+                    },
+                    {
+                        breakpoint: 480,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
                     }
-                },
-                {
-                    breakpoint: 480,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1
-                    }
-                }
                 ]
             });
 
@@ -162,9 +162,9 @@ var siteLib = (function ($) {
 
             // Деловые линии
             $.post(document.location.href, {
-                action: action,
-                tk: "1"
-            })
+                    action: action,
+                    tk: "1"
+                })
                 .done(function (data) {
                     data = JSON.parse(data);
                     $('#price_dellin').html(data.dellin.price + "p.");
@@ -175,9 +175,9 @@ var siteLib = (function ($) {
 
             // ПЭК
             $.post(document.location.href, {
-                action: action,
-                tk: "2"
-            })
+                    action: action,
+                    tk: "2"
+                })
                 .done(function (data) {
                     data = JSON.parse(data);
                     if (data !== null) {
@@ -190,9 +190,9 @@ var siteLib = (function ($) {
 
             // ЭНЕРГИЯ
             $.post(document.location.href, {
-                action: action,
-                tk: "3"
-            })
+                    action: action,
+                    tk: "3"
+                })
                 .done(function (data) {
                     data = JSON.parse(data);
                     //console.log(data.energia);
@@ -310,14 +310,14 @@ var siteLib = (function ($) {
         $('.alert-fixed').remove();
 
         $('<div/>', {
-            'class': 'alert alert-fixed ' + alertClass + ' alert-dismissable',
-            'text': msg,
-            on: {
-                mouseover: function () {
-                    clearTimeout(window.alertTimer);
+                'class': 'alert alert-fixed ' + alertClass + ' alert-dismissable',
+                'text': msg,
+                on: {
+                    mouseover: function () {
+                        clearTimeout(window.alertTimer);
+                    }
                 }
-            }
-        })
+            })
             .css({
                 position: 'fixed',
                 zIndex: 999,
@@ -463,8 +463,8 @@ $(function () {
             var action = 'showCitySelectForm';
 
             $.post(document.location.href, {
-                action: action
-            })
+                    action: action
+                })
                 .done(function (data) {
 
                     $('#myModalCitySelect').html(data);
@@ -494,7 +494,7 @@ $(function () {
 
 
                 })
-                .fail(function(data){
+                .fail(function (data) {
                     console.log('fail');
                 });
 
@@ -636,10 +636,10 @@ $(function () {
             $(".shopcart-full").removeClass('collapsed');
         });
 
-        $('.shopcart-container').on('click','#CollapseShopCartButton', function(){
+        $('.shopcart-container').on('click', '#CollapseShopCartButton', function () {
             $(".shopcart-full").addClass('collapsed');
         });
-        $('.shopcart-container').on('click','.product-list', function(){
+        $('.shopcart-container').on('click', '.product-list', function () {
             $(".shopcart-full").addClass('collapsed');
         });
     }
@@ -647,7 +647,6 @@ $(function () {
     $("#shopOrderForm")
         .on('submit', function (event) {
             //event.preventDefault();
-
             var phone = $("#orderFormPhone").val();
 
             var n = phone.length;
@@ -673,8 +672,9 @@ $(function () {
                 p += "8";
             }
 
+            //console.log(n);
 
-            while (i <= n) {
+            while (i < n) {
 
                 switch (tt[i]) {
                     case " ":
@@ -710,16 +710,14 @@ $(function () {
                 }
             }
             $("#orderFormPhone").val(p);
-            //$( "#shopOrderForm" ).submit();
         });
 
-/*
-    $('input.shk-count')
-        .on('change', function () {
-            SHK.changeCartItemsCount();
-            return false;
-        });
-        */
+    /*
+        $('input.shk-count')
+            .on('change', function () {
+                SHK.changeCartItemsCount();
+                return false;
+            });
+            */
 
 }); // document.ready
-
