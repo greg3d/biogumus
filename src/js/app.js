@@ -1,21 +1,3 @@
-var cmpOnToCompareLinkMinimum = function () {
-    siteLib.alert('В избранном пусто.', 'danger');
-};
-
-var cmpOnToCompareAdded = function () {
-    siteLib.alert('Товар добавлен в избранное.');
-};
-
-var cmpOnToCompareRemoved = function () {
-    siteLib.alert('Товар убран из избранного.');
-};
-
-/*
-var SHKbeforeInitCallback = function () {
-    SHK.options.buttons_class = 'btn btn-info btn-sm';
-}; */
-
-
 /**
  * Site library
  *
@@ -25,22 +7,8 @@ var siteLib = (function ($) {
     sl = this;
     sl.city = {};
 
-
     this.init = function () {
 
-        //console.log('init');
-
-        /*jQuery('body')
-            .tooltip({
-                selector: '[data-toggle="tooltip"]',
-                container: 'body',
-                trigger: 'hover',
-                placement: function () {
-                    return this.$element.data('placement') ?
-                        this.$element.data('placement') :
-                        'bottom';
-                }
-            });*/
         jQuery('.slick-slider-one')
             .slick({
                 dots: true,
@@ -83,69 +51,13 @@ var siteLib = (function ($) {
 
     }; /// this.init
 
-    this.cityRecalc = function () {
+    this.CheckCity = function () {
 
-        var dataCity = siteLib.city.name;
-        if ($('#cartAddress')) {
-            $('#cartAddress').attr('value', dataCity);
-        }
-
-    };
-
-    this.writeCity = function (city) {
-        $cityName = $("a[data-target='city-select']");
-        sl.city = city;
-        $cityName.html(sl.city.name);
-        var serialCity = JSON.stringify(city);
-        localStorage.setItem("city", serialCity);
-        sl.cityRecalc();
-    };
-
-    this.readCity = function () {
-        $cityNameField = $("a[data-target='city-select']");
-
-        var returnCity = JSON.parse(localStorage.getItem("city"));
-        sl.city = returnCity;
-
-        $cityNameField.html(sl.city.name);
-
-        $.post(document.location.href, {
-            action: 'setSessionCity',
-            city: localStorage.getItem("city")
-        }, function (data) {
-            sl.cityRecalc();
+        return $.post(document.location.href, {
+            action: 'CheckCity'
         });
-    };
+    }
 
-    this.getCity = function () {
-
-        var city = localStorage.getItem("city");
-        if (city === null) {
-
-            $.post(document.location.href, {
-                action: 'detectCity'
-            }, function (data) {
-                city = JSON.parse(data);
-                sl.writeCity(city);
-            });
-
-        } else {
-            sl.readCity();
-        }
-    };
-
-    this.chooseCity = function (name) {
-        var action = 'chooseCity';
-
-        $.post(document.location.href, {
-            action: action,
-            city_name: name
-        }, function (data) {
-            var obj = JSON.parse(data);
-            siteLib.writeCity(obj);
-            location.reload();
-        });
-    };
 
     this.getRates = function () {
 
@@ -153,10 +65,13 @@ var siteLib = (function ($) {
 
             var loader = '<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>';
 
+            $('#price_dellin').show();
+            $('#price_pek').show();
+            $('#price_energia').show();
+
             $('#price_dellin').html(loader);
             $('#price_pek').html(loader);
             $('#price_energia').html(loader);
-            //$('#price_cdek').html(loader);
 
             var action = 'getDeliveryRates';
 
@@ -167,10 +82,12 @@ var siteLib = (function ($) {
                 })
                 .done(function (data) {
                     data = JSON.parse(data);
-                    $('#price_dellin').html(data.dellin.price + "p.");
+
+                    $('#price_dellin').html(data.price);
+                    //$('#price_dellin').html(data.dellin.price + "p.");
                 })
                 .fail(function () {
-                    $('#price_dellin').html("");
+                    $('#price_dellin').hide();
                 });
 
             // ПЭК
@@ -180,12 +97,12 @@ var siteLib = (function ($) {
                 })
                 .done(function (data) {
                     data = JSON.parse(data);
-                    if (data !== null) {
-                        $('#price_pek').html(data.pek.auto[2] + "p.");
-                    }
+                    $('#price_pek').html(data.price);
+                    //$('#price_pek').html(data.pek.auto[2] + "p.");
+
                 })
                 .fail(function () {
-                    $('#price_pek').html("");
+                    $('#price_pek').hide();
                 });
 
             // ЭНЕРГИЯ
@@ -195,64 +112,64 @@ var siteLib = (function ($) {
                 })
                 .done(function (data) {
                     data = JSON.parse(data);
-                    //console.log(data.energia);
-                    if (data.energia !== null) {
-                        $('#price_energia').html(data.energia.transfer[0].price + "p.");
-                    }
+                    $('#price_energia').html(data.price);
+                    //$('#price_energia').html(data.energia.transfer[0].price + "p.");
+
                 })
                 .fail(function () {
-                    $('#price_energia').html("");
+                    $('#price_energia').hide();
                 });
 
             // СДЭК
-            /*
-            $.post(document.location.href, {
-                action: action,
-                tk: "4"
-            })
-                .done(function (data) {
-                    data = JSON.parse(data);
-                    $('#price_cdek').html(data.cdek.result.price + "p.");
-                })
-                .fail(function () {
-                    $('#price_cdek').html("");
-                });
-            */
+
 
         }
 
         return false;
     }; // this.getRates
 
-    this.getFreeDelivery = function () {
-        //$('#freeDelivery').html('<div class="ajax-loader"></div>');
-
-        var action = 'freedelivery';
+    this.getPromoCode = function(){
+        var action = 'applyPromoCode';
+        var code = $('#promoCode').val();
 
         $.post(document.location.href, {
-            action: action
-        }, function (data) {
+                action: action,
+                promocode: code
+            })
+            .done(function (data) {
+                data = JSON.parse(data);
+                console.log(data);
 
-            //console.log(SHK.data);
-            if (SHK.data.items_total > 0) {
-
-                var v = JSON.parse(data);
-                var htmldata = v[0];
-                if (v[1] >= 100) {
-
-                    if (SHK.data.ids.indexOf(163) == -1) {
-
-                        //console.log('Подарок!');
-                        // SHK.fillCart(163,1,true);
-                    }
+                if (data=="success") {
+                    document.location.reload();
                 }
+            })
+            .fail(function () {
+                
+            });
 
-                $('#freeDelivery').html(htmldata);
-            }
-        });
+    }
 
-        return false;
-    }; // 
+    this.deletePromoCode = function(){
+        var action = 'deletePromoCode';
+        
+
+        $.post(document.location.href, {
+                action: action
+            })
+            .done(function (data) {
+                data = JSON.parse(data);
+                console.log(data);
+
+                if (data=="success") {
+                    document.location.reload();
+                }
+            })
+            .fail(function () {
+                
+            });
+
+    }
 
 
     //////// shk count buttons + -
@@ -299,8 +216,6 @@ var siteLib = (function ($) {
         });
 
     };
-
-
 
     this.alert = function (msg, type, time) {
 
@@ -352,62 +267,30 @@ var siteLib = (function ($) {
 }).call({}, jQuery);
 
 
-function createCookie(name, value, days) {
-    var expires = "";
-    if (days) {
-        var date = new Date();
-        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-        expires = "; expires=" + date.toUTCString();
-    }
-    document.cookie = name + "=" + value + expires + "; path=/";
-}
-
-function readCookie(name) {
-    var nameEQ = name + "=";
-    var ca = document.cookie.split(';');
-    for (var i = 0; i < ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0) == ' ') c = c.substring(1, c.length);
-        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
-    }
-    return null;
-}
-
 this.siteLib = siteLib;
 
 ///// MAIN
 $(function () {
 
     siteLib.init();
-    siteLib.getCity();
+
+
+    var ch = false;
+    siteLib.CheckCity().done(function (data) {
+        ch = JSON.parse(data);
+        if (ch == "0") {
+            $('.yourcity').css("display", "block");
+        } else {
+            $('.yourcity').css("display", "none");
+        }
+    });
+
+
 
     $('.more_info__show').on('click', function () {
         $('.more_info__list').slideToggle(300);
         return false;
     });
-
-    /*
-    $('.login-toggle').on('click', function (event) {
-        $('.loginForm').css('display', 'block');
-        $('.loginForm').removeClass('hide-this');
-        $('.login-menu').css('display', 'none');
-        $('.login-menu').addClass('hide-this');
-        event.preventDefault();
-        event.stopPropagation();
-        //return false;
-    });
-
-    $('.register-toggle').on('click', function (event) {
-        $('.loginForm').css('display', 'none');
-        $('.loginForm').addClass('hide-this');
-        $('.login-menu').css('display', 'block');
-        $('.login-menu').removeClass('hide-this');
-        event.preventDefault();
-        event.stopPropagation();
-
-    }); 
-    */
-
 
     // tabs 
     var rootEl = document.documentElement;
@@ -458,40 +341,71 @@ $(function () {
         $(rootEl).addClass('is-clipped');
         $(target).addClass('is-active');
 
-        if (target == '#city-select') {
-            $('#myModalCitySelect').html('<div class="ajax-loader">Подождите...</div>');
-            var action = 'showCitySelectForm';
+        if (target == '#city-select-form') {
+            $('#city-select-form p.modal-card-title').html('Выберите область/город проживания:');
+            $('#CitySelectList').html('<div class="ajax-loader">Подождите...</div>');
+
+            var action = 'ShowRegionsList';
 
             $.post(document.location.href, {
                     action: action
                 })
-                .done(function (data) {
+                .done(function (response) {
 
-                    $('#myModalCitySelect').html(data);
-                    $("#city-select-form").addClass('hide');
+                    var regions = JSON.parse(response);
+                    //console.log(data);
 
-                    var $options = $("#city-select-form option");
-                    var $box = $("#city-select-form2");
+                    $('#CitySelectList').html('');
 
-                    var objects = [];
-
-                    $options.each(function (i, element) {
-
-                        var obj = {};
-                        var text = $(element).text();
-                        var st = text.indexOf('(', 0);
-                        var en = text.indexOf(')', 0);
-                        if (st >= 0) {
-                            obj.name = text.slice(0, st - 3);
-                            obj.obl = text.slice(st + 1, en);
-                        } else {
-                            obj.name = text;
-                            obj.obl = "#";
-                        }
-                        objects.push(obj);
-
+                    regions.forEach(function (element) {
+                        $('#CitySelectList').append("<div class='pickcitycontainer'><a class='pickcity region' data-target='" + element.id + "'>" + element.name_ru + "</a></div>");
                     });
 
+                    var $regions = $('.pickcity.region');
+
+                    if ($regions.length > 0) {
+                        $regions.each(function (index, el) {
+                            $(el).on('click', function (event) {
+                                event.preventDefault();
+                                var target = el.dataset.target;
+
+                                $('#CitySelectList').html('Подождите...');
+
+                                $.post(document.location.href, {
+                                        action: 'ShowCitiesByRegion',
+                                        data: target
+                                    })
+                                    .done(function (response) {
+                                        $('#CitySelectList').html('');
+                                        cities = JSON.parse(response);
+                                        cities.forEach(function (element) {
+                                            $('#CitySelectList').append("<div class='pickcitycontainer'><a class='pickcity city' data-target='" + element.id + "'>" + element.name_ru + "</a></div>");
+                                        });
+                                        var $cities = $('.pickcity.city');
+                                        if ($cities.length > 0) {
+                                            $cities.each(function (index2, el) {
+                                                $(el).on('click', function (event) {
+                                                    event.preventDefault();
+
+                                                    $.post(document.location.href, {
+                                                        action: 'PickCity',
+                                                        city: cities[index2],
+                                                        region: regions[index]
+                                                    }, function (resp) {
+
+                                                        console.log(JSON.parse(resp))
+                                                        closeModals();
+                                                        location.reload();
+                                                    });
+                                                })
+                                            })
+                                        }
+
+                                    })
+
+                            });
+                        });
+                    }
 
                 })
                 .fail(function (data) {
@@ -523,11 +437,19 @@ $(function () {
     /* END MODALS */
 
 
-    $("#chooseCityButton").on('click', function () {
-        var name = $("#city-select-form option:selected").text();
-        siteLib.chooseCity(name);
-        return false;
+    // подтверждение выбора города
+    $("#CityConfirmYes").on('click', function () {
+        $.post(document.location.href, {
+                action: 'ConfirmCity'
+            },
+            function (resp) {
+                //console.log(resp);
+                $('.yourcity').css('display', 'none');
+
+            })
     });
+
+    // выбор города пользователем
 
     $(".main-carousel").owlCarousel({
         autoplay: 3000,
@@ -570,21 +492,6 @@ $(function () {
     $('.product__order .button').on('click', function () {
         $(this).parent().find('#success-check').prop('checked', true);
     });
-
-    // SHKloadCartCallback - по факту загрузки корзины
-    /*
-    $('[id="consult-select"]').click(function () {
-        //yaCounter44778274.reachGoal('consult-open');
-    });
-    $('.product__order button[type="submit"]').click(function () {
-        //yaCounter44778274.reachGoal('product-add');
-    });
-    $('.shk-item form button[type="submit"]').click(function () {
-        // yaCounter44778274.reachGoal('product-top-add');
-    });
-    $('.shk_prodHelper button#shk_confirmButton').click(function () {
-        //yaCounter44778274.reachGoal('product-top-add-submit');
-    });*/
 
     $(document).on('af_complete', function (event, response) {
         var form = response.form;
@@ -644,10 +551,15 @@ $(function () {
         });
     }
 
+    // телефонный номер
+
     $("#shopOrderForm")
         .on('submit', function (event) {
             //event.preventDefault();
-            var phone = $("#orderFormPhone").val();
+
+            var phone = $('#orderFormPhone').val();
+
+            phone = phone.replace(/\s+/g, '');
 
             var n = phone.length;
             var tt = phone.split('');
@@ -656,14 +568,10 @@ $(function () {
             var i = 0;
             var skobki = true;
 
+            var add8 = true;
+
             if (tt[0] == "+" && tt[1] == "7") {
-
                 i = i + 2;
-            }
-
-            if (tt[0] == "(") {
-
-                skobki = false;
             }
 
             if (tt[0] == "8") {
@@ -687,29 +595,48 @@ $(function () {
                         i++;
                         break;
                     case "(":
-                        if (skobki) {
-                            i++;
-                        } else {
-                            p += tt[i];
-                            i++;
-                        }
+                        i++;
                         break;
                     case ")":
-                        if (skobki) {
-                            i++;
-                        } else {
-                            p += tt[i];
-                            i++;
-                        }
+                        i++;
                         break;
+
                     default:
                         p += tt[i];
                         i++;
-
                         break;
                 }
             }
-            $("#orderFormPhone").val(p);
+            i = 0;
+            n = p.length;
+            var pp = p.split('');
+            var res = '';
+
+            while (i < n) {
+
+                if (i == 1) {
+                    res += "(";
+                }
+
+                if (i == 4) {
+                    res += ")";
+                }
+
+                if (i == 7) {
+                    res += "-";
+                }
+
+                if (i == 9) {
+                    res += "-";
+                }
+
+
+                res += pp[i];
+
+                i++;
+            }
+
+            $("#orderFormPhone").val(res);
         });
 
     /*

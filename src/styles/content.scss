@@ -1,8 +1,32 @@
+div#CitySelectList {
+  display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.pickcitycontainer {
+  display: flex;
+  /* width: 200px; */
+  padding: 6px 12px;
+  background: #8999b7;
+  margin: 3px;
+  color: #fff;
+  border-radius: 5px;
+}
+
+a.pickcity {
+  display: inline;
+  /* text-decoration: underline; */
+  color: #fff;
+  border-bottom: 1px dotted #bbb;
+  padding: 0;
+  line-height: 1.2rem;
+}
 
 .modal.is-aligned-top {
   justify-content: flex-start !important;
 }
-
+ 
 .content__main {
 
   //background: url("/assets/images/greenpattern3.png");

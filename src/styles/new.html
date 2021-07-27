@@ -1,0 +1,139 @@
+<footer class="footer has-background-primary">
+    <div class="columns">
+        <div class="column">
+            <div class="media copyright">
+                <div class="media-left">
+                    <i class="far fa-copyright"></i>
+                </div>
+                <div class="media-content">
+                    Биогумус. PRO 2020<br>
+                    Удобрения оптом и&nbsp;в&nbsp;розницу по&nbsp;выгодным ценам
+                </div>
+            </div>
+            <div class="media adress">
+                <div class="media-left">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="media-content">
+                    Московская обл., с. Ям<br />ул. Центральная вл.&nbsp;22, склад&nbsp;B7
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="media footer-menu">
+                <div class="media-left">
+                    <i class="fas fa-info-circle"></i>
+                </div>
+                <div class="media-content">
+                    <h4>Полезная информация</h4>
+                    <ul>
+                        <li><a href="[[~35~]]">Почему &laquo;Биогумус&raquo;?</a></li>
+                        <li><a href="[[~43~]]">Производство</a></li>
+                        <li><a href="[[~32~]]">Сертификаты</a></li>
+                        <li><a href="[[~42~]]">Инструкции</a></li>
+                        <li><a href="[[~40~]]">Статьи</a></li>
+                        <li><a href="[[~28~]]">Применение</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="media footer-menu">
+                <div class="media-left">
+                    <i class="far fa-address-card"></i>
+                </div>
+                <div class="media-content">
+                    <h4>О&nbsp;компании</h4>
+                    <ul>
+                        <li><a href="[[~4~]]">Адреса и телефоны</a></li>
+                        <li><a href="[[~19~]]">Реквизиты</a></li>
+                        <li><a href="[[~69~]]">Политика конфиденциальности и&nbsp;обработки данных</a></li>
+                        <li><a href="[[~20~]]">Договор оферты</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="media footer-menu">
+                <div class="media-left">
+                    <i class="far fa-clock"></i>
+                </div>
+                <div class="media-content">
+                    <h4>Режим работы</h4>
+                    <p>Прием заказов&nbsp;&mdash; круглосуточно!</p>
+                    <p>Обработка заказов:<br>
+                        Пн-Пт: c&nbsp;9:00 до&nbsp;18:00, Cб-Вс: c&nbsp;10:00 до&nbsp;14:00
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="column is-narrow">
+            <a href="https://clck.yandex.ru/redir/dtype=stred/pid=47/cid=73582/path=dynamic.150x101/*https://market.yandex.ru/shop--biogumus-pro/650536/reviews"> <img src="https://clck.yandex.ru/redir/dtype=stred/pid=47/cid=73581/path=dynamic.150x101/*https://grade.market.yandex.ru/?id=650536&amp;action=image&amp;size=2" border="0" alt="Читайте отзывы покупателей и оценивайте качество магазина Biogumus.pro на Яндекс.Маркете"> </a>
+        </div>
+    </div>
+</footer>
+
+
+<!-- styles -->
+<link rel="stylesheet" type="text/css" href="/assets/styles/vendor.min.css" />
+<link rel="stylesheet" type="text/css" href="/assets/styles/main_v50.min.css" />
+
+<style>
+    body {
+        display: block;
+    }
+</style>
+
+<!-- maps api js -->
+
+<script src="https://api-maps.yandex.ru/2.1/?apikey=fcd2bf9a-f298-446e-b75a-37d3ea54283d&lang=ru-RU" type="text/javascript"></script>
+
+<!-- site lib js -->
+
+<script src="/assets/js/vendor.min.js"></script>
+<script src="/assets/js/main_v50.min.js"></script>
+
+<!-- SHK scripts -->
+<script src="[[++base_url]]assets/components/shopkeeper3/web/js/lang/ru.js"></script>
+<script src="[[++base_url]]assets/components/shopkeeper3/web/js/shopkeeper.js"></script>
+
+<script type="text/javascript">
+
+$(document).on('ready', ()=>{
+    console.log('ready');
+    
+    $('.button-to-cart').on('click', function(){
+        var id = $(this).data("id");
+        var count = $("#input-" + id).val();
+        SHK.fillCart(id, count);
+    });
+    
+    if ( SHK.data.delivery_name ) {
+        $('select[name="shk_delivery"]','#shopOrderForm').val( SHK.data.delivery_name );
+    }
+    $('select[name="shk_delivery"]','#shopOrderForm').bind('change',function(){
+        SHK.selectDelivery( $(this).val() );
+    });
+ 
+    siteLib.bindPlusMinusButtons();
+});
+
+$(document).trigger('ready');
+
+function SHKloadCartCallback() {
+
+    var dataShopcart = $("div[data-shopcart]").data("shopcart");
+    if (dataShopcart == 2) {
+        siteLib.getRates();
+    }
+}
+
+</script>
+
+<!-- yandex counter --> 
+[[$yandex_counter]]
+
+[[$modals]]
+
+</body>
+</html>

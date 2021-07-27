@@ -91,8 +91,8 @@
       margin-bottom: 10px;;
 
       .country_delivery__item {
-        border: 2px solid #ccc;
-        
+        border: 3px solid #ccc;
+        margin-bottom: 1.75rem;
         border-radius: 6px;
         margin-right: 5px;
         width: 75px;
@@ -112,22 +112,27 @@
         }
 
         .price_label {
-          display: block;
+          display: none;
           position: absolute;
           background: #fff;
-          font-size: 12px;
+          font-size: .9rem;
+          font-weight: 700;
           padding: 2px 5px;
-          border-radius: 0 0 5px 5px;
+          border-radius: 5px;
           left: 50%;
-          transform: translate(-50%,39px);
-          width: 100%;
+          transform: translate(-50%,47px);
+          width: 75px;
           text-align: center;
+          border: 3px solid #ccc;
         }
       }
       .country_delivery__item.active {
-        border: 2px solid red;
+        border: 3px solid red;
         .price_label {
-          border: 1px solid red;
+          border: 3px solid red;
+          
+          
+          
         }
       }
     }
@@ -136,7 +141,7 @@
       width: 75px;
       height: 60px;
       border-radius: 6px;
-      border: 1px solid #d6d4d3;
+      border: 3px solid #d6d4d3;
       background-color: #ffffff;
       position: relative;
       transition: 0.3s all ease;
@@ -184,8 +189,8 @@
 
 
 .order__options .radio input:checked ~ .order__icon {
-  border-color: #5f8647;
-  background-color: #5f8647;
+  border-color: #ffffff;
+  background-color: #89b38d;
 }
 
 .order__payment .order__options .radio.type_cash .order__icon::after {
@@ -314,7 +319,7 @@
     width: 100%;
     padding: 10px;
     box-sizing: border-box;
-    background-color: #fff;
+    background-color:fff;
     font-size: 12px;
     color: #3b312d;
     z-index: 2;

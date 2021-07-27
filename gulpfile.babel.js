@@ -145,7 +145,7 @@ export const cleanFiles = () => gulp.src("./dist/*", {
 var imageFiles = [paths.images.src];
 var fontFiles = [paths.fonts.src];
 
-var v = "_v40";
+var v = "_v51";
 
 export const libscss = () => gulp.src(paths.libscss.src)
 	.pipe(gulpif(!production, sourcemaps.init()))
@@ -306,7 +306,7 @@ export const prod = gulp.series(
 );
 
 export const prd = gulp.series(
-	//cleanFiles,
+	cleanFiles,
 	styles,
 	//images,
 	scripts,
