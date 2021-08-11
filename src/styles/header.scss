@@ -287,7 +287,7 @@ body {
 .header__phones {
 
   //height: 99px;
-  margin-bottom: $column-gap*2.5;
+  margin-bottom: $column-gap*1.5;
   margin-top: $column-gap*2;
 
   @include mobile {
@@ -453,6 +453,11 @@ body {
     background: #4d7198
   }
 
+  .is-telegram {
+    background: #0088cc;
+    color: white;
+  }
+
   // a {
   //border-bottom: 1px dotted black;
   // }
@@ -612,4 +617,8 @@ body {
     padding: 5px 15px;
     height: 61px;
   }
+}
+
+.fixed {
+  position: fixed;
 }

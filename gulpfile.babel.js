@@ -99,7 +99,7 @@ const jsLibsList = [
 	"./node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.js",
 	"./node_modules/slick-carousel/slick/slick.min.js",
 	"./node_modules/owl.carousel/dist/owl.carousel.min.js",
-	//"./node_modules/sticky-kit/dist/sticky-kit.min.js",
+	"./node_modules/sticky-kit/dist/sticky-kit.min.js",
 	"./node_modules/hammerjs/hammer.min.js"
 ];
 
@@ -145,7 +145,7 @@ export const cleanFiles = () => gulp.src("./dist/*", {
 var imageFiles = [paths.images.src];
 var fontFiles = [paths.fonts.src];
 
-var v = "_v51";
+var v = "_v55";
 
 export const libscss = () => gulp.src(paths.libscss.src)
 	.pipe(gulpif(!production, sourcemaps.init()))

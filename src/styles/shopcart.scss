@@ -111,17 +111,19 @@
     text-decoration: none;
     border-bottom: 1px dashed $primary;
     position: relative;
+    color: $primary;
   }
 
 
   p {
     position: relative;
     display: inline;
-    padding-left: 9px;
+    padding-left: 0;
     text-transform: uppercase;
     font-weight: bold;
     font-size: 0.8rem;
     overflow: visible;
+    color: black;
   }
 
 }

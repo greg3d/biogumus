@@ -132,6 +132,9 @@ var siteLib = (function ($) {
         var action = 'applyPromoCode';
         var code = $('#promoCode').val();
 
+        $('#promoCode').addClass("is-loading");
+        $('.errorpromocode').addClass('is-hidden');
+
         $.post(document.location.href, {
                 action: action,
                 promocode: code
@@ -139,13 +142,17 @@ var siteLib = (function ($) {
             .done(function (data) {
                 data = JSON.parse(data);
                 console.log(data);
+                $('#promoCode').removeClass("is-loading");
 
                 if (data=="success") {
                     document.location.reload();
+                } else {
+                    $('.errorpromocode').removeClass('is-hidden');
                 }
             })
             .fail(function () {
-                
+                $('#promoCode').removeClass("is-loading");
+                $('.errorpromocode').removeClass('is-hidden');
             });
 
     }
@@ -164,6 +171,8 @@ var siteLib = (function ($) {
                 if (data=="success") {
                     document.location.reload();
                 }
+
+                document.location.reload();
             })
             .fail(function () {
                 
@@ -171,9 +180,8 @@ var siteLib = (function ($) {
 
     }
 
-
-    //////// shk count buttons + -
-    this.bindPlusMinusButtons = function () {
+    //////// shk count buttons /////////////////////////////////////////
+    this.bindPlusMinusCart = function () {
 
         $('.content').on('click', '.button__minus', function () {
             var $input = $(this).parent().parent().find('.shk-count');
@@ -194,7 +202,9 @@ var siteLib = (function ($) {
             SHK.changeCartItemsCount();
             return false;
         });
-
+    };
+    ///
+    this.bindPlusMinusProduct = function(){
         $('.button__plus-product').on('click', function (event) {
             $(this).prop('disabled', true);
             var $input = $(this).parent().parent().find('.shk-count-product');
@@ -214,8 +224,34 @@ var siteLib = (function ($) {
             $(this).prop('disabled', false);
             return false;
         });
+    }
+    //////////////////////////////////////////////////////////////////
 
-    };
+    this.bindCartTap = function(){
+        // Разворачивание и сворачивание корзины
+        var square = document.querySelector("#openfullcart");
+
+        if (square) {
+            var manager = new Hammer.Manager(square);
+
+            var Tap = new Hammer.Tap({
+                taps: 1
+            });
+
+            manager.add(Tap);
+
+            manager.on('tap', function (e) {
+                $(".shopcart-full").toggleClass('collapsed');
+            });
+
+            $('.shopcart-container').on('click', '#CollapseShopCartButton', function () {
+                $(".shopcart-full").addClass('collapsed');
+            });
+            $('.shopcart-container').on('click', '.product-list', function () {
+                $(".shopcart-full").addClass('collapsed');
+            });
+        }
+    }
 
     this.alert = function (msg, type, time) {
 
@@ -262,6 +298,8 @@ var siteLib = (function ($) {
     }; //this.alert
 
 
+
+
     return this;
 
 }).call({}, jQuery);
@@ -284,7 +322,6 @@ $(function () {
             $('.yourcity').css("display", "none");
         }
     });
-
 
 
     $('.more_info__show').on('click', function () {
@@ -449,8 +486,6 @@ $(function () {
             })
     });
 
-    // выбор города пользователем
-
     $(".main-carousel").owlCarousel({
         autoplay: 3000,
         smartSpeed: 1000,
@@ -526,30 +561,29 @@ $(function () {
             });
     }
 
-    // Разворачивание и сворачивание
-    var dropdownlink = document.querySelector(".navbar-item.has-dropdown");
-    var square = document.querySelector(".shopcart-container");
+    // стик и анстик
 
-    if (square) {
-        var manager = new Hammer.Manager(square);
+    $offset = 100;
 
-        var Tap = new Hammer.Tap({
-            taps: 1
+    window.addEventListener('resize', function(event) {
+        $offset = $('.pre_korzina').offset().top;
+
+        $(window).unbind();
+        $(window).bind('scroll', function () {
+            if ($(window).scrollTop() > $offset + 50) {
+                
+                $('.pre_korzina').css("width",$('.pre_korzina').width());
+                $('.pre_korzina').css("position","fixed");
+                $('.pre_korzina').css("top","5px");
+                $('.pre_korzina').addClass('fixed');
+
+            } else {
+                $('.pre_korzina').removeClass("fixed");
+                $('.pre_korzina').removeAttr("style");
+            }
         });
 
-        manager.add(Tap);
-
-        manager.on('tap', function (e) {
-            $(".shopcart-full").removeClass('collapsed');
-        });
-
-        $('.shopcart-container').on('click', '#CollapseShopCartButton', function () {
-            $(".shopcart-full").addClass('collapsed');
-        });
-        $('.shopcart-container').on('click', '.product-list', function () {
-            $(".shopcart-full").addClass('collapsed');
-        });
-    }
+    }, true);
 
     // телефонный номер
 
@@ -639,12 +673,4 @@ $(function () {
             $("#orderFormPhone").val(res);
         });
 
-    /*
-        $('input.shk-count')
-            .on('change', function () {
-                SHK.changeCartItemsCount();
-                return false;
-            });
-            */
-
-}); // document.ready
+}); // IFFE
