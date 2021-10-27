@@ -1,70 +1,95 @@
-<div class="column is-12-mobile is-6-touch is-4-desktop is-3-widescreen">
-    <div class="shk-item card">
-        <!--div class="thumbnail-top-buttons buttons-hover-opacity">
-            <button type="button" class="btn btn-default " data-placement="bottom"
-                title="В избранное" onclick="return shkCompare.toCompare(132,5,this)">
-                <i class="fas fa-heart"></i>
-            </button>
-        </div-->
+<div class="columns is-variable is-0 is-mobile is-multiline">
+    <div class="column is-12-mobile is-12-touch is-6-desktop is-5-widescreen is-6-fullhd">
+        <div class="message is-primary productpage__description">
+            
+            <div class="message-body">
+                
+                <h1 class="productpage__title">Биогумус 80л</h1>
+                <h2 class="productpage__subtitle">Производитель: <span>ИП&nbsp;Ткаченко И. С.</span></h1>
+                <p class="productpage__introtext">
+                    Продукт премиум класса. 100% натуральные компоненты. Полностью готовый к применению универсальный
+                    грунт на основе Биогумуса и верхового торфа, вермикулита и других природных материалов. pH:
+                    нейтральный. !
+                </p>
+                <div class="columns">
+                    <div class="column">
+                        @@include('./productpage__price.html')
+                    </div>
+                    <div class="column">
+                        @@include('./product__count.html')
+                        @@include('./product__order.html')
+                    </div>
+                </div>
+                
+                
+                <div class="tabs is-primary">
+                    <ul>
+                      <li class="is-active">
+                        <a>
+                          <span class="icon is-small"><i class="fas fa-info-circle" aria-hidden="true"></i></span>
+                          <span>Информация</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a>
+                          <span class="icon is-small"><i class="fas fa-film" aria-hidden="true"></i></span>
+                          <span>Инструкция</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                <p class="product__parameters">
+                    <ul>
+                        <li><i class="fas fa-tag"></i> Артикул:</li>
+                        <li><i class="fas fa-cubes"></i> Тип:</li>
+                        <li><i class="fas fa-weight-hanging"></i> Вес:</li>
+                        <li><i class="fas fa-box-open"></i> Объем:</li>
+                        <li><i class="fas fa-ruler"></i> Габариты упаковки:</li>
+                    </ul>
+                </p>
 
-        <div class="card-image">
-            <figure class="image">
-                <img src="/assets/images/bio5.5_300x400_4fd.jpg" style="background: #fff" alt="Биогумус 5л">
-            </figure>
-            <h3 class="product-title">
-                <a href="/katalog/biogumus/biogumus-5l.html" title="Биогумус 5л">Биогумус 5л</a>
-            </h3>
-            <div class="product-more buttons has-addons is-centered ">
-                <button class="button is-small is-success" href="#"><i class="fas fa-heart"></i></button>
-                <a class="button is-info is-small is-centered" href="/katalog/biogumus/biogumus-5l.html"
-                    title="Биогумус 5л">Подробнее</a>
             </div>
         </div>
-        <div class="card-content">
-            <div class="product-price">
-                
+    </div>
+    <div class="column product__gallery">
+         <div class="carousel" id="productImages">
+            <div class="carousel__slide" data-src="https://lipsum.app/id/1/600x900" data-caption="Картинка 1"
+                data-fancybox="gallery">
+                <img src="https://lipsum.app/id/1/550x850" />
             </div>
-            <form action="/" method="post">
-                <input type="hidden" name="shk-id" value="132">
-                    <input type="hidden" name="shk-name" value="Биогумус 5л">
-                    <!--input type="hidden" name="shk-count" value="1" /-->
-                    
-                    <div class="item-buttons-group">
-                        <div class="first-line">
-                            <a class="button product-price">
-                              <span>
-                                <div class="shk-price">899<i class="fas fa-ruble-sign"></i>
-                                </div>
-                            </span>
-                            </a>
- 
-                            <button type="submit" class="button is-danger product-tocart" title="В корзину" data-original-title="В корзину">
-                              <span class="icon">
-                                <i class="fas fa-cart-plus"></i>
-                              </span>
-                              <span>В корзину</span>
-                            </button>
-                            
-                        </div>
-                        <div class="second-line">
-                            <div class="field has-addons ">
-                                <div class="control">
-                                    <button class="button is-small is-success" type="button"><i class="fas fa-minus"></i></button>
-                                </div>
-                                <div class="control">
-                                    <input class="shk-count input is-small is-success" type="text" size="2" name="shk-count" maxlength="3" title="изменить количество" value="1">
-                                </div>
-                                <div class="control">
-                                    <button class="button is-small is-success" type="button"><i class="fas fa-plus"></i></button>
-                                </div>
-                            </div>
-                        </div>
-                        
-          
-                    </div>
-              
-               
-            </form>
+            <div class="carousel__slide" data-src="https://lipsum.app/id/2/600x900" data-caption="Картинка 2"
+                data-fancybox="gallery">
+                <img src="https://lipsum.app/id/2/550x850" />
+            </div>
+            <div class="carousel__slide" data-src="https://lipsum.app/id/3/600x900" data-caption="Картинка 3"
+                data-fancybox="gallery">
+                <img src="https://lipsum.app/id/3/550x850" />
+            </div>
+            <div class="carousel__slide" data-src="https://lipsum.app/id/4/600x900" data-caption="Картинка 4"
+                data-fancybox="gallery">
+                <img src="https://lipsum.app/id/4/550x850" />
+            </div>
+            <div class="carousel__slide" data-src="https://lipsum.app/id/5/600x900" data-caption="Картинка 5"
+                data-fancybox="gallery">
+                <img src="https://lipsum.app/id/5/550x850" />
+            </div>
+        </div>
+        <div class="carousel" id="productThumbs">
+            <div class="carousel__slide">
+                <img class="panzoom__content" src="https://lipsum.app/id/1/100x150" />
+            </div>
+            <div class="carousel__slide">
+                <img class="panzoom__content" src="https://lipsum.app/id/2/100x150" />
+            </div>
+            <div class="carousel__slide">
+                <img class="panzoom__content" src="https://lipsum.app/id/3/100x150" />
+            </div>
+            <div class="carousel__slide">
+                <img class="panzoom__content" src="https://lipsum.app/id/4/100x150" />
+            </div>
+            <div class="carousel__slide">
+                <img class="panzoom__content" src="https://lipsum.app/id/5/100x150" />
+            </div>
         </div>
     </div>
 </div>

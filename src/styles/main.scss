@@ -5,7 +5,8 @@
 // Set your brand colors
 $background-color: #eaeee7;
 $black: #2b2a29;
-
+$tablet: 650px;
+//$desktop: 770px;
 $column-gap: 0.75rem;
 $radius-small: 4px;
 $radius-large: 6px;
@@ -21,8 +22,6 @@ $primary: #89b38d;
 $secondary: #ffd86c;
 $danger: #f46c21;
 $link: #1863a5;
-$widescreen-enabled: true;
-$fullhd-enabled: true;
 $special-background: #89b38d;
 $navbar-item-hover-background-color: $special-background;
 $navbar-item-hover-color: black;
@@ -50,3 +49,4 @@ $modal-content-width: 1024px;
 @import './other';
 @import './map';
 @import './circlebar';
+@import './productpage';

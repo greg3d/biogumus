@@ -1,4 +1,43 @@
+.column.is-gapless-mobile {
+  @include mobile {
+    padding-top: 0.125rem;
+    padding-bottom: 0.125rem;
+    
+  }
 
+}
+
+.navbar-burger {
+  background: #ffffff;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  margin: 0;
+  margin-right: 2px;
+  background: none;
+
+  div {
+    position: absolute;
+    top: calc(50% - 12px);
+    left: 16px;
+    font-weight: bold;
+  }
+
+  span {
+    left: calc(50% - 16px);
+    width: 28px;
+    height: 2px;
+  }
+
+  span:nth-child(1) {
+    top: calc(50% - 10px);
+  }
+
+  span:nth-child(3) {
+    top: calc(50% + 8px);
+  }
+
+}
 
 .buttons.has-addons {
   .button.is-extendable {
@@ -19,16 +58,35 @@
   padding-top: 0;
 
 
-  .main-carousel .item__img {
-    min-height: 300px;
-  }
+  .main-carousel {
+    position: relative;
+    --carousel-button-color: #fff;
+    --carousel-button-svg-width: 20px;
+    --carousel-button-svg-height: 20px;
+    --carousel-button-svg-stroke-width: 3;
+    --carousel-button-bg: rgba(255,255,255,0.25);
+    --carousel-button-height: 32px;
+    --carousel-button-width: 32px;
 
-  .main-carousel .item {
+
+    .carousel__nav {
+      .carousel__button {
+        border: 3px solid rgba(255,255,255,0.6);
+      }
+      .carousel__button:hover {
+        border: 3px solid #fff;
+        color: #fff
+      }
+    }
+
+   
+
+  }
+  
+  .carousel-item {
     flex-direction: column;
-  }
-
-  .main-carousel .item__img {
-    min-height: auto;
+    width: 100%;
+    height: 340px;
   }
 
   .main-carousel .item__desc h2 {
@@ -42,17 +100,23 @@
     position: absolute;
     left: 0;
     top: 0;
-    padding: 45px 20px;
+    padding: 65px 20px 45px 55px;
     background-color: $primary;
-  }
+    z-index: 2;
+    min-width: 290px;
+  } 
 
   .main-carousel .item__img {
-    float: right;
-    width: 65%;
+    position: absolute;
+    right:0;
+    top: 0;
+    
+    width: 60%;
+    height: 100%;
   }
 
   .main-carousel .item__img img {
-    height: 340px;
+    height: 100%;
     width: 100%;
     object-fit: cover;
   }
@@ -65,12 +129,6 @@
       border-bottom: 1px solid yellow;
     }
   }
-
-  .main-carousel .item {
-    position: relative;
-    overflow: hidden;
-  }
-
 
   .main-carousel .item__desc h2 {
     color: $secondary;
@@ -97,80 +155,7 @@
     max-width: 220px;
   }
 
-  .main-carousel .item__img img {
-    height: 340px;
-    width: 100%;
-    object-fit: cover;
-  }
-
   //////
-
-  .advantages {
-    font-size: 1.2rem;
-    font-weight: bold;
-
-    a {
-      color: green;
-      border-bottom: 1px solid green;
-    }
-  }
-
-  .advantages img {
-    height: 30px;
-    max-width: 46px;
-    margin-right: 10px;
-  }
-
-  .main__advantages ul li img {
-    position: absolute;
-    bottom: 50%;
-    max-height: 35px;
-    pointer-events: none;
-    transform: translateY(50%);
-  }
-
-  .main__advantages ul li::after {
-    content: '';
-    position: absolute;
-    top: 60%;
-    right: 5px;
-    width: 9px;
-    height: 9px;
-    border-top: 1px solid;
-    border-right: 1px solid;
-    border-color: #312621;
-    transform: translateY(-50%) rotate(45deg);
-    transition: 0.3s all ease;
-    display: block;
-  }
-
-  .main__advantages ul li:hover::after,
-  .main__advantages ul li:focus::after {
-    right: 0;
-    border-color: #5f8647;
-  }
-
-  .main__advantages ul li a {
-    display: block;
-    padding: 5px 10px 5px 45px;
-    color: #312621;
-    font-size: 18px;
-    transition: 0.3s all ease;
-  }
-
-  .main__advantages ul li:nth-child(3) a {
-    padding-left: 60px;
-  }
-
-  .main__advantages ul li a span {
-    border-bottom: 1px solid;
-  }
-
-  .main__advantages ul li:hover a,
-  .main__advantages ul li:focus a {
-    color: #5f8647;
-    text-decoration: none;
-  }
 
   .danger_text {
     text-decoration: rgba(255, 255, 255, 0.2) underline dotted;

@@ -1,0 +1,104 @@
+<div>
+                    <div class="row columns is-multiline shk-item">
+                        <div class="product__left column is-12-mobile is-5-touch is-4-desktop">
+                            <div class="product__img">
+                                <img src="[[++site_url]][[phpthumbon? &input=`/assets/files/[[*image]]` &options=`w=300&h=400` ]]" style="width: 100%"/>
+                            </div>
+                        </div>
+                        <div class="product__right column is-12-mobile is-7-touch is-8-desktop">
+                            
+                            <form class="product__form" action="[[~[[*resource_id]]? &scheme=`abs`]][[*alias]].html" method="post">
+                                <input type="hidden" name="shk-id" value="[[*id]]" />
+                                <input type="hidden" name="shk-name" value="[[*pagetitle]]" />
+                                <input type="hidden" name="shk-count" value="1" />
+                                
+                                <div class="level">
+                                    <div class="level-left">
+                                        <div class="product-title level-item">
+                                            <h1>[[*longtitle:default=`[[*pagetitle]]`]]</h1>
+                                            
+                                            [[--!getDeliveryRates? &tpl=`deliveryRatesTpl`--]]
+                                        </div>
+                                        <div class="product-price level-item">
+                                                <div class="shk-price">[[!geo-price2? &pr2=`[[*price]]` &pr1=`[[*price_action]]` &pr3=`[[*price_dv]]`]] <i class="fas fa-ruble-sign" aria-hidden="true"></i></div>
+                                         </div>
+                                    </div>
+                                </div>
+                                <div class="product__intro content">
+                                    <p>[[*introtext]]</p>
+                                </div>
+                                <div class="level">
+                                    <div class="level-right">
+                                        <div class="product__count level-item" >
+                                            <div class="field has-addons">
+                                                <div class="control">
+                                                    <button  id="counter-minus" class="button is-info is-medium button__minus" type="button">-</button>
+                                                </div>
+                                                <div class="control">
+                                                    <input id="counter-val" class="counter-val input is-medium text-center is-info" type="text" size="2"
+                                                        name="count" maxlength="5" title="Кол-во"
+                                                        value="1" style="width: 50px; text-align: center; font-weight: bold">
+                                                </div>
+                                                <div class="control">
+                                                    <button id="counter-plus" class="button is-info is-medium button__plus" type="button">+</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                
+                                        <div class="product__order level-item">
+                                            <button class="button is-medium is-danger" type="submit"><i class="fas fa-shopping-cart"></i>&nbsp; В корзину</button>
+                                            <label class="cart__success">
+                                              <input type="checkbox" id="success-check">
+                                              <!--svg class="checkbox" viewbox="0 0 40 40">
+                                             
+                                                <circle cx="20" cy="20" r="18"></circle>
+                                                <polyline points="9,22 18,30 33,14"></polyline>
+                                              </svg-->
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="column is-12">
+                            <div class="product__info">
+                                <div class="tabs is-boxed">
+                                  <ul>
+                                    <li class="is-active">
+                                      <a data-target="content-tab1">
+                                        <span class="icon is-small"><i class="fas fa-info-circle" aria-hidden="true"></i></span>
+                                        <span>Описание товара</span>
+                                      </a>
+                                    </li>
+                                    <li>
+                                      <a data-target="content-tab2">
+                                        <span class="icon is-small"><i class="fas fa-truck" aria-hidden="true"></i></span>
+                                        <span>Доставка</span>
+                                      </a>
+                                    </li>
+                                    <li>
+                                      <a data-target="content-tab3">
+                                        <span class="icon is-small"><i class="fas fa-file-alt" aria-hidden="true"></i></span>
+                                        <span>Инструкция</span>
+                                      </a>
+                                    </li>
+                                  </ul>
+                                </div>
+                             
+                                <section class="tab content is-active" id="content-tab1">
+                                    [[*content]]
+                                </section>
+                                
+                                <section class="tab content" id="content-tab2">
+                                    [[$tovar_delivery_content]]
+                                </section>
+                                
+                                <section class="tab content" id="content-tab3">
+                                    [[*instruction]]
+                                </section>  
+                                
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>  

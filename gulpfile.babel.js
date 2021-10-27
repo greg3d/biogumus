@@ -68,7 +68,7 @@ const autoprefixierOpts = {
 	overrsideBrowserslist: ["last 12 versions", "> 1%", "ie 8", "ie 7"]
 };
 const mincssOpts = {
-	compatibility: "ie8",
+	compatibility: "ie9",
 	level: {
 		1: {
 			specialComments: 0,
@@ -88,18 +88,19 @@ const mincssOpts = {
 
 const cssLibsList = [
 	"./node_modules/@fortawesome/fontawesome-free/css/all.css",
-	"./node_modules/@fancyapps/fancybox/dist/jquery.fancybox.css",
-	"./node_modules/owl.carousel/dist/assets/owl.carousel.css",
-	"./node_modules/owl.carousel/dist/assets/owl.theme.default.css",
+	//"./node_modules/@fancyapps/fancybox/dist/jquery.fancybox.css",
+	"./node_modules/@fancyapps/ui/dist/fancybox.css",
+	"./node_modules/@fancyapps/ui/dist/carousel.css",
+	//"./node_modules/owl.carousel/dist/assets/owl.carousel.css",
+	//"./node_modules/owl.carousel/dist/assets/owl.theme.default.css",
 ];
 
 const jsLibsList = [
 	"./node_modules/jquery/dist/jquery.min.js",
 	"./src/vendor/jquery-ui/jquery-ui.min.js",
-	"./node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.js",
-	"./node_modules/slick-carousel/slick/slick.min.js",
-	"./node_modules/owl.carousel/dist/owl.carousel.min.js",
-	"./node_modules/sticky-kit/dist/sticky-kit.min.js",
+	"./node_modules/@fancyapps/ui/dist/carousel.umd.js",
+	"./node_modules/@fancyapps/ui/dist/carousel.autoplay.umd.js",
+	"./node_modules/@fancyapps/ui/dist/fancybox.umd.js",
 	"./node_modules/hammerjs/hammer.min.js"
 ];
 
@@ -128,7 +129,7 @@ const paths = {
 		watch: "./src/assets/images/**/*.{jpg,gif,png,svg}"
 	},
 	views: {
-		src: ["./src/html/index.html","./src/html/ppp.html"],
+		src: ["./src/html/index.html","./src/html/ppp.html","./src/html/productpage.html"],
 		dist: "./dist/",
 		watch: "./src/html/**/*.html"
 	}
@@ -145,7 +146,7 @@ export const cleanFiles = () => gulp.src("./dist/*", {
 var imageFiles = [paths.images.src];
 var fontFiles = [paths.fonts.src];
 
-var v = "_v55";
+var v = "_v62";
 
 export const libscss = () => gulp.src(paths.libscss.src)
 	.pipe(gulpif(!production, sourcemaps.init()))
@@ -186,7 +187,7 @@ export const libscss = () => gulp.src(paths.libscss.src)
 	.pipe(gulpif(production, autoprefixer(autoprefixierOpts)))
 	.pipe(gulpif(production, mincss(mincssOpts)))
 	.pipe(gulpif(production, rename({
-		suffix: ".min"
+		suffix: v+".min"
 	})))
 	.pipe(plumber.stop())
 	.pipe(gulpif(!production, sourcemaps.write("./maps/")))
@@ -216,7 +217,10 @@ export const styles = () => gulp.src(paths.styles.src)
 	.pipe(browsersync.stream());
 
 export const libsjs = () => gulp.src(jsLibsList)
-	.pipe(concat('vendor.min.js'))
+	.pipe(concat('vendor.js'))
+	.pipe(gulpif(production, rename({
+		suffix: v+".min"
+	})))
 	.pipe(gulp.dest(paths.scripts.dist))
 	.pipe(debug({
 		"title": "JS LIBS"
@@ -243,7 +247,7 @@ export const views = () => gulp.src(paths.views.src)
 	}))
 	.pipe(gulpif(production, replace("main.css", "main.min.css")))
 	.pipe(gulpif(production, replace("vendor.css", "vendor.min.css")))
-	//.pipe(gulpif(production, replace("vendor.js", "vendor.min.js")))
+	.pipe(gulpif(production, replace("vendor.js", "vendor.min.js")))
 	.pipe(gulpif(production, replace("main.js", "main.min.js")))
 	.pipe(gulp.dest(paths.views.dist))
 	.pipe(debug({

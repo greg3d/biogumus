@@ -14,6 +14,10 @@
     text-align: center;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
     line-height: normal;
+
+    @include desktop {
+      font-size: 1.75rem
+    }
   }
 
   .wheretobuy_subheader {
@@ -88,6 +92,14 @@
 
       a.navbar-link {
         font-size: 24px;
+
+        @include touch {
+          font-size: 1rem;
+        }
+
+        @include desktop {
+          font-size: 1.4rem;
+        }
 
         text-align: center;
         width: 100%;

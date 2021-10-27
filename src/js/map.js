@@ -9,7 +9,7 @@ $(document).ready(function () {
 		} else {
 			city[i] = $(this).attr('target');
 		}
-		//console.log(city[i]);
+		console.log(city[i]);
 
 
 	});

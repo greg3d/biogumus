@@ -15,15 +15,14 @@
             <div class="level-item">
                 <div class="header__city">
                     <p><i class="fas fa-map-marker-alt"></i>&nbsp;Город:
-                        <a class="modal-button" data-target="city-select-form">Великий Устюг</a>
+                        <a class="modal-button" data-target="city-select-form">Москва</a>
                         <!--i class="fas fa-angle-down"></i-->
                     </p>
                     <div class="yourcity" style="display: none;">
                         <div class="pointer" style="position: absolute"></div>
-                        <p style="font-size: 0.7rem">Великий Устюг | Вологодская область</p><br>
+                        <p style="font-size: 0.7rem">Москва | Москва</p><br>
                         <p style="font-size: 1.2rem">Это ваш город?</p>
-                        <div class="buttons has-addons is-centered"
-                            style="touch-action: manipulation; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+                        <div class="buttons has-addons is-centered">
                             <button class="button is-success" id="CityConfirmYes">Да</button>
                             <button class="button is-danger modal-button" id="CityConfirmNo"
                                 data-target="city-select-form">Нет</button>
@@ -35,130 +34,11 @@
         <div class="level is-mobile">
 
             <div class="level-item shopcart-container">
-
-
                 <div data-shopcart="1" class="shopcart-small">
-
-                    <div class="buttons has-addons is-centered" id="openfullcart" style="margin-bottom: 0">
-                        <button class="button is-danger is-outlined is-rounded" style="margin-bottom: 0"><i
-                                class="fas fa-shopping-cart fa-lg"></i>&nbsp;Корзина</button>
-                        <button class="button is-danger is-rounded" style="margin-bottom: 0">129&nbsp;<i
-                                class="fas fa-ruble-sign"></i></button>
-                    </div>
-
-                    <div class="shopcart-full collapsed">
-                        <div class="buttons is-centered has-addons">
-                            <a href="korzina.html"
-                                class="button is-rounded is-danger is-extendable shopCartSmall__order">
-                                <i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
-                                &nbsp;Оформить
-                            </a>
-                            <a href="#" id="shk_butEmptyCart" class="button is-rounded is-warning">
-                                <i class="fa fa-trash" aria-hidden="true"></i>
-                            </a>
-                        </div>
-
-                        <div class="product-list">
-                            <table class="table is-fullwidth is-bordered is-narrow is-striped"
-                                style="margin-top: 15px; margin-bottom: 5px; font-size: 80%">
-                                <colgroup>
-                                    <col width="50%">
-                                    <col width="25%">
-                                    <col width="25%">
-                                </colgroup>
-                                <thead>
-                                    <tr>
-                                        <td>Наименование</td>
-                                        <td>кол-во</td>
-                                        <td style="text-align: right">сумма</td>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td><span class="name"><b>Биогумус 5л</b></span></td>
-                                        <td><span class="count">1</span></td>
-                                        <td><span class="price-small"><b>129</b> <i class="fa fa-rub"
-                                                    aria-hidden="true"></i></span></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-
-                        <div class="product-params">
-                            <div class="columns is-gapless is-multiline is-mobile">
-                                <div class="column">
-                                    <span>Объем: </span><span
-                                        class="shopCartSmall__total"><strong>5&nbsp;л</strong></span>
-                                </div>
-
-                                <div class="column">
-                                    <span>Вес: </span> <span
-                                        class="shopCartSmall__total"><strong>2,5&nbsp;кг</strong></span>
-                                </div>
-
-                                <div class="column is-narrow">
-                                    <a id="CollapseShopCartButton" class="delete is-large"></a>
-                                </div>
-
-                            </div>
-                            <div id="freeDelivery">
-
-                                <div class="columns is-gapless is-vcentered is-mobile">
-                                    <div class="column is-narrow">
-                                        <div class="ko-progress-circle" data-progress="7">
-                                            <div class="ko-inner-text">
-                                                <i class="fas fa-truck"></i>
-                                            </div>
-                                            <div class="ko-circle">
-                                                <div class="full ko-progress-circle__slice">
-                                                    <div class="ko-progress-circle__fill"></div>
-                                                </div>
-                                                <div class="ko-progress-circle__slice">
-                                                    <div class="ko-progress-circle__fill"></div>
-                                                    <div class="ko-progress-circle__fill ko-progress-circle__bar"></div>
-                                                </div>
-                                            </div>
-                                            <div class="ko-progress-circle__overlay"></div>
-                                        </div>
-                                    </div>
-                                    <div class="column">
-                                        <div class="cart_notification">Продолжайте и получите бесплатную доставку:
-                                            осталось 1821 руб.</div>
-                                    </div>
-                                </div>
-
-
-                                <div class="columns is-gapless is-vcentered is-mobile">
-                                    <div class="column is-narrow">
-                                        <div class="ko-progress-circle" data-progress="5">
-                                            <div class="ko-inner-text">
-                                                <i class="fas fa-gift"></i>
-                                            </div>
-                                            <div class="ko-circle">
-                                                <div class="full ko-progress-circle__slice">
-                                                    <div class="ko-progress-circle__fill  is-red"></div>
-                                                </div>
-                                                <div class="ko-progress-circle__slice">
-                                                    <div class="ko-progress-circle__fill  is-red"></div>
-                                                    <div
-                                                        class="ko-progress-circle__fill  is-red ko-progress-circle__bar">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="ko-progress-circle__overlay"></div>
-                                        </div>
-
-                                    </div>
-                                    <div class="column">
-                                        <div class="cart_notification">Хотите получить в подарок ЭКО-грунт 20л? Тогда
-                                            продолжайте заказ! Осталось 2371 руб.</div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
+                    <i class="fas fa-shopping-cart"></i>&nbsp;
+                    <span class="tag is-danger is-medium">0</span>
                 </div>
+
             </div>
         </div>
     </div>

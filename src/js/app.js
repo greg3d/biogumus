@@ -1,5 +1,5 @@
 /**
- * Site library
+ * SITELIB
  *
  */
 var siteLib = (function ($) {
@@ -7,8 +7,33 @@ var siteLib = (function ($) {
     sl = this;
     sl.city = {};
 
+    this.product_count = 1;
+    this.updateCount = function(){
+        $("#product-count").val(this.product_count);
+    }
+
     this.init = function () {
 
+        sl.updateCount();
+        
+        $("#product-count").off("change")
+        $("#product-count").on("change", function(){
+            sl.product_count = parseInt($("#product-count").val());
+        })
+
+        $("#counter-minus").on("click", function(){
+            sl.product_count -= 1;
+            if (sl.product_count <= 0) sl.product_count = 1;
+            sl.updateCount();
+        })
+
+        $("#counter-plus").on("click", function(){
+            sl.product_count += 1;
+            sl.updateCount();
+        })
+
+       // !!!!!!!!!!!!!!!!!!!!!!!!!!! ПЕРЕДЕЛАТЬ ПОД FANCY UI !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+       /*
         jQuery('.slick-slider-one')
             .slick({
                 dots: true,
@@ -47,9 +72,9 @@ var siteLib = (function ($) {
                 ]
             });
 
-        //
+        */
 
-    }; /// this.init
+    }
 
     this.CheckCity = function () {
 
@@ -57,7 +82,6 @@ var siteLib = (function ($) {
             action: 'CheckCity'
         });
     }
-
 
     this.getRates = function () {
 
@@ -126,7 +150,7 @@ var siteLib = (function ($) {
         }
 
         return false;
-    }; // this.getRates
+    }
 
     this.getPromoCode = function(){
         var action = 'applyPromoCode';
@@ -141,7 +165,7 @@ var siteLib = (function ($) {
             })
             .done(function (data) {
                 data = JSON.parse(data);
-                console.log(data);
+                //console.log(data);
                 $('#promoCode').removeClass("is-loading");
 
                 if (data=="success") {
@@ -166,7 +190,7 @@ var siteLib = (function ($) {
             })
             .done(function (data) {
                 data = JSON.parse(data);
-                console.log(data);
+                //console.log(data);
 
                 if (data=="success") {
                     document.location.reload();
@@ -179,7 +203,6 @@ var siteLib = (function ($) {
             });
 
     }
-
     //////// shk count buttons /////////////////////////////////////////
     this.bindPlusMinusCart = function () {
 
@@ -202,7 +225,7 @@ var siteLib = (function ($) {
             SHK.changeCartItemsCount();
             return false;
         });
-    };
+    }
     ///
     this.bindPlusMinusProduct = function(){
         $('.button__plus-product').on('click', function (event) {
@@ -295,10 +318,7 @@ var siteLib = (function ($) {
             $('.alert-fixed').remove();
         }, time);
 
-    }; //this.alert
-
-
-
+    } //this.alert
 
     return this;
 
@@ -430,7 +450,7 @@ $(function () {
                                                         region: regions[index]
                                                     }, function (resp) {
 
-                                                        console.log(JSON.parse(resp))
+                                                        //console.log(JSON.parse(resp))
                                                         closeModals();
                                                         location.reload();
                                                     });
@@ -446,7 +466,7 @@ $(function () {
 
                 })
                 .fail(function (data) {
-                    console.log('fail');
+                    //console.log('fail');
                 });
 
             return false;
@@ -472,8 +492,6 @@ $(function () {
     });
 
     /* END MODALS */
-
-
     // подтверждение выбора города
     $("#CityConfirmYes").on('click', function () {
         $.post(document.location.href, {
@@ -486,37 +504,61 @@ $(function () {
             })
     });
 
-    $(".main-carousel").owlCarousel({
-        autoplay: 3000,
-        smartSpeed: 1000,
-        margin: 10,
-        loop: true,
-        nav: true,
-        dots: true,
-        items: 1
-    });
+    //Carousel.Plugins.Autoplay = Autoplay;
 
-    $("#owl-slider-production").owlCarousel({
-        autoplay: 3000,
-        loop: true,
-        nav: false,
-        dots: true,
-        margin: 10,
-        responsive: {
-            0: {
-                items: 1
+    try {
+        mainpageCarousel = new Carousel(document.querySelector(".main-carousel"), {
+            Dots: true,
+            Navigation: true,
+            center: false,
+            slidesPerPage: 1,
+            infinite: true,
+            hideScrollbar: true,
+            Autoplay: {
+                timeout: 2500,
+                },
+        })    
+    } catch (err) {
+    
+    }
+    
+    try {
+        mainCarousel = new Carousel(document.querySelector("#productImages"), {
+            Dots: false,
+        })
+    } catch {
+
+    }
+
+    
+
+    var thumbselector  = "#productThumbs > .carousel__slide";
+
+    $(thumbselector).first().addClass("is-nav-selected");
+
+    $(thumbselector).each(function (i){
+        $(this).on('click', function(){
+            //console.log(e);
+            $(thumbselector).removeClass('is-nav-selected');
+            mainCarousel.slideTo(i);
+            $(this).addClass("is-nav-selected");
+        })
+    })
+
+    Fancybox.bind('[data-fancybox="gallery"]', {
+        Carousel: {
+            on: {
+                change: function(that) {
+                    mainCarousel.slideTo(mainCarousel.findPageForSlide(that.page), {
+                        friction: 0,
+                    })
+                },
             },
-            600: {
-                items: 3
-            },
-            1000: {
-                items: 4
-            }
-        }
-    });
+        },
+        hideScrollbar: true
+    })
 
     // выбор транспортной компании
-
     $('.country_delivery__item').on('click', function () {
         $('.country_delivery__item').removeClass('active');
         $(this).addClass('active');
@@ -562,28 +604,50 @@ $(function () {
     }
 
     // стик и анстик
+    function stickUnstick(){
+        $node = $('.pre_korzina');
+        $offset = $node.offset().top;
+        $height = $node.height();
+        $width = $node.width();
+        var PanelSpacer = null;
+        var nodeCssfloat = $node.css("float");
+        var nodeCssdisplay = $node.css("display");
+        PanelSpacer = $("<div id='PanelSpacer' style='width:" + $width + "px;height:" + $height + "px;float:" + nodeCssfloat + ";display:" + nodeCssdisplay + ";'> </div>");
+        var fixed = false;
+        var $spacer = null;            
 
-    $offset = 100;
-
-    window.addEventListener('resize', function(event) {
-        $offset = $('.pre_korzina').offset().top;
-
-        $(window).unbind();
-        $(window).bind('scroll', function () {
-            if ($(window).scrollTop() > $offset + 50) {
+        $(window).off('scroll');
+        
+        $(window).on('scroll', function () {
+            //console.log($(window).scrollTop());
+            if ($(window).scrollTop() > $offset - 5) {
                 
-                $('.pre_korzina').css("width",$('.pre_korzina').width());
-                $('.pre_korzina').css("position","fixed");
-                $('.pre_korzina').css("top","5px");
-                $('.pre_korzina').addClass('fixed');
+                if (!fixed) {
+                    $height = $node.height();
+                    $width = $node.width();
+                    $node.before(PanelSpacer);
+                    $spacer = $('#PanelSpacer')
+                    $node.css("width",$width);
+                    $node.css("position","fixed");
+                    $node.css("top","5px");
+                    fixed = true;
+                    
+                } 
 
             } else {
-                $('.pre_korzina').removeClass("fixed");
-                $('.pre_korzina').removeAttr("style");
+
+                if (fixed) {
+                    fixed = false;
+                    $spacer.remove();
+                    $('.pre_korzina').removeAttr("style");
+                }
             }
         });
+    }
 
-    }, true);
+    window.addEventListener('resize', stickUnstick(), true);
+    window.addEventListener('load', stickUnstick(), true);
+    window.addEventListener('reload', stickUnstick(), true);
 
     // телефонный номер
 
