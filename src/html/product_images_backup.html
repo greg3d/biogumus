@@ -1,0 +1,54 @@
+<div class="column is-12-mobile is-6-touch is-4-desktop is-3-widescreen">
+    <div class="shk-item card">
+        <div class="card-image">
+            <figure class="image">
+                <a href="[[~[[+resource_id]]?&scheme=`abs`]][[+alias]].html" title="[[+pagetitle]]">
+                <img src="[[phpthumbon? &input=`/assets/files/[[+image]]` &options=`w=350&h=466&zc=1&q=80` ]]" style="background: #fff" alt="[[+pagetitle]]">
+                    </a>
+            </figure>
+            <h3 class="product-title is-hidden">
+               <a href="[[~[[+resource_id]]?&scheme=`abs`]][[+alias]].html" title="[[+pagetitle]]">[[!ellipsisSnip? &input=`[[+pagetitle]]` &len=`33`]]</a>
+            </h3>
+            <div class="product-more buttons has-addons is-centered ">
+                <button class="button is-small is-success[[+id:in_compare=` active`]]" data-placement="bottom"
+                title="В избранное" onclick="return shkCompare.toCompare([[+id]],[[+resource_id]],this)"><i class="fas fa-heart"></i>&nbsp;</button>
+                <a class="button is-info is-small is-centered" href="[[~[[+resource_id]]?&scheme=`abs`]][[+alias]].html" title="[[+pagetitle]]">Подробнее...</a>
+            </div>
+        </div>
+         <div class="card-content">
+            <form action="[[~[[*id]]? &scheme=`abs`]]" method="post">
+                <input type="hidden" name="shk-id" value="[[+id]]" />
+                <input type="hidden" name="shk-name" value="[[+pagetitle]]" />
+                <div class="item-buttons-group">
+                    <div class="first-line">
+                        <button class="button product-price">
+                          <span>
+                              <span class="shk-price">[[!geo-price2? &pr2=`[[+price]]` &pr1=`[[+price_action]]` &pr3=`[[+price_dv]]`]]</span>
+                              <i class="fas fa-ruble-sign"></i>
+                          </span>
+                        </button>
+                        <button data-id="[[+id]]" class="button is-danger button-to-cart" title="В корзину" data-original-title="В корзину">
+                          <span class="icon is-small">
+                            <i class="fas fa-cart-plus"></i>
+                          </span>
+                          <span>В корзину</span>
+                        </button>
+                    </div>
+                    <div class="second-line">
+                        <div class="field has-addons shk-count-edit">
+                            <div class="control">
+                                <button class="button is-small is-success button__minus-product" type="button"><i class="fas fa-minus"></i></button>
+                            </div>
+                            <div class="control">
+                                <input  id="input-[[+id]]" class="shk-count-product input is-small is-success" type="text" size="2" name="shk-count" maxlength="3" title="изменить количество" value="1">
+                            </div>
+                            <div class="control">
+                                <button class="button is-small is-success button__plus-product" type="button"><i class="fas fa-plus"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -506,6 +506,8 @@ $(function () {
 
     //Carousel.Plugins.Autoplay = Autoplay;
 
+    // КАРУСЕЛИ
+
     try {
         mainpageCarousel = new Carousel(document.querySelector(".main-carousel"), {
             Dots: true,
@@ -529,7 +531,6 @@ $(function () {
     } catch {
 
     }
-
     
 
     var thumbselector  = "#productThumbs > .carousel__slide";
@@ -557,6 +558,23 @@ $(function () {
         },
         hideScrollbar: true
     })
+
+    $(".miniProductImages").each(function(i){
+        var id = "#" + $(this).attr('id');
+        console.log(id);
+        var miniCarousel = new Carousel(document.querySelector(id), {
+            Dots: false,
+            Navigation: true,
+            center: false,
+            slidesPerPage: 1,
+            infinite: true,
+            hideScrollbar: true
+        })
+    })
+   
+    
+
+
 
     // выбор транспортной компании
     $('.country_delivery__item').on('click', function () {
