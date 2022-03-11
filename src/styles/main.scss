@@ -1,28 +1,42 @@
 @charset 'utf-8';
 
 
-@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@1,700&display=swap');
-// Set your brand colors
-$background-color: #eaeee7;
-$black: #2b2a29;
+
+/*
+// нежная
+$c1: #CB997E;
+$c2: #DDBEA9;
+$c3: #FFE8D6;
+$c4: #B7B7A4;
+$c5: #A5A58D;
+*/
+
+$c1: #DDCB26;
+$c2: #5F9C18;
+$c3: #C5402B;
+$c4: #3D3B42;
+$c5: #796345;
+$c6: #C1C1AD;
+
+$light: #DEDEDE;
+$background-color: $light;
+$black: $c4;
+$border-color: $c5;
+$primary: $c2;
+$secondary: $c5;
+$danger: $c3;
+$link: $c4;
+$special-background: $c3;
+
 $tablet: 650px;
-//$desktop: 770px;
-$column-gap: 0.75rem;
+//$column-gap: 0.75rem;
 $radius-small: 4px;
 $radius-large: 6px;
 $radius-xlarge: 10px;
 $radius-xxlarge: 35px;
-// Update Bulma's global variables
-$family-sans-serif: 'Ubuntu',
-Arial,
-sans-serif;
-//$grey-dark: $brown;
-//$grey-light: $beige-light;
-$primary: #89b38d;
-$secondary: #ffd86c;
-$danger: #f46c21;
-$link: #1863a5;
-$special-background: #89b38d;
+
+$family-sans-serif: 'Roboto', sans-serif;
+
 $navbar-item-hover-background-color: $special-background;
 $navbar-item-hover-color: black;
 $navbar-dropdown-arrow: white;
@@ -32,7 +46,7 @@ $navbar-dropdown-item-hover-background-color: $primary;
 $transparent-background: rgba(5, 40, 5, 0.5);
 $weight-bold: 700;
 $weight-normal: 400;
-$block-spacing: 0.5rem;
+//$block-spacing: 0.5rem;
 $modal-content-width: 1024px;
 
 @import '../../node_modules/bulma/bulma.sass';

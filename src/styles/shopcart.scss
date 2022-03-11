@@ -1,25 +1,12 @@
 #korzina {
-  
-  background-color: #fff;
-  border: 3px solid $danger;
-  
-  border-radius: $radius-large;
-  //overflow: hidden;
   position: relative;
-  box-shadow: 0 0 15 rgba(0, 0, 0, 0.4);
-
   padding: 5px;
-  //margin-bottom: 7px;
-  min-height: 46px;
 
   .shopcart-small {
-
     cursor: pointer !important;
-    color: #444;
 
     .fullPrice {
       font-size: 1rem;
-      
     }
 
     .shopcart-full {

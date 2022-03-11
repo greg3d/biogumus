@@ -1,48 +1,83 @@
-
 body {
-  background-image: url('/assets/images/superbg.jpg');
-  background-repeat: no-repeat;
   background-color: $background-color;
-  background-size: 100% 100%;
-  @include mobile {
-    background-size: 300%;
-    background-position: top left;
-  }
   overflow: hidden;
 }
 
-.header {
-  
-  margin-bottom: 0;
-  padding: 1.5rem $column-gap 0;
+.section-top {
+  background-color: $black;
+  z-index: 1;
   position: relative;
 }
 
-.yourcity {
-  display: none; 
-  position: absolute;
-  left: 0;
-  top: 48px;
-  background: white;
-  border-radius: 10px;
-  color: black;
-  font-size: 0.7rem;
-  width: 100%;
-  padding: 10px 0;
-  text-align: center;
-  border: 3px solid red;
+.level-top {
+  height: 2.5rem;
+  font-size: 0.9rem;
+  color: $background-color;
+  a {
+    color:  $background-color;
+  }
+}
+
+.section-top-menu {
+  background-color: $c1;
+}
+
+.level-top-menu {
+
+  .logo__main {
+
+    position: relative;
+    margin: 0 0 10px;
+    padding: 10px 30px 20px 30px;
+    background-color: $white;
+    margin-right: 2.5rem;
+
+    border-radius: 0;
+    background: #ececec;
+    box-shadow:  20px 20px 51px rgba(100,100,100,0.4),
+             -20px -20px 51px rgba(250,250,250,0.8);
+    img {
+      width: 100px;
+    }
+  }
+
+  .level-item {
+    text-transform: uppercase;
+    a {
+      border-bottom: 1px solid $c5;
+    }
+    a:hover {
+      color: $c3;
+      border-bottom-color: $c3;
+    }
+  }
+
+  .logo__subtitle {
+    text-transform: none;
+    left: 50%;
+    bottom: 4px;
+    position: absolute;
+    transform: translateX(-50%);
+    width: 195px;
+    text-align: center;
+    font-size: 0.56rem;
+    a {
+      font-weight: bold;
+    }
+  }
+
+  
+
 }
 
 .yandex-stars {
+  display: none;
   position: absolute;
   top: 17px;
-  //width: 210px;
-  //height: 50px;
   z-index: 1;
   right: 0;
   margin-left: 0;
   text-align: center;
-  //border: 1px solid black;
 
   @include mobile {
 
@@ -60,160 +95,20 @@ body {
     text-shadow: 0 0 15px rgb(255,255,255);
     margin-top: -9px;
     margin-left: -2px;
-    color: #2b2a29; 
+    //color: #2b2a29; 
   }
 
 }
 
-.ecologica {
-  position: absolute;
-  top: 17px;
-  width: 210px;
-  height: 50px;
-  z-index: 1;
-  left: 50%;
-  margin-left: -50px;
-  text-align: center;
-  //border: 1px solid black;
+.hero {
+  background-image: url('/assets/images/slide.jpg');
+  background-position: top center;
 
-  @include mobile {
-    //position: absolute;
-    width: 140px;
-    top: 0;
-    left: 0;
-    margin-left: 0;
-    margin-right: 0;
-    
+  color: white;
+  .section {
+    padding-top: 0;
+    padding-bottom: 0;
   }
-
-  div {
-    font-size: 1.3rem;
-    font-weight: bold;
-    text-shadow: 0 0 15px rgb(255,255,255);
-    margin-top: -9px;
-    margin-left: -2px;
-    color: #2b2a29; 
-  }
-
-  img {
-    //border: 1px solid black;
-    width: 100%;
-    height: auto;
-  }
-}
-
-
-.header::before {
-  content: ' ';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 50%;
-    background-image: url(/assets/images/big3.png);
-    background-position: top 25px;
-    background-size: 1000px;
-
-    @include mobile {
-      background-size: 850px;
-      left: 0;
-      background-position-x: 2em;
-    }
-
-    @include tablet-only {
-      background-size: 900px;
-      background-position-x: 25px;
-      left: 50%;
-      
-    }
-
-    background-repeat: no-repeat;
-    z-index: 0;
-}
-
-
-.header__logo {
-
-  width: auto;
-
-  @include mobile {
-    width: initial;
-  }
-
-  @include tablet-only {
-    
-  }
-
-  @include desktop-only {
-    width: auto;
-  }
-
-
-  .logo__main {
-
-    @include mobile {
-      margin-top: 115px;
-      text-align: left;
-    }
-
-    text-align: center;
-    margin-bottom: 0;
-    color: #ffffff;
-
-    font-size: 45px;
-    font-family: 'PT Sans', sans-serif;
-    
-
-    position: relative;
-    z-index: 1;
-
-    line-height: 40px;
-    font-weight: $weight-bold;
-    margin-left: -2px;
-    margin-bottom: 0;
-    text-shadow: 0 0 18px rgba(0, 0, 0, 0.5);
-
-
-    width: 100%;
-    display: block;
-
-
-    span {
-      color: $secondary;
-      
-    }
-
-
-  }
-
-  .logo__description {
-    color: #ffffff;
-
-    //background-color: rgba(226, 200, 54,0.3);
-    //background-color: $primary;
-    font-size: 16px;
-    text-align: center;
-
-    height: 22px;
-    line-height: 22px;
-   
-    font-weight: $weight-normal;
-    margin: 2px 0;
-    word-wrap: none;
-    //text-shadow: none;
-
-    //display: inline-block;
-
-    position: relative;
-    z-index: 0;
-    text-shadow: 0 0 18px rgba(0, 0, 0, 0.5);
-
-    white-space: nowrap;
-  }
-
-  
-
-
 }
 
 .header__payment-icons {
@@ -237,8 +132,8 @@ body {
 
   span {
 
-    background-color: white;
-    color: white;
+    //background-color: white;
+    //color: white;
     border-radius: $radius-small;
     height: 28px;
     display: block;
@@ -267,23 +162,6 @@ body {
 
 }
 
-
-.header__logo::before {
-  content: '';
-  position: absolute;
-  top: 10px;
-  left: -70px;
-  display: block;
-  width: 94px;
-  height: 74px;
-  opacity: 0.3;
-  background-image: url('/assets/images/icons/logo-leaf.svg');
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-
-
 .header__phones {
 
   //height: 99px;
@@ -303,7 +181,7 @@ body {
 
   .free_call_p {
     opacity: 0.75;
-    color: #000;
+    //color: #000;
     font-size: 14px;
 
     @include desktop-only {
@@ -341,7 +219,7 @@ body {
     line-height: 2rem;
     margin: 0;
     padding: 0;
-    color:$black;
+    //color:$black;
      white-space: nowrap;
     //color: rgb(64, 75, 0);
     //display: flex;
@@ -370,7 +248,7 @@ body {
 
 .header__icons {
   display: flex;
-  color: #fff;
+  //color: #fff;
   font-weight: 400;
   //padding-bottom: 0;
   flex-flow: row;
@@ -385,9 +263,10 @@ body {
   padding: 0 1px 0 1px;
 
   .icon {
+    
     position: relative;
-    color: #333;
-    background-color: rgb(245, 245, 245);
+    //color: #333;
+    //background-color: rgb(245, 245, 245);
     border-radius: $radius-large;
     font-size: initial;
 
@@ -401,7 +280,7 @@ body {
     display: flex;
 
     //box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-    border: 2px solid rgb(231, 231, 231);
+    border: 1px solid rgb(231, 231, 231);
 
     @include mobile {
       width: 48px;
@@ -425,7 +304,6 @@ body {
     display: block;
     content: " ";
     background: url('/assets/images/button_gloss.png') top center;
-  //border: 1px solid black;
   }
 
   .is-email {
@@ -480,7 +358,7 @@ body {
   }
 
   .counter_text {
-    color: #ffffff;
+    //color: #ffffff;
     font-family: 'Ubuntu';
     font-size: 14px;
     font-weight: 500;
@@ -494,7 +372,7 @@ body {
   .number_fon {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
     border-radius: 2px;
-    background-color: #ffffff;
+    //background-color: #ffffff;
     height: 27px;
     display: inline-block;
     text-align: center;
@@ -503,7 +381,7 @@ body {
   }
 
   .number_fon span {
-    color: #db5242;
+    //color: #db5242;
     font-family: Ubuntu;
     font-size: 1.2rem;
     font-weight: 700;
@@ -525,7 +403,7 @@ body {
     //border-radius: $radius-xlarge;
 
     a {
-      color: white;
+      //color: white;
       font-weight: $weight-bold;
       border-radius: $radius-xlarge;
       text-decoration: rgba(255, 255, 255, 0.5) underline;
@@ -533,8 +411,8 @@ body {
     }
 
     a:hover {
-      color: $black;
-      background-color: $special-background;
+      //color: $black;
+      //background-color: $special-background;
       text-decoration: none;
       text-shadow: none;
     }
@@ -568,7 +446,7 @@ body {
           top: unset;
           left: 100%;
           top: -7px;
-          background-color: darken($color: $primary, $amount: 5%);
+          //background-color: darken($color: $primary, $amount: 5%);
 
           border-top-left-radius: 0;
           border-top-right-radius: 10px;
@@ -585,7 +463,7 @@ body {
         }
 
         .navbar-link:after {
-          border-color: $black;
+          //border-color: $black;
 
         }
       }
@@ -607,7 +485,7 @@ body {
 
 .header__bottom {
   box-shadow: 0 0 15px 1px rgba(102, 75, 75, 0.14);
-  background-color: none;
+  //background-color: none;
   margin-bottom: 15px;
   position: relative;
   z-index: 2;
