@@ -322,9 +322,6 @@ body {
   overflow: hidden;
   img {
     padding: 0;
-    margin-left: -4px;
-    margin-top: -4px;
-    height: 110%;
     display: block;
   }
   a {
@@ -337,7 +334,7 @@ body {
   display: flex;
   align-items: baseline;
   justify-content:space-between;
-  padding-top: 15px;
+  padding: $column-gap;
 }
 
 .main-hero {
