@@ -4,7 +4,6 @@
   margin: 0;
 
   .wheretobuy_header {
- 
     margin-top: 0;
     font-size: 1.0rem;
     text-align: center;
@@ -18,13 +17,11 @@
       padding: 7px 0 0;
       font-size: 0.8rem;
     }
-
   }
 
   .wheretobuy_item:last-child {
     margin-bottom: 0 !important;
   }
-
   
   .wheretobuy_content {
     @extend .columns;
@@ -35,7 +32,6 @@
   }
 
   .wheretobuy_item {
-
     @extend .column;
     @extend .is-3-desktop;
     @extend .is-2-widescreen;
@@ -52,8 +48,6 @@
       min-width: 32px;
       border-radius: 20px;
       background: #cfcfcf;
-      //box-shadow:  15px 15px 30px #b1b1b1,
-      //            -15px -15px 30px #ffffff;
       border: 3px solid $white;
       overflow: hidden;
 
@@ -62,7 +56,6 @@
         width: 4rem;
         height: 4rem;
       }
-
     }
 
     .wheretobuy_item_title {
