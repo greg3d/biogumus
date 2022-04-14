@@ -1,21 +1,36 @@
 @@include('./header.html')
-<section class="section main">
+<section>
     <div class="container">
-        <div class="columns">
-            <div class="column side-column is-12-mobile is-4-touch is-3-desktop is-one-fifth-fullhd is-hidden-mobile">
-                <!--левая колонка-->
-                @@include('./sidebar.html')
-            </div>
-            <div class="column content__main  is-12-mobile is-8-touch is-9-desktop is-four-fifths-fullhd ">
-                @@include('./dostavka_red_action_mobile.html')
-                @@include('./carousel_mainpage.html')
-                @@include('./mainpage.html')
-
+        <div class="columns is-multiline is-centered">
+            <div class="column is-7-desktop is-8-widescreen">
+                @@include('./wheretobuy.html')
             </div>
         </div>
     </div>
 </section>
+<section class="section main">
+    <div class="container">
+        @@include('./mainpage.html')
+    </div>
+</section>
 @@include('./footer.html')
+
+<div class="modal" id="city-select">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Выбор города</p>
+            <button class="delete" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body" id="myModalCitySelect">
+            <!-- Content ... -->
+        </section>
+        <footer class="modal-card-foot city__submit">
+            <button class="button is-success" id="chooseCityButton">Сохранить</button>
+            <button class="button">Отмена</button>
+        </footer>
+    </div>
+</div>
 
 <div class="modal" id="zakaz">
     <div class="modal-background"></div>

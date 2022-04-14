@@ -1,7 +1,14 @@
+#openfullcart {
+  text-decoration: none;
+}
 #korzina {
   position: relative;
   padding: 5px;
-
+  a {
+    text-decoration: none;
+    margin: 0;
+  }
+  
   .shopcart-small {
     cursor: pointer !important;
 
@@ -10,24 +17,51 @@
     }
 
     .shopcart-full {
+      display: flex;
+      flex-direction: column;
+      text-transform: none;
       position: absolute;
-      left: 0;
+      right: 0;
       top: 100%;
-      margin-top: 0;
-      padding: 5px;
-
-      border-radius: 0px 0px $radius-large $radius-large;
-      
-      //outline: 2px solid $danger;
-      border-top: none;
-      
-      background-color: #fff;
+      margin-top: 0;   
+      min-width: 280px;
+      font-size: 0.8rem;
+      border-radius: 4px 4px 0 0;      
+      background-color: $c7;
       width: 100%;
-
+      box-shadow: #00000030 0 0 15px;
       .checkout-button {
         z-index: 10;
       }
-      
+
+      .buttons {
+        margin-bottom: $column-gap;
+      }
+
+      table {
+        margin-bottom: 5px;
+      }
+
+      @include mobile {
+        position: fixed;
+        bottom: 56px;
+        min-width: 308px;
+        top: auto;
+      }
+    }
+
+    
+
+    .product-list {
+      margin: 0 $column-gap;
+    }
+
+    .product-params {
+      margin: 0 $column-gap;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
     }
 
     .shopcart-full.collapsed {
@@ -46,45 +80,54 @@
 
     }
 
+    
+
   }
 }
+
+.shopcart_v3 {
+  .box {
+    margin-bottom: 5px;
+  }
+}
+
+.shopcart__summary {
+  p {
+    margin: 0;
+  }
+}
+
+
+#freeDelivery {
+  padding: 0 $column-gap;
+  margin-bottom: $column-gap;
+
+  .column {
+    margin-bottom: 0;
+  }
+}
+
+.get_rates_message {
+  background: #d8d51b;
+  font-weight: bold;
+  color: #453440;
+  margin-bottom: 0;
+}
+
 
 
 .pre_korzina {
   position: relative;
-  z-index: 2;
+  z-index: 10;
+  background: $c1;
   //height: 61px;
 
-}
-
-
-.header__city {
-  color: $primary;
-  
-  opacity: 1;
-  
-  text-decoration: none;
-  text-align: center;
-  
-  a {
-    cursor: pointer;
-    color: $primary;
-    text-decoration: none;
-    border-bottom: 1px dashed $primary;
-    position: relative;
-    color: $primary;
-  }
-
-
-  p {
-    position: relative;
-    display: inline;
-    padding-left: 0;
-    text-transform: uppercase;
-    font-weight: bold;
-    font-size: 0.8rem;
-    overflow: visible;
-    color: black;
+  @include mobile {
+    position: fixed;
+    bottom: 0;
+    height: 49px;
+    right: 6px;
   }
 
 }
+

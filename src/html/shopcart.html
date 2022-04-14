@@ -1,23 +1,93 @@
 <div class="pre_korzina ontop">
     <div id="korzina">
         <div class="level is-mobile">
-            <div class="level-left">
-                <div class="level-item">
-                    <a role="button" class="navbar-burger burger is-hidden-tablet" aria-label="menu"
-                        aria-expanded="false" data-target="navbarBasicExample">
-                        <span aria-hidden="true"></span>
-                        <span aria-hidden="true"></span>
-                        <span aria-hidden="true"></span>
-                    </a>
-                </div>
-            </div>
-
             <div class="level-item shopcart-container">
                 <div data-shopcart="1" class="shopcart-small">
-                    <i class="fas fa-shopping-cart"></i>&nbsp;
-                    <span class="tag is-danger is-medium">0</span>
-                </div>
 
+                    <a id="openfullcart">
+                        <i class="fas fa-shopping-cart fa-lg"></i>
+                        <span class="tag is-danger is-medium">124&nbsp;<i class="fas fa-ruble-sign"></i></span>
+                    </a>
+
+                    <div class="shopcart-full">
+                        <div class="buttons is-centered has-addons">
+                            <a href="/korzina.html" class="button is-primary is-extendable shopCartSmall__order">
+                                <i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
+                                &nbsp;Оформить
+                            </a>
+                            <a href="#" id="shk_butEmptyCart" class="button is-danger">
+                                <i class="fa fa-trash" aria-hidden="true"></i>
+                            </a>
+                        </div>
+
+                        <div class="product-list">
+                            <table class="table is-fullwidth is-bordered is-narrow is-striped">
+                                <colgroup>
+                                    <col width="50%">
+                                    <col width="25%">
+                                    <col width="25%">
+                                </colgroup>
+                                <thead>
+                                    <tr>
+                                        <td>Наименование</td>
+                                        <td>кол-во</td>
+                                        <td style="text-align: right">сумма</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><span class="name"><b>ЭКО-ГРУНТ 7л</b></span></td>
+                                        <td><span class="count">1</span></td>
+                                        <td><span class="price-small"><b>124</b> <i class="fa fa-rub"
+                                                    aria-hidden="true"></i></span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="product-params">
+                            
+                            <div>
+                                <span>Объем: </span><span
+                                    class="shopCartSmall__total"><strong>7&nbsp;л</strong></span>
+                            </div>
+
+                            <div>
+                                <span>Вес: </span> <span
+                                    class="shopCartSmall__total"><strong>4&nbsp;кг</strong></span>
+                            </div>
+
+                            <div>
+                                <a id="CollapseShopCartButton" class="delete is-large"></a>
+                            </div>                            
+                        </div>
+                        <div id="freeDelivery">
+                            <div class="columns is-gapless is-vcentered is-mobile">
+                                <div class="column is-narrow">
+                                    <div class="ko-progress-circle" data-progress="2">
+                                        <div class="ko-inner-text">
+                                            <i class="fas fa-truck"></i>
+                                        </div>
+                                        <div class="ko-circle">
+                                            <div class="full ko-progress-circle__slice">
+                                                <div class="ko-progress-circle__fill"></div>
+                                            </div>
+                                            <div class="ko-progress-circle__slice">
+                                                <div class="ko-progress-circle__fill"></div>
+                                                <div class="ko-progress-circle__fill ko-progress-circle__bar"></div>
+                                            </div>
+                                        </div>
+                                        <div class="ko-progress-circle__overlay"></div>
+                                    </div>
+                                </div>
+                                <div class="column">
+                                    <div class="cart_notification">Бесплатная доставка курьером по Самаре от 5000
+                                        руб. Осталось 4876 руб.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

@@ -1,0 +1,16 @@
+<div class="header__city">
+    <p><i class="fas fa-map-marker-alt"></i>&nbsp;Город:
+        <a class="modal-button select-city-link" data-target="city-select-form">Усть-Каменноугольный</a>
+        <!--i class="fas fa-angle-down"></i-->
+    </p>
+    <div class="yourcity" style="display: none;">
+        <div class="pointer" style="position: absolute"></div>
+        <p>Москва | Москва</p><br>
+        <p>Это ваш город?</p>
+        <div class="buttons has-addons is-centered">
+            <button class="button is-success" id="CityConfirmYes">Да</button>
+            <button class="button is-danger modal-button" id="CityConfirmNo"
+                data-target="city-select-form">Нет</button>
+        </div>
+    </div>
+</div>

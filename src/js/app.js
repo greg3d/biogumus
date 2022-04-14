@@ -8,71 +8,71 @@ var siteLib = (function ($) {
     sl.city = {};
 
     this.product_count = 1;
-    this.updateCount = function(){
+    this.updateCount = function () {
         $("#product-count").val(this.product_count);
     }
 
     this.init = function () {
 
         sl.updateCount();
-        
+
         $("#product-count").off("change")
-        $("#product-count").on("change", function(){
+        $("#product-count").on("change", function () {
             sl.product_count = parseInt($("#product-count").val());
         })
 
-        $("#counter-minus").on("click", function(){
+        $("#counter-minus").on("click", function () {
             sl.product_count -= 1;
             if (sl.product_count <= 0) sl.product_count = 1;
             sl.updateCount();
         })
 
-        $("#counter-plus").on("click", function(){
+        $("#counter-plus").on("click", function () {
             sl.product_count += 1;
             sl.updateCount();
         })
 
-       // !!!!!!!!!!!!!!!!!!!!!!!!!!! ПЕРЕДЕЛАТЬ ПОД FANCY UI !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-       /*
-        jQuery('.slick-slider-one')
-            .slick({
-                dots: true,
-                arrows: true,
-                infinite: true,
-                autoplay: true,
-                speed: 500,
-                slidesToShow: 1,
-                slidesToScroll: 1
-            });
-
-        $('.slick-slider-three')
-            .slick({
-                slide: '.product-list-item-image',
-                dots: true,
-                infinite: true,
-                autoplay: true,
-                speed: 300,
-                slidesToShow: 3,
-                slidesToScroll: 3,
-                centerMode: false,
-                responsive: [{
-                        breakpoint: 700,
-                        settings: {
-                            slidesToShow: 2,
-                            slidesToScroll: 2
-                        }
-                    },
-                    {
-                        breakpoint: 480,
-                        settings: {
-                            slidesToShow: 1,
-                            slidesToScroll: 1
-                        }
-                    }
-                ]
-            });
-
-        */
+        // !!!!!!!!!!!!!!!!!!!!!!!!!!! ПЕРЕДЕЛАТЬ ПОД FANCY UI !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        /*
+         jQuery('.slick-slider-one')
+             .slick({
+                 dots: true,
+                 arrows: true,
+                 infinite: true,
+                 autoplay: true,
+                 speed: 500,
+                 slidesToShow: 1,
+                 slidesToScroll: 1
+             });
+ 
+         $('.slick-slider-three')
+             .slick({
+                 slide: '.product-list-item-image',
+                 dots: true,
+                 infinite: true,
+                 autoplay: true,
+                 speed: 300,
+                 slidesToShow: 3,
+                 slidesToScroll: 3,
+                 centerMode: false,
+                 responsive: [{
+                         breakpoint: 700,
+                         settings: {
+                             slidesToShow: 2,
+                             slidesToScroll: 2
+                         }
+                     },
+                     {
+                         breakpoint: 480,
+                         settings: {
+                             slidesToShow: 1,
+                             slidesToScroll: 1
+                         }
+                     }
+                 ]
+             });
+ 
+         */
 
     }
 
@@ -81,6 +81,7 @@ var siteLib = (function ($) {
         return $.post(document.location.href, {
             action: 'CheckCity'
         });
+
     }
 
     this.getRates = function () {
@@ -101,9 +102,9 @@ var siteLib = (function ($) {
 
             // Деловые линии
             $.post(document.location.href, {
-                    action: action,
-                    tk: "1"
-                })
+                action: action,
+                tk: "1"
+            })
                 .done(function (data) {
                     data = JSON.parse(data);
 
@@ -116,9 +117,9 @@ var siteLib = (function ($) {
 
             // ПЭК
             $.post(document.location.href, {
-                    action: action,
-                    tk: "2"
-                })
+                action: action,
+                tk: "2"
+            })
                 .done(function (data) {
                     data = JSON.parse(data);
                     $('#price_pek').html(data.price);
@@ -131,9 +132,9 @@ var siteLib = (function ($) {
 
             // ЭНЕРГИЯ
             $.post(document.location.href, {
-                    action: action,
-                    tk: "3"
-                })
+                action: action,
+                tk: "3"
+            })
                 .done(function (data) {
                     data = JSON.parse(data);
                     $('#price_energia').html(data.price);
@@ -152,54 +153,63 @@ var siteLib = (function ($) {
         return false;
     }
 
-    this.getPromoCode = function(){
+    this.getPromoCode = function () {
         var action = 'applyPromoCode';
         var code = $('#promoCode').val();
 
         $('#promoCode').addClass("is-loading");
         $('.errorpromocode').addClass('is-hidden');
 
-        $.post(document.location.href, {
+        try {
+
+
+
+            $.post(document.location.href, {
                 action: action,
                 promocode: code
             })
-            .done(function (data) {
-                data = JSON.parse(data);
-                //console.log(data);
-                $('#promoCode').removeClass("is-loading");
+                .done(function (data) {
+                    data = JSON.parse(data);
+                    //console.log(data);
+                    $('#promoCode').removeClass("is-loading");
 
-                if (data=="success") {
-                    document.location.reload();
-                } else {
+                    if (data == "success") {
+                        document.location.reload();
+                    } else {
+                        $('.errorpromocode').removeClass('is-hidden');
+                    }
+                })
+                .fail(function () {
+                    $('#promoCode').removeClass("is-loading");
                     $('.errorpromocode').removeClass('is-hidden');
-                }
-            })
-            .fail(function () {
-                $('#promoCode').removeClass("is-loading");
-                $('.errorpromocode').removeClass('is-hidden');
-            });
+                });
+
+        } catch (e) {
+            console.log("getPromoCode");
+            console.log(e.name + ": " + e.message);
+        }
 
     }
 
-    this.deletePromoCode = function(){
+    this.deletePromoCode = function () {
         var action = 'deletePromoCode';
-        
+
 
         $.post(document.location.href, {
-                action: action
-            })
+            action: action
+        })
             .done(function (data) {
                 data = JSON.parse(data);
                 //console.log(data);
 
-                if (data=="success") {
+                if (data == "success") {
                     document.location.reload();
                 }
 
                 document.location.reload();
             })
             .fail(function () {
-                
+
             });
 
     }
@@ -227,7 +237,7 @@ var siteLib = (function ($) {
         });
     }
     ///
-    this.bindPlusMinusProduct = function(){
+    this.bindPlusMinusProduct = function () {
         $('.button__plus-product').on('click', function (event) {
             $(this).prop('disabled', true);
             var $input = $(this).parent().parent().find('.shk-count-product');
@@ -250,7 +260,7 @@ var siteLib = (function ($) {
     }
     //////////////////////////////////////////////////////////////////
 
-    this.bindCartTap = function(){
+    this.bindCartTap = function () {
         // Разворачивание и сворачивание корзины
         var square = document.querySelector("#openfullcart");
 
@@ -284,14 +294,14 @@ var siteLib = (function ($) {
         $('.alert-fixed').remove();
 
         $('<div/>', {
-                'class': 'alert alert-fixed ' + alertClass + ' alert-dismissable',
-                'text': msg,
-                on: {
-                    mouseover: function () {
-                        clearTimeout(window.alertTimer);
-                    }
+            'class': 'alert alert-fixed ' + alertClass + ' alert-dismissable',
+            'text': msg,
+            on: {
+                mouseover: function () {
+                    clearTimeout(window.alertTimer);
                 }
-            })
+            }
+        })
             .css({
                 position: 'fixed',
                 zIndex: 999,
@@ -334,15 +344,25 @@ $(function () {
 
 
     var ch = false;
-    siteLib.CheckCity().done(function (data) {
-        ch = JSON.parse(data);
-        if (ch == "0") {
-            $('.yourcity').css("display", "block");
-        } else {
-            $('.yourcity').css("display", "none");
-        }
-    });
 
+    try {
+        siteLib.CheckCity().done(function (data) {
+            ch = JSON.parse(data);
+            if (ch == "0") {
+                $('.yourcity').css("display", "block");
+            } else {
+                $('.yourcity').css("display", "none");
+            }
+        }).fail(function(){
+            console.log("CheckCity fail");
+        });
+
+    } catch (e) {
+        console.log("CheckCity");
+        console.log(e.name + ": " + e.message);
+        return "000";
+    }
+    
 
     $('.more_info__show').on('click', function () {
         $('.more_info__list').slideToggle(300);
@@ -405,8 +425,8 @@ $(function () {
             var action = 'ShowRegionsList';
 
             $.post(document.location.href, {
-                    action: action
-                })
+                action: action
+            })
                 .done(function (response) {
 
                     var regions = JSON.parse(response);
@@ -429,9 +449,9 @@ $(function () {
                                 $('#CitySelectList').html('Подождите...');
 
                                 $.post(document.location.href, {
-                                        action: 'ShowCitiesByRegion',
-                                        data: target
-                                    })
+                                    action: 'ShowCitiesByRegion',
+                                    data: target
+                                })
                                     .done(function (response) {
                                         $('#CitySelectList').html('');
                                         cities = JSON.parse(response);
@@ -495,8 +515,8 @@ $(function () {
     // подтверждение выбора города
     $("#CityConfirmYes").on('click', function () {
         $.post(document.location.href, {
-                action: 'ConfirmCity'
-            },
+            action: 'ConfirmCity'
+        },
             function (resp) {
                 //console.log(resp);
                 $('.yourcity').css('display', 'none');
@@ -518,27 +538,27 @@ $(function () {
             hideScrollbar: true,
             Autoplay: {
                 timeout: 2500,
-                },
-        })    
+            },
+        })
     } catch (err) {
-    
+        console.log("MainPageCarousel: " + err.message);
     }
-    
+
     try {
         mainCarousel = new Carousel(document.querySelector("#productImages"), {
             Dots: false,
         })
-    } catch {
-
+    } catch (err) {
+        console.log("prodImagesCarousel: " + err.message);
     }
-    
 
-    var thumbselector  = "#productThumbs > .carousel__slide";
+
+    var thumbselector = "#productThumbs > .carousel__slide";
 
     $(thumbselector).first().addClass("is-nav-selected");
 
-    $(thumbselector).each(function (i){
-        $(this).on('click', function(){
+    $(thumbselector).each(function (i) {
+        $(this).on('click', function () {
             //console.log(e);
             $(thumbselector).removeClass('is-nav-selected');
             mainCarousel.slideTo(i);
@@ -549,7 +569,7 @@ $(function () {
     Fancybox.bind('[data-fancybox="gallery"]', {
         Carousel: {
             on: {
-                change: function(that) {
+                change: function (that) {
                     mainCarousel.slideTo(mainCarousel.findPageForSlide(that.page), {
                         friction: 0,
                     })
@@ -559,22 +579,49 @@ $(function () {
         hideScrollbar: true
     })
 
-    $(".miniProductImages").each(function(i){
+    
+    // слайдер товаров в каталоге
+    $(".miniProductImages").each(function (i) {
         var id = "#" + $(this).attr('id');
-        console.log(id);
+        var selector = $(id).parent().children(".volumes").children(".volume");
+
+        //console.log(id);
         var miniCarousel = new Carousel(document.querySelector(id), {
             Dots: false,
-            Navigation: true,
+            Navigation: false,
             center: false,
             slidesPerPage: 1,
             infinite: true,
-            hideScrollbar: true
+            hideScrollbar: true,
+            on: {
+                change: (carousel) => {
+                    $(selector).removeClass('is-nav-selected');
+                    $(selector[carousel.page]).addClass("is-nav-selected");
+                    console.log(carousel.page);
+                }
+            },
+            Navigation: {
+                prevTpl:
+                  '',
+                nextTpl:
+                  '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M4 12h16"/><path d="M13 5l7 7-7 7"/></svg>',
+              }
         })
+
+        
+
+        selector.first().addClass("is-nav-selected");
+
+        $(selector).each(function (i) {
+            $(this).on('click', function () {
+                //console.log(e);
+                $(selector).removeClass('is-nav-selected');
+                miniCarousel.slideTo(i);
+                $(this).addClass("is-nav-selected");
+            })
+        })
+
     })
-   
-    
-
-
 
     // выбор транспортной компании
     $('.country_delivery__item').on('click', function () {
@@ -596,12 +643,14 @@ $(function () {
         }
     });
 
+
+
     ////////////////////////// menu top
 
     $(".navbar-burger")
         .on('click', function () {
             $(".navbar-burger").toggleClass("is-active");
-            $(".side-column").toggleClass("is-hidden-mobile");
+            $(".mobile_menu").toggleClass("is-active");
         });
 
     var $hoverableLink = $('.navbar-item.has-dropdown');
@@ -622,6 +671,7 @@ $(function () {
     }
 
     // стик и анстик
+    /*
     function stickUnstick(){
         $node = $('.pre_korzina');
         $offset = $node.offset().top;
@@ -639,7 +689,6 @@ $(function () {
         $(window).on('scroll', function () {
             //console.log($(window).scrollTop());
             if ($(window).scrollTop() > $offset - 5) {
-                
                 if (!fixed) {
                     $height = $node.height();
                     $width = $node.width();
@@ -649,7 +698,6 @@ $(function () {
                     $node.css("position","fixed");
                     $node.css("top","5px");
                     fixed = true;
-                    
                 } 
 
             } else {
@@ -666,7 +714,8 @@ $(function () {
     window.addEventListener('resize', stickUnstick(), true);
     window.addEventListener('load', stickUnstick(), true);
     window.addEventListener('reload', stickUnstick(), true);
-
+    // unstick end
+    */
     // телефонный номер
 
     $("#shopOrderForm")
@@ -754,5 +803,10 @@ $(function () {
 
             $("#orderFormPhone").val(res);
         });
+    
+    /// DOC READY
+    
+    
+
 
 }); // IFFE

@@ -21,8 +21,6 @@
   table {
     border-radius: $radius-small;
     overflow: hidden;
-    margin-bottom: 5px !important;
-
     td{
       padding: 0;
       vertical-align: middle !important;
@@ -31,8 +29,6 @@
         margin: 0 auto;
       }
     }
-
-
     td.col-image {
       width: 50px;
       text-align: center;
@@ -190,7 +186,7 @@
 
 .order__options .radio input:checked ~ .order__icon {
   border-color: #ffffff;
-  background-color: #89b38d;
+  background-color: #4daa35;
 }
 
 .order__payment .order__options .radio.type_cash .order__icon::after {

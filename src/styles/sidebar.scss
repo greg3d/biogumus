@@ -1,53 +1,87 @@
-
  .wheretobuy {
   display: block;
-  background-color: $primary;
-  padding: 12px;
-  margin-bottom: 12px;
-  height: 340px;
-
+  color: $black;
+  margin: 0;
 
   .wheretobuy_header {
-    font-size: 2rem;
-    color: $secondary;
+ 
+    margin-top: 0;
+    font-size: 1.0rem;
     text-align: center;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-    line-height: normal;
+    margin-bottom: 15px;
+    z-index: 1;
+    position: relative;
+    padding: 10px 5px 0;
 
-    @include desktop {
-      font-size: 1.75rem
+    @include mobile {
+      color: $black;
+      padding: 7px 0 0;
+      font-size: 0.8rem;
     }
-  }
 
-  .wheretobuy_subheader {
-    color: white;
-    text-align: center;
-    font-weight: bold;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-    text-transform: uppercase;
-    font-size: 0.8rem;
-    margin-bottom: 10px;
   }
-
-  .wheretobuy_content {}
 
   .wheretobuy_item:last-child {
     margin-bottom: 0 !important;
   }
 
+  
+  .wheretobuy_content {
+    @extend .columns;
+    @extend .is-mobile;
+    @extend .is-multiline;
+    @extend .is-gapless;
+    @extend .is-centered;
+  }
+
   .wheretobuy_item {
 
-    margin-bottom: 0.75rem !important;
+    @extend .column;
+    @extend .is-3-desktop;
+    @extend .is-2-widescreen;
+    @extend .is-4-mobile;
+    
+    display: flex;
+
+    flex-direction: column;
+    align-items: center;
+    
+    .wheretobuy_image {
+      width: 5rem;
+      height: 5rem;
+      min-width: 32px;
+      border-radius: 20px;
+      background: #cfcfcf;
+      //box-shadow:  15px 15px 30px #b1b1b1,
+      //            -15px -15px 30px #ffffff;
+      border: 3px solid $white;
+      overflow: hidden;
+
+      @include mobile {
+        border-radius: 15px;
+        width: 4rem;
+        height: 4rem;
+      }
+
+    }
 
     .wheretobuy_item_title {
       color: white;
-
-      line-height: 1.25rem;
+      font-size: 12px;
+      margin-top: 5px;
       //line-height: normal;
+      text-align: center;
+      margin-bottom: 10px;
+
+      @include desktop {
+        font-size: 14px;
+        max-width: 10rem;
+      }
+
       a {
-        color: white;
-        text-decoration-line: underline;
-        text-decoration-color: rgba(255,255,255,0.3);
+        text-decoration: underline;
+        text-decoration-color: lighten(#446ad4, 25%);
+        color: #446ad4;
       }
 
     }
@@ -56,237 +90,15 @@
       margin: 0;
       display: block;
       //background-color: white;
-      border-radius: 10px;
-      margin-right: 10px;
-      width: 40px;
-      height: 40px;
+      
+      
+      width: 100%;
+      height: 100%;
     }
 
   }
 }
 
-
-.side__menu {
-  //margin-top: 15px;
-  //margin-right: 5px;
-  //margin-left: 5px;
-  margin: 0;
-  padding: 0;
-
- 
-
-  ul {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-
-    li.navbar-item {
-      position: relative;
-      margin: 0 0 12px;
-      padding: 0;
-
-      a.navbar-link {
-        font-size: 24px;
-
-        @include touch {
-          font-size: 1rem;
-        }
-
-        @include desktop {
-          font-size: 1.4rem;
-        }
-
-        text-align: center;
-        width: 100%;
-        display: block;
-        //padding: 20px 10px;
-        color: #3e3f30;
-        //font-size: 0;
-
-        font-weight: normal;
-        border-radius: $radius-large;
-        background-color: $secondary;
-        //background-image: linear-gradient(45deg, rgba(244, 174, 24, 0.5) 0%, rgba(255, 205, 54, 0.5) 99%, rgba(255, 205, 54, 0.5) 100%);
-        //transition: 0.3s all ease;
-
-        border-right: 1px solid rgba(0, 0, 0, 0.3);
-        border-left: 1px solid rgba(255, 255, 255, 0.5);
-        border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-
-        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-
-        text-transform: uppercase;
-
-        display: flex;
-        flex-wrap: nowrap;
-
-        .icon {
-          display: block;
-          margin: 2px 0 0 0;
-          padding: 0;
-          //border: 1px solid black;
-          width: 32px;
-          text-align: center;
-
-          margin-right: 0.75rem;
-
-          i {
-            display: block;
-          }
-        }
-
-        .is-red {
-          color: #da0000;
-        }
-
-        .is-blue {
-          color: #7e5fe4;
-        }
-
-        .menu-title {
-          display: block;
-          //border: 1px solid black;
-          text-align: left;
-
-
-          line-height: normal;
-
-          span {
-            display: block;
-            margin: 0;
-
-          }
-        }
-
-
-      }
-
-      a.navbar-link.is-red {
-        background-color: #e76000;
-        color: white;
-      }
-
-      >a.is-active,
-      a:hover {
-        background-color: $primary;
-      }
-
-      .navbar-dropdown {
-
-        position: absolute;
-        left: 100%;
-        top: 0;
-        background: none;
-        padding: 0 5px;
-        border-radius: 0;
-        border: none;
-        box-shadow: none;
-
-        @include touch {
-          position: relative;
-          left: 0;
-        }
-
-        //transition: unset;
-        //animation: unset;
-
-        a {
-          font-size: 22px;
-          border-top: 1px solid rgba(255, 255, 255, 0.1);
-          border-right: 2px solid rgba(0, 0, 0, 0.3);
-          border-left: 2px solid rgba(255, 255, 255, 0.5);
-          border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-
-          background: $primary;
-
-          color: white;
-          padding: 8px 10px;
-
-
-        }
-
-        a:first-child {
-          border-radius: $radius-large $radius-large 0 0;
-        }
-
-        a:last-child {
-          border-radius: 0 0 $radius-large $radius-large;
-        }
-
-      }
-
-
-
-
-    }
-
-    .navbar-item.has-dropdown .navbar-dropdown {
-
-      @include touch {
-        display: none;
-      }
-
-    }
-
-    .navbar-item.has-dropdown.is-active .navbar-dropdown {
-
-      @include touch {
-        display: block;
-      }
-
-    }
-
-
-    li.navbar-item.has-dropdown::after {
-
-      content: '';
-      position: absolute;
-      top: 50%;
-      right: 15px;
-      width: 9px;
-      height: 9px;
-      border-top: 2px solid;
-      border-right: 2px solid;
-      border-color: #4b3e39;
-      transform: translateY(-50%) rotate(45deg);
-      transition: .3s;
-      display: block;
-
-      @include touch {
-        top: 22px;
-      }
-
-    }
-
-    li.navbar-item.has-dropdown.is-active::after {
-
-      @include touch {
-        transform: translateY(-50%) rotate(135deg);
-      }
-
-    }
-
-  }
-}
-
-
-.side__menu ul li.active a.navbar-link,
-.side__menu ul li.is-active a.navbar-link,
-.side__menu ul li:hover a.navbar-link,
-.side__menu ul li:focus a.navbar-link {
-  color: #ffffff;
-  background-image: none;
-  background-color: #5f8647;
-  text-decoration: none;
-
-  .icon {
-    color: white;
-  }
-}
 
 .panel {
   border-radius: 6px;

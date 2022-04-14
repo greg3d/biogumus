@@ -11,22 +11,28 @@ $c4: #B7B7A4;
 $c5: #A5A58D;
 */
 
-$c1: #DDCB26;
-$c2: #5F9C18;
-$c3: #C5402B;
-$c4: #3D3B42;
-$c5: #796345;
-$c6: #C1C1AD;
 
-$light: #DEDEDE;
-$background-color: $light;
-$black: $c4;
-$border-color: $c5;
+
+$c1: #d8d51b;
+$c2: #4daa35;
+$c3: #3f8d2b;
+$c4: #f16730;
+$c5: #542D42;
+$c6: #ebecec;
+$c7: #c3d6cb;
+$c8: #453440;
+
+$black: $c8;
+$background-color: $c6; 
+
+$border-color: $c6;
+
 $primary: $c2;
-$secondary: $c5;
-$danger: $c3;
-$link: $c4;
-$special-background: $c3;
+$secondary: $c3;
+
+$warning: $c1;
+$danger: $c4;
+//$link: $c4;
 
 $tablet: 650px;
 //$column-gap: 0.75rem;
@@ -37,12 +43,12 @@ $radius-xxlarge: 35px;
 
 $family-sans-serif: 'Roboto', sans-serif;
 
-$navbar-item-hover-background-color: $special-background;
-$navbar-item-hover-color: black;
-$navbar-dropdown-arrow: white;
-$navbar-dropdown-background-color: $primary;
-$navbar-tab-hover-background-color: $primary;
-$navbar-dropdown-item-hover-background-color: $primary;
+//$navbar-item-hover-background-color: $special-background;
+//$navbar-item-hover-color: black;
+//$navbar-dropdown-arrow: white;
+//$navbar-dropdown-background-color: $primary;
+//$navbar-tab-hover-background-color: $primary;
+//$navbar-dropdown-item-hover-background-color: $primary;
 $transparent-background: rgba(5, 40, 5, 0.5);
 $weight-bold: 700;
 $weight-normal: 400;

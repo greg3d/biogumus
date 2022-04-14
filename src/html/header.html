@@ -39,88 +39,117 @@
 </head>
 
 <body>
+
+    <section class="fixedmenu">
+        <div>
+            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="menuMobile">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+    </section>
+    <section class="fixedphone">
+        <div>
+            8 800 550-09-34
+        </div>
+    </section>
+
+    <nav class="mobile_menu" id="mobileMenu">
+        <ul>
+            <li class="navbar-item">
+                <a href="/information.html" class="navbar-link is-arrowless">
+                    <span class="icon"><i class="fas fa-truck"></i></span>
+                    <span class="menu-title">
+                        <span class="first-line">Бесплатная</span><span class="second-line">доставка</span>
+                    </span>
+                </a>
+            </li>
+            <li class="navbar-item">
+                <a href="/katalog/" class="navbar-link is-arrowless">
+                    <span class="icon"><i class="fas fa-book"></i></span>
+                    <span class="menu-title">
+                        Каталог
+                    </span>
+                </a>
+            </li>
+            <li class="navbar-item">
+                <a href="/wheretobuy.html" class="navbar-link is-arrowless">
+                    <span class="icon"><i class="fa fa-map" aria-hidden="true"></i></span>
+                    <span class="menu-title">
+                        Купить у партнеров
+                    </span>
+                </a>
+            </li>
+            <li class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link is-arrowless">
+                    <span class="icon is-red"><i class="fab fa-youtube"></i></span>
+                    <span class="menu-title">
+                        Видео
+                    </span>
+                </a>
+                <div class="navbar-dropdown is-boxed">
+                    <a class="navbar-item modal-button" href="#" data-target="video1">
+                        Готовим правильную почвосмесь
+                    </a>
+                    <a class="navbar-item modal-button" href="#" data-target="video2">
+                        Полезная подкормка для растений и рассады
+                    </a>
+                </div>
+            </li>
+            <li class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link is-arrowless">
+                    <span class="icon"><i class="fas fa-info-circle"></i></span>
+                    <span class="menu-title">Полезная информация</span>
+                </a>
+                <div class="navbar-dropdown is-boxed">
+                    <a class="navbar-item" href="/index/why.html">
+                        Почему Биогумус?
+                    </a>
+                    <a class="navbar-item" href="/index/proizvodstvo.html">
+                        Производство
+                    </a>
+                    <a class="navbar-item" href="/index/sertificates.html">
+                        Сертификаты
+                    </a>
+                    <a class="navbar-item" href="/index/instructions/">
+                        Инструкции
+                    </a>
+                    <a class="navbar-item" href="/index/press/">
+                        Статьи
+                    </a>
+                    <a class="navbar-item" href="/index/applying/">
+                        Применение
+                    </a>
+                </div>
+            </li>
+            <li class="navbar-item">
+                <a href="/about.html" data-width="720" class="navbar-link is-arrowless">
+                    <span class="icon is-blue"><i class="far fa-address-card"></i></span>
+                    <span class="menu-title">
+                        Контакты
+                    </span>
+                </a>
+            </li>
+        </ul>
+    </nav>
     <!-- top level desktop -->
-    <section class="section-top">
+    <section class="section-top is-hidden-mobile">
         <div class="container">
             <nav class="level level-top">
                 <div class="level-left">
                     <p class="level-item"><a>Контактные данные</a></p>
                     <p class="level-item"><a>Бесплатная доставка</a></p>
                     <p class="level-item"><a>Купить у партнеров</a></p>
-                    <p class="level-item"><a>Контактные данные</a></p>
+                    <p class="level-item"><a>Полезная информация</a></p>
                 </div>
                 <div class="level-right">
-
-                    <div class="level-item header__city">
-                        <p><i class="fas fa-map-marker-alt"></i>&nbsp;Город:
-                            <a class="modal-button" data-target="city-select-form">Москва</a>
-                            <!--i class="fas fa-angle-down"></i-->
-                        </p>
-                        <div class="yourcity" style="display: none;">
-                            <div class="pointer" style="position: absolute"></div>
-                            <p style="font-size: 0.7rem">Москва | Москва</p><br>
-                            <p style="font-size: 1.2rem">Это ваш город?</p>
-                            <div class="buttons has-addons is-centered">
-                                <button class="button is-success" id="CityConfirmYes">Да</button>
-                                <button class="button is-danger modal-button" id="CityConfirmNo"
-                                    data-target="city-select-form">Нет</button>
-                            </div>
-                        </div>
-                    </div>
-
                     <div class="level-item">
                         <a href="tel:+78005500934" class="phone_header is-hidden-mobile">
                             8 800 550-09-34
                         </a>
                     </div>
-                    
-                </div>
-            </nav>
-        </div>
-    </section>
-
-    <section class="section-top-menu">
-        <div class="container">
-            <nav class="level level-top-menu">
-                <div class="level-left">
                     <div class="level-item">
-                        <div class="logo__main">                           
-                            <img src="/assets/images/ecologica.png" />
-                            <div class="logo__subtitle">ИП&nbsp;Ткаченко&nbsp;И.&nbsp;С. | <a href="#">Biogumus.pro</a></div>
-                        </div>
-                    </div>
-                    <div class="level-item"><a>Биогумус</a></div>
-                    <div class="level-item"><a>Эко-грунт</a></div>
-                    <div class="level-item"><a>Гумат калия</a></div>
-                    <div class="level-item"><a>Грунты и дренаж</a></div>
-                    <div class="level-item"><a>Инструкции</a></div>
-                </div>
-                <div class="level-right">
-                    <div class="level-item">
-                        @@include('./shopcart.html')
-                    </div>
-                </div>
-            </nav>
-        </div>
-    </section>
-
-    <section class="hero is-primary is-small">
- 
-            <div class="hero-body">
-                <p class="title">
-                    Биогумус.pro
-                </p>
-                <p class="subtitle">
-                    ИП Ткаченко И. С. (торговая марка ECOLOGICA)
-                </p>
-            </div>   
-    </section>
-
-    <section class="header">
-        <div class="header__top">
-            <div class="container">
-                <div class="columns">
-                    <div class="column">
                         <div class="header-icons-container">
                             <div class="header__icons icons">
                                 <a href="mailto:bgumus@mail.ru" class="icon is-email">
@@ -132,9 +161,9 @@
                                 <a href="https://wa.me/79276927095" class="icon is-whatsapp">
                                     <i class="fab fa-whatsapp"></i>
                                 </a>
-                                <a href="https://www.instagram.com/biogumus.pro/" class="icon is-instagram">
+                                <!--a href="https://www.instagram.com/biogumus.pro/" class="icon is-instagram">
                                     <i class="fab fa-instagram"></i>
-                                </a>
+                                </a-->
                                 <a href="https://vk.com/biogumuspro" class="icon is-vk">
                                     <i class="fab fa-vk"></i>
                                 </a>
@@ -144,20 +173,62 @@
                             </div>
                         </div>
                     </div>
-                    <div class="column">
-                        
-                    </div>
-                        <div class="header__payment-icons">
-                            <div class="wrapper">
-                                <span class="visa-logo"></span>
-                                <span class="mc-logo"></span>
-                                <span class="yandex-money-logo"> </span>
+
+                </div>
+            </nav>
+        </div>
+    </section>
+
+    <section class="section-top-menu">
+        <div class="container">
+            <nav class="level level-top-menu is-mobile">
+                <div class="level-left">
+                    <div class="level-item">
+                        <div class="logo__main">
+                            <img src="/assets/images/ecologica.png" />
+                            <div class="logo__subtitle">ИП&nbsp;Ткаченко&nbsp;И.&nbsp;С. | <a href="#">Biogumus.pro</a>
                             </div>
                         </div>
                     </div>
+                    <div class="level-item is-hidden-mobile">
+                        <div class="yandex-stars">
+                            <a href="https://clck.yandex.ru/redir/dtype=stred/pid=47/cid=73582/path=dynamic.150x101/*https://market.yandex.ru/shop--biogumus-pro/650536/reviews"> 
+                                <img src="/assets/images/rating_5_2.png" border="0" alt="Читайте отзывы покупателей и оценивайте качество магазина Biogumus.pro на Яндекс.Маркете"> </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="level-right">
+                    <div class="level-item">
+                        @@include('./city.html')
+                    </div>
+                    <div class="level-item">
+                        @@include('./shopcart.html')
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </section>
+
+    <section class="main-hero">
+        <div class="container">
+
+            <div class="header">
+                <p><a href="#">Биогумус.pro</a></p>
+                <h1 class="pagetitle">Каталог</h1>
+            </div>
+                    
+
+            <div class="payment-icons">
+                <div class="wrapper">
+                    <span class="visa-logo"></span>
+                    <span class="mc-logo"></span>
+                    <span class="mir-logo"> </span>
+                    <span class="yandex-money-logo"> </span>
+                    <!--span class="googlepaymark"></span-->
+                    <!--span class="applepaymark"></span-->
                 </div>
             </div>
-        </div>
+
     </section>
 
     <div class="modal" id="city-select">
