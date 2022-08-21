@@ -3,7 +3,12 @@
 }
 #korzina {
   position: relative;
-  padding: 5px;
+  padding: 7px 0;
+
+  @include mobile {
+    padding: 5px $column-gap / 2;
+  }
+
   a {
     text-decoration: none;
     margin: 0;
@@ -27,15 +32,18 @@
       min-width: 280px;
       font-size: 0.8rem;
       border-radius: 4px 4px 0 0;      
-      background-color: $c7;
-      width: 100%;
-      box-shadow: #00000030 0 0 15px;
+      background-color: $c6;
+      
+      box-shadow: #00000030 0 0 15px, #00000025 2px 2px 2px;
       .checkout-button {
         z-index: 10;
       }
 
       .buttons {
-        margin-bottom: $column-gap;
+        margin: $column-gap / 2;
+        a.button {
+          color: $c5;
+        }
       }
 
       table {
@@ -45,8 +53,10 @@
       @include mobile {
         position: fixed;
         bottom: 56px;
-        min-width: 308px;
+        // min-width: 300px;
         top: auto;
+        margin: $column-gap / 2;
+        
       }
     }
 
@@ -102,7 +112,7 @@
   padding: 0 $column-gap;
   margin-bottom: $column-gap;
 
-  .column {
+  .columns {
     margin-bottom: 0;
   }
 }
@@ -131,3 +141,12 @@
 
 }
 
+.promocode {
+  font-size: 1.2rem;
+
+  .promocode__code, .promocode__discount {
+    font-weight: bold;
+    margin: 0 5px;
+  }
+
+}

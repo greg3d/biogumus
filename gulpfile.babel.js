@@ -146,7 +146,7 @@ export const cleanFiles = () => gulp.src("./dist/*", {
 var imageFiles = [paths.images.src];
 var fontFiles = [paths.fonts.src];
 
-var v = "_v301";
+var v = "_v308";
 
 export const libscss = () => gulp.src(paths.libscss.src)
 	.pipe(gulpif(!production, sourcemaps.init()))
@@ -276,10 +276,10 @@ export const upload = (cb) => {
 		'./dist/assets/styles**/*.*',
 		'./dist/assets/js**/*.*'
 	]).pipe(sftp({
-		host: '178.79.159.181',
+		host: '37.140.192.18',
 		port: 22,
-		user: 'biogumus',
-		pass: 'DzJSh0mcZMPe',
+		user: 'u1515276',
+		pass: '2Mtija08DvGIKJ9o',
 		remotePath: 'www/assets/'
 	}));
 	cb();
@@ -305,8 +305,8 @@ export const prod = gulp.series(
 	images,
 	libsjs,
 	scripts,
-	views
-	//upload
+	views,
+	upload
 );
 
 export const prd = gulp.series(

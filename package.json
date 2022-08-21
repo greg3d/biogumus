@@ -51,6 +51,7 @@
     "@fortawesome/fontawesome-free": "^5.8.2",
     "bulma": "^0.9.3",
     "bulma-badge": "^3.0.1",
+    "ftps": "^1.2.0",
     "gulp-debug": "^4.0.0",
     "gulp-deploy-ftp": "^1.0.1",
     "hammerjs": "^2.0.8",

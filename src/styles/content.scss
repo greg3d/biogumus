@@ -6,21 +6,26 @@ div#CitySelectList {
 
 .pickcitycontainer {
   display: flex;
-  /* width: 200px; */
-  padding: 6px 12px;
-  background: #8999b7;
-  margin: 3px;
-  color: #fff;
+  padding: 8px 12px;
   border-radius: 5px;
+}
+
+.pickcity__letter {
+  clear: both;
+  width: 100%;
+  padding-left: 12px;
+  margin-top: 8px;
+  margin-bottom: -6px;
+  font-weight: bold;
+  color: red;
 }
 
 a.pickcity {
   display: inline;
   /* text-decoration: underline; */
-  color: #fff;
   border-bottom: 1px dotted #bbb;
   padding: 0;
-  line-height: 1.2rem;
+  line-height: 1.0rem;
 }
 
 .modal.is-aligned-top {

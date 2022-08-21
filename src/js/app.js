@@ -419,7 +419,7 @@ $(function () {
         $(target).addClass('is-active');
 
         if (target == '#city-select-form') {
-            $('#city-select-form p.modal-card-title').html('Выберите область/город проживания:');
+            $('#city-select-form p.modal-card-title').html('Выберите область:');
             $('#CitySelectList').html('<div class="ajax-loader">Подождите...</div>');
 
             var action = 'ShowRegionsList';
@@ -434,7 +434,20 @@ $(function () {
 
                     $('#CitySelectList').html('');
 
+                    var curLetter = "";
+
                     regions.forEach(function (element) {
+
+                        if (element.sort < 2) {
+                            var l = element.name_ru.charAt(0).toUpperCase();
+                            if (element.name_ru.charAt(0).toUpperCase() != curLetter) {
+                                curLetter = l;
+                                $('#CitySelectList').append("<div class='pickcity__letter'>" + curLetter + "</div>");
+                            }
+                        } else {
+
+                        }
+
                         $('#CitySelectList').append("<div class='pickcitycontainer'><a class='pickcity region' data-target='" + element.id + "'>" + element.name_ru + "</a></div>");
                     });
 
@@ -445,6 +458,7 @@ $(function () {
                             $(el).on('click', function (event) {
                                 event.preventDefault();
                                 var target = el.dataset.target;
+                                $('#city-select-form p.modal-card-title').html('Выберите город:');
 
                                 $('#CitySelectList').html('Подождите...');
 
@@ -527,11 +541,11 @@ $(function () {
     //Carousel.Plugins.Autoplay = Autoplay;
 
     // КАРУСЕЛИ
-
+    // карусель с товарами на главной
     try {
         mainpageCarousel = new Carousel(document.querySelector(".main-carousel"), {
             Dots: true,
-            Navigation: true,
+            Navigation: false,
             center: false,
             slidesPerPage: 1,
             infinite: true,
@@ -544,6 +558,58 @@ $(function () {
         console.log("MainPageCarousel: " + err.message);
     }
 
+    // banner videos and manuals
+    try {
+        bannerCarousel = new Carousel(document.querySelector('.bannervideos'), {
+            Dots: false,
+            Navigation: true,
+            center: false,
+            slidesPerPage: 1,
+            infinite: true,
+            hideScrollbar: true,
+        })
+
+        manualsCarousel = new Carousel(document.querySelector('#manuals'), {
+            Dots: false,
+            Navigation: true,
+            center: false,
+            slidesPerPage: 1,
+            infinite: true,
+            hideScrollbar: true,
+        })
+
+        Fancybox.bind('[data-fancybox="videos"]', {
+            Carousel: {
+                on: {
+                    change: function (that) {
+                        bannerCarousel.slideTo(bannerCarousel.findPageForSlide(that.page), {
+                            friction: 0,
+                        })
+                    },
+                },
+            },
+            hideScrollbar: true
+        })
+
+        Fancybox.bind('[data-fancybox="manuals"]', {
+            Carousel: {
+                on: {
+                    change: function (that) {
+                        manualsCarousel.slideTo(manualsCarousel.findPageForSlide(that.page), {
+                            friction: 0,
+                        })
+                    },
+                },
+            },
+            hideScrollbar: true
+        })
+
+    } catch (err) {
+        console.log("bannerCarousel: " + err.message);
+    }
+
+    // product page
+
     try {
         mainCarousel = new Carousel(document.querySelector("#productImages"), {
             Dots: false,
@@ -551,7 +617,6 @@ $(function () {
     } catch (err) {
         console.log("prodImagesCarousel: " + err.message);
     }
-
 
     var thumbselector = "#productThumbs > .carousel__slide";
 
@@ -566,6 +631,7 @@ $(function () {
         })
     })
 
+    // gallery
     Fancybox.bind('[data-fancybox="gallery"]', {
         Carousel: {
             on: {
@@ -579,6 +645,10 @@ $(function () {
         hideScrollbar: true
     })
 
+    // simple
+    Fancybox.bind('[data-fancybox="simple"]', {
+        groupAll: true
+    })
     
     // слайдер товаров в каталоге
     $(".miniProductImages").each(function (i) {
@@ -597,21 +667,19 @@ $(function () {
                 change: (carousel) => {
                     $(selector).removeClass('is-nav-selected');
                     $(selector[carousel.page]).addClass("is-nav-selected");
-                    console.log(carousel.page);
+                    //console.log(carousel.page);
                 }
-            },
+            }
+            /*
             Navigation: {
                 prevTpl:
-                  '',
+                  '<i class="fas fa-arrow-alt-circle-left"></i>',
                 nextTpl:
-                  '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M4 12h16"/><path d="M13 5l7 7-7 7"/></svg>',
-              }
+                  '<i class="fas fa-arrow-alt-circle-right"></i>',
+              }*/
         })
 
-        
-
         selector.first().addClass("is-nav-selected");
-
         $(selector).each(function (i) {
             $(this).on('click', function () {
                 //console.log(e);
@@ -620,8 +688,9 @@ $(function () {
                 $(this).addClass("is-nav-selected");
             })
         })
-
     })
+
+    // 
 
     // выбор транспортной компании
     $('.country_delivery__item').on('click', function () {
@@ -657,8 +726,8 @@ $(function () {
 
     if (!!('ontouchstart' in window)) { //check for touch device
         $hoverableLink
-            .on('click', function () {
-                $(this).toggleClass('is-active');
+            .on('click', 'a.navbar-link', function () {
+                $(this).parent().toggleClass('is-active');
             });
     } else {
         $hoverableLink
