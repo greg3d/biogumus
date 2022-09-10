@@ -353,7 +353,7 @@ $(function () {
             } else {
                 $('.yourcity').css("display", "none");
             }
-        }).fail(function(){
+        }).fail(function () {
             console.log("CheckCity fail");
         });
 
@@ -362,7 +362,7 @@ $(function () {
         console.log(e.name + ": " + e.message);
         return "000";
     }
-    
+
 
     $('.more_info__show').on('click', function () {
         $('.more_info__list').slideToggle(300);
@@ -541,35 +541,26 @@ $(function () {
     //Carousel.Plugins.Autoplay = Autoplay;
 
     // КАРУСЕЛИ
-    // карусель с товарами на главной
+    // карусель SingleProduct
     try {
-        mainpageCarousel = new Carousel(document.querySelector(".main-carousel"), {
-            Dots: true,
-            Navigation: false,
-            center: false,
-            slidesPerPage: 1,
-            infinite: true,
-            hideScrollbar: true,
-            Autoplay: {
-                timeout: 2500,
-            },
-        })
-    } catch (err) {
-        console.log("MainPageCarousel: " + err.message);
-    }
-
-    // banner videos and manuals
-    try {
-        bannerCarousel = new Carousel(document.querySelector('.bannervideos'), {
+        let spcar = new Carousel(document.querySelector(".single-carousel"), {
             Dots: false,
             Navigation: true,
             center: false,
             slidesPerPage: 1,
             infinite: true,
             hideScrollbar: true,
+            Autoplay: {
+                timeout: 1000,
+            },
         })
+    } catch (err) {
+        console.log("SingleProductCarousel: " + err.message);
+    }
 
-        manualsCarousel = new Carousel(document.querySelector('#manuals'), {
+    // banner videos and manuals
+    try {
+        bannerCarousel = new Carousel(document.querySelector('.bannervideos'), {
             Dots: false,
             Navigation: true,
             center: false,
@@ -591,20 +582,8 @@ $(function () {
             hideScrollbar: true
         })
 
-        Fancybox.bind('[data-fancybox="manuals"]', {
-            Carousel: {
-                on: {
-                    change: function (that) {
-                        manualsCarousel.slideTo(manualsCarousel.findPageForSlide(that.page), {
-                            friction: 0,
-                        })
-                    },
-                },
-            },
-            hideScrollbar: true
-        })
-
-    } catch (err) {
+    }
+    catch (err) {
         console.log("bannerCarousel: " + err.message);
     }
 
@@ -614,43 +593,45 @@ $(function () {
         mainCarousel = new Carousel(document.querySelector("#productImages"), {
             Dots: false,
         })
-    } catch (err) {
-        console.log("prodImagesCarousel: " + err.message);
-    }
 
-    var thumbselector = "#productThumbs > .carousel__slide";
+        var thumbselector = "#productThumbs > .carousel__slide";
 
-    $(thumbselector).first().addClass("is-nav-selected");
+        $(thumbselector).first().addClass("is-nav-selected");
 
-    $(thumbselector).each(function (i) {
-        $(this).on('click', function () {
-            //console.log(e);
-            $(thumbselector).removeClass('is-nav-selected');
-            mainCarousel.slideTo(i);
-            $(this).addClass("is-nav-selected");
+        $(thumbselector).each(function (i) {
+            $(this).on('click', function () {
+                //console.log(e);
+                $(thumbselector).removeClass('is-nav-selected');
+                mainCarousel.slideTo(i);
+                $(this).addClass("is-nav-selected");
+            })
         })
-    })
 
-    // gallery
-    Fancybox.bind('[data-fancybox="gallery"]', {
-        Carousel: {
-            on: {
-                change: function (that) {
-                    mainCarousel.slideTo(mainCarousel.findPageForSlide(that.page), {
-                        friction: 0,
-                    })
+        // gallery
+        Fancybox.bind('[data-fancybox="gallery"]', {
+            Carousel: {
+                on: {
+                    change: function (that) {
+                        mainCarousel.slideTo(mainCarousel.findPageForSlide(that.page), {
+                            friction: 0,
+                        })
+                    },
                 },
             },
-        },
-        hideScrollbar: true
-    })
+            hideScrollbar: true
+        })
+    } catch (err) {
+        console.log("ProductPageCarousel: " + err.message);
+    }
+
+
 
     // simple
     Fancybox.bind('[data-fancybox="simple"]', {
         groupAll: true
     })
-    
-    // слайдер товаров в каталоге
+
+    // слайдер товаров на главной страници для каждой плитки
     $(".miniProductImages").each(function (i) {
         var id = "#" + $(this).attr('id');
         var selector = $(id).parent().children(".volumes").children(".volume");
@@ -872,10 +853,10 @@ $(function () {
 
             $("#orderFormPhone").val(res);
         });
-    
+
     /// DOC READY
-    
-    
+
+
 
 
 }); // IFFE
